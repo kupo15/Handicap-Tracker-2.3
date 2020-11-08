@@ -47,7 +47,7 @@ function draw_nav_bar() {
 	scr_navbar_click(i);
 
 	// draw highlight
-	var xx = xoff*screen_index;
+	var xx = xoff*screenIndex;
 	var yy = 959-hh+(hh*navbar_yoff_start);
 
 	var col = c_white;

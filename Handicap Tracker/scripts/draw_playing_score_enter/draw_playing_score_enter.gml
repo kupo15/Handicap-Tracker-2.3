@@ -1,13 +1,14 @@
 
-function draw_playing_score_enter(){
+function draw_playing_score_enter() {
+	
 	if submenu != navbar.scorebar
 	exit;
 
 	var course_name = play_course_id[| course_data.name]
 
 	// keyboard entry
-	if kv_active
-	switch textbox_index
+	if kvActive
+	switch textboxIndex
 	    {
 	    case 0: play_course_score = string_convert_real(keyboard_string,3); break; // scr_input_text(3); break;
 	    case 1: play_course_esc = string_convert_real(keyboard_string,2); break; // scr_input_text(2); break;
@@ -15,9 +16,9 @@ function draw_playing_score_enter(){
 		
 	// clicked enter
 	if virtual_keyboard_enter
-	switch textbox_index
+	switch textboxIndex
 		{
-		case 0: textbox_index = 1; 
+		case 0: textboxIndex = 1; 
 				keyboard_string = play_course_esc;
 				break;
 			
@@ -97,7 +98,7 @@ function draw_playing_score_enter(){
 		{	
 		vk_hide();
 		submenu = navbar.main;
-		textbox_index = noone;
+		textboxIndex = noone;
 		}
 		
 		/*
@@ -129,8 +130,8 @@ function draw_playing_score_enter(){
 		play_course_esc = "";
 	
 		submenu = navbar.main;
-		textbox_index = noone;
-		screen_index = screen.home;
+		textboxIndex = noone;
+		screenIndex = screen.home;
 		index = 0;
 		}*/
 }

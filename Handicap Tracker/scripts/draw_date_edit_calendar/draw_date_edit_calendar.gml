@@ -154,14 +154,14 @@ function draw_date_edit_calendar() {
 	if click_region_released(0,yy,room_width,hh,true,navbar.hidden)
 		{
 		submit = true;
-		android_back = true;
+		androidBack = true;
 		}
 
 #endregion
 
 	draw_year_select();
 
-	if android_back
+	if androidBack
 	    {
 		if submit
 			{
@@ -181,7 +181,7 @@ function draw_date_edit_calendar() {
 			}
 		else
 			{
-		    screen_index = prev_screen;
+		    screenIndex = prev_screen;
 			date_pointer = noone;
 			}
 	    }

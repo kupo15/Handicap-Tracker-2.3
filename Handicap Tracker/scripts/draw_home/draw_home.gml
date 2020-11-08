@@ -1,7 +1,7 @@
 function draw_home() {
 
 	// draw the 3 bars
-	draw_screen_header("",60);
+	draw_screen_header(headerType.bars,headerType.none,"Home");
 	
 	// draw Handicap Index
 	var xx = 540/2;
@@ -83,11 +83,11 @@ function draw_home() {
 
 	if click_region_released(0,yy-10,ww,sep,true,navbar.main)
 		{
-		screen_index = screen.playing;
+		screenIndex = screen.playing;
 		mouse_clear(mb_left);
 		}
 
-	if android_back
+	if androidBack
 	    {
 	    if submenu >= 0
 	    submenu = navbar.main;

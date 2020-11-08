@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"2f1225a6-0df1-43c8-b8ce-32f6316b91fd","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Icons",
+    "path": "folders/Android App Library/Sprites/Icons.yy",
   },
   "resourceVersion": "1.0",
   "name": "ico_search",

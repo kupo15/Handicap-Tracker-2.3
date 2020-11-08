@@ -1,20 +1,20 @@
 function draw_screens() {
 	
 	// android back
-	if android_back
+	if androidBack
 		{
 		if mode_delete
 			{
 			mode_delete = false;
-			android_back = false;
+			androidBack = false;
 			}
 		else if submenu == navbar.main
 			{
-			if screen_index == screen.home && os_type == os_android
+			if screenIndex == screen.home && os_type == os_android
 			game_end();
 
 			scr_handicap_calculate();
-			screen_index = screen.home;
+			screenIndex = screen.home;
 			}
 		}
 	
@@ -22,7 +22,7 @@ function draw_screens() {
 	draw_darken_screen();
 
 	draw_set_halign(fa_left);
-	switch screen_index
+	switch screenIndex
 	    {
 	    case screen.home: draw_home(); break;
 	    case screen.playing: draw_playing(); break;
@@ -55,17 +55,17 @@ function draw_screens() {
 	draw_popup_par();
 	draw_playing_score_enter();
 	
-	draw_highlight_click();
+	draw_highlight_click_static(submenu != navbar.sidebar);
 
 
 	// update the virtual keyboard
-	if kv_active // || timer[timer_index.vk_switch] > -1
+	if kvActive // || timer[timerIndex.vk_switch] > -1
 		{
-		kv_last_string = keyboard_string;
-		kv_input_string = keyboard_string; // get string input
+		kvLastString = keyboard_string;
+		kvInputString = keyboard_string; // get string input
 		}
 
-	if android_back
+	if androidBack
 	vk_hide();
 
 }

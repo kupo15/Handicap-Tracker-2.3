@@ -19,10 +19,10 @@ function string_convert_real(str,limit) {
 		 {
 		 if kv_input_backspace // if deleting a character
 			{
-			str = string_delete(kv_last_string,cursorPos,1); // delete character from previous string
+			str = string_delete(kvLastString,cursorPos,1); // delete character from previous string
 			keyboard_string = str; // update keyboard string
 			}
-		 else if (kv_last_string != keyboard_string) // if adding a character
+		 else if (kvLastString != keyboard_string) // if adding a character
 			{
 			var last_char = string_char_at(str,str_ll); // get last character
 			str = string_delete(str,str_ll,1); // delete last letter
@@ -33,7 +33,7 @@ function string_convert_real(str,limit) {
 		 }
 
 	if os_type == os_android
-	if string_length(kv_last_string) == 1 && kv_input_backspace
+	if string_length(kvLastString) == 1 && kv_input_backspace
 		{
 		keyboard_string = "";
 		str = "";
@@ -65,10 +65,10 @@ function string_capitalize(str,str_limit) {
 		 {
 		 if kv_input_backspace // if deleting a character
 			{
-			str = string_delete(kv_last_string,cursorPos,1); // delete character from previous string
+			str = string_delete(kvLastString,cursorPos,1); // delete character from previous string
 			keyboard_string = str; // update keyboard string
 			}
-		 else if (kv_last_string != keyboard_string) // if adding a character
+		 else if (kvLastString != keyboard_string) // if adding a character
 			{
 			var last_char = string_char_at(str,str_ll); // get last character
 			str = string_delete(str,str_ll,1); // delete last letter
@@ -80,7 +80,7 @@ function string_capitalize(str,str_limit) {
 
 	// Override Auto capital
 	if os_type == os_android
-	if string_length(kv_last_string) == 1 && kv_input_backspace
+	if string_length(kvLastString) == 1 && kv_input_backspace
 		{
 		keyboard_string = "";
 		str = "";
@@ -132,7 +132,7 @@ function string_convert_rating(str,limit) {
 		str = string_insert(str_ins,str,str_ll-decimal_places); // insert a decimal only
 		}
 	
-	if string_length(kv_last_string) == 1 && kv_input_backspace
+	if string_length(kvLastString) == 1 && kv_input_backspace
 		{
 		keyboard_string = "";
 		str = "";
@@ -180,4 +180,158 @@ function scr_input_text(limit) {
 
 
 
+}
+
+function string_convert_currency(str_,limit) {
+/// @description converts strings to currency format
+/// @param string
+/// @param number_limit
+
+var decimal_places = 1; // two cents places
+
+var str_cull = string_digits(str_); // string with non digits culled
+var str_ll = string_length(str_cull); // length of string
+
+// remove 0s in front
+repeat (2)
+	{
+	if string_char_at(str_cull,1) == "0"
+	str_cull = string_delete(str_cull,1,1);
+	}
+
+if str_cull != str_ // if culled
+keyboard_string = str_cull;
+
+if str_ll > limit // if more than the limit
+	{
+	str_ = string_delete(str_cull,limit+1,1); // remove extra digits
+	keyboard_string = str_;
+	}
+else str_ = str_cull;
+
+str_ = string(str_); // convert back to a string
+
+if str_ != ""
+	{
+	str_ll = string_length(str_); // get the length of the string
+	
+	var str_ins = ".";
+	
+	// decimal insert
+	if str_ll == 1
+	str_ins = "0.0";
+	else if str_ll == 2
+	str_ins = "0.";
+	
+	str_ = string_insert(str_ins,str_,str_ll-decimal_places); // insert a decimal only
+	
+	if str_ll > 5
+	str_ = string_insert(",",str_,str_ll-4); // insert a decimal and comma
+	
+	str_ = string(str_); // add currency symbol
+	}
+	
+if (string_length(kvLastString) == 1) && kv_input_backspace
+	{
+	keyboard_string = "";
+	str_ = "";
+	}
+
+return str_;
+
+
+}
+
+function string_convert_currency_numpad(str_,limit) {
+/// @description converts strings to currency format
+/// @param string
+/// @param number_limit
+
+var decimal_places = 1; // two cents places
+
+var str_cull = string_digits(str_); // string with non digits culled
+var str_ll = string_length(str_cull); // length of string
+
+// remove 0s in front
+repeat (2)
+	{
+	if string_char_at(str_cull,1) == "0"
+	str_cull = string_delete(str_cull,1,1);
+	}
+
+if str_cull != str_ // if culled
+numpad_value = str_cull;
+
+if str_ll > limit // if more than the limit
+	{
+	str_ = string_delete(str_cull,limit+1,1); // remove extra digits
+	numpad_value = str_;
+	}
+else str_ = str_cull;
+
+str_ = string(str_); // convert back to a string
+
+if str_ != ""
+	{
+	str_ll = string_length(str_); // get the length of the string
+	
+	var str_ins = ".";
+	
+	// decimal insert
+	if str_ll == 1
+	str_ins = "0.0";
+	else if str_ll == 2
+	str_ins = "0.";
+	
+	str_ = string_insert(str_ins,str_,str_ll-decimal_places); // insert a decimal only
+	
+	if str_ll > 5
+	str_ = string_insert(",",str_,str_ll-4); // insert a decimal and comma
+	
+	str_ = string(str_); // add currency symbol
+	}
+	
+if (string_length(kvLastString) == 1) && kv_input_backspace
+	{
+	keyboard_string = "";
+	str_ = "";
+	}
+
+return str_;
+
+
+}
+	
+function plural(str,value,ending_str) {
+/// @param string	
+/// @param compare_variable
+/// @param [ending_string]
+
+if value != 1
+str += "s";
+
+if ending_str != undefined
+str += ending_str;
+
+return str;	
+}
+	
+function capitalize(str) {
+	
+var first_letter = string_char_at(str,1);
+var letter_cap = string_upper(first_letter);
+var str_missing = string_delete(str,1,1);
+var final_str = string_insert(letter_cap,str_missing,1);
+
+return final_str;	
+}
+	
+function string_width_height(str,height) {
+
+var currSize = string_height(str); // current height of string
+var scale = height/currSize;
+
+var ll = string_width(str);
+
+return ll*scale;
 }

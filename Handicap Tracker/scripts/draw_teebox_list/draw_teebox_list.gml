@@ -42,7 +42,7 @@ function draw_teebox_list() {
 		draw_tee_marker(xx+25,yy+30+(i*sep),10,i); // draw teebox marker
 	
 	
-		if !has_data //&& screen_index == screen.edit_score
+		if !has_data //&& screenIndex == screen.edit_score
 			{
 			var col = c_gray;
 		
@@ -61,7 +61,7 @@ function draw_teebox_list() {
 			var tee = teebox_list[| teebox_index]; // tee color
 
 			// play course
-			if screen_index == screen.playing
+			if screenIndex == screen.playing
 				{
 				if has_data
 					{
@@ -95,16 +95,16 @@ function draw_teebox_list() {
 					temp_course_rating = "";
 					temp_course_par = "";
 	
-					textbox_index = 1;
+					textboxIndex = 1;
 					course_id = play_course_id;
-					prev_screen = screen_index;
-					screen_index = screen.edit_course;
+					prev_screen = screenIndex;
+					screenIndex = screen.edit_course;
 					submenu = navbar.hidden;
 					}
 			
 				}
 			// add or update score
-			else if (screen_index == screen.add_score) || (screen_index == screen.edit_score) || (screen_index == screen.edit_course) || (screen_index == screen.add_course)
+			else if (screenIndex == screen.add_score) || (screenIndex == screen.edit_score) || (screenIndex == screen.edit_course) || (screenIndex == screen.add_course)
 				{				
 				if has_data
 					{
@@ -116,7 +116,7 @@ function draw_teebox_list() {
 					var course_par = tee_data_pointer[| tee_data.par];
 			
 					// fill in data
-					switch screen_index
+					switch screenIndex
 						{
 						case screen.add_score:
 						case screen.edit_score:	temp_score_tee = tee;
@@ -137,7 +137,7 @@ function draw_teebox_list() {
 
 				
 					// pop up keyboard
-					if screen_index == screen.add_score
+					if screenIndex == screen.add_score
 					click_textbox_set(temp_score,0,kbv_type_numbers);
 					else
 					submenu = navbar.hidden;
@@ -149,16 +149,16 @@ function draw_teebox_list() {
 					temp_course_rating = "";
 					temp_course_par = "";	
 						
-					// if screen_index == screen.add_course // || screen_index == screen.add_course
-					textbox_index = 2;
+					// if screenIndex == screen.add_course // || screenIndex == screen.add_course
+					textboxIndex = 2;
 					// else
 						{
-						//textbox_index = 1;
-						if screen_index == screen.playing
-						prev_screen = screen_index;	
+						//textboxIndex = 1;
+						if screenIndex == screen.playing
+						prev_screen = screenIndex;	
 						}
 					
-					// screen_index = screen.edit_course;
+					// screenIndex = screen.edit_course;
 					submenu = navbar.hidden;
 					}
 				}

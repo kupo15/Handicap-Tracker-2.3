@@ -126,7 +126,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Fonts",
-    "path": "folders/Fonts.yy",
+    "path": "folders/Android App Library/Fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "fn_bold",

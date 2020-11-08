@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Virtual Keyboard",
-    "path": "folders/Scripts/Virtual Keyboard.yy",
+    "path": "folders/Android App Library/Virtual Keyboard.yy",
   },
   "resourceVersion": "1.0",
   "name": "vk_hide",

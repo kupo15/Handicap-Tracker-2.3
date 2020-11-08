@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Functions",
-    "path": "folders/Scripts/Functions.yy",
+    "name": "Step",
+    "path": "folders/Android App Library/Scripts/Step.yy",
   },
   "resourceVersion": "1.0",
   "name": "input_android_back",

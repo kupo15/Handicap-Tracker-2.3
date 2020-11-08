@@ -1,6 +1,6 @@
 function draw_stats() {
 	
-	draw_screen_header("Course Stats",60);
+	draw_screen_header(headerType.back,headerType.none,"Course Stats");
 
 	var xx = 20;
 	var yy = 100;
@@ -165,7 +165,7 @@ function draw_stats() {
 #endregion
     
 
-	if android_back
+	if androidBack
 	    {
 	    if submenu >= 0
 	    submenu = navbar.main;

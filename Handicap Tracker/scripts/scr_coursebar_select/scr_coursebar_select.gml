@@ -1,11 +1,11 @@
 
 function scr_coursebar_select(ind,course_name) {
 
-	textbox_index = noone;
+	textboxIndex = noone;
 	keyboard_string = "";
 	vk_hide();
 
-	if screen_index == screen.playing
+	if screenIndex == screen.playing
 		{
 		play_course_index = ind;
 		play_course_id = master_course_list[| play_course_index]; // set course id;
@@ -16,7 +16,7 @@ function scr_coursebar_select(ind,course_name) {
 		play_course_rating = noone;
 		play_course_par = noone;
 		}
-	else if screen_index != screen.stats
+	else if screenIndex != screen.stats
 		{
 		var score_pointer = master_score_list[| index];
 		score_pointer[| score_data.course] = course_name; // set course name
@@ -31,11 +31,11 @@ function scr_coursebar_select(ind,course_name) {
 	scr_tee_filled_set(); // set teebox fill
 		
 	// set navbar
-	if screen_index == screen.playing
+	if screenIndex == screen.playing
 	submenu = navbar.teebar;
-	else if screen_index == screen.add_score
+	else if screenIndex == screen.add_score
 	submenu = navbar.teebar; // move to tee selection
-	else if screen_index == screen.stats
+	else if screenIndex == screen.stats
 		{
 		scr_stats_set();
 		submenu = navbar.main;

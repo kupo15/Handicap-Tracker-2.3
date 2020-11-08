@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screens",
-    "path": "folders/Scripts/Main/Draw/Screens.yy",
+    "name": "Draw",
+    "path": "folders/Android App Library/Scripts/Draw.yy",
   },
   "resourceVersion": "1.0",
   "name": "draw_screens",

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Functions",
-    "path": "folders/Scripts/Functions.yy",
+    "name": "Timers",
+    "path": "folders/Android App Library/Functions/Timers.yy",
   },
   "resourceVersion": "1.0",
   "name": "TIMER_FUNCTIONS",

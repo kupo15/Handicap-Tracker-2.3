@@ -1,6 +1,6 @@
 
 function draw_falling_off(xx,yy) {
-
+exit
 // draw round that will be getting kicked out
 var rows = 1;
 var sep = 110;
@@ -47,7 +47,7 @@ for(var i=0;i<rows;i++)
 // if clicked
 if click_region_released(0,yy-100,ww,hh+100,c_yellow,navbar.main)
 	{
-	screen_index = screen.score_card;
+	screenIndex = screen.score_card;
 	submenu = navbar.hidden;
 	}
 

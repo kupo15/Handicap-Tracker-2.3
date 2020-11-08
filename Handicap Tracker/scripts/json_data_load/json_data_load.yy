@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "JSON",
-    "path": "folders/Scripts/JSON.yy",
+    "path": "folders/Android App Library/JSON.yy",
   },
   "resourceVersion": "1.0",
   "name": "json_data_load",

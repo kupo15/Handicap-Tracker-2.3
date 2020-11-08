@@ -37,7 +37,7 @@ for(var i=pos_start;i<pos_end;i++)
 
 	// highlight selected
 	if mode_delete
-	delete_list_draw_selected(0,yy+(off_pos*sep),ww,sep,delete_list,i);
+	delete_list_draw_selected(0,yy+(off_pos*sep),ww,sep,deleteList,i);
 
 	var course_str = string_abbreviate(course_name,560,60,"...");
 	draw_text_height(xx,yy+15+(off_pos*sep),course_str,height); // draw course name
@@ -78,7 +78,7 @@ for(var i=pos_start;i<pos_end;i++)
 		if mode_delete
 			{
 			if can_delete
-			delete_list[| i] = !delete_list[| i]; // toggle selected
+			deleteList[| i] = !deleteList[| i]; // toggle selected
 			
 			can_delete = true;
 			}
@@ -87,7 +87,7 @@ for(var i=pos_start;i<pos_end;i++)
 		    index = i;
 			course_next = true;
 			course_id = noone;
-			screen_index = screen.edit_score;
+			screenIndex = screen.edit_score;
 			submenu = navbar.hidden;
 		
 			var score_pointer = master_score_list[| index];
@@ -137,7 +137,7 @@ for(var i=pos_start;i<pos_end;i++)
 #endregion
     
 // Header
-draw_screen_header("ADJ. Score History",50);
+draw_screen_header(headerType.back,headerType.none,"ADJ. Score History");
 	
 // new score button
 var ww = 540;
@@ -159,7 +159,7 @@ if click_region_released(xx,yy,ww,hh,true,noone)
 	temp_score = "";
 	temp_strokes = "";
 	popup_coursebar();
-	screen_index = screen.add_score;
+	screenIndex = screen.add_score;
 	}
 	
 if course_next

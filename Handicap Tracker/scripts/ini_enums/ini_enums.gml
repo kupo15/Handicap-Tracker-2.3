@@ -46,18 +46,13 @@ rating,
 par
 }
 
-// debug vk
-enum vk {
-hidden,
-hiding,
-showing,
-visible
-}
+
 
 enum navbar {
 sidebar = -5,
 main = -4,
 hidden = -1,
+
 coursebar,
 teebar,
 year_select,
@@ -74,14 +69,3 @@ gold,
 black
 }
 
-enum timer_index {
-vk_switch,
-scroll_end,
-flick,
-press_hold
-}
-
-enum darken_index {
-none,
-sidebar
-}

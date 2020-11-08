@@ -45,14 +45,14 @@ function sidebar_fades() {
 	
 	/*switch screen_darken_value
 		{
-		case darken_index.none: screen_darken_alpha = 2; break;
-		case darken_index.sidebar: screen_darken_alpha = 1-(abs(submenu_menu_xpos_disp)/side_menu_width); break;
+		case darkenIndex.none: screen_darken_alpha = 2; break;
+		case darkenIndex.sidebar: screen_darken_alpha = 1-(abs(submenu_menu_xpos_disp)/side_menu_width); break;
 		}*/
 		
 	// header delete
-	header_delete_offset = mode_delete;
+	headerDeleteOffset = mode_delete;
 
-	if header_delete_offset != header_delete_offset_disp
-	header_delete_offset_disp = lerp(header_delete_offset_disp,header_delete_offset,0.19);
+	if headerDeleteOffset != headerDeleteOffsetDisp
+	headerDeleteOffsetDisp = lerp(headerDeleteOffsetDisp,headerDeleteOffset,0.19);
 	
 }

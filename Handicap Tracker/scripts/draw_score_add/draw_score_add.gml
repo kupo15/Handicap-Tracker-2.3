@@ -2,15 +2,15 @@ function draw_score_add() {
 
 	// header
 	var str = "Add Score";
-	if screen_index == screen.edit_score
+	if screenIndex == screen.edit_score
 	var str = "Edit Score";
 
-	draw_screen_header(str,60);
+	draw_screen_header(headerType.back,headerType.none,str);
 	
 	var score_pointer = master_score_list[| index];
 
-	if kv_active
-	switch textbox_index
+	if kvActive
+	switch textboxIndex
 	    {
 	    case 0: temp_score = string_convert_real(keyboard_string,3); break; // scr_input_text(3); break;
 	    case 1: temp_strokes = string_convert_real(keyboard_string,2); break; // scr_input_text(2); break;
@@ -92,9 +92,9 @@ function draw_score_add() {
 
 	// clicked enter
 	if virtual_keyboard_enter
-	switch textbox_index
+	switch textboxIndex
 		{
-		case 0: textbox_index ++;
+		case 0: textboxIndex ++;
 				keyboard_string = temp_strokes;
 				break;
 			
@@ -107,12 +107,12 @@ function draw_score_add() {
 		{
 		date_pointer = score_pointer;
 		scr_set_date_offsets(score_pointer[| score_data.date]);
-		prev_screen = screen_index;
-		screen_index = screen.edit_date;
+		prev_screen = screenIndex;
+		screenIndex = screen.edit_date;
 		}
 		
 	// delete score
-	if screen_index == screen.edit_score
+	if screenIndex == screen.edit_score
 		{
 		var ww = 170;
 		var hh = 95;
@@ -133,7 +133,7 @@ function draw_score_add() {
 			json_save(save_data);
 
 			submenu = navbar.main;
-	        screen_index = screen.score_list;
+	        screenIndex = screen.score_list;
 	        index = 0;
 			exit;
 			}
@@ -149,7 +149,7 @@ function draw_score_add() {
 	var yy = room_height-hh-2;
 
 	var str = "Update";
-	if screen_index == screen.add_score
+	if screenIndex == screen.add_score
 	var str = "Create";
 	
 	// draw Create/Update box
@@ -175,8 +175,8 @@ function draw_score_add() {
 		score_pointer[| score_data.par] = temp_score_par; // temp_course_par;
 		
 		submenu = navbar.main;
-		textbox_index = noone;
-		screen_index = screen.score_list;
+		textboxIndex = noone;
+		screenIndex = screen.score_list;
 		index = 0;
 		score_list_offset = 0;
 		score_list_offset_start = 0;
@@ -186,20 +186,20 @@ function draw_score_add() {
 		json_save(save_data);
 		}
 	
-	if android_back
+	if androidBack
 	    {
 	    if submenu >= 0
 	    submenu = navbar.hidden;
-	    else if !kv_active
+	    else if !kvActive
 	        {
 			// delete score unsaved
-			if screen_index == screen.add_score
+			if screenIndex == screen.add_score
 			ds_list_delete(master_score_list,index);
 		
 			course_id = noone;
 			submenu = navbar.main;
-			textbox_index = noone;
-			screen_index = screen.score_list;
+			textboxIndex = noone;
+			screenIndex = screen.score_list;
 			index = 0;
 	        }
 	    }

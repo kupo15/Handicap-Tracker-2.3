@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Async",
-    "path": "folders/Scripts/Async.yy",
+    "path": "folders/Android App Library/Async.yy",
   },
   "resourceVersion": "1.0",
   "name": "async_virtual_keyboard",

@@ -1,22 +1,23 @@
 function async_virtual_keyboard() {
-	var status = async_load[? "keyboard_status"];
+	
+	
+var status = async_load[? "keyboard_status"];
 
-	switch status
-		{
-		case "hidden": kv_status = vk.hidden; break; 
-		case "hiding": kv_status = vk.hiding; break; 
-		case "showing": kv_status = vk.showing; break; 
-		case "visible": kv_status = vk.visible; break; 
-		}
+switch status
+	{
+	case "hidden": kvStatus = vk.hidden; break; 
+	case "hiding": kvStatus = vk.hiding; break; 
+	case "showing": kvStatus = vk.showing; break; 
+	case "visible": kvStatus = vk.visible; break; 
+	}
 	
 	
-	if timer[timer_index.vk_switch] == -1 && kv_status <= 1 // not switching
-	vk_hide();
+if (timer[timerIndex.vk_switch] == -1) && (kvStatus <= 1) // not switching
+vk_hide();
 	
-	// debug showing
-	show_debug_message("****"+string(kv_status))
-	show_debug_message(async_load[? "screen_height"]);
-
+// debug showing
+show_debug_message("****"+string(kvStatus))
+show_debug_message(async_load[? "screen_height"]);
 
 
 }

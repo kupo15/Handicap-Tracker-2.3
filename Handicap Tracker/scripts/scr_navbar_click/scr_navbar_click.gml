@@ -6,12 +6,12 @@ function scr_navbar_click(argument0) {
 	switch ind
 		{
 		// home
-		case screen.home: screen_index = screen.home; 
+		case screen.home: screenIndex = screen.home; 
 						  scr_handicap_calculate();
 						  break;
 						  
 		// playing
-		case screen.playing: screen_index = screen.playing;
+		case screen.playing: screenIndex = screen.playing;
 							 course_id = play_course_id;
 							 scr_tee_filled_set(); // set teebox fill
 
@@ -28,16 +28,16 @@ function scr_navbar_click(argument0) {
 							  break;
 				
 		// stats screen
-		case screen.stats: screen_index = screen.stats; 
+		case screen.stats: screenIndex = screen.stats; 
 						   course_id = master_course_list[| stat_index];
 						   scr_stats_set();
 						   break;
 		
 		// score list
-		case screen.score_list: screen_index = screen.score_list; break;
+		case screen.score_list: screenIndex = screen.score_list; break;
 		
 		// course list
-		case screen.course_list: screen_index = screen.course_list; break;
+		case screen.course_list: screenIndex = screen.course_list; break;
 		}
 
 

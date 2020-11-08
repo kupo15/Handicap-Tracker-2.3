@@ -242,18 +242,18 @@ function draw_date_edit() {
 	if click_region_released(0,yy,room_width,hh,true,navbar.hidden)
 		{
 		submit = true;
-		android_back = true;
+		androidBack = true;
 		}
 
 #endregion
 
 
-	if android_back
+	if androidBack
 	    {
 		if submit
 		date_pointer[| score_data.date] = date_create_datetime(year_offset_end,month_offset_end+1,day_offset_end+1,1,1,1); // save date
 		submenu = navbar.main;
-	    screen_index = prev_screen;
+	    screenIndex = prev_screen;
 		date_pointer = noone;
 		json_save(save_data);
 	    }

@@ -11,7 +11,7 @@ function draw_courselist_list() {
 	var height = 40;
 
 	//if clickout_region(xx,yy,ww,hh,true,0)
-	//android_back = true;
+	//androidBack = true;
 
 	var col = make_colour_rgb(220,220,255);
 
@@ -55,13 +55,13 @@ function draw_courselist_list() {
 		}
 
 	// type in search bar
-	if kv_active
-	switch textbox_index
+	if kvActive
+	switch textboxIndex
 		{
 		case -1: searched_name = string_capitalize(keyboard_string,22); break; // scr_input_text(22); break;
 		}
 	
-	scr_searchbar();
+	scr_searchbar_array(courselist_array);
 
 	// draw search bar
 	var col = make_color_rgb(230,230,230);

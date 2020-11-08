@@ -1,5 +1,5 @@
 function scr_trend_set() {
-	screen_index = screen.index;
+	screenIndex = screen.index;
 
 	var list_size = 0;
 	var size = ds_list_size(master_score_list);

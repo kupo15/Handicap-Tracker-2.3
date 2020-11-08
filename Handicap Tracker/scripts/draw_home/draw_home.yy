@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Screens",
-    "path": "folders/Scripts/Main/Draw/Screens.yy",
+    "path": "folders/Screens.yy",
   },
   "resourceVersion": "1.0",
   "name": "draw_home",

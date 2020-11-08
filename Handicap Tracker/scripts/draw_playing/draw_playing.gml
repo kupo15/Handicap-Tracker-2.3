@@ -1,6 +1,6 @@
 function draw_playing() {
 	// header
-	draw_screen_header("Playing Course",60);
+	draw_screen_header(headerType.back,headerType.none,"Playing Course");
 
 	// draw course playing
 	var xx = 10;
@@ -94,8 +94,8 @@ function draw_playing() {
 		}
 		
 	// keyboard entry
-	if kv_active
-	switch textbox_index
+	if kvActive
+	switch textboxIndex
 	    {
 	    case 0: play_course_score = string_convert_real(keyboard_string,3); break; // scr_input_text(3); break;
 	    case 1: play_course_esc = string_convert_real(keyboard_string,2); break; // scr_input_text(2); break;
@@ -103,9 +103,9 @@ function draw_playing() {
 		
 	// clicked enter
 	if virtual_keyboard_enter
-	switch textbox_index
+	switch textboxIndex
 		{
-		case 0: textbox_index = 1; 
+		case 0: textboxIndex = 1; 
 				keyboard_string = play_course_esc;
 				break;
 			
@@ -262,8 +262,8 @@ function draw_playing() {
 		play_course_esc = "";
 	
 		submenu = navbar.main;
-		textbox_index = noone;
-		screen_index = screen.home;
+		textboxIndex = noone;
+		screenIndex = screen.home;
 		index = 0;
 		}
 	
@@ -287,14 +287,14 @@ function draw_playing() {
 		scorebar_yoff = 1;
 		}*/
 
-	if android_back
+	if androidBack
 	    {
-		if kv_active
+		if kvActive
 		vk_hide();
 		else if submenu >= 0
 	    submenu = navbar.main;
 		else
-	    screen_index = screen.home;
+	    screenIndex = screen.home;
 	    }
 
 

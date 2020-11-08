@@ -86,13 +86,13 @@ for(var i=0;i<12;i++)
 		else
 		switch i
 			{
-			case 5: screen_index = screen.score_card; 
+			case 5: screenIndex = screen.score_card; 
 					submenu = navbar.hidden;
 					break;
 			
 			case 6: scr_trend_set(); break;
 			
-			case 10: screen_index = screen.help_info; break;
+			case 10: screenIndex = screen.help_info; break;
 			
 			case 11: break;
 			}

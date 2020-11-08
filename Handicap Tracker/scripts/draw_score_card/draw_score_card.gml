@@ -42,9 +42,9 @@ for(var i=0;i<size;i++)
 	}
 	
 	
-if android_back
+if androidBack
 	{
-	screen_index = screen.home;
+	screenIndex = screen.home;
 	submenu = navbar.main;
 	}
 

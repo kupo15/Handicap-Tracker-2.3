@@ -2,10 +2,10 @@ function draw_course_add() {
 
 // header
 var str = "Edit Course";
-if screen_index == screen.add_course
+if screenIndex == screen.add_course
 str = "Create Course";
 
-draw_screen_header(str,60);
+draw_screen_header(headerType.back,headerType.none,str);
 
 
 var xx = 20;
@@ -19,8 +19,8 @@ var tee_color = teebox_list[| teebox_index]; // color
 var tee_data_pointer = tee_pointer[? tee_color];
 
 #region textbox entry
-	if kv_active
-	switch textbox_index
+	if kvActive
+	switch textboxIndex
 	    {
 	    case course_data.name: course_edit_name = string_capitalize(keyboard_string,-1); break;
 	
@@ -47,7 +47,7 @@ var course_rating = temp_course_rating;
 var course_par = temp_course_par;
 
 var height = 70;
-if textbox_index <= 0
+if textboxIndex <= 0
 	{
 	var course_height = text_reduce(course_name,500,height);
 	draw_text_height(xx,yy,"Course",height*0.6,fn_italic); // draw course name label
@@ -81,7 +81,7 @@ if textbox_index <= 0
 		// clicked on a tee marker
 		if click_region_released(0,yyy+(i*vsep),ww,vsep,true,navbar.hidden)
 		    {
-			textbox_index = course_data.tee;		
+			textboxIndex = course_data.tee;		
 			teebox_index = i;
 					
 			// set temp entry data
@@ -90,7 +90,7 @@ if textbox_index <= 0
 			temp_course_rating = temp_tee_data[i][| tee_data.rating];
 			temp_course_par = temp_tee_data[i][| tee_data.par];
 		
-			if screen_index == screen.add_score || screen_index == screen.edit_score
+			if screenIndex == screen.add_score || screenIndex == screen.edit_score
 				{
 					show_message("")
 				var tee_pointer = course_id[| 1]; // tee marker MAP
@@ -111,7 +111,7 @@ if textbox_index <= 0
 				score_pointer[| score_data.par] = course_par;
 			
 				// pop up keyboard
-				if screen_index == screen.add_score
+				if screenIndex == screen.add_score
 				click_textbox_set(score_pointer[| score_data.score_],0,kbv_type_numbers);
 				else
 				submenu = navbar.hidden;
@@ -155,11 +155,11 @@ draw_course_details();
 	if virtual_keyboard_enter 
 		{
 		// Course Name
-		if textbox_index == 0
+		if textboxIndex == 0
 		vk_hide();
 		else
 			{
-			move = textbox_index+1; // move to next textbox
+			move = textboxIndex+1; // move to next textbox
 		
 			if move == 6 // end of textboxes
 				{
@@ -170,7 +170,7 @@ draw_course_details();
 		}
 	else
 		{
-		if textbox_index <= 0
+		if textboxIndex <= 0
 			{
 			if click_region_released(0,yy+(0*sep),ww,sep,true,navbar.hidden)
 			move = course_data.name;
@@ -203,7 +203,7 @@ draw_course_details();
 	if move != noone
 	    {
 		var i = move;
-	    textbox_index = i;
+	    textboxIndex = i;
 	    submenu = navbar.hidden;
 		        
 		switch i
@@ -212,7 +212,7 @@ draw_course_details();
 			case course_data.name: click_textbox_set(course_edit_name,i,kbv_type_default); break;
 			
 			// tees
-		    case course_data.tee: if kv_active
+		    case course_data.tee: if kvActive
 						          vk_hide();
 								  else
 								  submenu = navbar.teebar; 
@@ -245,7 +245,7 @@ draw_course_details();
 
 
 // delete course
-if screen_index == screen.edit_course && textbox_index <= 0
+if screenIndex == screen.edit_course && textboxIndex <= 0
 	{
 	var ww = 170;
 	var hh = 95;
@@ -282,16 +282,16 @@ if screen_index == screen.edit_course && textbox_index <= 0
 		json_save(save_data);
 
 		submenu = navbar.main;
-	    textbox_index = noone;
-	    screen_index = screen.course_list;
+	    textboxIndex = noone;
+	    screenIndex = screen.course_list;
 	    index = 0;
 		exit;
 		}
 	}
 
 	// Create
-	var submit = ((course_edit_name != "") && (textbox_index <= 0)) 
-	|| ((textbox_index > 0) && ((temp_course_yardage != "") && (temp_course_slope != "") && (temp_course_rating != "") && (temp_course_par != ""))
+	var submit = ((course_edit_name != "") && (textboxIndex <= 0)) 
+	|| ((textboxIndex > 0) && ((temp_course_yardage != "") && (temp_course_slope != "") && (temp_course_rating != "") && (temp_course_par != ""))
 	|| (temp_course_yardage == "") && (temp_course_slope == "") && (temp_course_rating == "") && (temp_course_par == ""));
 	
 	var ww = 350;
@@ -299,7 +299,7 @@ if screen_index == screen.edit_course && textbox_index <= 0
 	var xx = 185;
 	var yy = room_height-hh-2;
 	
-	switch textbox_index
+	switch textboxIndex
 		{
 		case -1:
 		case 0:	var str = "Save"; 
@@ -307,7 +307,7 @@ if screen_index == screen.edit_course && textbox_index <= 0
 		
 		default: var str = "Done"; 
 		
-				 if screen_index == screen.edit_course
+				 if screenIndex == screen.edit_course
 				 var str = "Done";
 				 break;
 		}
@@ -323,7 +323,7 @@ if screen_index == screen.edit_course && textbox_index <= 0
 	// if clicked Next or Create/Update
 	if click_region_released(xx,yy,ww,sep,true,navbar.hidden) && submit
 		{
-		if textbox_index <= 0
+		if textboxIndex <= 0
 			{ // course name screen			
 			var tee_size = ds_list_size(teebox_list);
 			for(var i=0;i<tee_size;i++)
@@ -340,7 +340,7 @@ if screen_index == screen.edit_course && textbox_index <= 0
 				}
 			
 			scr_update_course_info(course_id[| course_data.name]);
-			screen_index = screen.course_list;
+			screenIndex = screen.course_list;
 			submenu = navbar.main;
 			ds_list_sort_nested(master_course_list,0,true); // sort list
 			json_save(save_data);
@@ -359,23 +359,23 @@ if screen_index == screen.edit_course && textbox_index <= 0
 
 			if prev_screen == noone	
 				{
-				textbox_index = noone;
+				textboxIndex = noone;
 				}
 			else
 				{// coming from teebar
 				screen_goto_prev(navbar.teebar); // go back to prev screen
-				textbox_index = noone;
+				textboxIndex = noone;
 				index = 0;
 				}
 			}
 		}
 
 	
-	if android_back
+	if androidBack
 	    {
-		if kv_active
+		if kvActive
 			{
-			if textbox_index >= 2
+			if textboxIndex >= 2
 			vk_hide();
 			}
 		else if submenu >= 0
@@ -390,9 +390,9 @@ if screen_index == screen.edit_course && textbox_index <= 0
 				}
 		
 			// if in details screen
-			if textbox_index > 0
+			if textboxIndex > 0
 				{
-				textbox_index = 0;
+				textboxIndex = 0;
 				
 				/*if (temp_course_yardage == "") && (temp_course_slope == "") && (temp_course_rating == "") && (temp_course_par == "")
 					{// set temp tee data
@@ -404,18 +404,18 @@ if screen_index == screen.edit_course && textbox_index <= 0
 					}*/
 				}
 			else
-			textbox_index --;
+			textboxIndex --;
 		
-			if textbox_index < 0
+			if textboxIndex < 0
 				{
 				// delete course unsaved
-				if screen_index == screen.add_course
+				if screenIndex == screen.add_course
 				ds_list_delete(master_course_list,index);
 		
 				// from course edit
 				submenu = navbar.main;
-		        textbox_index = noone;
-		        screen_index = screen.course_list;
+		        textboxIndex = noone;
+		        screenIndex = screen.course_list;
 		        index = 0;
 				ds_list_sort_nested(master_course_list,0,true);
 				json_save(save_data);

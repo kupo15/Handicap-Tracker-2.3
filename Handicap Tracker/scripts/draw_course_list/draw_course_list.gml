@@ -23,7 +23,7 @@ function draw_course_list() {
 		
 		// highlight selected
 		if mode_delete
-		delete_list_draw_selected(0,yy+(off_pos*sep),ww,sep,delete_list,i);
+		delete_list_draw_selected(0,yy+(off_pos*sep),ww,sep,deleteList,i);
 
 		// clicked on course
 		if !mode_delete && click_region_pressed_clamp(0,yy,(off_pos*sep),ww,sep,hh,mb_left,noone,navbar.main,i)
@@ -39,7 +39,7 @@ function draw_course_list() {
 			if mode_delete
 				{
 				if can_delete
-				delete_list[| i] = !delete_list[| i]; // toggle selected
+				deleteList[| i] = !delete_list[| i]; // toggle selected
 			
 				can_delete = true;
 				}
@@ -48,8 +48,8 @@ function draw_course_list() {
 		        index = i;
 				course_next = true;
 				course_edit_name = course_name;
-				textbox_index = -1;
-				screen_index = screen.edit_course;
+				textboxIndex = -1;
+				screenIndex = screen.edit_course;
 				break;
 				}
 		    }
@@ -67,7 +67,7 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offse
 #endregion
 
 // header
-draw_screen_header("Course List",60);
+draw_screen_header(headerType.back,headerType.none,"Course List");
     
 // new course button
 var ww = 540;
@@ -88,7 +88,7 @@ if click_region_released(xx,yy,ww,hh,true,noone)
 	index = scr_course_add_index("","Tee","5000","132","70.2","72");
 	click_textbox_set("",0,kbv_type_default);
 
-	screen_index = screen.add_course;
+	screenIndex = screen.add_course;
 	teebox_index = 00;
 	course_next = true;
 	}
