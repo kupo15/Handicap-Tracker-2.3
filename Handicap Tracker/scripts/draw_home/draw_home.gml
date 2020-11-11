@@ -4,7 +4,7 @@ function draw_home() {
 	draw_screen_header(headerType.bars,headerType.none,"Home");
 	
 	// draw Handicap Index
-	var xx = 540/2;
+	var xx = app_width/2;
 	var yy = 60;
 	var height = 70;
 
@@ -12,6 +12,7 @@ function draw_home() {
 	var str = "N/A";
 	else
 	var str = string_format(ghin_index,1,1);
+	var str = "0";
 
 	draw_set_halign(fa_center);
 	draw_text_height(xx,yy,"Index",height);

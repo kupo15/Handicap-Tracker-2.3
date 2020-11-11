@@ -1,6 +1,6 @@
 function draw_help_info() {
 
-	var xx = 540*0.5;
+	var xx = app_width*0.5;
 	var yy = 30;
 	var str = "Help Info";
 

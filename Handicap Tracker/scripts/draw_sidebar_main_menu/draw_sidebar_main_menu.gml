@@ -1,12 +1,6 @@
 function draw_sidebar_main_menu() {
 
 #region draw menu
-/*
-var col = c_black;
-draw_set_alpha(screen_darken_alpha*0.5);	
-draw_rectangle_color(0,0,room_width,room_height,col,col,col,col,false); // darken background
-draw_set_alpha(1);*/
-
 var new_submenu = false;
 var xx_off = submenu_menu_xpos_disp;
 var xx = 0;
@@ -19,7 +13,7 @@ draw_rectangle_color(xx+xx_off,yy,xx+xx_off+ww,yy+hh,col,col,col,col,false); // 
 
 // if click outside of menu
 if click_region_released(xx+xx_off+side_menu_width,yy,ww,hh,noone,navbar.sidebar) // make_color_rgb(0,255,255)
-android_back_sidebar = true;
+androidBackSidebar = true;
 
 var yy_sep = 180;
 draw_line(xx+xx_off,yy_sep,xx+xx_off+ww,yy_sep); // separating line
@@ -42,73 +36,58 @@ draw_text_height(xx+xx_off,yy+25,"@"+user_username,0,25,true); // draw user id*/
 
 
 // draw menu items
-var xx = 55;
+var xx = 100;
 var yy = yy_sep;
-var yoff = 10;
-var sep = 60;
-var height = 40;
+var sep = 70;
+var height = 30;
 
 draw_set_halign(fa_left);
-draw_text_height(xx+xx_off,yy+yoff+(0*sep),"Home",height);
-draw_text_height(xx+xx_off,yy+yoff+(1*sep),"Course Stats",height);
-draw_text_height(xx+xx_off,yy+yoff+(2*sep),"Playing Round",height);
-draw_text_height(xx+xx_off,yy+yoff+(3*sep),"Score History",height);
-draw_text_height(xx+xx_off,yy+yoff+(4*sep),"Courses",height);
-draw_text_height(xx+xx_off,yy+yoff+(5*sep),"My Card",height);
-draw_text_height(xx+xx_off,yy+yoff+(6*sep),"Handicap Trends",height);
+draw_text_height_middled(xx+xx_off,yy+(screen.home*sep),"Home",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.stats*sep),"Course Stats",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.playing*sep),"Playing Round",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.score_list*sep),"Score History",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.course_list*sep),"Courses",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.score_card*sep),"My Card",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.index*sep),"Handicap Trends",sep,height);
 
-draw_text_height(xx+xx_off,yy+yoff+(10*sep),"Help and Info",height);
-draw_text_height(xx+xx_off,yy+yoff+(11*sep),"Settings",height);
+draw_text_height_middled(xx+xx_off,yy+(screen.help_info*sep),"Help and Info",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.settings*sep),"Settings",sep,height);
 
 draw_text_height(xx_off+15,room_height-40,"Vers. "+string(GM_version),30);
 
-
-for(var i=0;i<12;i++)
+for(var i=0;i<screen.enumcount;i++)
 	{
-	if i>6 && i<10
+	if (i>screen.index) && (i<screen.help_info)
 	continue;
 		
-	draw_sprite_ext(spr_footer_icon,i,res_bleed_xx+xx_off,yy+9+(i*sep),0.12,0.12,0,c_white,1); // draw menu icons
+	draw_icon_height_centered_color(spr_footer_icon,i,res_bleed_xx+xx_off,yy+(i*sep),sep*0.7,sep,sep*0.7,header_color,1); // draw menu icons
 	
-	if i==10
+	if i == screen.help_info
 	draw_line(xx_off,yy+(i*sep),xx_off+ww,yy+(i*sep)); // separating line
 
-	if click_region_released(xx_off,yy+(i*sep),ww,sep,true,navbar.sidebar) // make_color_rgb(0,255,255)
+	if click_region_released_clamp(xx_off,yy,(i*sep),ww,sep,screen.enumcount*sep,mb_left,true,navbar.sidebar,i,undefined,navbar.sidebar)
 		{
+		click_highlight_alpha = 0;
+		click_highlight_alpha_start = 0;
+		
 		submenu = navbar.main;
-		android_back_sidebar = true;
+		androidBackSidebar = true;
 
-		if i<5
-			{
-			scr_navbar_click(i);
-			new_submenu = true;
-			}
-		else
-		switch i
-			{
-			case 5: screenIndex = screen.score_card; 
-					submenu = navbar.hidden;
-					break;
-			
-			case 6: scr_trend_set(); break;
-			
-			case 10: screenIndex = screen.help_info; break;
-			
-			case 11: break;
-			}
+		scr_navbar_click(i);
+		new_submenu = true;
 		}
 	}
 
 #endregion
 
 
-	if android_back_sidebar
+	if androidBackSidebar
 		{
 		// submenu_menu_xpos = 1;
 		submenu_menu_xpos = -side_menu_width-30;
 	
-		if !new_submenu && submenu == navbar.sidebar
-		submenu = submenu_previous;
+		if !new_submenu && (submenu == navbar.sidebar)
+		submenu = submenuPrevious;
 		}
 
 

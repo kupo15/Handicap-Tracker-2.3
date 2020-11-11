@@ -116,7 +116,12 @@ draw_set_font(font);
 var currSize = string_height(str); // current height of string
 var scale = height/currSize;
 	
+if sep == -1
+var sep_scale = -1;
+else
 var sep_scale = sep/scale;
+
+if w != -1
 w /= scale;
 
 draw_text_ext_transformed_color(xx,yy,str,sep_scale,w,scale,scale,angle,col,col,col,col,alpha);

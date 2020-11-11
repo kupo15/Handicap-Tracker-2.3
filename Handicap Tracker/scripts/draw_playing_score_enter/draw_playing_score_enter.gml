@@ -81,7 +81,7 @@ function draw_playing_score_enter() {
 		
 	// submit round
 	// var submit = (play_course_id != noone) && (play_course_teebox != noone) && (play_course_score != "");
-	var ww = 540;
+	var ww = app_width;
 	var hh = 95;
 	var xx = 0;
 	var yy = box_yy+box_hh-hh-30;
@@ -91,7 +91,7 @@ function draw_playing_score_enter() {
 	draw_rectangle(xx,yy,xx+ww,yy+hh,true);
 
 	draw_set_halign(fa_center);
-	draw_text_height(540/2,yy+15,"Enter Score",70);
+	draw_text_height(app_width/2,yy+15,"Enter Score",70);
 
 	// clicked submit
 	if click_region_released(0,yy,ww,hh,true,navbar.scorebar) //  && submit

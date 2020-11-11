@@ -9,6 +9,8 @@ ghin_index = 0;
 rounds_played = 0;
 round_selection = 20;
 
+//
+
 old_course_name = "";
 
 handicap_trend_type = 0;
@@ -70,5 +72,5 @@ index_trend_offset_start = 0;
 #endregion
 
 debug_data_reset();
-//scr_handicap_calculate();
+scr_handicap_calculate();
 }

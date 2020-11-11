@@ -4,7 +4,7 @@ function draw_stats() {
 
 	var xx = 20;
 	var yy = 100;
-	var ww = 540;
+	var ww = app_width;
 	var sep = 130;
 	var height = 60;
 

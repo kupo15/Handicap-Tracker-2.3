@@ -39,7 +39,7 @@
 
 // navbar
 #macro nav_sca_off 0.85
-#macro nav_height 125
+#macro nav_height 100
 #macro nav_ico_num 5
 #macro navbar_color make_color_rgb(0,122,173)
 
@@ -50,3 +50,5 @@
 #macro dialogue draw_dialogue_box(xx,yy,ww,hh,col,sub)
 #macro db show_debug_message
 #macro sm show_message
+#macro cs clipboard_set_text
+#macro cg clipboard_get_text

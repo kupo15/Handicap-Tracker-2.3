@@ -49,8 +49,6 @@ deleteList[| first_ind] = true;
 
 function delete_list_delete(del_list_id,ref_list) {
 
-sm(ref_list)
-
 var size = ds_list_size(deleteList);
 for(var i=size-1;i>-1;i--)
 	{// delete in reverse order

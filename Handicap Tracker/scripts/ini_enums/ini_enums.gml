@@ -5,14 +5,20 @@ stats,
 playing,
 score_list,
 course_list,
+score_card,
+index,
+blank7,
+blank8,
+
+help_info,
+settings,
+enumcount,
+
 add_score,
 add_course,
 edit_course,
 edit_score,
-edit_date,
-index,
-score_card,
-help_info
+edit_date
 }
 
 enum course_data {

@@ -11,7 +11,7 @@ height = header_font_height;
 
 var xx = room_width*0.5;
 var yy = (header_height-height)*0.5;
-var ww = 540;
+var ww = app_width;
 var hh = header_height;
 
 draw_rectangle_color(0,0,ww,hh,header_color,header_color,header_color,header_color,false);

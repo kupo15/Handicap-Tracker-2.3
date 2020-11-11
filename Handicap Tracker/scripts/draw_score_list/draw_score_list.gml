@@ -5,7 +5,7 @@ var yy = 100;
 var height = 40;
 var rows = score_list_row;
 var sep = 110;
-var ww = 540;
+var ww = app_width;
 var hh = rows*sep;
 
 var list_size = ds_list_size(master_score_list);
@@ -140,7 +140,7 @@ for(var i=pos_start;i<pos_end;i++)
 draw_screen_header(headerType.back,headerType.none,"ADJ. Score History");
 	
 // new score button
-var ww = 540;
+var ww = app_width;
 var hh = 95;
 var xx = 0;
 var yy = room_height-hh-(nav_height*nav_sca_off);
@@ -149,7 +149,7 @@ var col = c_white;
 draw_rectangle_color(xx,yy,xx+ww,yy+hh,col,col,col,col,false);
 draw_rectangle(xx,yy,xx+ww,yy+hh,true);
 draw_set_halign(fa_center);
-draw_text_height(540/2,yy+15,"Add Score",70);
+draw_text_height(app_width/2,yy+15,"Add Score",70);
 
 if click_region_released(xx,yy,ww,hh,true,noone)
 	{

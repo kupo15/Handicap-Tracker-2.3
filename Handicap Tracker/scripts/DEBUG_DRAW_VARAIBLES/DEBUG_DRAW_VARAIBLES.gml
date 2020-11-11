@@ -1,10 +1,23 @@
 
 goto_draw_debug();
 
+function debug_submenu_names() {
+
+enum_name_submenu[5+navbar.sidebar] = "sidebar";         
+enum_name_submenu[5+navbar.main] = "main";
+enum_name_submenu[5+navbar.hidden] = "hidden";
+enum_name_submenu[5+navbar.coursebar] = "coursebar";
+enum_name_submenu[5+navbar.teebar] = "teebar";
+enum_name_submenu[5+navbar.year_select] = "year_select";
+enum_name_submenu[5+navbar.parbar] = "parbar";
+enum_name_submenu[5+navbar.scorebar] = "scorebar";
+
+}
+
 function debug_draw_screens(xx,yy,ind,sep,height) {
 	
 draw_text_height(xx,yy+((debugyoff+0)*sep),"screenIndex: "+string(screenIndex),height);
-draw_text_height(xx,yy+((debugyoff+1)*sep),"submenu: "+string(submenu),height);
+draw_text_height(xx,yy+((debugyoff+1)*sep),"submenu: "+string(enum_name_submenu[submenu+5]),height);
 draw_text_height(xx,yy+((debugyoff+2)*sep),"submenuPrevious: "+string(submenuPrevious),height);
 draw_text_height(xx,yy+((debugyoff+3)*sep),"activeSubmenu: "+string(activeSubmenu),height);
 	

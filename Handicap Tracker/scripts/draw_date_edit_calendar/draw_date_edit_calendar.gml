@@ -1,7 +1,7 @@
 function draw_date_edit_calendar() {
 	draw_set_halign(fa_center);
 
-	var xx = 540/2;
+	var xx = app_width/2;
 	var yy = 20;
 	var height = 80;
 

@@ -3,8 +3,8 @@ function ini_config() {
 	
 gpu_set_texfilter(true);
 
-app_width = 540;
-app_height = 960;
+app_width = room_width;
+app_height = room_height;
 	
 if os_type == os_android
 	{
@@ -16,8 +16,8 @@ if os_type == os_android
 	}
 else
 	{
-	var ww = 540;
-	var hh = 960;
+	var ww = app_width;
+	var hh = app_height;
 	var scale = 1.5;
 	var debug_ww = 2.5;
 	

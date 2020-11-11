@@ -4,7 +4,7 @@ function draw_popup_par() {
 
 	var rows = 5;
 	var sep = 50;
-	var ww = 540;
+	var ww = app_width;
 	var hh = rows*sep;
 	var xx = 0;
 	var yy = 760-(hh*parbar_yoff_start);

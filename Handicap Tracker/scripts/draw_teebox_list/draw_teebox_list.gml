@@ -6,10 +6,10 @@ function draw_teebox_list() {
 
 	var rows = ds_list_size(teebox_list);
 	var sep = 65;
-	var ww = 540;
+	var ww = app_width;
 	var hh = rows*sep;
 	var xx = 0;
-	var yy = 960-(hh*teebar_yoff_start);
+	var yy = app_height-(hh*teebar_yoff_start);
 
 	var col = make_colour_rgb(220,220,255);
 

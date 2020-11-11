@@ -40,3 +40,25 @@ function funct_mouse_wheel(scale) {
 return (mouse_wheel_up()-mouse_wheel_down())*scale;
 
 }
+
+function trace() {
+/// @param value
+
+var _string = "";
+
+for(var i=0;i<argument_count;i++)
+_string += string(argument[i]);
+
+show_debug_message(_string);	
+}
+
+function concat() {
+/// @param value
+
+var _string = "";
+
+for(var i=0;i<argument_count;i++)
+_string += string(argument[i]);
+
+return _string;
+}

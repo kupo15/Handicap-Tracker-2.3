@@ -78,7 +78,7 @@
     {"id":{"name":"input_android_back","path":"scripts/input_android_back/input_android_back.yy",},"order":0,},
     {"id":{"name":"spr_ico_calendar","path":"sprites/spr_ico_calendar/spr_ico_calendar.yy",},"order":5,},
     {"id":{"name":"scr_timer_beep","path":"scripts/scr_timer_beep/scr_timer_beep.yy",},"order":4,},
-    {"id":{"name":"scr_course_add","path":"scripts/scr_course_add/scr_course_add.yy",},"order":1,},
+    {"id":{"name":"scr_course_add_old","path":"scripts/scr_course_add_old/scr_course_add_old.yy",},"order":1,},
     {"id":{"name":"scr_score_add_index","path":"scripts/scr_score_add_index/scr_score_add_index.yy",},"order":2,},
     {"id":{"name":"scr_course_add_index","path":"scripts/scr_course_add_index/scr_course_add_index.yy",},"order":3,},
     {"id":{"name":"fn_normal","path":"fonts/fn_normal/fn_normal.yy",},"order":2,},

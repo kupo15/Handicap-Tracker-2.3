@@ -1,5 +1,5 @@
 function scr_handicap_calculate() {
-	
+	exit
 	ds_list_sort_nested(master_score_list,score_data.date,true); // date sort
 
 	// clear ESR

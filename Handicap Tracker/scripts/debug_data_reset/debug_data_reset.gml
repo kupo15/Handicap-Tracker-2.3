@@ -4,59 +4,134 @@ if !debug_reset
 exit;
 
 rounds_played = 0;
-ds_list_clear(master_course_list);
-ds_list_clear(master_score_list);
+courselist_struct = {};
+scorelist_array = [];
 scr_playing_clear();
 
 // debug
-scr_course_add_index("Atlantic Country Club",tee_marker.gold,"6728","137","73.1","72");
-scr_course_add_index("Apple Mountain Golf",tee_marker.blue,"6668","124","71.9","70");
-scr_course_add_index("Bass Rocks",tee_marker.gold,"5953","124","69.3","69");
-scr_course_add_index("Braintree Municipal",tee_marker.white,"6212","123","70.0","72");
-scr_course_add_index("Broad Run Golf Club",tee_marker.white,"6080","132","70.3","72");
-scr_course_add_index("Campbell's Scottish Highlands",tee_marker.blue,"6249","121","70.1","71");
-scr_course_add_index("Cape May National",tee_marker.white,"6063","125","69.0","71");
-scr_course_add_index("Cape May National",tee_marker.blue,"6592","130","71.4","71");
-scr_course_add_index("Charleston Springs",tee_marker.gold,"6374","121","70.3","72");
-scr_course_add_index("Crosswinds-Jones/Zaharias",tee_marker.gold,"6520","134","71.9","72");
-scr_course_add_index("Crotched Mountain",tee_marker.blue,"6277","125","69.2","71");
-scr_course_add_index("Crumpin Fox Club",tee_marker.blue,"6508","141","72.2","72");
-scr_course_add_index("Crystal Lake Golf Club",tee_marker.blue,"6501","129","71.9","72");
-scr_course_add_index("Gardner Municipal",tee_marker.blue,"6131","128","69.8","71");
-scr_course_add_index("Granite Fields Golf Club",tee_marker.blue,"6543","130","71.7","72");
-scr_course_add_index("Hickory Hills",tee_marker.white,"6020","119","69.6","71");
-scr_course_add_index("Hickory Hills",tee_marker.blue,"6287","123","70.8","71");
-scr_course_add_index("Highfields",tee_marker.gold,"6474","134","71.7","72");
-scr_course_add_index("Ledges Golf Club",tee_marker.black,"6981","137","74.2","72");
-scr_course_add_index("McCullough's Emerald Links",tee_marker.blue,"6132","125","69.8","71");
-scr_course_add_index("Nashua Country Club",tee_marker.blue,"5965","126","69.8","71");
-scr_course_add_index("Newton Commonwealth",tee_marker.blue,"5354","119","67.0","70");
-scr_course_add_index("Olde Scottish Links",tee_marker.black,"6790","126","72.6","72");
-scr_course_add_index("Olde Scottish Links",tee_marker.blue,"6306","124","70.3","72");
-scr_course_add_index("Pembroke Country Club",tee_marker.blue,"6677","132","73.3","71");
-scr_course_add_index("Pinehills - Nicklaus",tee_marker.blue,"6640","131","72.2","72");
-scr_course_add_index("Putterham Meadows",tee_marker.white,"5859","116","68.1","70");
-scr_course_add_index("Putterham Meadows",tee_marker.blue,"6208","124","70.0","70");
-scr_course_add_index("West Bridgewater Country Club",tee_marker.gold,"6659","127","70.9","71");
-scr_course_add_index("Riverwinds",tee_marker.white,"6576","128","70.3","72");
-scr_course_add_index("Riverwinds",tee_marker.blue,"6843","132","72.3","72");
-scr_course_add_index("Riverwinds",tee_marker.black,"7086","135","73.8","72");
-scr_course_add_index("Rolling Green",tee_marker.blue,"6695","140","73.7","71");
-scr_course_add_index("Sagamore Spring",tee_marker.black,"5972","125","69.1","70");
-scr_course_add_index("Shore Gate",tee_marker.white,"6391","137","71.0","72");
-scr_course_add_index("Souhegan Woods",tee_marker.blue,"6507","125","70.3","72");
-scr_course_add_index("South Shore Country Club",tee_marker.blue,"6470","132","70.6","72");
-scr_course_add_index("Stow Acres C. C.-North Course",tee_marker.blue,"7001","130","73.7","72");
-scr_course_add_index("Stow Acres C. C.-South Course",tee_marker.blue,"6520","128","71.7","72");
-scr_course_add_index("Vineyard Golf",tee_marker.white,"6358","125","70.4","72");
-scr_course_add_index("Vineyard Golf",tee_marker.blue,"6746","129","72.0","72");
-scr_course_add_index("Waverly Oaks",tee_marker.gold,"6682","124","72.3","72");
-scr_course_add_index("Windham Country Club",tee_marker.blue,"6033","130","69.1","72");
+scr_course_create("Atlantic Country Club");
+scr_course_add_tee("Atlantic Country Club","gold","6728","137","73.1","72");
 
-ds_list_sort_nested(master_course_list,course_data.name,true);
+scr_course_create("Apple Mountain Golf");
+scr_course_add_tee("Apple Mountain Golf","blue","6668","124","71.9","70");
+
+scr_course_create("Bass Rocks");
+scr_course_add_tee("Bass Rocks","gold","5953","124","69.3","69");
+
+scr_course_create("Braintree Municipal");
+scr_course_add_tee("Braintree Municipal","white","6212","123","70.0","72");
+
+scr_course_create("Broad Run Golf Club");
+scr_course_add_tee("Broad Run Golf Club","white","6080","132","70.3","72");
+
+scr_course_create("Campbell's Scottish Highlands");
+scr_course_add_tee("Campbell's Scottish Highlands","blue","6249","121","70.1","71");
+
+scr_course_create("Cape May National");
+scr_course_add_tee("Cape May National","white","6063","125","69.0","71");
+
+scr_course_create("Cape May National");
+scr_course_add_tee("Cape May National","blue","6592","130","71.4","71");
+
+scr_course_create("Charleston Springs");
+scr_course_add_tee("Charleston Springs","gold","6374","121","70.3","72");
+
+scr_course_create("Crosswinds-Jones/Zaharias");
+scr_course_add_tee("Crosswinds-Jones/Zaharias","gold","6520","134","71.9","72");
+
+scr_course_create("Crotched Mountain");
+scr_course_add_tee("Crotched Mountain","blue","6277","125","69.2","71");
+
+scr_course_create("Crumpin Fox Club");
+scr_course_add_tee("Crumpin Fox Club","blue","6508","141","72.2","72");
+
+scr_course_create("Crystal Lake Golf Club");
+scr_course_add_tee("Crystal Lake Golf Club","blue","6501","129","71.9","72");
+
+scr_course_create("Gardner Municipal");
+scr_course_add_tee("Gardner Municipal","blue","6131","128","69.8","71");
+
+scr_course_create("Granite Fields Golf Club");
+scr_course_add_tee("Granite Fields Golf Club","blue","6543","130","71.7","72");
+
+scr_course_create("Hickory Hills");
+scr_course_add_tee("Hickory Hills","white","6020","119","69.6","71");
+scr_course_add_tee("Hickory Hills","blue","6287","123","70.8","71");
+
+scr_course_create("Highfields");
+scr_course_add_tee("Highfields","gold","6474","134","71.7","72");
+
+scr_course_create("Ledges Golf Club");
+scr_course_add_tee("Ledges Golf Club","black","6981","137","74.2","72");
+
+scr_course_create("McCullough's Emerald Links");
+scr_course_add_tee("McCullough's Emerald Links","blue","6132","125","69.8","71");
+
+scr_course_create("Nashua Country Club");
+scr_course_add_tee("Nashua Country Club","blue","5965","126","69.8","71");
+
+scr_course_create("Newton Commonwealth");
+scr_course_add_tee("Newton Commonwealth","blue","5354","119","67.0","70");
+
+scr_course_create("Olde Scottish Links");
+scr_course_add_tee("Olde Scottish Links","black","6790","126","72.6","72");
+
+scr_course_create("Olde Scottish Links");
+scr_course_add_tee("Olde Scottish Links","blue","6306","124","70.3","72");
+
+scr_course_create("Pembroke Country Club");
+scr_course_add_tee("Pembroke Country Club","blue","6677","132","73.3","71");
+
+scr_course_create("Pinehills - Nicklaus");
+scr_course_add_tee("Pinehills - Nicklaus","blue","6640","131","72.2","72");
+
+scr_course_create("Putterham Meadows");
+scr_course_add_tee("Putterham Meadows","white","5859","116","68.1","70");
+scr_course_add_tee("Putterham Meadows","blue","6208","124","70.0","70");
+
+scr_course_create("West Bridgewater Country Club");
+scr_course_add_tee("West Bridgewater Country Club","gold","6659","127","70.9","71");
+
+scr_course_create("Riverwinds");
+scr_course_add_tee("Riverwinds","white","6576","128","70.3","72");
+scr_course_add_tee("Riverwinds","blue","6843","132","72.3","72");
+scr_course_add_tee("Riverwinds","black","7086","135","73.8","72");
+
+scr_course_create("Rolling Green");
+scr_course_add_tee("Rolling Green","blue","6695","140","73.7","71");
+
+scr_course_create("Sagamore Spring");
+scr_course_add_tee("Sagamore Spring","black","5972","125","69.1","70");
+
+scr_course_create("Shore Gate");
+scr_course_add_tee("Shore Gate","white","6391","137","71.0","72");
+
+scr_course_create("Souhegan Woods");
+scr_course_add_tee("Souhegan Woods","blue","6507","125","70.3","72");
+
+scr_course_create("South Shore Country Club");
+scr_course_add_tee("South Shore Country Club","blue","6470","132","70.6","72");
+
+scr_course_create("Stow Acres C. C.-North Course");
+scr_course_add_tee("Stow Acres C. C.-North Course","blue","7001","130","73.7","72");
+
+scr_course_create("Stow Acres C. C.-South Course");
+scr_course_add_tee("Stow Acres C. C.-South Course","blue","6520","128","71.7","72");
+
+scr_course_create("Vineyard Golf");
+scr_course_add_tee("Vineyard Golf","white","6358","125","70.4","72");
+scr_course_add_tee("Vineyard Golf","blue","6746","129","72.0","72");
+
+scr_course_create("Waverly Oaks");
+scr_course_add_tee("Waverly Oaks","gold","6682","124","72.3","72");
+
+scr_course_create("Windham Country Club");
+scr_course_add_tee("Windham Country Club","blue","6033","130","69.1","72");
+
+//array_sort_nested_struct(courselist_array,"name",true);
 
 // add scores
-var date = date_create_datetime(2018,5,16,1,1,1); scr_score_add_index("Putterham Meadows",teebox_list[| tee_marker.white],"86",date);
+var date = date_create_datetime(2018,5,16,1,1,1); scr_score_add_index("Putterham Meadows","white","86",date);
 var date = date_create_datetime(2018,5,19,1,1,1); scr_score_add_index("Apple Mountain Golf",teebox_list[| tee_marker.blue],"84",date);
 var date = date_create_datetime(2018,5,28,1,1,1); scr_score_add_index("Riverwinds",teebox_list[| tee_marker.white],"89",date);
 var date = date_create_datetime(2018,6,2,1,1,1); scr_score_add_index("South Shore Country Club",teebox_list[| tee_marker.blue],"97",date);
@@ -105,7 +180,7 @@ var date = date_create_datetime(2020,9,30,1,1,1); scr_score_add_index("Bass Rock
 var date = date_create_datetime(2020,10,3,1,1,1); scr_score_add_index("Crotched Mountain",teebox_list[| tee_marker.blue],"87",date,2);
 var date = date_create_datetime(2020,10,11,1,1,1); scr_score_add_index("Olde Scottish Links",teebox_list[| tee_marker.blue],"83",date,2);
 
-ds_list_sort_nested(master_score_list,score_data.date,false); // date sort
+array_sort_nested_struct(scorelist_array,"date",false); // date sort
 
 rounds_played = ds_list_size(master_score_list);
 

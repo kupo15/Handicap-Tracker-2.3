@@ -15,7 +15,7 @@ click_highlight_index = undefined;
 
 click_highlight_action = undefined;
 
-activeSubmenu = navbar.hidden;
+activeSubmenu = navbar.main;
 }
 
 function scr_click_highlight_set(xx,yy,ww,hh,col,screen_ind,array_pos){

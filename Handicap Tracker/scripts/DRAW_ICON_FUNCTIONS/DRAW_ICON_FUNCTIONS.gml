@@ -141,3 +141,15 @@ var col = c_white;
 draw_sprite_ext(spr,index,xx+xoff,yy+yoff,sca,sca,0,col,alpha);
 }
 
+
+function draw_icon_height_centered_color(spr,index,xx,yy,ww,hh,height,col,alpha) {
+	
+var spr_hh = sprite_get_height(spr);
+var sca = height/spr_hh;
+var spr_ww = sprite_get_width(spr)*sca;
+var xoff = abs(ww-spr_ww)*0.5;
+var yoff = abs(hh-height)*0.5;
+
+draw_sprite_ext(spr,index,xx+xoff,yy+yoff,sca,sca,0,col,alpha);
+}
+

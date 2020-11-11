@@ -5,7 +5,7 @@ function draw_playing() {
 	// draw course playing
 	var xx = 10;
 	var yy = 100;
-	var ww = 540;
+	var ww = app_width;
 	var sep = 100;
 	var height = 50;
 

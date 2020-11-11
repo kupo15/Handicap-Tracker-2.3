@@ -5,7 +5,7 @@ function draw_course_list() {
 	var height = 40;
 	var rows = 9.4;
 	var sep = 70;
-	var ww = 540;
+	var ww = app_width;
 	var hh = rows*sep;
 
 	var list_size = ds_list_size(master_course_list);
@@ -70,7 +70,7 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offse
 draw_screen_header(headerType.back,headerType.none,"Course List");
     
 // new course button
-var ww = 540;
+var ww = app_width;
 var hh = 95;
 var xx = 0;
 var yy = room_height-hh-(nav_height*nav_sca_off);
@@ -79,7 +79,7 @@ var col = c_white;
 draw_rectangle_color(xx,yy,xx+ww,yy+hh,col,col,col,col,false);
 draw_rectangle(xx,yy,xx+ww,yy+hh,true);
 draw_set_halign(fa_center);
-draw_text_height(540/2,yy+15,"Add Course",70);
+draw_text_height(app_width/2,yy+15,"Add Course",70);
 
 // clicked on course create
 if click_region_released(xx,yy,ww,hh,true,noone)

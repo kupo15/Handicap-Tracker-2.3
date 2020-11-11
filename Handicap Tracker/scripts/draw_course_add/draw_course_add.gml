@@ -12,7 +12,7 @@ var xx = 20;
 var yy = 120;
 var sep = 120;
 var height = 70;
-var ww = 540;
+var ww = app_width;
 
 var tee_pointer = course_id[| 1]; // teebox MAP
 var tee_color = teebox_list[| teebox_index]; // color
@@ -182,7 +182,7 @@ draw_course_details();
 			// if click_region_released(0,yy+(0*sep),ww,sep,true,navbar.hidden)
 			// move = course_data.tee;
 		
-			var ww = 540;
+			var ww = app_width;
 			if click_region_released(0*col,yy+(1*sep),ww,sep,true,navbar.hidden)
 			move = course_data.yardage;
 		
@@ -193,7 +193,7 @@ draw_course_details();
 			if click_region_released(1*col,yy+(2*sep),ww,sep,true,navbar.hidden)
 			move = course_data.rating;
 		
-			var ww = 540;
+			var ww = app_width;
 			if click_region_released(0*col,yy+(3*sep),ww,sep,true,navbar.hidden)
 			move = course_data.par;
 			}

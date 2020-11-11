@@ -65,7 +65,7 @@ function draw_score_add() {
 	draw_text_height(xx,yy+(4*sep),"Date Played",height*0.6,fn_italic); // draw date label
 	draw_text_height(xx,yy+45+(4*sep),date_str,height); // draw date
 
-	var ww = 540;
+	var ww = app_width;
 	for(var i=0;i<2;i++)
 	if click_region_released(0,yy+(i*sep),ww,sep,true,navbar.hidden)
 	    {

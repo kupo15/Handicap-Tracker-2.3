@@ -4,7 +4,7 @@ function scr_tee_filled_set(source_id) {
 if course_id == noone
 exit;
 
-if source_id == undefined
+if argument[0] == undefined
 	{	
 	var tee_pointer = course_id[| 1]; // tee marker MAP
 			

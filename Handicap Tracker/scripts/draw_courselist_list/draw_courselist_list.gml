@@ -4,10 +4,10 @@ function draw_courselist_list() {
 
 	var rows = 13.7;
 	var sep = 65;
-	var ww = 540;
+	var ww = app_width;
 	var hh = rows*sep;
 	var xx = 0;
-	var yy = 960+sep-((hh+sep)*coursebar_yoff_start);
+	var yy = room_height+sep-((hh+sep)*coursebar_yoff_start);
 	var height = 40;
 
 	//if clickout_region(xx,yy,ww,hh,true,0)

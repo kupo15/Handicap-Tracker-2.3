@@ -34,12 +34,16 @@ if file_exists(_filename)
 	var saveVersion = variable_struct_get(ROOT_data_struct,"version");
 
 	if saveVersion != json_version
-	scr_json_version_transition(saveVersion);
+		{
+		scr_json_version_transition(saveVersion);
+		ROOT_data_struct.version = json_version;
+		app_save;
+		}
 	else
 		{
 		// create data arrays
-		courselist_array = ROOT_data_struct.friendslist;
-		scorelist_array = ROOT_data_struct.event_history;
+		courselist_array = ROOT_data_struct.courselist;
+		scorelist_array = ROOT_data_struct.scorelist;
 
 		db(string(_filename)+" loaded");
 		}
