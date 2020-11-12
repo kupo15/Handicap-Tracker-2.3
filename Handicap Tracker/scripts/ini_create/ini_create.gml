@@ -23,6 +23,9 @@ course_id = noone;
 teebox_index = 00;
 index = 0;
 
+active_course = undefined;
+active_score = undefined;
+
 temp_course_tee = "";
 temp_course_yardage = "";
 temp_course_slope = "";

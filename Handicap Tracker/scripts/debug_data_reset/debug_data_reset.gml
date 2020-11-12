@@ -4,7 +4,7 @@ if !debug_reset
 exit;
 
 rounds_played = 0;
-courselist_struct = {};
+courselist_array = [];
 scorelist_array = [];
 scr_playing_clear();
 
@@ -74,10 +74,8 @@ scr_course_create("Newton Commonwealth");
 scr_course_add_tee("Newton Commonwealth","blue","5354","119","67.0","70");
 
 scr_course_create("Olde Scottish Links");
-scr_course_add_tee("Olde Scottish Links","black","6790","126","72.6","72");
-
-scr_course_create("Olde Scottish Links");
 scr_course_add_tee("Olde Scottish Links","blue","6306","124","70.3","72");
+scr_course_add_tee("Olde Scottish Links","black","6790","126","72.6","72");
 
 scr_course_create("Pembroke Country Club");
 scr_course_add_tee("Pembroke Country Club","blue","6677","132","73.3","71");
@@ -128,61 +126,59 @@ scr_course_add_tee("Waverly Oaks","gold","6682","124","72.3","72");
 scr_course_create("Windham Country Club");
 scr_course_add_tee("Windham Country Club","blue","6033","130","69.1","72");
 
-//array_sort_nested_struct(courselist_array,"name",true);
+array_sort_nested_struct(courselist_array,"name",true);
 
 // add scores
 var date = date_create_datetime(2018,5,16,1,1,1); scr_score_add_index("Putterham Meadows","white","86",date);
-var date = date_create_datetime(2018,5,19,1,1,1); scr_score_add_index("Apple Mountain Golf",teebox_list[| tee_marker.blue],"84",date);
-var date = date_create_datetime(2018,5,28,1,1,1); scr_score_add_index("Riverwinds",teebox_list[| tee_marker.white],"89",date);
-var date = date_create_datetime(2018,6,2,1,1,1); scr_score_add_index("South Shore Country Club",teebox_list[| tee_marker.blue],"97",date);
-var date = date_create_datetime(2018,6,18,1,1,1); scr_score_add_index("Riverwinds",teebox_list[| tee_marker.white],"88",date);
-var date = date_create_datetime(2018,7,29,1,1,1); scr_score_add_index("Pembroke Country Club",teebox_list[| tee_marker.blue],"96",date);
-var date = date_create_datetime(2018,8,5,1,1,1); scr_score_add_index("Putterham Meadows",teebox_list[| tee_marker.blue],"89",date);
-var date = date_create_datetime(2018,8,12,1,1,1); scr_score_add_index("Cape May National",teebox_list[| tee_marker.white],"90",date);
-var date = date_create_datetime(2018,9,16,1,1,1); scr_score_add_index("Nashua Country Club",teebox_list[| tee_marker.blue],"80",date);
-var date = date_create_datetime(2018,11,11,1,1,1); scr_score_add_index("Stow Acres C. C.-South Course",teebox_list[| tee_marker.blue],"90",date);
-var date = date_create_datetime(2019,4,13,1,1,1); scr_score_add_index("Crystal Lake Golf Club",teebox_list[| tee_marker.blue],"86",date);
-var date = date_create_datetime(2019,5,4,1,1,1); scr_score_add_index("Granite Fields Golf Club",teebox_list[| tee_marker.blue],"89",date);
-var date = date_create_datetime(2019,5,11,1,1,1); scr_score_add_index("Stow Acres C. C.-North Course",teebox_list[| tee_marker.blue],"91",date);
-var date = date_create_datetime(2019,5,22,1,1,1); scr_score_add_index("Bass Rocks",teebox_list[| tee_marker.gold],"84",date);
-var date = date_create_datetime(2019,5,26,1,1,1); scr_score_add_index("Cape May National",teebox_list[| tee_marker.white],"87",date);
-var date = date_create_datetime(2019,6,15,1,1,1); scr_score_add_index("Hickory Hills",teebox_list[| tee_marker.blue],"84",date);
-var date = date_create_datetime(2019,6,17,1,1,1); scr_score_add_index("Hickory Hills",teebox_list[| tee_marker.blue],"80",date);
-var date = date_create_datetime(2019,6,23,1,1,1); scr_score_add_index("Campbell's Scottish Highlands",teebox_list[| tee_marker.blue],"81",date);
-var date = date_create_datetime(2019,6,29,1,1,1); scr_score_add_index("Souhegan Woods",teebox_list[| tee_marker.blue],"79",date);
-var date = date_create_datetime(2019,7,13,1,1,1); scr_score_add_index("Ledges Golf Club",teebox_list[| tee_marker.black],"86",date);
-var date = date_create_datetime(2019,7,24,1,1,1); scr_score_add_index("Bass Rocks",teebox_list[| tee_marker.gold],"80",date);
-var date = date_create_datetime(2019,7,27,1,1,1); scr_score_add_index("Pembroke Country Club",teebox_list[| tee_marker.blue],"89",date);
-var date = date_create_datetime(2019,7,28,1,1,1); scr_score_add_index("Braintree Municipal",teebox_list[| tee_marker.white],"88",date);
-var date = date_create_datetime(2019,8,3,1,1,1); scr_score_add_index("Ledges Golf Club",teebox_list[| tee_marker.black],"81",date);
-var date = date_create_datetime(2019,8,10,1,1,1); scr_score_add_index("Riverwinds",teebox_list[| tee_marker.white],"81",date);
-var date = date_create_datetime(2019,8,17,1,1,1); scr_score_add_index("Windham Country Club",teebox_list[| tee_marker.blue],"90",date);
-var date = date_create_datetime(2019,9,11,1,1,1); scr_score_add_index("Charleston Springs",teebox_list[| tee_marker.gold],"82",date);
-var date = date_create_datetime(2019,10,28,1,1,1); scr_score_add_index("Broad Run Golf Club",teebox_list[| tee_marker.white],"84",date);
-var date = date_create_datetime(2020,5,16,1,1,1); scr_score_add_index("Waverly Oaks",teebox_list[| tee_marker.gold],"84",date,1);
-var date = date_create_datetime(2020,5,23,1,1,1); scr_score_add_index("Highfields",teebox_list[| tee_marker.gold],"83",date);
-var date = date_create_datetime(2020,6,18,1,1,1); scr_score_add_index("Riverwinds",teebox_list[| tee_marker.blue],"83",date);
-var date = date_create_datetime(2020,6,21,1,1,1); scr_score_add_index("Gardner Municipal",teebox_list[| tee_marker.blue],"83",date);
-var date = date_create_datetime(2020,6,27,1,1,1); scr_score_add_index("Crosswinds-Jones/Zaharias",teebox_list[| tee_marker.gold],"88",date,2);
-var date = date_create_datetime(2020,7,2,1,1,1); scr_score_add_index("Rolling Green",teebox_list[| tee_marker.blue],"89",date);
-var date = date_create_datetime(2020,7,5,1,1,1); scr_score_add_index("Shore Gate",teebox_list[| tee_marker.white],"84",date);
-var date = date_create_datetime(2020,7,18,1,1,1); scr_score_add_index("West Bridgewater Country Club",teebox_list[| tee_marker.gold],"78",date);
-var date = date_create_datetime(2020,7,19,1,1,1); scr_score_add_index("Olde Scottish Links",teebox_list[| tee_marker.black],"87",date,1);
-var date = date_create_datetime(2020,7,26,1,1,1); scr_score_add_index("Crosswinds-Jones/Zaharias",teebox_list[| tee_marker.gold],"87",date);
-var date = date_create_datetime(2020,8,2,1,1,1); scr_score_add_index("Olde Scottish Links",teebox_list[| tee_marker.blue],"83",date,1);
-var date = date_create_datetime(2020,8,8,1,1,1); scr_score_add_index("Atlantic Country Club",teebox_list[| tee_marker.gold],"80",date);
-var date = date_create_datetime(2020,8,14,1,1,1); scr_score_add_index("Vineyard Golf",teebox_list[| tee_marker.white],"83",date);
-var date = date_create_datetime(2020,8,22,1,1,1); scr_score_add_index("Campbell's Scottish Highlands",teebox_list[| tee_marker.blue],"77",date);
-var date = date_create_datetime(2020,8,30,1,1,1); scr_score_add_index("West Bridgewater Country Club",teebox_list[| tee_marker.gold],"89",date);
-var date = date_create_datetime(2020,9,4,1,1,1); scr_score_add_index("McCullough's Emerald Links",teebox_list[| tee_marker.blue],"80",date);
-var date = date_create_datetime(2020,9,26,1,1,1); scr_score_add_index("West Bridgewater Country Club",teebox_list[| tee_marker.gold],"91",date,2);
-var date = date_create_datetime(2020,9,30,1,1,1); scr_score_add_index("Bass Rocks",teebox_list[| tee_marker.gold],"79",date,1);
-var date = date_create_datetime(2020,10,3,1,1,1); scr_score_add_index("Crotched Mountain",teebox_list[| tee_marker.blue],"87",date,2);
-var date = date_create_datetime(2020,10,11,1,1,1); scr_score_add_index("Olde Scottish Links",teebox_list[| tee_marker.blue],"83",date,2);
+var date = date_create_datetime(2018,5,19,1,1,1); scr_score_add_index("Apple Mountain Golf","blue","84",date);
+var date = date_create_datetime(2018,5,28,1,1,1); scr_score_add_index("Riverwinds","white","89",date);
+var date = date_create_datetime(2018,6,2,1,1,1); scr_score_add_index("South Shore Country Club","blue","97",date);
+var date = date_create_datetime(2018,6,18,1,1,1); scr_score_add_index("Riverwinds","white","88",date);
+var date = date_create_datetime(2018,7,29,1,1,1); scr_score_add_index("Pembroke Country Club","blue","96",date);
+var date = date_create_datetime(2018,8,5,1,1,1); scr_score_add_index("Putterham Meadows","blue","89",date);
+var date = date_create_datetime(2018,8,12,1,1,1); scr_score_add_index("Cape May National","white","90",date);
+var date = date_create_datetime(2018,9,16,1,1,1); scr_score_add_index("Nashua Country Club","blue","80",date);
+var date = date_create_datetime(2018,11,11,1,1,1); scr_score_add_index("Stow Acres C. C.-South Course","blue","90",date);
+var date = date_create_datetime(2019,4,13,1,1,1); scr_score_add_index("Crystal Lake Golf Club","blue","86",date);
+var date = date_create_datetime(2019,5,4,1,1,1); scr_score_add_index("Granite Fields Golf Club","blue","89",date);
+var date = date_create_datetime(2019,5,11,1,1,1); scr_score_add_index("Stow Acres C. C.-North Course","blue","91",date);
+var date = date_create_datetime(2019,5,22,1,1,1); scr_score_add_index("Bass Rocks","gold","84",date);
+var date = date_create_datetime(2019,5,26,1,1,1); scr_score_add_index("Cape May National","white","87",date);
+var date = date_create_datetime(2019,6,15,1,1,1); scr_score_add_index("Hickory Hills","blue","84",date);
+var date = date_create_datetime(2019,6,17,1,1,1); scr_score_add_index("Hickory Hills","blue","80",date);
+var date = date_create_datetime(2019,6,23,1,1,1); scr_score_add_index("Campbell's Scottish Highlands","blue","81",date);
+var date = date_create_datetime(2019,6,29,1,1,1); scr_score_add_index("Souhegan Woods","blue","79",date);
+var date = date_create_datetime(2019,7,13,1,1,1); scr_score_add_index("Ledges Golf Club","black","86",date);
+var date = date_create_datetime(2019,7,24,1,1,1); scr_score_add_index("Bass Rocks","gold","80",date);
+var date = date_create_datetime(2019,7,27,1,1,1); scr_score_add_index("Pembroke Country Club","blue","89",date);
+var date = date_create_datetime(2019,7,28,1,1,1); scr_score_add_index("Braintree Municipal","white","88",date);
+var date = date_create_datetime(2019,8,3,1,1,1); scr_score_add_index("Ledges Golf Club","black","81",date);
+var date = date_create_datetime(2019,8,10,1,1,1); scr_score_add_index("Riverwinds","white","81",date);
+var date = date_create_datetime(2019,8,17,1,1,1); scr_score_add_index("Windham Country Club","blue","90",date);
+var date = date_create_datetime(2019,9,11,1,1,1); scr_score_add_index("Charleston Springs","gold","82",date);
+var date = date_create_datetime(2019,10,28,1,1,1); scr_score_add_index("Broad Run Golf Club","white","84",date);
+var date = date_create_datetime(2020,5,16,1,1,1); scr_score_add_index("Waverly Oaks","gold","84",date,1);
+var date = date_create_datetime(2020,5,23,1,1,1); scr_score_add_index("Highfields","gold","83",date);
+var date = date_create_datetime(2020,6,18,1,1,1); scr_score_add_index("Riverwinds","blue","83",date);
+var date = date_create_datetime(2020,6,21,1,1,1); scr_score_add_index("Gardner Municipal","blue","83",date);
+var date = date_create_datetime(2020,6,27,1,1,1); scr_score_add_index("Crosswinds-Jones/Zaharias","gold","88",date,2);
+var date = date_create_datetime(2020,7,2,1,1,1); scr_score_add_index("Rolling Green","blue","89",date);
+var date = date_create_datetime(2020,7,5,1,1,1); scr_score_add_index("Shore Gate","white","84",date);
+var date = date_create_datetime(2020,7,18,1,1,1); scr_score_add_index("West Bridgewater Country Club","gold","78",date);
+var date = date_create_datetime(2020,7,19,1,1,1); scr_score_add_index("Olde Scottish Links","black","87",date,1);
+var date = date_create_datetime(2020,7,26,1,1,1); scr_score_add_index("Crosswinds-Jones/Zaharias","gold","87",date);
+var date = date_create_datetime(2020,8,2,1,1,1); scr_score_add_index("Olde Scottish Links","blue","83",date,1);
+var date = date_create_datetime(2020,8,8,1,1,1); scr_score_add_index("Atlantic Country Club","gold","80",date);
+var date = date_create_datetime(2020,8,14,1,1,1); scr_score_add_index("Vineyard Golf","white","83",date);
+var date = date_create_datetime(2020,8,22,1,1,1); scr_score_add_index("Campbell's Scottish Highlands","blue","77",date);
+var date = date_create_datetime(2020,8,30,1,1,1); scr_score_add_index("West Bridgewater Country Club","gold","89",date);
+var date = date_create_datetime(2020,9,4,1,1,1); scr_score_add_index("McCullough's Emerald Links","blue","80",date);
+var date = date_create_datetime(2020,9,26,1,1,1); scr_score_add_index("West Bridgewater Country Club","gold","91",date,2);
+var date = date_create_datetime(2020,9,30,1,1,1); scr_score_add_index("Bass Rocks","gold","79",date,1);
+var date = date_create_datetime(2020,10,3,1,1,1); scr_score_add_index("Crotched Mountain","blue","87",date,2);
+var date = date_create_datetime(2020,10,11,1,1,1); scr_score_add_index("Olde Scottish Links","blue","83",date,2);
 
 array_sort_nested_struct(scorelist_array,"date",false); // date sort
-
-rounds_played = ds_list_size(master_score_list);
 
 scr_handicap_calculate();
 json_save_array(save_data,ROOT_data_struct);

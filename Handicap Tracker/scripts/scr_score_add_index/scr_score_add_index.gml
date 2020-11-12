@@ -9,15 +9,22 @@ function scr_score_add_index(c_name,tee_color,_score,date,strokes) {
 if argument[4] == undefined
 strokes = "0";
 
-var struct = course_find_struct(c_name);
+var struct = course_find_array(c_name);
 
 if struct == undefined
 	{
 	show_message(string(c_name)+" not found > not adding score");
 	exit;
 	}
-
+	
 var teeData = variable_struct_get(struct.teeMap,tee_color);
+
+if teeData == undefined
+	{	
+	show_message(string(c_name)+" "+string(tee_color)+" tees not found > not adding score");
+	exit;
+	}
+
 var course_yardage = teeData.courseYardage;
 var course_slope = teeData.courseSlope;
 var course_rating = teeData.courseRating;
@@ -40,8 +47,8 @@ var score_struct = {
 	indexHistory: undefined,
 	esr: 0,
 	}	
-cs(json_stringify(score_struct))
-sm(score_struct)
+
+array_push(scorelist_array,score_struct);
 rounds_played ++;
 
 return struct;

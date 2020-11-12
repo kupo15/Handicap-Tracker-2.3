@@ -66,26 +66,33 @@ return ds_list_size(master_course_list)-1;
 }
 
 
-function scr_course_create(name,struct) {
+function scr_course_create(name,array) {
 /// @param [name]
-/// @param [struct]
+/// @param [array]
 
 if argument[0] == undefined
 name = "";
 
 if argument[1] == undefined
-struct = courselist_struct;
+array = courselist_array;
 
-var courseStruct = {
+active_course = {
 	
+	courseName: name,
 	teeMap: {},
 
 	}
 	
-if struct != undefined
-scr_course_add_struct(struct,courseStruct,name);
+// add to master courselist
+if array != undefined
+scr_course_add_array(array,active_course);
 
-return courseStruct;
+return active_course;
+}
+
+function scr_course_add_array(array,courseStruct) {
+	
+array_push(array,courseStruct);	
 }
 
 function scr_course_add_struct(destStruct,courseStruct,courseName) {
@@ -104,12 +111,16 @@ var tee = {
 	coursePar: par,
 	}
 
-// add to course
-var struct = course_find_struct(courseName);
+// add tee color data to active course's teeMap
+variable_struct_set(active_course.teeMap,teeColor,tee);
 
+
+// add to course
+//var struct = course_find_array(courseName);
+/*
 if struct != undefined
-variable_struct_set(struct.teeMap,teeColor,tee);
+variable_struct_set(active_course.teeMap,teeColor,tee);
 else
-sm("course not found");
+sm("course not found");*/
 }
 

@@ -35,3 +35,24 @@ struct = courselist_struct
 		
 return variable_struct_get(struct,courseName);	
 }
+
+function course_find_array(courseName,array) {
+/// @param courseName		
+/// @param [sourceArray]
+		
+if argument[1] == undefined
+array = courselist_array
+		
+// loop through course list
+var size = array_length(array);
+for(var i=0;i<size;i++)
+	{
+	var struct = array[i];
+	var name = struct.courseName;
+	
+	if name == courseName
+	return struct;
+	}
+	
+return undefined;
+}
