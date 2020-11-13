@@ -27,7 +27,7 @@ draw_text_height(xx,yy+((debugyoff+2)*sep),"kvLastString: "+string(kvLastString)
 debugyoff = 11;
 //debug_draw_click_highlight(xx,yy,debugyoff,sep,height);
 //debug_draw_vk(xx,yy,debugyoff,sep,height);
-//debug_draw_textbox(xx,yy,debugyoff,sep,height);
+debug_draw_textbox(xx,yy,debugyoff,sep,height);
 //debug_draw_modes(xx,yy,debugyoff,sep,height);
 //debug_draw_textbox_cursor(xx,yy,debugyoff,sep,height);	
 //debug_draw_scrollbars(xx,yy,debugyoff,sep,height);	

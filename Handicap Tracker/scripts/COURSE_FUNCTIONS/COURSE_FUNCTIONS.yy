@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Course",
-    "path": "folders/Screens/Course.yy",
+    "name": "Handicap Tracker",
+    "path": "Handicap Tracker.yyp",
   },
   "resourceVersion": "1.0",
-  "name": "draw_course_list",
+  "name": "COURSE_FUNCTIONS",
   "tags": [],
   "resourceType": "GMScript",
 }

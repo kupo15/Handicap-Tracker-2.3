@@ -4,9 +4,7 @@ if !debug_reset
 exit;
 
 rounds_played = 0;
-courselist_array = [];
-scorelist_array = [];
-scr_playing_clear();
+root_data_create();
 
 // debug
 scr_course_create("Atlantic Country Club");
@@ -29,8 +27,6 @@ scr_course_add_tee("Campbell's Scottish Highlands","blue","6249","121","70.1","7
 
 scr_course_create("Cape May National");
 scr_course_add_tee("Cape May National","white","6063","125","69.0","71");
-
-scr_course_create("Cape May National");
 scr_course_add_tee("Cape May National","blue","6592","130","71.4","71");
 
 scr_course_create("Charleston Springs");
@@ -181,7 +177,7 @@ var date = date_create_datetime(2020,10,11,1,1,1); scr_score_add_index("Olde Sco
 array_sort_nested_struct(scorelist_array,"date",false); // date sort
 
 scr_handicap_calculate();
-json_save_array(save_data,ROOT_data_struct);
+app_save;
 
 
 }

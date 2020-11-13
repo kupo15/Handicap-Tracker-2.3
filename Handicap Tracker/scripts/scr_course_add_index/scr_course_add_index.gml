@@ -113,14 +113,5 @@ var tee = {
 
 // add tee color data to active course's teeMap
 variable_struct_set(active_course.teeMap,teeColor,tee);
-
-
-// add to course
-//var struct = course_find_array(courseName);
-/*
-if struct != undefined
-variable_struct_set(active_course.teeMap,teeColor,tee);
-else
-sm("course not found");*/
 }
 

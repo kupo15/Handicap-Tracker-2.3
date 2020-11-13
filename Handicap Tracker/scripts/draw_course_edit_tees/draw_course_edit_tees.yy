@@ -6,7 +6,7 @@
     "path": "folders/Screens/Course.yy",
   },
   "resourceVersion": "1.0",
-  "name": "draw_course_list",
+  "name": "draw_course_edit_tees",
   "tags": [],
   "resourceType": "GMScript",
 }

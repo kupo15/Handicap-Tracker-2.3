@@ -255,7 +255,7 @@ function draw_date_edit() {
 		submenu = navbar.main;
 	    screenIndex = prev_screen;
 		date_pointer = noone;
-		json_save(save_data);
+		app_save;
 	    }
 
 

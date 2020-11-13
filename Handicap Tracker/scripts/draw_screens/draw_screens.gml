@@ -31,6 +31,7 @@ switch screenIndex
 	
 	case screen.add_course:
 	case screen.edit_course: draw_course_add(); break;
+	case screen.edit_tees: draw_course_edit_tees(); break;
 	
 	case screen.edit_date: draw_date_edit_calendar(); break;
 	

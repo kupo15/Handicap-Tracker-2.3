@@ -1,8 +1,11 @@
-function vk_hide() {
+function vk_hide(sub) {
+/// @param [submenu]
 
 keyboard_virtual_hide(); // hide keyboard
 	
-submenu = navbar.main;
+if argument[0] != undefined
+submenu = sub;
+
 numpad_value = "";
 kvActive = false;
 androidBack = false;

@@ -35,6 +35,7 @@ var score_struct = {
 
 	courseName: c_name,
 	teeColor: tee_color,
+	courseYardage: course_yardage,
 	courseSlope: course_slope,
 	courseRating: course_rating,
 	coursePar: course_par,

@@ -16,6 +16,7 @@ enumcount,
 
 add_score,
 add_course,
+edit_tees,
 edit_course,
 edit_score,
 edit_date
@@ -64,6 +65,7 @@ teebar,
 year_select,
 parbar,
 scorebar,
+numpad
 }
 
 enum tee_marker {

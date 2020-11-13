@@ -130,7 +130,7 @@ function draw_score_add() {
 		if click_region_released(xx,yy,ww,hh,true,navbar.hidden)
 			{
 			ds_list_delete(master_score_list,index); // delete score
-			json_save(save_data);
+			app_save;
 
 			submenu = navbar.main;
 	        screenIndex = screen.score_list;
@@ -183,7 +183,7 @@ function draw_score_add() {
 	
 		scr_handicap_calculate();
 		ds_list_sort_nested(master_score_list,score_data.date,false); // date sort
-		json_save(save_data);
+		app_save;
 		}
 	
 	if androidBack

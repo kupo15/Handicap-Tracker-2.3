@@ -1,6 +1,5 @@
 function ini_teebox() {
 	
-	
 teebox_list = ds_list_create();
 
 ds_list_add(teebox_list,"Green");

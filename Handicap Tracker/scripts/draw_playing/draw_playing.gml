@@ -214,7 +214,7 @@ function draw_playing() {
 	if click_region_released(xx,yy,ww,hh,true,navbar.main) // && submit
 		{
 		scr_playing_clear();
-		json_save(save_data);
+		app_save;
 		}
 #endregion
 
@@ -249,7 +249,7 @@ function draw_playing() {
 		ds_list_sort_nested(master_score_list,score_data.date,false); // date sort
 		scr_handicap_calculate();
 
-		json_save(save_data);
+		app_save;
 	
 		// reset playing course
 		play_course_id = noone;

@@ -30,16 +30,17 @@ function json_load_array(_filename) {
 if file_exists(_filename)
 	{
 	ROOT_data_struct = LoadJSONFromFile(_filename); 
-	
+
 	var saveVersion = variable_struct_get(ROOT_data_struct,"version");
 
 	if saveVersion != json_version
 		{
 		scr_json_version_transition(saveVersion);
 		ROOT_data_struct.version = json_version;
+		
 		app_save;
 		}
-	else
+	else // load 
 		{
 		// create data arrays
 		courselist_array = ROOT_data_struct.courselist;

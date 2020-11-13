@@ -1,9 +1,7 @@
 function ini_create() {
 
 ini_teebox();
-
-master_score_list = ds_list_create();
-master_course_list = ds_list_create();
+scr_playing_clear();
 
 ghin_index = 0;
 rounds_played = 0;
@@ -24,6 +22,7 @@ teebox_index = 00;
 index = 0;
 
 active_course = undefined;
+active_tee = undefined;
 active_score = undefined;
 
 temp_course_tee = "";

@@ -1,1 +1,1 @@
-json_save(save_data);
+app_save;

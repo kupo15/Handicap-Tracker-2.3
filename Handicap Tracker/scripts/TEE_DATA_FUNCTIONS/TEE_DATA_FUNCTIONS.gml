@@ -6,19 +6,15 @@ exit;
 
 if argument[0] == undefined
 	{	
-	var tee_pointer = course_id[| 1]; // tee marker MAP
+	var tee_pointer = course_id.teeMap; // tee marker MAP
 			
 	var size = ds_list_size(teebox_filled);
 	for(var i=0;i<size;i++)
 		{
 		var tee_col = teebox_list[| i]; // get tee color
-		var tee_data_pointer = tee_pointer[? tee_col];
-		var course_yardage = tee_data_pointer[| tee_data.yardage];
-	
-		if course_yardage == ""
-		teebox_filled[| i] = false;
-		else
-		teebox_filled[| i] = true;
+		var tee_data_pointer = variable_struct_get(tee_pointer,string_lower(tee_col));
+
+		teebox_filled[| i] = (tee_data_pointer != undefined);
 		}
 	}
 else
@@ -28,7 +24,6 @@ else
 		{
 		var course_yardage = temp_tee_data[i][| tee_data.yardage];
 
-		
 		if course_yardage == ""
 		teebox_filled[| i] = false;
 		else
@@ -43,7 +38,7 @@ function scr_tee_set() {
 if course_id == noone
 exit;
 
-var tee_pointer = course_id[| 1]; // tee marker MAP
+var tee_pointer = course_id.teeMap; // tee marker MAP
 
 var size = ds_list_size(teebox_list);
 for(var i=0;i<size;i++)

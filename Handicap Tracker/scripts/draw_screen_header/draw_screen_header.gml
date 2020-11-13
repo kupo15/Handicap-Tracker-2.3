@@ -3,7 +3,7 @@ function draw_screen_header(header_left,header_right,header_string,height) {
 /// @param header_left
 /// @param header_right
 /// @param header_string
-/// @param [header_height]
+/// @param [stringHeight]
 
 
 if argument[3] == undefined
@@ -91,7 +91,7 @@ var xoff = (hh-size)*0.5;
 
 draw_menu_xout(xx+xoff,yy+xoff,size,size,3,c_white); // draw xout
 
-if mode_delete && click_region_released(0,0,hh,hh,true,navbar.hidden)
+if mode_delete && click_region_released(0,0,hh,hh,true,submenu)
 	{
 	mode_delete = false;
 	androidBack = false;
@@ -113,7 +113,7 @@ draw_text_height(xx,yy+yoff,string(count)+" selected",height); // draw number of
 var xx = room_width-hh-20;
 draw_icon_height_centered(ico_trash3,0,xx,yy,hh,hh,40,headerDeleteOffsetDisp); // trash icon
 
-if click_region_released(xx,0,hh,hh,true,navbar.hidden) && mode_delete
+if click_region_released(xx,0,hh,hh,true,submenu) && mode_delete
 delete_list_delete_array(deleteList,mode_delete_list_id);
 
 draw_set_color(c_black);

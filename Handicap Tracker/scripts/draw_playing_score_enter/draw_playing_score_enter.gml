@@ -117,7 +117,7 @@ function draw_playing_score_enter() {
 		ds_list_sort_nested(master_score_list,score_data.date,false); // date sort
 		scr_handicap_calculate();
 
-		json_save(save_data);
+		app_save;
 	
 		// reset playing course
 		play_course_id = noone;
