@@ -32,6 +32,7 @@
 
 // sidebar
 #macro side_menu_width 420
+#macro SIDEBAR_LERP 0.2
 
 // clicking
 #macro press_hold_timer 30

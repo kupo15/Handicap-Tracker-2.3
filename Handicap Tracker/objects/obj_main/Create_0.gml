@@ -5,8 +5,8 @@ debug_submenu_names();
 ini_config();
 ini_shared();
 
-ini_create();
 json_data_load();
+ini_create();
 
 
 

@@ -27,12 +27,9 @@ function scr_navbar_click(ind) {
 							  break;
 				
 		// stats screen
-		case screen.stats: course_id = master_course_list[| stat_index];
+		case screen.stats: course_id = courselist_array[stat_index];
 						   scr_stats_set();
-						   break;
-					
-		// score card
-		case screen.score_card: submenu = navbar.hidden; break;
+						   break;				
 			
 		// trends
 		case screen.index: scr_trend_set(); break;

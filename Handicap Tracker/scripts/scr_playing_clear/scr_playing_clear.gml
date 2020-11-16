@@ -13,4 +13,5 @@ play_course_handicap_inc = noone;
 play_course_handicap_dec = noone;
 play_course_score = "";
 play_course_esc = "";
+
 }

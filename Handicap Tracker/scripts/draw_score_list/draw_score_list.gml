@@ -4,11 +4,13 @@ function draw_score_list() {
 var course_next = false;
 var xx = 20;
 var yy = 100;
-var height = 40;
-var sep = 110;
+var height = 35;
+var sep = 80;
 var ww = app_width;
 var hh = app_height-sep-yy;
 var rows = hh/sep;
+var col = make_color_rgb(232,237,255);
+var tee_str_col = make_color_rgb(38,72,106);
 
 var list_size = array_length(scorelist_array);
 var pos_start = floor(score_list_offset);
@@ -32,28 +34,31 @@ for(var i=pos_start;i<pos_end;i++)
 	var date_string = string(month)+"/"+string(day)+"/"+string(year);
 	var off_pos = i-score_list_offset;
 	
-	// var course_handicap = score_pointer.courseHandicap;
-	//	draw_text_height(xx+390,yy+50+(off_pos*sep),course_handicap,40); // draw score shot
-	//	draw_text_height(xx+390,yy+(off_pos*sep),course_esr,40); // draw score shot
+	//var course_handicap = score_pointer.courseHandicap;
+	//draw_text_height(xx+390,yy+50+(off_pos*sep),course_handicap,40); // draw score shot
+	//draw_text_height(xx+390,yy+(off_pos*sep),course_esr,40); // draw score shot
 
-	var course_str = string_abbreviate(course_name,560,60,"...");
-	draw_text_height(xx,yy+15+(off_pos*sep),course_str,height); // draw course name
-	draw_text_height(xx+425,yy+15+(off_pos*sep),real(_score)-real(strokes),60); // draw score shot
+	var course_str = string_abbreviate(course_name,380,height,"...");
+	draw_text_height(xx,yy+10+(off_pos*sep),course_str,height); // draw course name
+	draw_text_height(xx+425,yy+15+(off_pos*sep),real(_score)-real(strokes),50); // draw score shot
 	
 	if strokes != 0
-	draw_text_height(xx+488,yy+30+(off_pos*sep),"+"+string(strokes),30); // draw strokes given
+	draw_text_height(xx+472,yy+15+(off_pos*sep),"+"+string(strokes),20); // draw strokes given
+	
+	// tee info
+	draw_roundrect_color_ext(xx+10,yy+45+(off_pos*sep),xx+245,yy+45+30+(off_pos*sep),25,30,col,col,false); // background
+	draw_tee_marker(xx+25,yy+45+15+(off_pos*sep),6,course_tee); // draw tee marker
 	
 	var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
-	draw_tee_marker(xx+15,yy+90+(off_pos*sep),8,course_tee); // draw tee marker
-	
-	draw_text_height(xx+35,yy+75+(off_pos*sep),str,36); // draw slope/rating
-	draw_text_height(xx+360,yy+75+(off_pos*sep),date_string,36); // draw date played
+	draw_text_height_middled_color(xx+40,yy+45+(off_pos*sep),str,30,tee_str_col,25,1); // draw slope/rating
+
+	draw_text_height_color(xx+260,yy+55+(off_pos*sep),date_string,c_gray,23); // draw date played
 			
-	//    draw_text_height(xx,yy+45+(off_pos*sep),i+1,height); // i
-	//    draw_text_height(xx+35,yy+40+(off_pos*sep),string_format(course_handicap,2,1),36); // draw course handicap
+	// draw_text_height(xx,yy+45+(off_pos*sep),i+1,height); // i
+	// draw_text_height(xx+35,yy+40+(off_pos*sep),string_format(course_handicap,2,1),36); // draw course handicap
 	
-	//	var index_history = score_pointer.indexHistory;
-	//    draw_text_height(xx+105,yy+40+(off_pos*sep),string_format(index_history,2,1),36); // draw index
+	// var index_history = score_pointer.indexHistory;
+	// draw_text_height(xx+105,yy+40+(off_pos*sep),string_format(index_history,2,1),36); // draw index
 
 
 /*
@@ -128,7 +133,7 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offse
 #endregion
     
 // Header
-draw_screen_header(headerType.back,headerType.none,"ADJ. Score History");
+draw_screen_header(headerType.back,headerType.none,"Score History");
 	
 // new score button
 var ww = app_width;

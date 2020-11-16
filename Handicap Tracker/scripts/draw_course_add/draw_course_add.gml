@@ -61,20 +61,21 @@ for(var i=0;i<size;i++)
 	draw_tee_marker(xx+25,yyy+30+(i*vsep),10,teeColor); // draw teebox marker
     
 	// clicked on a tee marker
-	if click_region_released(0,yyy+(i*vsep),ww,vsep,true,navbar.hidden)
+	if click_region_released(0,yyy+(i*vsep),ww,vsep,true,navbar.hidden,1)
 		{
-		textboxIndex = course_data.tee;		
-		teebox_index = i;
+		screen_change(screen.edit_tees);
 					
 		// set temp entry data
-		temp_course_yardage = temp_tee_data[i][| tee_data.yardage];
-		temp_course_slope = temp_tee_data[i][| tee_data.slope];
-		temp_course_rating = temp_tee_data[i][| tee_data.rating];
-		temp_course_par = temp_tee_data[i][| tee_data.par];
+		active_tee = variable_struct_get(active_course.teeMap,string_lower(teeColor));
+		tee_index = i;
+		
+		course_edit_yardage = active_tee.courseYardage;
+		course_edit_slope = active_tee.courseSlope;
+		course_edit_rating = active_tee.courseRating;
+		course_edit_par = active_tee.coursePar;
 		
 		if screenIndex == screen.add_score || screenIndex == screen.edit_score
 			{
-				show_message("")
 			var tee_pointer = course_id[| 1]; // tee marker MAP
 			var tee = teebox_list[| teebox_index]; // tee color
 				

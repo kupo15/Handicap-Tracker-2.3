@@ -45,15 +45,16 @@ screen_goto_actions();
 function screen_goto_actions() {
 
 vk_hide();
-/*
+
 switch screenIndex
 	{
-	case screen.receiptAmount:
-	case screen.receiptUpdate:
-	case screen.receiptCreate: click_textbox_set(receipt_price,0,kbv_type_numbers); break;
+	case screen.score_card: submenu = navbar.hidden; break;
 	
-	case screen.friendsProfile: mode_new_member = false; break;
-	}	*/
+	//case screen.receiptUpdate:
+	//case screen.receiptCreate: click_textbox_set(receipt_price,0,kbv_type_numbers); break;
+	
+	//case screen.friendsProfile: mode_new_member = false; break;
+	}	
 	
 searched_name = "";
 transitionReady = 0;

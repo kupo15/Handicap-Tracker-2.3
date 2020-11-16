@@ -3,12 +3,13 @@ function ini_create() {
 ini_teebox();
 scr_playing_clear();
 
-ghin_index = 0;
-rounds_played = 0;
-round_selection = 20;
+recent_scores_list = ds_list_create();
 
 //
-
+top_scores = 8;
+ghin_index = 0;
+round_selection = 20;
+rounds_played = array_length(scorelist_array);
 old_course_name = "";
 
 handicap_trend_type = 0;
@@ -24,6 +25,7 @@ index = 0;
 active_course = undefined;
 active_tee = undefined;
 active_score = undefined;
+tee_index = undefined;
 
 temp_course_tee = "";
 temp_course_yardage = "";

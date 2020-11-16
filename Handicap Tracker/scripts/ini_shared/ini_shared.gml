@@ -1,7 +1,7 @@
 
 function ini_shared(){
 
-draw_set_circle_precision(32);
+draw_set_circle_precision(64);
 
 ini_screen_change();
 ini_timers();

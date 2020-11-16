@@ -55,4 +55,5 @@ for(var i=0;i<ico_num;i++)
 	scr_navbar_click(i);
 	}
 
+draw_set_alpha(1);
 }

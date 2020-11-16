@@ -19,6 +19,8 @@ if androidBack
 	}
 	
 draw_set_halign(fa_left);
+
+draw_background_screen();
 switch screenIndex
 	{
 	case screen.home: draw_home(); break;
@@ -46,9 +48,9 @@ switch screenIndex
 		
 // draw_footer_button();
 
-//draw_darken_screen();
-draw_sidebar_main_menu();
+draw_darken_screen();
 draw_nav_bar();
+draw_sidebar_main_menu();
 
 draw_courselist_list();
 draw_teebox_list();

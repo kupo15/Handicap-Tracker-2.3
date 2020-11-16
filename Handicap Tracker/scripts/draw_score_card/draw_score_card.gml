@@ -20,20 +20,21 @@ var size = ds_list_size(recent_scores_list);
 for(var i=0;i<size;i++)
 	{
 	var score_pointer = recent_scores_list[| i];
-	var _strokes = score_pointer[| score_data.strokes];
+	var _strokes = score_pointer.roundStrokes;
+	
 	if _strokes == ""
 	_strokes = 0;
 		
-	var course_name = string_abbreviate(score_pointer[| score_data.course],210,height*0.8,"...");
-	var score_ = real(score_pointer[| score_data.score_])-real(_strokes);
-	var date = score_pointer[| score_data.date];
+	var course_name = string_abbreviate(score_pointer.courseName,210,height*0.8,"...");
+	var score_ = real(score_pointer.roundScore)-real(_strokes);
+	var date = score_pointer.roundDate;
 	var month = date_get_month(date);
 	var day = date_get_day(date);
 	var year = date_get_year(date);
 	var date_str = string(month)+"/"+string(day)+"/"+string(year);
 	
 	var active = "";
-	if active_scores_grid[# 3,i]
+	if score_pointer.indexIncluded
 	active = "*";
 	
 	draw_text_height(xx+(xsep*(i>=10)),yy+((i mod 10)*ysep),date_str,height); // draw date
@@ -43,10 +44,7 @@ for(var i=0;i<size;i++)
 	
 	
 if androidBack
-	{
-	screenIndex = screen.home;
-	submenu = navbar.main;
-	}
+screen_goto_prev(navbar.main);
 
 
 }

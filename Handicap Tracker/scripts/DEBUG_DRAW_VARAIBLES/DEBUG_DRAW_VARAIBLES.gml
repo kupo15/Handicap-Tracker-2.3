@@ -117,7 +117,7 @@ draw_text_height(xx,yy+((ind+4)*sep),"Region Size: ["+string(abs(mouse_xpos-mous
 debugyoff += 6;
 }
 
-function debug_device_info(xx,yy,sep,height) {
+function debug_device_info(xx,yy,ind,sep,height) {
 	
 draw_set_halign(fa_left);
 draw_rectangle(50,250,250,450,true);
@@ -125,22 +125,22 @@ draw_rectangle(50,250,250,450,true);
 var ww = display_get_width();
 var hh = display_get_height();
 
-draw_text_height(xx,yy+(0*sep),"display: "+string(ww)+" x "+string(hh),height);
+draw_text_height(xx,yy+((ind+0)*sep),"display: "+string(ww)+" x "+string(hh),height);
 
 var ww = window_get_width();
 var hh = window_get_height();
-draw_text_height(xx,yy+(1*sep),"window: "+string(ww)+" x "+string(hh),height);
+draw_text_height(xx,yy+((ind+1)*sep),"window: "+string(ww)+" x "+string(hh),height);
 
 var ww = surface_get_width(application_surface);
 var hh = surface_get_height(application_surface);
-draw_text_height(xx,yy+(2*sep),"app surf: "+string(ww)+" x "+string(hh),height);
+draw_text_height(xx,yy+((ind+2)*sep),"app surf: "+string(ww)+" x "+string(hh),height);
 
 var ww = display_get_gui_width();
 var hh = display_get_gui_height();
-draw_text_height(xx,yy+(3*sep),"gui window: "+string(ww)+" x "+string(hh),height);
+draw_text_height(xx,yy+((ind+3)*sep),"gui window: "+string(ww)+" x "+string(hh),height);
 
-draw_text_height(xx,yy+(4*sep),"window xpos: "+string(window_get_x),height);
-draw_text_height(xx,yy+(5*sep),"window ypos: "+string(window_get_y),height);
+draw_text_height(xx,yy+((ind+4)*sep),"window xpos: "+string(window_get_x),height);
+draw_text_height(xx,yy+((ind+5)*sep),"window ypos: "+string(window_get_y),height);
 
 debugyoff += 7;
 }

@@ -339,11 +339,10 @@ function string_abbreviate(str,ll,height,abbre) {
 /// @param abbrev_string
 
 var new_str = "";
-var str_ll = string_length(str); // number of charaters
+var str_ll = string_length(str); // number of characters
 
-var wantSize = height; // height of text I want
 var currSize = string_height(str);
-var scale = wantSize / currSize;
+var scale = height / currSize;
 
 // loop through string
 for(var i=0;i<str_ll;i++)
