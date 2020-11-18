@@ -13,11 +13,11 @@ var struct = course_find_array(c_name);
 
 if struct == undefined
 	{
-	show_message(string(c_name)+" not found > not adding score");
+	db(string(c_name)+" not found > not adding score");
 	exit;
 	}
 	
-var teeData = variable_struct_get(struct.teeMap,tee_color);
+var teeData = variable_struct_get(struct.subcourses[0],tee_color);
 
 if teeData == undefined
 	{	

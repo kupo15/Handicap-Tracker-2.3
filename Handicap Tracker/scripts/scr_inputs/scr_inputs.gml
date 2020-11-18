@@ -7,12 +7,17 @@ androidBackSidebar = input_android_back(vk_down,noone,noone);
 //kvActive = false;
 
 if os_type == os_android 
-var bs_key = keyboard_check_released(vk_backspace);
+	{
+	var bs_key = keyboard_check_released(vk_backspace);
+	virtual_keyboard_enter = keyboard_check_released(vk_return);
+	}
 else if os_type == os_windows
-var bs_key = keyboard_check_pressed(vk_backspace);
+	{
+	var bs_key = keyboard_check_pressed(vk_backspace);
+	virtual_keyboard_enter = keyboard_check_pressed(vk_return);
+	}
 
 kv_input_backspace = !androidBack && bs_key;
-virtual_keyboard_enter = keyboard_check_released(vk_return);
 
 // monitor mouse distances
 if mouse_check_button_pressed(mb_left)
@@ -67,6 +72,11 @@ if keyboard_check_pressed(vk_escape)
 game_end();
 	
 	
+if mouse_check_button_pressed(mb_middle)
+	{
+	mouse_xpos = mouse_x;
+	mouse_ypos = mouse_y;
+	}
 }
 	
 	

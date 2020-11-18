@@ -46,6 +46,8 @@ switch screenIndex
 	case screen.help_info: draw_help_info(); break;
 	}
 		
+numpad_value = draw_numpad_golf(numpad_value);
+		
 // draw_footer_button();
 
 draw_darken_screen();

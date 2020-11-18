@@ -130,11 +130,15 @@ draw_text_ext_transformed_color(xx,yy,str,sep_scale,w,scale,scale,angle,col,col,
 var ww = string_width(str)*scale;
 var xoff = (draw_get_halign() == fa_center)*ww*0.5;
 
-if (os_type == os_windows) && click_region(xx-xoff-20,yy-20,ww+40,height+40,false,noone,submenu)
+if (os_type == os_windows) && click_region(xx-xoff-20,yy-2,ww+40,height+4,false,noone,submenu)
 	{
 	var ww = 3;
 	draw_line_color(xx-ww,yy,xx+ww,yy,col,col);
 	draw_line_color(xx,yy-ww,xx,yy+ww,col,col);
+	
+	debugStringXpos = xx;
+	debugStringYpos = yy;
+	debugStringHeight = height;
 	}
 
 return scale;	

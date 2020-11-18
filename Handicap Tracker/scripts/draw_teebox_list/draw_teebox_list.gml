@@ -1,6 +1,6 @@
 
 function draw_teebox_list() {
-exit
+exit;
 var alph = (teebar_yoff_start/1);
 draw_set_alpha(alph);
 

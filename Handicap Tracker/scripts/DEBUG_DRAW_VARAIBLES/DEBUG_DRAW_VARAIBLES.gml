@@ -11,6 +11,7 @@ enum_name_submenu[5+navbar.teebar] = "teebar";
 enum_name_submenu[5+navbar.year_select] = "year_select";
 enum_name_submenu[5+navbar.parbar] = "parbar";
 enum_name_submenu[5+navbar.scorebar] = "scorebar";
+enum_name_submenu[5+navbar.numpad] = "numpad";
 
 }
 
@@ -112,7 +113,10 @@ draw_text_height(xx,yy+((ind+2)*sep),"Mouse Distance: "+string(mouse_xdist)+" , 
 draw_text_height(xx,yy+((ind+3)*sep),"Mouse Coor: "+string(mouse_x)+" , "+string(mouse_y),height); // mouse coor
 	
 if mouse_check_button(mb_middle)
-draw_text_height(xx,yy+((ind+4)*sep),"Region Size: ["+string(abs(mouse_xpos-mouse_x))+" , "+string(abs(mouse_ypos-mouse_y))+"]",height); // mouse coor
+	{
+	draw_rectangle_color(mouse_xpos,mouse_ypos,mouse_x,mouse_y,c_black,c_black,c_black,c_black,true);
+	draw_text_height(xx,yy+((ind+4)*sep),"Region Size: ["+string(abs(mouse_xpos-mouse_x))+" , "+string(abs(mouse_ypos-mouse_y))+"]",height); // mouse coor
+	}
 
 debugyoff += 6;
 }

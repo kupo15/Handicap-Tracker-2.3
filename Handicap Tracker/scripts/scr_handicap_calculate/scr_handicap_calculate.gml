@@ -97,7 +97,7 @@ array_sort_nested_struct(scorelist_array,"date",false); // date sort
 ds_list_destroy(diff_arr);
 
 // set recent scores
-recent_scores_list = ds_list_create();
+ds_list_clear(recent_scores_list);
 
 // add last 20 scores
 var size = min(rounds_played,round_selection);
@@ -113,7 +113,8 @@ for(var i=0;i<size;i++)
 ds_list_sort_nested_struct(recent_scores_list,"roundScore",true); // date sort
 	
 // set the first 8 scores to active
-for(var i=0;i<top_scores;i++)
+var num = min(top_scores,rounds_played)
+for(var i=0;i<num;i++)
 	{
 	var score_pointer = recent_scores_list[| i];
 	

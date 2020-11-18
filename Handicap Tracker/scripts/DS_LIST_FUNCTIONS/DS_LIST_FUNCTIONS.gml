@@ -79,7 +79,7 @@ ds_grid_sort(sorting_grid,1,ascending);
 for(var i=0;i<size;i++)
 	{
 	source_list[| i] = sorting_grid[# 0,i];
-	ds_list_mark_as_list(source_list,i);
+	//ds_list_mark_as_list(source_list,i);
 	}
 
 // destroy temp sorting grid

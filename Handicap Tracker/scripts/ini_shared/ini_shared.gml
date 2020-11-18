@@ -7,6 +7,8 @@ ini_screen_change();
 ini_timers();
 ini_highlight_vars();
 ini_cursor_vars();
+
+numpad_value = "";
 	
 searching = false;
 searched = false;
@@ -55,6 +57,11 @@ mouse_yprev = 0;
 
 mouse_xpos = 0;
 mouse_ypos = 0;
+
+// debug
+debugStringXpos = 0;
+debugStringYpos = 0;
+debugStringHeight = 0;
 
 dateSelectDay = 0;
 dateSelectMonth = 0;

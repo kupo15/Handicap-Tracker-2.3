@@ -81,7 +81,7 @@ if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,false,true,navbar.ma
 if course_next 
 	{
 	course_id = courselist_array[course_index];
-	active_course = course_id;
+	active_course = struct_copy(course_id);
 
 	submenu = navbar.hidden;
 	scr_tee_filled_set(); // mark tees with data

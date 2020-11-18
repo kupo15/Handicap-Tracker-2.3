@@ -29,7 +29,7 @@ function scr_navbar_click(ind) {
 		// stats screen
 		case screen.stats: course_id = courselist_array[stat_index];
 						   scr_stats_set();
-						   break;				
+						   break;							   
 			
 		// trends
 		case screen.index: scr_trend_set(); break;

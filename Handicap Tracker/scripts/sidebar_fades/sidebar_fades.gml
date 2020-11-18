@@ -30,6 +30,12 @@ coursebar_yoff = (submenu == navbar.coursebar); // ? coursebar_yoff = true : cou
 if coursebar_yoff != coursebar_yoff_start
 coursebar_yoff_start = lerp(coursebar_yoff_start,coursebar_yoff,0.19);
 
+// numpad
+numpad_yoff = !(submenu == navbar.numpad); // ? coursebar_yoff = true : coursebar_yoff = false
+
+if numpad_yoff != numpad_yoff_start
+numpad_yoff_start = lerp(numpad_yoff_start,numpad_yoff,0.19);
+
 // alpha
 if alpha_lerp != alpha_lerp_end
 alpha_lerp = lerp(alpha_lerp,alpha_lerp_end,0.19);

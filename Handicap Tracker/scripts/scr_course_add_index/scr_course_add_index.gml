@@ -79,8 +79,14 @@ array = courselist_array;
 active_course = {
 	
 	courseName: name,
-	teeMap: {},
-
+	
+	subcourses: [
+		{
+		name: name,
+		//teeMap: {}
+		}
+		]
+		
 	}
 	
 // add to master courselist
@@ -101,9 +107,28 @@ variable_struct_set(destStruct,courseName,courseStruct);
 }
 
 function scr_course_add_tee(courseName,teeColor,yardage,slope,rating,par) {
-	
+/// @param courseName
+/// @param teeColor
+/// @param [yardage
+/// @param slope
+/// @param rating
+/// @param par]
+
+if argument[2] == undefined
+yardage = "";
+
+if argument[3] == undefined
+slope = "";
+
+if argument[4] == undefined
+rating = "";
+
+if argument[5] == undefined
+par = "";
+
+
 // create tee struct
-var tee = {
+active_tee = {
 	
 	courseYardage: yardage,
 	courseSlope: slope,
@@ -112,6 +137,6 @@ var tee = {
 	}
 
 // add tee color data to active course's teeMap
-variable_struct_set(active_course.teeMap,teeColor,tee);
+variable_struct_set(active_course.subcourses[0],string_lower(teeColor),active_tee);
 }
 

@@ -50,7 +50,9 @@ switch screenIndex
 	{
 	case screen.score_card: submenu = navbar.hidden; break;
 	
-	//case screen.receiptUpdate:
+	// edit tees
+	case screen.edit_tees: submenu = navbar.numpad; break;
+		
 	//case screen.receiptCreate: click_textbox_set(receipt_price,0,kbv_type_numbers); break;
 	
 	//case screen.friendsProfile: mode_new_member = false; break;

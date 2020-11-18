@@ -53,3 +53,4 @@
 #macro sm show_message
 #macro cs clipboard_set_text
 #macro cg clipboard_get_text
+#macro js json_stringify

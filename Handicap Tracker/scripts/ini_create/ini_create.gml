@@ -1,11 +1,26 @@
 function ini_create() {
 
+layout_normal();
 ini_teebox();
 scr_playing_clear();
 
-recent_scores_list = ds_list_create();
+temp_course_tee = "";
+temp_course_yardage = "";
+temp_course_slope = "";
+temp_course_rating = "";
+temp_course_par = "";
+
+temp_score_tee = "";
+temp_score_yardage = "";
+temp_score_slope = "";
+temp_score_rating = "";
+temp_score_par = "";
 
 //
+
+
+recent_scores_list = ds_list_create();
+
 top_scores = 8;
 ghin_index = 0;
 round_selection = 20;
@@ -27,17 +42,10 @@ active_tee = undefined;
 active_score = undefined;
 tee_index = undefined;
 
-temp_course_tee = "";
-temp_course_yardage = "";
-temp_course_slope = "";
-temp_course_rating = "";
-temp_course_par = "";
-
-temp_score_tee = "";
-temp_score_yardage = "";
-temp_score_slope = "";
-temp_score_rating = "";
-temp_score_par = "";
+course_edit_yardage = "";
+course_edit_slope = "";
+course_edit_rating = "";
+course_edit_par = "";
 
 temp_score = undefined;
 temp_strokes = undefined;
@@ -57,6 +65,9 @@ parbar_yoff_start = 0;
 
 coursebar_yoff = 0;
 coursebar_yoff_start = 0;
+
+numpad_yoff = 0;
+numpad_yoff_start = 0;
 	
 #endregion
 

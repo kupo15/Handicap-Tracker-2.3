@@ -22,12 +22,16 @@ debug_draw_screens(xx,yy,debugyoff,sep,height);
 
 draw_text_height(xx,yy+((debugyoff+0)*sep),"screenDarkenIndex: "+string(screenDarkenIndex),height);
 draw_text_height(xx,yy+((debugyoff+1)*sep),"screenDarkenAlpha: "+string(screenDarkenAlpha),height);
-draw_text_height(xx,yy+((debugyoff+2)*sep),"kvLastString: "+string(kvLastString),height);
+draw_text_height(xx,yy+((debugyoff+2)*sep),"kvLastString:",height);
+draw_text_height(xx,yy+((debugyoff+3)*sep),string(kvLastString),height);
+draw_text_height(xx,yy+((debugyoff+4.5)*sep),"stringxpos: "+string(debugStringXpos),height);
+draw_text_height(xx,yy+((debugyoff+5.5)*sep),"stringypos: "+string(debugStringYpos),height);
+draw_text_height(xx,yy+((debugyoff+6.5)*sep),"stringHeight: "+string(debugStringHeight),height);
 
-debugyoff = 9;
+debugyoff = 15;
 //debug_draw_click_highlight(xx,yy,debugyoff,sep,height);
 //debug_draw_vk(xx,yy,debugyoff,sep,height);
-//debug_draw_textbox(xx,yy,debugyoff,sep,height);
+debug_draw_textbox(xx,yy,debugyoff,sep,height);
 //debug_draw_modes(xx,yy,debugyoff,sep,height);
 //debug_draw_textbox_cursor(xx,yy,debugyoff,sep,height);	
 //debug_draw_scrollbars(xx,yy,debugyoff,sep,height);	

@@ -28,7 +28,9 @@ tee,
 yardage,
 slope,
 rating,
-par
+par,
+
+enumcount
 }
 
 enum score_data {

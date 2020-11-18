@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"spr_footer_icon","path":"sprites/spr_footer_icon/spr_footer_icon.yy",},"order":0,},
+    {"id":{"name":"ELEMENT_STRUCTS","path":"scripts/ELEMENT_STRUCTS/ELEMENT_STRUCTS.yy",},"order":0,},
     {"id":{"name":"spr_play","path":"sprites/spr_play/spr_play.yy",},"order":1,},
     {"id":{"name":"ico_backspace","path":"sprites/ico_backspace/ico_backspace.yy",},"order":0,},
     {"id":{"name":"spr_score_add","path":"sprites/spr_score_add/spr_score_add.yy",},"order":2,},
@@ -60,6 +61,7 @@
     {"id":{"name":"DRAW_ICON_FUNCTIONS","path":"scripts/DRAW_ICON_FUNCTIONS/DRAW_ICON_FUNCTIONS.yy",},"order":2,},
     {"id":{"name":"spr_icon_member_add","path":"sprites/spr_icon_member_add/spr_icon_member_add.yy",},"order":9,},
     {"id":{"name":"draw_index_trend","path":"scripts/draw_index_trend/draw_index_trend.yy",},"order":1,},
+    {"id":{"name":"STRUCT_FUNCTIONS","path":"scripts/STRUCT_FUNCTIONS/STRUCT_FUNCTIONS.yy",},"order":0,},
     {"id":{"name":"spr_icon_group","path":"sprites/spr_icon_group/spr_icon_group.yy",},"order":8,},
     {"id":{"name":"draw_popup_par","path":"scripts/draw_popup_par/draw_popup_par.yy",},"order":2,},
     {"id":{"name":"ico_trash1","path":"sprites/ico_trash1/ico_trash1.yy",},"order":2,},
@@ -186,7 +188,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"ghin_save.dat","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "23.1.1.214",
+    "IDEVersion": "23.1.1.230",
   },
   "resourceVersion": "1.4",
   "name": "Handicap Tracker",
