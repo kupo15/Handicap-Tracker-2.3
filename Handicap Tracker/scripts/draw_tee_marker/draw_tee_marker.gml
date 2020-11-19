@@ -4,10 +4,18 @@ function draw_tee_marker(xx,yy,hh,teeColor,str,enclosed) {
 /// @param y
 /// @param height
 /// @param teeboxColor
+/// @param tee_string
+/// @param enclosed
+
+if argument[4] == undefined
+str = "";
 
 var tee_str_col = make_color_rgb(38,72,106);
 var outline = false;
-var ww = 240;
+var height = hh*0.83;
+var radius = hh*0.2;
+var circle_yoff = hh*0.5;
+var ww = string_width_height(str,height)+50;
 
 switch string_lower(teeColor)
 	{
@@ -23,11 +31,11 @@ switch string_lower(teeColor)
 				  var bg_col = c_black; // make_color_rgb(255,243,232);
 	
 				  if enclosed
-				  draw_roundrect_color_ext(xx,yy,xx+ww,yy+hh,hh*0.83,hh,bg_col,bg_col,true);
+				  draw_roundrect_color_ext(xx,yy,xx+ww,yy+hh,height,hh,bg_col,bg_col,true);
 
-				  draw_text_height_middled_color(xx+40,yy,str,hh,tee_str_col,hh*0.83); // draw slope/rating
+				  draw_text_height_middled_color(xx+40,yy,str,hh,tee_str_col,height); // draw slope/rating
 
-				  draw_circle_color(xx+18,yy+13,hh*0.2,c_black,c_black,true);
+				  draw_circle_color(xx+18,yy+circle_yoff,radius,c_black,c_black,true); // marker circle
 				  
 				  return col;
 				  break;
@@ -47,13 +55,13 @@ switch string_lower(teeColor)
 	
 // draw enclosed
 if enclosed
-draw_roundrect_color_ext(xx,yy,xx+ww,yy+hh,hh*0.83,hh,bg_col,bg_col,false); // background
+draw_roundrect_color_ext(xx,yy,xx+ww,yy+hh,height,hh,bg_col,bg_col,false); // background
 
 // draw string
-draw_text_height_middled_color(xx+40,yy,str,hh,tee_str_col,hh*0.83); // draw slope/rating
+draw_text_height_middled_color(xx+40,yy,str,hh,tee_str_col,height); // draw slope/rating
 	
 // draw tee circle
-draw_circle_color(xx+18,yy+13,hh*0.2,col,col,outline);
+draw_circle_color(xx+18,yy+circle_yoff,radius,col,col,outline); // marker circle
 
 return col;
 }

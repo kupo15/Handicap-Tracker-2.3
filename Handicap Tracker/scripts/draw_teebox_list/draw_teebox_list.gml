@@ -10,7 +10,7 @@ draw_rectangle_color(0,0,app_width,app_height,col,col,col,col,false);
 draw_set_alpha(alph);
 
 var rows = ds_list_size(teebox_list);
-var sep = 65;
+var sep = 70;
 var ww = app_width;
 var hh = rows*sep;
 var xx = 0;
@@ -37,14 +37,13 @@ for(var i=0;i<rows;i++)
 		var course_rating = teeData_pointer.courseRating;
 		var course_par = teeData_pointer.coursePar;
 		
-		var teebox_str = course_yardage+" yds ("+course_slope+"/"+course_rating+")";
+		var teebox_str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
 		}
 	else 
 	var teebox_str = "";
 		
 	var str = teebox_list[| i]+" "+teebox_str;
-	draw_text_height(xx+60,yy+10+(i*sep),str,height*0.7); // draw tee
-	draw_tee_marker(xx+25,yy+30+(i*sep),10,teebox_list[| i]); // draw teebox marker
+	draw_tee_marker(xx+25,yy+(i*sep)+10,50,teebox_list[| i],str,true); // draw teebox marker
 	
 	// background color for missing data
 	if !has_data

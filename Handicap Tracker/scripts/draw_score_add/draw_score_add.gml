@@ -213,7 +213,9 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,"cours
 	exit;
 	
 	// set values
-	score_struct.courseName = friend_id.courseName;
+	course_struct = friend_id;
+	
+	score_struct.courseName = course_struct.courseName;
 	score_struct.teeColor = "";
 	score_struct.courseYardage = "";
 	score_struct.courseSlope = "";
@@ -229,7 +231,9 @@ var tee_ind = draw_teebox_list();
 if tee_ind != undefined
 	{
 	submenu = navbar.hidden;
-	score_struct.teeColor = teebox_list[| tee_ind];
+	
+	// set variables
+	scr_score_tee_update(score_struct,course_struct,teebox_list[| tee_ind]);
 	}
 
 // navigation
