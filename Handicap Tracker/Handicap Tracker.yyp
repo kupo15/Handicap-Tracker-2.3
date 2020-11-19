@@ -59,6 +59,7 @@
     {"id":{"name":"draw_search_list","path":"scripts/draw_search_list/draw_search_list.yy",},"order":4,},
     {"id":{"name":"obj_main_template","path":"objects/obj_main_template/obj_main_template.yy",},"order":0,},
     {"id":{"name":"CLICK_REGION_FUNCTIONS","path":"scripts/CLICK_REGION_FUNCTIONS/CLICK_REGION_FUNCTIONS.yy",},"order":1,},
+    {"id":{"name":"scr_overlay_buttons","path":"scripts/scr_overlay_buttons/scr_overlay_buttons.yy",},"order":0,},
     {"id":{"name":"SCORE_FUNCTIONS","path":"scripts/SCORE_FUNCTIONS/SCORE_FUNCTIONS.yy",},"order":0,},
     {"id":{"name":"DRAW_ICON_FUNCTIONS","path":"scripts/DRAW_ICON_FUNCTIONS/DRAW_ICON_FUNCTIONS.yy",},"order":2,},
     {"id":{"name":"spr_icon_member_add","path":"sprites/spr_icon_member_add/spr_icon_member_add.yy",},"order":9,},

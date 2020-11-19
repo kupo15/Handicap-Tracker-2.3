@@ -12,6 +12,9 @@ ds_list_add(deleteList,first_pos); // add that index slot to the delete list
 
 function delete_list_set_array(ref_array,first_pos) {
 // mouse click
+if !canClickPressed
+exit;
+
 timer[timerIndex.press_hold] = press_hold_timer; // set timer until activation
 mode_delete_list_id = ref_array; // set the ref list to delete from
 			

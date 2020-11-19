@@ -53,3 +53,18 @@ for(var i=0;i<ico_num;i++)
 
 draw_set_alpha(1);
 }
+
+function draw_overlay_circle_button() {
+	
+var xx = element_circle_button.xx;
+var yy = element_circle_button.yy
+var r = element_circle_button.rr;
+var active = element_circle_button.active;
+
+if !active
+exit;
+
+draw_circle(xx,yy,r,false);
+
+
+}

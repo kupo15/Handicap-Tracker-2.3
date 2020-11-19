@@ -15,6 +15,15 @@ height: 50,
 	
 }
 
+element_circle_button = {
+	
+active: false,
+xx: 450,
+yy: 850,
+rr: 50
+	
+}
+
 
 }
 

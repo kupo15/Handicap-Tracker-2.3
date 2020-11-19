@@ -137,13 +137,19 @@ if within_region
 	
 	// clicked highlight
 	if mouse_check_button_pressed(button) && highlight
-	scr_click_highlight_set(x_left,y_top,ww,hh,highlight,screenIndex,array_pos);
+		{
+		if canClickPressed
+		scr_click_highlight_set(x_left,y_top,ww,hh,highlight,screenIndex,array_pos);
+		
+		canClickPressed = false;
+		}
            
 	if condition || (condition == undefined)
 	    {
 		if mouse_check_button_released(button)
 			{
 			canClick = false;
+			canClickPressed = true;
 			scrollbarIndexScrolling = noone;
 			}
 			

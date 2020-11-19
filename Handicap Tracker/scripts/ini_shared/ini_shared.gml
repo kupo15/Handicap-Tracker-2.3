@@ -46,6 +46,7 @@ kvInputString = "";
 
 // mouse
 canClick = true;
+canClickPressed = true;
 clickMoved = false;
 
 mouse_xstart = 0;
