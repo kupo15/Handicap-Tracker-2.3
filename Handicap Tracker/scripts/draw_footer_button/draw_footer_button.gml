@@ -6,7 +6,7 @@ function draw_footer_button() {
 	draw_sprite_ext(spr_footer_icon,screenIndex,xx,yy,0.5,0.5,0,header_color,1);
 
 	if click_region_released(xx,yy,150,150,true,submenu)
-	screenIndex = screen.add_course;
+	screen_change(screen.add_course);
 
 
 	/*

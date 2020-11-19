@@ -35,7 +35,7 @@ function scr_navbar_click(ind) {
 		case screen.index: scr_trend_set(); break;
 			
 		// settings
-		case screen.settings: break;
+		//case screen.settings: break;
 		}
 
 

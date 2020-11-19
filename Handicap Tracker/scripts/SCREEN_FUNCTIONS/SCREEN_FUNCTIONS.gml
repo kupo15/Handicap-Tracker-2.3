@@ -1,22 +1,51 @@
+function ini_screen_changeGOTO() {
+};
+enumGOTO();
+
 function ini_screen_change() {
 
 prev_screen_stack = ds_stack_create();
 	
+drawScreen[screen.home] = draw_home;
+drawScreen[screen.stats] = draw_stats;
+drawScreen[screen.playing] = draw_playing;
+drawScreen[screen.score_list] = draw_score_list;
+drawScreen[screen.course_list] = draw_course_list;
+drawScreen[screen.score_card] = draw_score_card;
+drawScreen[screen.index] = draw_index_info;
+drawScreen[screen.blank7] = undefined;
+drawScreen[screen.blank8] = undefined
+
+drawScreen[screen.help_info] = draw_help_info;
+drawScreen[screen.settings] = undefined;
+drawScreen[screen.enumcount] = draw_undefScreen;
+
+drawScreen[screen.add_score] = draw_score_add;
+drawScreen[screen.edit_score] = draw_score_edit;
+
+drawScreen[screen.add_course] = draw_course_add;
+drawScreen[screen.edit_course] = draw_course_edit;
+
+drawScreen[screen.edit_tees] = draw_course_edit_tees;
+drawScreen[screen.edit_date] = draw_date_edit_calendar;	
 }
 
 function screen_change(ind,clear) {
 /// @param screenIndex
 /// @param [clear]
 
-if clear == undefined
+if argument[1] == undefined
 clear = false;
 
-if argument_count == 2
-clear = argument[1]
+ds_stack_push(prev_screen_stack,screenIndex); // add current screen to the stack
 
-ds_stack_push(prev_screen_stack,screenIndex);
+// change to new screen
+if (drawScreen[ind] == 0) || (drawScreen[ind] == undefined)
+screenIndex = screen.enumcount;
+else
 screenIndex = ind;
 
+// clear the prev screen stack
 if clear
 ds_stack_clear(prev_screen_stack);
 

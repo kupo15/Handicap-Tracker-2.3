@@ -14,38 +14,18 @@ if androidBack
 		game_end();
 
 		scr_handicap_calculate();
-		screenIndex = screen.home;
+		screen_change(screen.home,true);
 		}
 	}
 	
 draw_set_halign(fa_left);
 
+// draw screens
 draw_background_screen();
-switch screenIndex
-	{
-	case screen.home: draw_home(); break;
-	case screen.playing: draw_playing(); break;
-	case screen.score_list: draw_score_list(); break;
-	case screen.course_list: draw_course_list(); break;
-	
-	case screen.add_score:
-	case screen.edit_score: draw_score_add(); break;
-	
-	case screen.add_course:
-	case screen.edit_course: draw_course_add(); break;
-	case screen.edit_tees: draw_course_edit_tees(); break;
-	
-	case screen.edit_date: draw_date_edit_calendar(); break;
-	
-	case screen.stats: draw_stats(); break;
-	
-	case screen.index: draw_index_info(); break;
-	
-	case screen.score_card: draw_score_card(); break;
-	
-	case screen.help_info: draw_help_info(); break;
-	}
+
+script_execute(drawScreen[screenIndex]);
 		
+// draw numpad
 numpad_value = draw_numpad_golf(numpad_value);
 		
 // draw_footer_button();

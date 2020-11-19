@@ -1,3 +1,7 @@
+function draw_course_edit() {
+draw_course_add();
+}
+
 function draw_course_add() {
 
 var bg_col = c_lt_gray;
@@ -79,7 +83,7 @@ for(var i=0;i<size;i++)
 		var course_rating = teeData_pointer.courseRating;
 		var course_par = teeData_pointer.coursePar;
 		
-		var teebox_str = course_yardage+" yds ("+course_slope+"/"+course_rating+")";
+		var teebox_str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
    		
 		off_ind ++;
 		}
@@ -100,10 +104,8 @@ for(var i=0;i<size;i++)
 		}
 			
 	// draw teebox details
-	var str = teebox_list[| i]+" "+teebox_str;
-		
-	draw_text_height_middled(xx+60,yy+yoff,str,button_hh,height,1); // draw tee
-	draw_tee_marker(xx+25,yy+30+yoff,10,teeColor); // draw teebox marker
+	var str = teebox_list[| i]+" "+teebox_str;	
+	draw_tee_marker(xx+25,yy+yoff+10,40,teeColor,str,true); // draw teebox marker
 		
 	// create tee
 	if (i+1) == size // last index
@@ -129,7 +131,7 @@ var hh = 80;
 var xx = 5;
 var yy = room_height-hh-5;
 
-if draw_button_trash(xx,yy,ww,hh,ico_trash1,c_red,screen.edit_course,navbar.hidden,true)
+if draw_button_trash(xx,yy,ww,hh,ico_trash1,c_red,screen_edit_course,navbar.hidden,true)
 	{
 	// delete course from courselist
 	array_delete(courselist_array,course_index,1);

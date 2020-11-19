@@ -263,7 +263,7 @@ function draw_playing() {
 	
 		submenu = navbar.main;
 		textboxIndex = noone;
-		screenIndex = screen.home;
+		screen_change(screen.home);
 		index = 0;
 		}
 	
@@ -294,7 +294,7 @@ function draw_playing() {
 		else if submenu >= 0
 	    submenu = navbar.main;
 		else
-	    screenIndex = screen.home;
+	    screen_goto_prev();
 	    }
 
 

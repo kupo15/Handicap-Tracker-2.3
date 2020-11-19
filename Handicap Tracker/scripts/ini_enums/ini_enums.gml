@@ -1,3 +1,5 @@
+function enumGOTO() {}
+ini_screen_changeGOTO();
 
 enum screen {
 home,
@@ -15,16 +17,18 @@ settings,
 enumcount,
 
 add_score,
-add_course,
-edit_tees,
-edit_course,
 edit_score,
-edit_date
+
+add_course,
+edit_course,
+
+edit_tees,
+edit_date,
 }
 
 enum highlightAction {
 courseSelect,	
-	
+navbarSwitch
 }
 
 enum course_data {

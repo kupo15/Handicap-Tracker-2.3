@@ -53,13 +53,6 @@ for(var i=pos_start;i<pos_end;i++)
 	
 	// var index_history = score_pointer.indexHistory;
 	// draw_text_height(xx+105,yy+40+(off_pos*sep),string_format(index_history,2,1),36); // draw index
-
-
-/*
-	draw_text_height(xx+15,yy+75+(off_pos*sep),string(course_slope)+" / "+string(course_rating),36); // draw slope/rating
-	draw_tee_marker(xx+200,yy+90+(off_pos*sep),8,course_tee); // draw tee marker
-	draw_text_height(xx+220,yy+75+(off_pos*sep),string(course_yardage),36); // draw yardage
-	draw_text_height(xx+360,yy+75+(off_pos*sep),date_string,36); // draw date played*/
 	
 	draw_line_pixel(25,yy+((1+off_pos)*sep),room_width,1,c_black,0.2); // draw row lines
 	
@@ -112,7 +105,7 @@ if click_button(xx,yy,"Add Score",50,c_black,ww,hh,c_white,false,true,navbar.mai
 	temp_score = "";
 	temp_strokes = "";
 	popup_coursebar();
-	screenIndex = screen.add_score;
+	screen_change(screen.add_score);
 	}
 	
 

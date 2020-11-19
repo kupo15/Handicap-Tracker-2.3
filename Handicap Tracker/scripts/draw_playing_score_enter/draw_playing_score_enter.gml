@@ -131,7 +131,7 @@ function draw_playing_score_enter() {
 	
 		submenu = navbar.main;
 		textboxIndex = noone;
-		screenIndex = screen.home;
+		screen_change(screen.home,true);
 		index = 0;
 		}*/
 }
