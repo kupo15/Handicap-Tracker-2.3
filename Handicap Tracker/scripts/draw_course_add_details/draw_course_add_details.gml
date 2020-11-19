@@ -1,3 +1,5 @@
+
+/*
 function draw_course_details() {
 
 if textboxIndex <= 0

@@ -8,7 +8,6 @@ var ww = app_width;
 var hh = app_height-sep-yy;
 var rows = hh/sep;
 var col = make_color_rgb(232,237,255);
-var tee_str_col = make_color_rgb(38,72,106);
 
 var list_size = array_length(scorelist_array);
 var pos_start = floor(score_list_offset);
@@ -44,13 +43,10 @@ for(var i=pos_start;i<pos_end;i++)
 	draw_text_height(xx+472,yy+15+(off_pos*sep),"+"+string(strokes),20); // draw strokes given
 	
 	// tee info
-	draw_roundrect_color_ext(xx+10,yy+70+(off_pos*sep),xx+245,yy+70+30+(off_pos*sep),25,30,col,col,false); // background
-	draw_tee_marker(xx+25,yy+70+15+(off_pos*sep),6,course_tee); // draw tee marker
-	
 	var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
-	draw_text_height_middled_color(xx+40,yy+70+(off_pos*sep),str,30,tee_str_col,25,1); // draw slope/rating
+	draw_tee_marker(xx+10,yy+70+(off_pos*sep),30,course_tee,str,true); // draw tee marker
 
-	draw_text_height_color(xx+260,yy+80+(off_pos*sep),date_string,c_gray,23); // draw date played
+	draw_text_height_color(xx+270,yy+80+(off_pos*sep),date_string,c_gray,23); // draw date played
 			
 	// draw_text_height(xx,yy+45+(off_pos*sep),i+1,height); // i
 	// draw_text_height(xx+35,yy+40+(off_pos*sep),string_format(course_handicap,2,1),36); // draw course handicap

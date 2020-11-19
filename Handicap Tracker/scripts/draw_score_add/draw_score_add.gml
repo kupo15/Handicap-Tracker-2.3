@@ -168,9 +168,9 @@ if calendarDateEntry != undefined
 	}
 	
 #endregion	
-			  
+			  			 	  			
 #region Create/Update
-var submit = 1; // (course_edit_yardage != "") && (course_edit_slope != "") && (course_edit_par != "") && (course_edit_rating != "");
+var submit = (course_tee != "") && (roundScore != "");
 var hh = 60;
 var xx = 0;
 var yy = app_height-hh;
@@ -204,6 +204,7 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 	}
 #endregion	
 
+// draw coursebar overlay
 if draw_submenu_course_search(header_height,app_width,90,courselist_array,"course_list_offset")
 	{
 	submenu = navbar.hidden;
@@ -223,6 +224,7 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,"cours
 	scr_tee_filled_set(); // mark tees with data
 	}
 
+// draw teebar overlay
 var tee_ind = draw_teebox_list();
 if tee_ind != undefined
 	{

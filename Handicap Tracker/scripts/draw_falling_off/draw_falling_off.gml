@@ -7,9 +7,7 @@ var sep = 100;
 var ww = app_width;
 var hh = rows*sep;
 var height = 40;
-
 var col = make_color_rgb(232,237,255);
-var tee_str_col = make_color_rgb(38,72,106);
 
 draw_text_height(xx+10,yy-50,"Round Falling Off",50,fn_italic);
 
@@ -41,13 +39,10 @@ for(var i=0;i<rows;i++)
 	draw_text_height(xx+425,yy+15+(off_pos*sep),_score+active,50); // draw score shot
 	
 	// tee info
-	draw_roundrect_color_ext(xx+10,yy+65+(off_pos*sep),xx+245,yy+45+30+(off_pos*sep),25,30,col,col,false); // background
-	draw_tee_marker(xx+25,yy+45+35+(off_pos*sep),6,course_tee); // draw tee marker
-	
 	var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
-	draw_text_height_middled_color(xx+40,yy+65+(off_pos*sep),str,30,tee_str_col,25,1); // draw slope/rating
-	
-	draw_text_height_color(xx+260,yy+70+(off_pos*sep),date_string,c_gray,23); // draw date played
+	draw_tee_marker(xx+10,yy+70+(off_pos*sep),30,course_tee,str,true); // draw tee marker
+		
+	draw_text_height_color(xx+270,yy+80+(off_pos*sep),date_string,c_gray,23); // draw date played
 
 	//if strokes != 0
 	//draw_text_height(xx+472,yy+15+(off_pos*sep),"+"+string(strokes),20); // draw strokes given	

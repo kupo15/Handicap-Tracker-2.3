@@ -1,5 +1,5 @@
 function scr_course_update(ind) {
-	
+/*	
 course_edit_name = active_expense.receiptList[ind].description;
 course_edit_yardage = active_expense.receiptList[ind].price;
 course_edit_slope = active_expense.receiptList[ind].currency;
@@ -10,7 +10,7 @@ course_index = ind;
 
 screen_change(screen.receiptUpdate);
 click_textbox_set(receipt_price,0,kbv_type_numbers);	
-	
+	*/
 
 }
 

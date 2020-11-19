@@ -1,3 +1,4 @@
+/*
 function scr_score_update() {
 	
 // set variables	
