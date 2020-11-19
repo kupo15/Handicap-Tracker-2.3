@@ -61,32 +61,3 @@ score_struct_pointer.courseSlope = slope; // set slope
 score_struct_pointer.courseRating = rating; // set rating
 //score_struct_pointer.coursePar = par; // set par
 }
-
-
-
-/*
-function scr_tee_set() {
-	
-if course_id == noone
-exit;
-
-var tee_pointer = course_id.subcourses[0]; // tee marker MAP
-
-var size = ds_list_size(teebox_list);
-for(var i=0;i<size;i++)
-	{
-	var tee_col = teebox_list[| i]; // get tee color
-	var tee_data_pointer = tee_pointer[? tee_col];
-	var course_yardage = tee_data_pointer[| tee_data.yardage];
-	var course_slope = tee_data_pointer[| tee_data.slope];
-	var course_rating = tee_data_pointer[| tee_data.rating];
-	var course_par = tee_data_pointer[| tee_data.par];
-		
-	// set temp tee data from course
-	temp_tee_data[i][| tee_data.yardage] = course_yardage;
-	temp_tee_data[i][| tee_data.slope] = course_slope;
-	temp_tee_data[i][| tee_data.rating] = course_rating;
-	temp_tee_data[i][| tee_data.par] = course_par;
-	
-	}
-}

@@ -50,14 +50,11 @@ for(var i=0;i<size;i++)
 draw_text_height(550,yy+(i*sep),deleteList[| i],height);
 	
 yy += (size+1)*sep;
-draw_text_height(550,yy+(0*sep),string(ds_stack_size(prev_screen_stack))+": "+string(ds_stack_top(prev_screen_stack)),height);
-	
+
+// draw prev screen stack
+var prev_screen_ind = if_undef(ds_stack_top(prev_screen_stack),screen.home);
+draw_text_height(550,yy+(0*sep),string(ds_stack_size(prev_screen_stack))+": "+string(script_get_name(drawScreen[prev_screen_ind])),height);
+		
 draw_set_colour(c_black);
-
-/*
-draw_text_height(xx,yy+(10*sep),string(ds_exists(debug_id1,ds_type_list)),height);
-draw_text_height(xx,yy+(11*sep),string(ds_exists(debug_id,ds_type_list)),height);
-
-*/
 }
 

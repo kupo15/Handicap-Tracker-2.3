@@ -14,6 +14,14 @@
 #macro c_lt_gray make_color_rgb(228,228,228)
 #macro c_click_color make_color_rgb(235,235,235)
 
+// default tee colors
+#macro c_tee_green c_green
+#macro c_tee_red c_red
+#macro c_tee_white make_color_rgb(220,220,220)
+#macro c_tee_blue make_color_rgb(0,0,160)
+#macro c_tee_gold make_color_rgb(171,160,0)
+#macro c_tee_black c_black
+
 // layout
 #macro res_bleed_xx 10
 #macro res_bleed_yy 10
@@ -24,11 +32,10 @@
 #macro flick_window 5
 #macro refresh_dist 6
 
+// cursor
 #macro cursor_blink 500
 #macro cursor_color c_aqua
 #macro cursor_width 3
-
-#macro score_list_row 6
 
 // sidebar
 #macro side_menu_width 420
@@ -47,8 +54,10 @@
 // calendar
 #macro start_date date_create_datetime(1970,1,1,0,0,0)
 
-// debug
+// misc
 #macro dialogue draw_dialogue_box(xx,yy,ww,hh,col,sub)
+
+// debug
 #macro db show_debug_message
 #macro sm show_message
 #macro cs clipboard_set_text

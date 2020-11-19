@@ -131,7 +131,7 @@ var hh = 80;
 var xx = 5;
 var yy = room_height-hh-5;
 
-if draw_button_trash(xx,yy,ww,hh,ico_trash1,c_red,screen_edit_course,navbar.hidden,true)
+if draw_button_trash(xx,yy,ww,hh,ico_trash1,c_red,screen.edit_course,navbar.hidden,true)
 	{
 	// delete course from courselist
 	array_delete(courselist_array,course_index,1);

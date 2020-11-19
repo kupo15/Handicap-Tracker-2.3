@@ -83,7 +83,6 @@ if course_next
 
 	submenu = navbar.hidden;
 	scr_tee_filled_set(); // mark tees with data
-	//scr_tee_set();
 	}
 
 }
