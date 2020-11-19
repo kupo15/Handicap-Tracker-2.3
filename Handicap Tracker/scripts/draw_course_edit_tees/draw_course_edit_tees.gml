@@ -26,7 +26,7 @@ var course_slope = course_edit_slope;
 var course_rating = course_edit_rating;
 var course_par = course_edit_par;
 
-// draw tee 
+#region draw tee 
 var xx = 10;
 var yy = 100;
 var sep = 120;
@@ -43,8 +43,9 @@ if draw_dialogue_box(xx,yy,ww,hh,col,submenu)
 // draw tee
 draw_text_height(xx+20,yy+10,"Tee",25);
 draw_text_height(xx+50,yy+25,course_tee+" Tee",height); // draw course tee markers
+#endregion
 
-// draw tee details
+#region draw tee details
 var yy = 200;
 var hh = 400;
 var dialgue_end = yy+hh;
@@ -80,6 +81,7 @@ for(var i=0;i<size;i++)
 draw_set_alpha(0.2);	
 draw_dialogue_box(xx+xoff+((textboxIndex-course_data.yardage)*button_sep),yy+10,button_sep-button_spacing,60,header_color,undefined);
 draw_set_alpha(1);
+#endregion
 
 if virtual_keyboard_enter 
 	{
@@ -93,18 +95,21 @@ var button_hh = 80;
 var height = 70;
 var xx = 10;
 var yy = dialgue_end-button_hh;
+var button_col = make_color_rgb(240,240,240);
 
-if click_button(xx,yy,"<<",height,c_black,button_ww,button_hh,c_white,false,true,submenu)
+if click_button(xx,yy,"<<",height,c_black,button_ww,button_hh,button_col,false,false,submenu)
 	{
 	textboxIndex = clamp(textboxIndex-1,course_data.yardage,course_data.par);
 	move = true;
 	}
 
-if click_button(xx+button_ww,yy,">>",height,c_black,button_ww,button_hh,c_white,false,true,submenu)
+if click_button(xx+button_ww,yy,">>",height,c_black,button_ww,button_hh,button_col,false,false,submenu)
 	{
 	textboxIndex = clamp(textboxIndex+1,course_data.yardage,course_data.par);
 	move = true;
 	}
+	
+draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);
 	
 #endregion
 
