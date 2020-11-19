@@ -102,6 +102,7 @@
     {"id":{"name":"draw_submenu_course_search","path":"scripts/draw_submenu_course_search/draw_submenu_course_search.yy",},"order":0,},
     {"id":{"name":"JSON_FUNCTIONS","path":"scripts/JSON_FUNCTIONS/JSON_FUNCTIONS.yy",},"order":1,},
     {"id":{"name":"STRING_INPUT_FUNCTIONS","path":"scripts/STRING_INPUT_FUNCTIONS/STRING_INPUT_FUNCTIONS.yy",},"order":1,},
+    {"id":{"name":"DS_STACK_FUNCTIONS","path":"scripts/DS_STACK_FUNCTIONS/DS_STACK_FUNCTIONS.yy",},"order":0,},
     {"id":{"name":"DRAW_BUTTON_FUNCTIONS","path":"scripts/DRAW_BUTTON_FUNCTIONS/DRAW_BUTTON_FUNCTIONS.yy",},"order":0,},
     {"id":{"name":"ico_search","path":"sprites/ico_search/ico_search.yy",},"order":1,},
     {"id":{"name":"SEARCHBAR_FUNCTIONS","path":"scripts/SEARCHBAR_FUNCTIONS/SEARCHBAR_FUNCTIONS.yy",},"order":8,},

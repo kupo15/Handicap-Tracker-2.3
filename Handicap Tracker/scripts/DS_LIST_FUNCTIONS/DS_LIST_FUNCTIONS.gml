@@ -117,3 +117,19 @@ source_array[@ i] = sorting_grid[# 0,i];
 // destroy temp sorting grid
 ds_grid_destroy(sorting_grid);
 }
+
+
+function ds_list_push(id,val) {
+	
+ds_list_add(id,val);
+}
+
+function ds_list_pop(id) {
+	
+var size = ds_list_size(id);
+var return_val = ds_list_find_value(id,size-1);
+
+ds_list_delete(id,size-1);
+
+return return_val;
+}

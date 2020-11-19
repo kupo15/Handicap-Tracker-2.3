@@ -45,15 +45,34 @@ debug_draw_scrollbars(xx,yy,debugyoff,sep,height);
 debug_draw_mouse(xx,yy,debugyoff,sep,height);
 
 // right side
+var xx = 550;
+
+// draw elements
 var size = ds_list_size(deleteList);
 for(var i=0;i<size;i++)
-draw_text_height(550,yy+(i*sep),deleteList[| i],height);
+draw_text_height(xx,yy+(i*sep),deleteList[| i],height);
 	
 yy += (size+1)*sep;
 
 // draw prev screen stack
-var prev_screen_ind = if_undef(ds_stack_top(prev_screen_stack),screen.home);
-draw_text_height(550,yy+(0*sep),string(ds_stack_size(prev_screen_stack))+": "+string(script_get_name(drawScreen[prev_screen_ind])),height);
+var size = ds_list_size(prev_screen_stack);
+
+// draw current screen
+var str = script_get_name(drawScreen[screenIndex]);
+str = string_replace(str,"draw_","");
+draw_text_height(xx,yy+(0*sep),"CurrentScreen: "+string(str),height);
+
+// draw dividing line
+draw_line(xx,yy+sep,xx+300,yy+sep);
+
+// draw prev screens
+for(var i=0;i<size;i++)
+	{
+	var val = prev_screen_stack[| size-i-1];
+	var str = script_get_name(drawScreen[val]);
+
+	draw_text_height(xx,yy+((i+1)*sep),str,height);
+	}
 		
 draw_set_colour(c_black);
 }

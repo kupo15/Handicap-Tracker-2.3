@@ -4,7 +4,7 @@ enumGOTO();
 
 function ini_screen_change() {
 
-prev_screen_stack = ds_stack_create();
+prev_screen_stack = ds_list_create();
 	
 drawScreen[screen.home] = draw_home;
 drawScreen[screen.stats] = draw_stats;
@@ -37,7 +37,7 @@ function screen_change(ind,clear) {
 if argument[1] == undefined
 clear = false;
 
-ds_stack_push(prev_screen_stack,screenIndex); // add current screen to the stack
+ds_list_push(prev_screen_stack,screenIndex); // add current screen to the stack
 
 // change to new screen
 if (drawScreen[ind] == 0) || (drawScreen[ind] == undefined)
@@ -47,7 +47,7 @@ screenIndex = ind;
 
 // clear the prev screen stack
 if clear
-ds_stack_clear(prev_screen_stack);
+ds_list_clear(prev_screen_stack);
 
 screen_goto_actions();
 }
@@ -60,13 +60,13 @@ submenu = subIndex;
 
 click_highlight_screen = screenIndex;
 
-if ds_stack_empty(prev_screen_stack)
+if ds_list_empty(prev_screen_stack)
 	{
 	screenIndex = screen.home;
 	db("stack empty");
 	}
 else
-screenIndex = ds_stack_pop(prev_screen_stack);
+screenIndex = ds_list_pop(prev_screen_stack);
 
 screen_goto_actions();
 }
