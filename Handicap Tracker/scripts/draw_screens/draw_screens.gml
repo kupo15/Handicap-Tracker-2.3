@@ -51,11 +51,11 @@ numpad_value = draw_numpad_golf(numpad_value);
 // draw_footer_button();
 
 draw_darken_screen();
-draw_nav_bar();
+draw_navbar();
 draw_sidebar_main_menu();
 
-draw_courselist_list();
-draw_teebox_list();
+// popup overlays
+draw_overlay_calendar();
 draw_popup_par();
 draw_playing_score_enter();
 	

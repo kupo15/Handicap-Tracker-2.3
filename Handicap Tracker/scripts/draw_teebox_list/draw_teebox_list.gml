@@ -1,7 +1,12 @@
 
 function draw_teebox_list() {
-exit;
+
 var alph = (teebar_yoff_start/1);
+var col = c_black;
+
+draw_set_alpha(alph*0.6);
+draw_rectangle_color(0,0,app_width,app_height,col,col,col,col,false);
+
 draw_set_alpha(alph);
 
 var rows = ds_list_size(teebox_list);
@@ -21,17 +26,17 @@ var height = 65;
 for(var i=0;i<rows;i++)
 	{
 	var has_data = teebox_filled[| i];
-		
-	if has_data && course_id != noone
-		{
-		var tee_pointer_MAP = course_id[| 1];
-		var tee_color = teebox_list[| i];
-		var tee_data_pointer = tee_pointer_MAP[? tee_color];
-		var course_yardage = tee_data_pointer[| tee_data.yardage];
-		var course_slope = tee_data_pointer[| tee_data.slope];
-		var course_rating = tee_data_pointer[| tee_data.rating];
-		var course_par = tee_data_pointer[| tee_data.par];
+	var teeColor = teebox_list[| i];
 	
+	if has_data && (course_struct != undefined)
+		{
+		// set from temp tee data
+		var teeData_pointer = variable_struct_get(course_struct.subcourses[0],string_lower(teeColor));
+		var course_yardage = teeData_pointer.courseYardage;
+		var course_slope = teeData_pointer.courseSlope;
+		var course_rating = teeData_pointer.courseRating;
+		var course_par = teeData_pointer.coursePar;
+		
 		var teebox_str = course_yardage+" yds ("+course_slope+"/"+course_rating+")";
 		}
 	else 
@@ -41,8 +46,8 @@ for(var i=0;i<rows;i++)
 	draw_text_height(xx+60,yy+10+(i*sep),str,height*0.7); // draw tee
 	draw_tee_marker(xx+25,yy+30+(i*sep),10,teebox_list[| i]); // draw teebox marker
 	
-	
-	if !has_data //&& screenIndex == screen.edit_score
+	// background color for missing data
+	if !has_data
 		{
 		var col = c_gray;
 		
@@ -53,13 +58,13 @@ for(var i=0;i<rows;i++)
 
     
 	// clicked on a tee marker
-	if click_region_released(xx,yy+(i*sep),ww,sep,true,navbar.teebar)
-	    {	
-		teebox_index = i;
-	    submenu = navbar.hidden;
-		
-		var tee = teebox_list[| teebox_index]; // tee color
-
+	if click_region_released(xx,yy+(i*sep),ww,sep,true,navbar.teebar,alph)
+	    {			
+		if has_data
+		return i;
+				
+		//var tee = teebox_list[| teebox_index]; // tee color
+/*
 		// play course
 		if screenIndex == screen.playing
 			{
@@ -97,8 +102,8 @@ for(var i=0;i<rows;i++)
 	
 				textboxIndex = 1;
 				course_id = play_course_id;
-				prev_screen = screenIndex;
-				screenIndex = screen.edit_course;
+				
+				screen_change(screen.edit_course);
 				submenu = navbar.hidden;
 				}
 			
@@ -161,10 +166,10 @@ for(var i=0;i<rows;i++)
 				// screenIndex = screen.edit_course;
 				submenu = navbar.hidden;
 				}
-			}
+			}*/
 	    }
 	}
 
 draw_set_alpha(1);
-
+return undefined;
 }

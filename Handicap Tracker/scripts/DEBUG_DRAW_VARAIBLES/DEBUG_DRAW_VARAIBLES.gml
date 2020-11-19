@@ -12,7 +12,8 @@ enum_name_submenu[5+navbar.year_select] = "year_select";
 enum_name_submenu[5+navbar.parbar] = "parbar";
 enum_name_submenu[5+navbar.scorebar] = "scorebar";
 enum_name_submenu[5+navbar.numpad] = "numpad";
-
+enum_name_submenu[5+navbar.calendar] = "calendar";
+enum_name_submenu[5+navbar.calendarYearSelect] = "calendarYearSelect";
 }
 
 function debug_draw_screens(xx,yy,ind,sep,height) {
@@ -25,6 +26,14 @@ draw_text_height(xx,yy+((debugyoff+3)*sep),"activeSubmenu: "+string(activeSubmen
 debugyoff += 5;
 }
 
+function debug_draw_screen_darken(xx,yy,ind,sep,height) {
+	
+draw_text_height(xx,yy+((debugyoff+0)*sep),"screenDarkenIndex: "+string(screenDarkenIndex),height);
+draw_text_height(xx,yy+((debugyoff+1)*sep),"screenDarkenAlpha: "+string(screenDarkenAlpha),height);
+	
+debugyoff += 4;
+}
+
 function debug_draw_click_highlight(xx,yy,ind,sep,height) {
 	
 draw_text_height(xx,yy+((ind+0)*sep),"highlight_width: "+string(click_highlight_width)+" ["+string(click_highlight_width_end)+"]",height);
@@ -35,6 +44,19 @@ draw_text_height(xx,yy+((ind+4)*sep),"highlight_screen: "+string(click_highlight
 draw_text_height(xx,yy+((ind+5)*sep),"activeSubmenu: "+string(activeSubmenu),height);
 
 debugyoff += 7;
+}
+
+
+function debug_draw_strings(xx,yy,ind,sep,height) {
+	
+draw_text_height(xx,yy+((ind+0)*sep),"kvLastString:",height);
+draw_text_height(xx,yy+((ind+1)*sep),string(kvLastString),height);
+
+draw_text_height(xx,yy+((ind+2.5)*sep),"stringxpos: "+string(debugStringXpos),height);
+draw_text_height(xx,yy+((ind+3.5)*sep),"stringypos: "+string(debugStringYpos),height);
+draw_text_height(xx,yy+((ind+4.5)*sep),"stringHeight: "+string(debugStringHeight),height);
+
+debugyoff += 6;
 }
 
 function debug_draw_vk(xx,yy,ind,sep,height) {

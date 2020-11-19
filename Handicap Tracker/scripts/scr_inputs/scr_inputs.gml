@@ -60,11 +60,11 @@ debug_data_reset();
 if keyboard_check(vk_control)
 	{
 	if room_speed == 60
-	room_speed = 8;
+	room_speed = 5;
 	}
 else if !keyboard_check(vk_control)
 	{
-	if room_speed == 8
+	if room_speed == 5
 	room_speed = 60;
 	}
 

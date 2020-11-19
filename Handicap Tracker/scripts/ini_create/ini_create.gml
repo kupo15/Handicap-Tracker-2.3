@@ -4,17 +4,8 @@ layout_normal();
 ini_teebox();
 scr_playing_clear();
 
-temp_course_tee = "";
-temp_course_yardage = "";
-temp_course_slope = "";
-temp_course_rating = "";
-temp_course_par = "";
-
-temp_score_tee = "";
-temp_score_yardage = "";
-temp_score_slope = "";
-temp_score_rating = "";
-temp_score_par = "";
+course_id = noone; // depreciate
+index = 0; // depreciate
 
 //
 
@@ -31,11 +22,14 @@ handicap_trend_type = 0;
 
 stat_tee_index = noone;
 stat_index = 0;
-prev_screen = noone;
+
 course_edit_name = undefined;
-course_id = noone;
-teebox_index = 00;
-index = 0;
+
+course_struct = undefined;
+score_struct = undefined;
+
+course_index = 0;
+score_index = 0;
 
 active_course = undefined;
 active_tee = undefined;
@@ -46,9 +40,6 @@ course_edit_yardage = "";
 course_edit_slope = "";
 course_edit_rating = "";
 course_edit_par = "";
-
-temp_score = undefined;
-temp_strokes = undefined;
 
 #region offsets
 navbar_yoff = 0;

@@ -181,7 +181,7 @@ function draw_date_edit_calendar() {
 			}
 		else
 			{
-		    screenIndex = prev_screen;
+		    screen_goto_prev();
 			date_pointer = noone;
 			}
 	    }

@@ -1,11 +1,8 @@
 function scr_tee_filled_set(source_id) {
 /// @param [source_id]	
 	
-if course_id == noone
-exit;
-
 if argument[0] == undefined
-source_id = course_id;
+source_id = course_struct;
 
 var tee_pointer = source_id.subcourses[0]; // tee marker MAP
 var size = ds_list_size(teebox_filled);
@@ -52,14 +49,14 @@ function scr_tee_update(course_pointer, tee_ind, yardage, slope, rating, par) {
 /// @param slope
 /// @param rating
 
-	var tee_pointer_MAP = course_pointer[| 1];
-	var tee_color = teebox_list[| tee_ind];
-	var tee_data_pointer = tee_pointer_MAP[? tee_color];
+var tee_pointer_MAP = course_pointer[| 1];
+var tee_color = teebox_list[| tee_ind];
+var tee_data_pointer = tee_pointer_MAP[? tee_color];
 
-	tee_data_pointer[| tee_data.yardage] = yardage; // set yardage
-	tee_data_pointer[| tee_data.slope] = slope; // set slope
-	tee_data_pointer[| tee_data.rating] = rating; // set rating
-	tee_data_pointer[| tee_data.par] = par; // set par
+tee_data_pointer[| tee_data.yardage] = yardage; // set yardage
+tee_data_pointer[| tee_data.slope] = slope; // set slope
+tee_data_pointer[| tee_data.rating] = rating; // set rating
+tee_data_pointer[| tee_data.par] = par; // set par
 
 
 }

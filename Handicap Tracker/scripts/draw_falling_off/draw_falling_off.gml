@@ -55,9 +55,5 @@ for(var i=0;i<rows;i++)
 
 // if clicked
 if click_region_released(0,yy-50,ww,sep+50,c_yellow,navbar.main)
-	{
-	screenIndex = screen.score_card;
-	submenu = navbar.hidden;
-	}
-
+screen_change(screen.score_card);
 }

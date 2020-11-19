@@ -108,8 +108,7 @@ function draw_date_edit_calendar1() {
 		if submit
 		date_pointer[| score_data.date] = date_create_datetime(year_offset_end,month_offset_end,day_offset_end,1,1,1); // save date
 	
-		submenu = navbar.main;
-	    screenIndex = prev_screen;
+	    screen_goto_prev(navbar.main);
 		date_pointer = noone;
 		app_save;
 	    }

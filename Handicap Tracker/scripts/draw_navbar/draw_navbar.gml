@@ -1,4 +1,4 @@
-function draw_nav_bar() {
+function draw_navbar() {
 
 var alph = 1-(navbar_yoff_start/1);
 draw_set_alpha(alph);
@@ -19,7 +19,7 @@ draw_rectangle_colour(xx,yy_nav,xx+xsep,yy_nav+hh,col,col,col,col,false);
 var ww = app_width;
 var col = make_colour_rgb(2,121,172);
 
-draw_line_pixel(-1,yy_nav,app_width+1,2,c_gray,alph); // horizontal line
+draw_line_pixel(-1,yy_nav,app_width+1,1,c_gray,alph*0.7); // horizontal line
 //draw_rectangle_colour(xx_nav,yy_nav,xx_nav+ww,yy_nav+hh,col,col,col,col,false);
 
 draw_set_halign(fa_center);
@@ -46,10 +46,6 @@ for(var i=0;i<ico_num;i++)
 		
 	// draw icons
 	draw_icon_height_centered_color(spr_footer_icon,i,xpos,yy_nav,xsep,hh*0.8,hh*0.6,col,alph);
-
-	// vertical lines
-	if i>0
-	draw_line_pixel(i*xsep,yy_nav,2,hh,c_gray,alph);
 		
 	if click_region_released(i*xsep,yy_nav,xsep,hh,true,submenu)
 	scr_navbar_click(i);

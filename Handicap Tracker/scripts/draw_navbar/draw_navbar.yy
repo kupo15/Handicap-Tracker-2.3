@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Main/Draw/Navbar.yy",
   },
   "resourceVersion": "1.0",
-  "name": "draw_nav_bar",
+  "name": "draw_navbar",
   "tags": [],
   "resourceType": "GMScript",
 }

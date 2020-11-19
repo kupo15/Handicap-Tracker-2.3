@@ -69,6 +69,11 @@ repeat 2
 		{
 		draw_icon_height_centered(ico_trash3,0,xpos-20,0,region,region,40,1); // trash icon
 		
+		var xpos = app_width-hh-20;
+
+		if (submenu < 0) && !mode_delete
+		if click_region_released(xpos,0,region,region,true,submenu)
+		return true;
 		}
 		
 	var header_type = header_right;
@@ -77,6 +82,8 @@ repeat 2
 	
 // other header overwrite
 draw_header_delete(0,ww,hh);
+
+return false;
 }
 
 function draw_header_delete(yy,ww,hh){
@@ -111,10 +118,10 @@ draw_set_color(c_white);
 draw_text_height(xx,yy+yoff,string(count)+" selected",height); // draw number of items to delete
 
 // clicked on trash
-var xx = room_width-hh-20;
+var xx = app_width-hh-20;
 draw_icon_height_centered(ico_trash3,0,xx,yy,hh,hh,40,headerDeleteOffsetDisp); // trash icon
 
-if click_region_released(xx,0,hh,hh,true,submenu) && mode_delete
+if mode_delete && click_region_released(xx,0,hh,hh,true,submenu)
 delete_list_delete_array(deleteList,mode_delete_list_id);
 
 draw_set_color(c_black);

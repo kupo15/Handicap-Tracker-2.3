@@ -1,5 +1,4 @@
-function draw_courselist_list() {
-	exit;
+/*function draw_courselist_list() {
 	
 var alph = (coursebar_yoff_start/1);
 draw_set_alpha(alph);
@@ -46,13 +45,13 @@ else
 		}
 	
 #region scrolling
-	var offset_start_pointer = [self,"course_list_offset_start"];
-	var offset_pointer = [self,"course_list_offset"];
-	var scrollbar_index = 0;
-	var xx = 0;
-	var sub = navbar.coursebar;
+var offset_start_pointer = [self,"course_list_offset_start"];
+var offset_pointer = [self,"course_list_offset"];
+var scrollbar_index = 0;
+var xx = 0;
+var sub = navbar.coursebar;
 
-	funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offset_pointer,scrollbar_index,sub);
+funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offset_pointer,scrollbar_index,sub);
 #endregion
 	}
 

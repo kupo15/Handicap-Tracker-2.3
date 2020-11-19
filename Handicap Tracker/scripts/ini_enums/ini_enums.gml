@@ -22,9 +22,13 @@ edit_score,
 edit_date
 }
 
+enum highlightAction {
+courseSelect,	
+	
+}
+
 enum course_data {
 name,
-tee,
 yardage,
 slope,
 rating,
@@ -67,7 +71,9 @@ teebar,
 year_select,
 parbar,
 scorebar,
-numpad
+numpad,
+calendar,
+calendarYearSelect
 }
 
 enum tee_marker {

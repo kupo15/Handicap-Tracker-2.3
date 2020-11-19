@@ -106,3 +106,44 @@ draw_circle_color(xx,yy,r,col,col,false);
 draw_line_width_color(xx-line_ll,yy,xx+line_ll,yy,ww,c_black,1);
 draw_line_width_color(xx,yy-line_ll,xx,yy+line_ll,ww,c_black,1);
 }
+
+function draw_switch_tab(xx,yy,box_hh,diameter,ind,variable) {
+/// @param xx
+/// @param yy
+/// @param box_hh
+/// @param diameter
+/// @param lerp_index
+/// @param variable
+
+var scale = diameter/7*0.5;
+
+var ww = 25*scale;
+var hh = 10*scale;
+var r = 7*scale;
+
+var bar_col = c_gray;
+var button_col = make_color_rgb(200,200,200);
+
+// change color
+if switchTabDisp[ind] >= 0.5
+	{
+	bar_col = make_color_rgb(177,198,252);
+	button_col = make_color_rgb(83,113,255);
+	}
+	
+// lerp position
+switchTabDispEnd[ind] = variable;
+
+if switchTabDisp[ind] != switchTabDispEnd[ind]
+switchTabDisp[ind] = lerp(switchTabDisp[ind],switchTabDispEnd[ind],0.35);
+
+yy += (box_hh*0.5);
+
+var yoff = hh*0.5;
+var button_xoff = ww*switchTabDisp[ind];
+
+draw_roundrect_color(xx,yy-yoff,xx+ww,yy+yoff,bar_col,bar_col,false); // draw underbar
+draw_circle_color(xx+button_xoff,yy,r,button_col,button_col,false); // draw button
+
+
+}

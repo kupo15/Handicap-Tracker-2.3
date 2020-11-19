@@ -139,7 +139,7 @@ var xx = 0;
 var yy = app_height-hh;
 var height = 40;
 var ww = app_width-xx-xx;
-var col = lerp(c_gray,header_color,submit);
+var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
 	{

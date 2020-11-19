@@ -58,7 +58,7 @@ var xx = 10;
 var yy = 270;
 var button_hh = 60;
 var vsep = 70;
-var height = 45;
+var height = 40;
 var ww = app_width-xx-xx;
 
 // size of teebox list
@@ -70,7 +70,7 @@ for(var i=0;i<size;i++)
 	var teeColor = teebox_list[| i];
 	var yoff = (i*vsep);
 
-	if has_data && (course_id != noone)
+	if has_data && (course_struct != undefined)
 		{
 		// set from temp tee data
 		var teeData_pointer = variable_struct_get(active_course.subcourses[0],string_lower(teeColor));
@@ -135,10 +135,10 @@ if draw_button_trash(xx,yy,ww,hh,ico_trash1,c_red,screen.edit_course,navbar.hidd
 	array_delete(courselist_array,course_index,1);
 		
 	// original course name
-	if course_id.courseName == play_course_name
+	if course_struct.courseName == play_course_name
 	scr_playing_clear();	
 			
-	course_id = undefined;
+	course_struct = undefined;
 	active_course = undefined;
 	textboxIndex = noone;
 	course_index = undefined;

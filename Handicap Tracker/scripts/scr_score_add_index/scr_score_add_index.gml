@@ -31,7 +31,7 @@ var course_rating = teeData.courseRating;
 var course_par = teeData.coursePar;
 
 // add score data
-var score_struct = {
+score_struct = {
 
 	courseName: c_name,
 	teeColor: tee_color,
@@ -46,7 +46,7 @@ var score_struct = {
 	
 	courseHandicap: undefined,
 	indexHistory: undefined,
-	indexIncluded: false,
+	indexIncluded: true,
 	practiceRound: false,
 	esr: 0,
 	}	

@@ -37,14 +37,16 @@ screenIndex = screen.home;
 textboxIndex = noone;
 datePointer = noone;
 
-canClick = true;
-clickMoved = false;
-
+// virtual keyboard
 kvStatus = false;
 kvActive = false;
 kvHeight = 0;
 kvLastString = "";
 kvInputString = "";
+
+// mouse
+canClick = true;
+clickMoved = false;
 
 mouse_xstart = 0;
 mouse_ystart = 0;
@@ -57,6 +59,11 @@ mouse_yprev = 0;
 
 mouse_xpos = 0;
 mouse_ypos = 0;
+
+// switch tabs
+switchTabNum = 5;
+switchTabDisp = array_create(switchTabNum,0);
+switchTabDispEnd = array_create(switchTabNum,0);
 
 // debug
 debugStringXpos = 0;

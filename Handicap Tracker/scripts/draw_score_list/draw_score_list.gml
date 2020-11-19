@@ -1,11 +1,9 @@
 function draw_score_list() {
 	
-	
-var course_next = false;
 var xx = 20;
 var yy = 100;
 var height = 35;
-var sep = 80;
+var sep = 120;
 var ww = app_width;
 var hh = app_height-sep-yy;
 var rows = hh/sep;
@@ -39,20 +37,20 @@ for(var i=pos_start;i<pos_end;i++)
 	//draw_text_height(xx+390,yy+(off_pos*sep),course_esr,40); // draw score shot
 
 	var course_str = string_abbreviate(course_name,380,height,"...");
-	draw_text_height(xx,yy+10+(off_pos*sep),course_str,height); // draw course name
+	draw_text_height(xx,yy+20+(off_pos*sep),course_str,height); // draw course name
 	draw_text_height(xx+425,yy+15+(off_pos*sep),real(_score)-real(strokes),50); // draw score shot
 	
 	if strokes != 0
 	draw_text_height(xx+472,yy+15+(off_pos*sep),"+"+string(strokes),20); // draw strokes given
 	
 	// tee info
-	draw_roundrect_color_ext(xx+10,yy+45+(off_pos*sep),xx+245,yy+45+30+(off_pos*sep),25,30,col,col,false); // background
-	draw_tee_marker(xx+25,yy+45+15+(off_pos*sep),6,course_tee); // draw tee marker
+	draw_roundrect_color_ext(xx+10,yy+70+(off_pos*sep),xx+245,yy+70+30+(off_pos*sep),25,30,col,col,false); // background
+	draw_tee_marker(xx+25,yy+70+15+(off_pos*sep),6,course_tee); // draw tee marker
 	
 	var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
-	draw_text_height_middled_color(xx+40,yy+45+(off_pos*sep),str,30,tee_str_col,25,1); // draw slope/rating
+	draw_text_height_middled_color(xx+40,yy+70+(off_pos*sep),str,30,tee_str_col,25,1); // draw slope/rating
 
-	draw_text_height_color(xx+260,yy+55+(off_pos*sep),date_string,c_gray,23); // draw date played
+	draw_text_height_color(xx+260,yy+80+(off_pos*sep),date_string,c_gray,23); // draw date played
 			
 	// draw_text_height(xx,yy+45+(off_pos*sep),i+1,height); // i
 	// draw_text_height(xx+35,yy+40+(off_pos*sep),string_format(course_handicap,2,1),36); // draw course handicap
@@ -81,42 +79,12 @@ for(var i=pos_start;i<pos_end;i++)
 			}
 		else // select score
 		    {
-		    index = i;
-			course_next = true;
-			course_id = noone;
-			screenIndex = screen.edit_score;
-			submenu = navbar.hidden;
-		
-			var score_pointer = master_score_list[| index];
-			temp_score = score_pointer[| score_data.score_];
-			temp_strokes = score_pointer[| score_data.strokes];
-			if temp_strokes == "0" temp_strokes = "";
-			
-			temp_score_tee = score_pointer[| score_data.tee];
-			temp_score_yardage = score_pointer[| score_data.yardage];
-			temp_score_slope = score_pointer[| score_data.slope];
-			temp_score_rating = score_pointer[| score_data.rating];
-			temp_score_par = score_pointer[| score_data.par];
-			
-			/*temp_course_tee = score_pointer[| score_data.tee];
-			temp_course_yardage = score_pointer[| score_data.yardage];
-			temp_course_slope = score_pointer[| score_data.slope];
-			temp_course_rating = score_pointer[| score_data.rating];
-			temp_course_par = score_pointer[| score_data.par];*/
-								
-			var course_size = ds_list_size(master_course_list);
-			for(var i=0;i<course_size;i++) // loop through course list
-				{
-				var pointer = master_course_list[| i];
-				var name = pointer[| course_data.name]; // course name
+		    score_index = i;
+			course_struct = course_find_array(course_name);
+			score_struct = struct_copy(scorelist_array[score_index]);
 				
-				if score_pointer[| score_data.course] == name
-					{
-					course_id = pointer;
-					break;
-					}	
-				}
-			
+			// change screen
+			screen_change(screen.edit_score);		
 			scr_tee_filled_set();
 			}
 		}
@@ -145,18 +113,11 @@ if click_button(xx,yy,"Add Score",50,c_black,ww,hh,c_white,false,true,navbar.mai
 	{
 	var date = date_current_datetime();
 	index = scr_score_add("","","","","","","",date,"0"); // create a new score row
-	course_next = true;
 	temp_score = "";
 	temp_strokes = "";
 	popup_coursebar();
 	screenIndex = screen.add_score;
 	}
 	
-if course_next
-	{
-	}
-
-
-
 
 }

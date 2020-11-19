@@ -3,8 +3,8 @@ function draw_course_list() {
 var course_next = false;
 var xx = 30;
 var yy = header_height;
-var height = 40;
-var sep = 70;
+var height = 35;
+var sep = 80;
 var ww = app_width;
 var hh = app_height-nav_height-yy-sep;
 var rows = hh/sep;
@@ -19,7 +19,7 @@ for(var i=pos_start;i<pos_end;i++)
 	var course_str = string_abbreviate(course_name,485,height,"...");
 	var off_pos = i-course_list_offset;
     
-	draw_text_height(xx,yy+20+(off_pos*sep),course_str,height); // draw course name
+	draw_text_height_middled(xx,yy+(off_pos*sep),course_str,sep,height,1); // draw course name
 	draw_line_pixel(25,yy+((1+off_pos)*sep),room_width,1,c_black,0.2); // draw row lines
 		
 	// click released on course
@@ -67,12 +67,10 @@ var yy = room_height-hh-nav_height;
 if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,false,true,navbar.main)
 	{
 	course_edit_name = "";
+	course_next = true;
 
 	screen_change(screen.add_course);
 	click_textbox_set("",course_data.name,kbv_type_default);
-
-	teebox_index = 00;
-	course_next = true;
 	}
 
 #endregion
@@ -80,8 +78,8 @@ if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,false,true,navbar.ma
 // go to course edit/add
 if course_next 
 	{
-	course_id = courselist_array[course_index];
-	active_course = struct_copy(course_id);
+	course_struct = courselist_array[course_index];
+	active_course = struct_copy(course_struct);
 
 	submenu = navbar.hidden;
 	scr_tee_filled_set(); // mark tees with data

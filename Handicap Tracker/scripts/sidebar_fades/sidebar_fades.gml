@@ -22,13 +22,13 @@ parbar_yoff_start = lerp(parbar_yoff_start,parbar_yoff,0.19);
 scorebar_yoff = (submenu == navbar.scorebar); // ?	scorebar_yoff = true : scorebar_yoff = false
 
 if scorebar_yoff != scorebar_yoff_start
-scorebar_yoff_start = lerp(scorebar_yoff_start,scorebar_yoff,0.19);
+scorebar_yoff_start = lerp(scorebar_yoff_start,scorebar_yoff,0.17);
 
 // coursebar
-coursebar_yoff = (submenu == navbar.coursebar); // ? coursebar_yoff = true : coursebar_yoff = false
+coursebar_yoff = (submenu != navbar.coursebar); // ? coursebar_yoff = true : coursebar_yoff = false
 
 if coursebar_yoff != coursebar_yoff_start
-coursebar_yoff_start = lerp(coursebar_yoff_start,coursebar_yoff,0.19);
+coursebar_yoff_start = lerp(coursebar_yoff_start,coursebar_yoff,0.15);
 
 // numpad
 numpad_yoff = !(submenu == navbar.numpad); // ? coursebar_yoff = true : coursebar_yoff = false
@@ -45,15 +45,6 @@ var lerp_spd = SIDEBAR_LERP;
 
 if submenu_menu_xpos != submenu_menu_xpos_disp
 submenu_menu_xpos_disp = lerp(submenu_menu_xpos_disp,submenu_menu_xpos,lerp_spd);
-
-// lerp the darken screen behind it
-screen_darken_alpha = 1-(abs(submenu_menu_xpos_disp)/side_menu_width);
-	
-/*switch screen_darken_value
-	{
-	case darkenIndex.none: screen_darken_alpha = 2; break;
-	case darkenIndex.sidebar: screen_darken_alpha = 1-(abs(submenu_menu_xpos_disp)/side_menu_width); break;
-	}*/
 		
 // header delete
 headerDeleteOffset = mode_delete;

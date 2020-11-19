@@ -62,3 +62,14 @@ _string += string(argument[i]);
 
 return _string;
 }
+	
+function pick(val1,val2,condition) {
+/// val1 if false
+/// val2 if true
+
+if condition
+return val2;
+else
+return val1;
+	
+}

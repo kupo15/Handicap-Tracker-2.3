@@ -48,7 +48,9 @@ vk_hide();
 
 switch screenIndex
 	{
-	case screen.score_card: submenu = navbar.hidden; break;
+	// change to hidden
+	case screen.edit_score:
+	case screen.score_card: submenu = navbar.hidden; break;	
 	
 	// edit tees
 	case screen.edit_tees: submenu = navbar.numpad; break;

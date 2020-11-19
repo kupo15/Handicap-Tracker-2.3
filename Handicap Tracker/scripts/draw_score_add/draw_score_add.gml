@@ -1,241 +1,249 @@
 function draw_score_add() {
-
-	// header
-	var str = "Add Score";
-	if screenIndex == screen.edit_score
-	var str = "Edit Score";
-
-	draw_screen_header(headerType.back,headerType.none,str);
 	
-	var score_pointer = master_score_list[| index];
+#region header
+var bg_col = c_lt_gray;
+draw_clear(bg_col);
 
-	if kvActive
-	switch textboxIndex
-	    {
-	    case 0: temp_score = string_convert_real(keyboard_string,3); break; // scr_input_text(3); break;
-	    case 1: temp_strokes = string_convert_real(keyboard_string,2); break; // scr_input_text(2); break;
-	    }
+var str = pick("Add Score","Edit Score",screenIndex == screen.edit_score);
+var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);	
 
-	var xx = 20;
-	var yy = 120;
-	var ww = 250;
-	var sep = 130;
-	var height = 70;
-					
-	var course_name = score_pointer[| score_data.course];
-	var course_tee = temp_score_tee; // temp_course_tee; // score_pointer[| score_data.tee];
-	var course_yardage = temp_score_yardage; // temp_course_yardage; // score_pointer[| score_data.yardage];
-	var course_slope = temp_score_slope; // temp_course_slope; // score_pointer[| score_data.slope];
-	var course_rating = temp_score_rating; // temp_course_rating; // score_pointer[| score_data.rating];
-	var date = score_pointer[| score_data.date];
-	var month = funct_convert_date(date_get_month(date)-1,false,-1,true);
-	var day = date_get_day(date);
-	var year = date_get_year(date);
-	var date_str = string(month)+" "+string(day)+", "+string(year);
+if trash_delete
+	{
+	array_delete(scorelist_array,score_index,1); // delete score
+	score_index = 0;
 
-	var course_height = text_reduce(course_name,500,height);
-	draw_textbox(0,yy+40,room_width,80);
-	draw_text_height(xx,yy,"Course",height*0.6,fn_italic); // draw course name label
-	draw_text_height(xx,yy+50,course_name,course_height); // draw course name
+	screen_goto_prev(navbar.main);
+	app_save;
+	exit;
+	}
+#endregion
 
-	draw_textbox(0,yy+40+(1*sep),room_width,80);
-	draw_text_height(xx,yy+(1*sep),"Tee",height*0.6,fn_italic); // draw course tee markers label
-	draw_text_height(xx,yy+55+(1*sep),string(course_tee)+" "+string(course_yardage)+" yds ("+string(course_slope)+" / "+string(course_rating)+")",height*0.7); // draw course tee markers
-
-	draw_textbox(0,yy+40+(2*sep),250,80);
-	draw_text_height(xx+15,yy+5+(2*sep),"Gross Score",height*0.5,fn_italic); // draw score label
-	// draw_text_height_entry(xx+50,yy+45+(2*sep),temp_score,height,noone,0,height); // draw score
-	draw_text_height_ext_cursor(xx+50,yy+45+(2*sep),temp_score,temp_score,0,-1,ww,height,0); // draw score
-
-	draw_textbox(300,yy+40+(2*sep),250,80);
-	draw_text_height(xx+270,yy+5+(2*sep),"Strokes Reduced",height*0.5,fn_italic); // draw score label
-
-	if temp_strokes == ""
-		{
-		draw_set_color(c_gray);
-		draw_text_height_entry(xx+50+300,yy+45+(2*sep),"0",height,noone,1,height*0.9,fn_italic); // draw default "0"
-		draw_set_color(c_black);
-		}
-	else
-	draw_text_height_ext_cursor(xx+50+300,yy+45+(2*sep),temp_strokes,temp_strokes,0,-1,250,height,1); // draw strokes
-	// draw_text_height_entry(xx+50+300,yy+45+(2*sep),temp_strokes,height,noone,1,height); // draw strokes
-
-	draw_set_halign(fa_left);
-	draw_textbox(0,yy+40+(4*sep),room_width,80);
-	draw_text_height(xx,yy+(4*sep),"Date Played",height*0.6,fn_italic); // draw date label
-	draw_text_height(xx,yy+45+(4*sep),date_str,height); // draw date
-
-	var ww = app_width;
-	for(var i=0;i<2;i++)
-	if click_region_released(0,yy+(i*sep),ww,sep,true,navbar.hidden)
-	    {
-		searched_name = "";
-	
-		switch i
-			{
-		    case 0: mouse_clear(mb_left);
-			case 1: submenu = i; break;
-			}
-	    }
-
-	var ww = 250;
-	for(var i=0;i<2;i++)
-	if click_region_released(0+(i*300),yy+(2*sep),ww,sep,true,navbar.hidden)
-	switch i
-		{
-		// click on score
-		case 0: click_textbox_set(temp_score,0,kbv_type_numbers); break;
-				
-		// click on strokes
-		case 1: click_textbox_set(temp_strokes,1,kbv_type_numbers); break;
-		}
-
-	// clicked enter
-	if virtual_keyboard_enter
-	switch textboxIndex
-		{
-		case 0: textboxIndex ++;
-				keyboard_string = temp_strokes;
-				break;
-			
-		case 1: vk_hide(); break;
-		}
-	
-	// clicked on date
-	var ww = room_width;
-	if click_region_released(0,yy+(4*sep),ww,sep,true,navbar.hidden)
-		{
-		date_pointer = score_pointer;
-		scr_set_date_offsets(score_pointer[| score_data.date]);
-		prev_screen = screenIndex;
-		screenIndex = screen.edit_date;
-		}
+if kvActive
+switch textboxIndex
+	{
+	case score_data.score_: score_struct.roundScore = string_convert_real_numpad(numpad_value,3); break;
+	case score_data.strokes: score_struct.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
+	}		
 		
-	// delete score
-	if screenIndex == screen.edit_score
+var course_name = score_struct.courseName;
+var course_tee = score_struct.teeColor;
+var course_yardage = score_struct.courseYardage;
+var course_slope = score_struct.courseSlope;
+var course_rating = score_struct.courseRating;
+
+var roundScore = score_struct.roundScore;
+var roundStrokes = score_struct.roundStrokes;
+var practice_round = score_struct.practiceRound;
+
+#region draw course
+var xx = 0;
+var yy = 100;
+var ww = app_width-xx-xx;
+var hh = 90;
+var sep = 130;
+
+if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
+submenu = navbar.coursebar;
+
+var label_height = 30;
+var height = 40;
+var course_height = text_reduce(course_name,ww-30,height);
+
+draw_set_halign(fa_left);
+draw_text_height(xx+20,yy+5,"Course",label_height,fn_italic); // draw course name label
+draw_text_height(xx+20,yy+35,course_name,course_height); // draw course name
+#endregion
+
+#region draw tee
+var xx = 0;
+var yy = 200;
+var ww = app_width-xx-xx;
+var hh = 90;
+
+if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
+	{
+	submenu = navbar.teebar;
+	scr_tee_filled_set(); // mark tees with data
+	}
+
+var height = 45;
+var str = string(capitalize(course_tee))+" "+string(course_yardage)+" yds ("+string(course_slope)+" / "+string(course_rating)+")";
+
+draw_set_halign(fa_left);
+draw_text_height(xx+20,yy+5,"Tee",label_height,fn_italic); // draw course tee markers label
+draw_text_height(xx+20,yy+35,str,height); // draw course name
+#endregion
+
+#region draw score/strokes
+var xx = 0;
+var yy = 300;
+var ww = app_width-xx-xx;
+var hh = 90;
+
+draw_roundrect_color(xx,yy,xx+ww,yy+hh,c_white,c_white,false);
+draw_line_pixel(ww*0.5,yy+10,1,hh-20,c_gray,1);
+
+var height = 45;
+
+// draw labels
+draw_set_halign(fa_left);
+draw_text_height(xx+20,yy+5,"Gross Score",label_height,fn_italic); // draw score label
+draw_text_height(xx+20+(ww*0.5),yy+5,"Strokes Reduced",label_height,fn_italic); // draw score label
+
+// draw values
+var score_str = pick(roundScore,"enter score",roundScore == "");
+var stroke_str = pick(roundStrokes,"0",roundStrokes == "");
+
+var score_col = pick(c_black,c_gray,roundScore == "");
+var stroke_col = pick(c_black,c_gray,roundStrokes == "");
+
+var score_font = pick(fn_normal,fn_italic,roundScore == "");
+var strokes_font = pick(fn_normal,fn_italic,roundStrokes == "");
+
+draw_text_height_color(xx+70,yy+40,score_str,score_col,height,score_font);
+draw_text_height_color(xx+70+(ww*0.5),yy+40,stroke_str,stroke_col,height,strokes_font);
+
+// click on strokes
+if click_region(xx,yy,ww*0.5,hh,true,mb_left,navbar.hidden) // score
+click_textbox_set(roundScore,score_data.score_,kbv_type_numbers);
+	
+if click_region(xx+(ww*0.5),yy,ww*0.5,hh,true,mb_left,navbar.hidden) // strokes
+click_textbox_set(roundStrokes,score_data.strokes,kbv_type_numbers);
+#endregion
+	
+#region draw practice
+var xx = 0;
+var yy = 400;
+var ww = app_width-xx-xx;
+var hh = 90;
+
+if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
+	{
+	score_struct.practiceRound = !score_struct.practiceRound;
+	}
+	
+// draw switch tab
+draw_switch_tab(xx+450,yy,hh,20,0,practice_round);
+
+var height = 40;
+draw_text_height(xx+20,yy+5,"Round Type",label_height,fn_italic); // draw course tee markers label
+draw_text_height(xx+20,yy+35,"Practice Round",height); // draw course name
+#endregion	
+	
+#region draw calendar
+var xx = 0;
+var yy = 500;
+var ww = app_width-xx-xx;
+var hh = 90;
+var col = c_white;
+var date_pointer = score_struct.roundDate;
+
+// clicked on calendar
+if draw_dialogue_box(xx,yy,ww,hh,col,navbar.hidden)
+	{
+	scr_set_date_offsets(date_pointer);
+	submenu = navbar.calendar;	
+	}
+
+draw_set_halign(fa_left)
+draw_text_height(xx+10,yy+10,"Calendar",25);
+
+var str_ww = string_width_height("Calendar",25);
+draw_icon_height_centered(spr_ico_calendar,0,xx+10,yy+40,str_ww,45,45,1); // draw calendar icon
+
+var day = date_get_day(date_pointer);
+var month = date_get_month(date_pointer);
+var year = date_get_year(date_pointer);
+
+var month_str = funct_convert_month(month,false);
+var date_str = string(month_str)+" "+string(day)+", "+string(year);
+
+draw_text_height_color(xx+115,yy+50,date_str,c_gray,35);
+
+// pressed OK in calendar
+if calendarDateEntry != undefined
+	{
+	score_struct.roundDate = calendarDateEntry;
+	calendarDateEntry = undefined;
+	}
+	
+#endregion	
+			  
+#region Create/Update
+var submit = 1; // (course_edit_yardage != "") && (course_edit_slope != "") && (course_edit_par != "") && (course_edit_rating != "");
+var hh = 60;
+var xx = 0;
+var yy = app_height-hh;
+var height = 40;
+var ww = app_width-xx-xx;
+var col = pick(c_gray,header_color,submit);
+
+if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
+	{
+	if roundStrokes == ""
+	roundStrokes = "0";
+		
+	// update score
+	scorelist_array[@ score_index] = score_struct;
+
+	// reset variables
+	score_list_offset = 0;
+	score_list_offset_start = 0;
+	
+	score_index = undefined;
+	
+	score_struct = undefined;
+	course_struct = undefined;
+	
+	// sort
+	array_sort_nested_struct(scorelist_array,"date",false); // date sort
+	scr_handicap_calculate();
+
+	screen_goto_prev(navbar.main);
+	app_save;
+	}
+#endregion	
+
+if draw_submenu_course_search(header_height,app_width,90,courselist_array,"course_list_offset")
+	{
+	submenu = navbar.hidden;
+
+	if course_name == friend_id.courseName
+	exit;
+	
+	// set values
+	score_struct.courseName = friend_id.courseName;
+	score_struct.teeColor = "";
+	score_struct.courseYardage = "";
+	score_struct.courseSlope = "";
+	score_struct.courseRating = "";
+	
+	// open teebar 
+	submenu = navbar.teebar;
+	scr_tee_filled_set(); // mark tees with data
+	}
+
+var tee_ind = draw_teebox_list();
+if tee_ind != undefined
+	{
+	submenu = navbar.hidden;
+	score_struct.teeColor = teebox_list[| tee_ind];
+	}
+
+// navigation
+if androidBack 
+	{
+	if (submenu != navbar.hidden)
+	submenu = navbar.hidden;
+	else if (submenu == navbar.hidden)
 		{
-		var ww = 170;
-		var hh = 95;
-		var xx = 5;
-		var yy = room_height-hh-2;
-		var col = c_red;
-	
-		draw_set_alpha(0.3);
-		draw_roundrect_color(xx,yy,xx+ww,yy+hh,col,col,false);
-		draw_set_alpha(1);
+		textboxIndex = undefined;
+		score_index = undefined;
 
-		draw_sprite_ext(ico_trash2,1,xx+55,yy+10,0.8,0.8,0,c_white,1); // draw trash icon
-	
-		// clicked trash icon
-		if click_region_released(xx,yy,ww,hh,true,navbar.hidden)
-			{
-			ds_list_delete(master_score_list,index); // delete score
-			app_save;
+		score_struct = undefined;
+		course_struct = undefined;	
 
-			submenu = navbar.main;
-	        screenIndex = screen.score_list;
-	        index = 0;
-			exit;
-			}
+		screen_goto_prev(navbar.main);
 		}
-
-    
-	// Create
-	var submit = (score_pointer[| score_data.course] != "") && (temp_score != "") && (temp_score_tee != "");
-	
-	var ww = 350;
-	var hh = 95;
-	var xx = 185;
-	var yy = room_height-hh-2;
-
-	var str = "Update";
-	if screenIndex == screen.add_score
-	var str = "Create";
-	
-	// draw Create/Update box
-	draw_set_alpha(0.5+(0.5*submit));
-	draw_roundrect(xx,yy,xx+ww,yy+hh,true);
-	
-	draw_set_halign(fa_center);
-	draw_text_height(xx+(ww/2),yy+20,str,70);
-	draw_set_alpha(1);
-
-	// clicked submit
-	if click_region_released(xx,yy,ww,sep,true,navbar.hidden) && submit
-		{
-		if temp_strokes == ""
-		temp_strokes = "0";
-		
-		score_pointer[| score_data.score_] = temp_score;	
-		score_pointer[| score_data.strokes] = temp_strokes;	
-		score_pointer[| score_data.tee] = temp_score_tee; // temp_course_tee;
-		score_pointer[| score_data.yardage] = temp_score_yardage; // temp_course_yardage;
-		score_pointer[| score_data.slope] = temp_score_slope; // temp_course_slope;
-		score_pointer[| score_data.rating] = temp_score_rating; // temp_course_rating;
-		score_pointer[| score_data.par] = temp_score_par; // temp_course_par;
-		
-		submenu = navbar.main;
-		textboxIndex = noone;
-		screenIndex = screen.score_list;
-		index = 0;
-		score_list_offset = 0;
-		score_list_offset_start = 0;
-	
-		scr_handicap_calculate();
-		ds_list_sort_nested(master_score_list,score_data.date,false); // date sort
-		app_save;
-		}
-	
-	if androidBack
-	    {
-	    if submenu >= 0
-	    submenu = navbar.hidden;
-	    else if !kvActive
-	        {
-			// delete score unsaved
-			if screenIndex == screen.add_score
-			ds_list_delete(master_score_list,index);
-		
-			course_id = noone;
-			submenu = navbar.main;
-			textboxIndex = noone;
-			screenIndex = screen.score_list;
-			index = 0;
-	        }
-	    }
-
-
-
-
-		/*
-	draw_set_halign(fa_center);
-
-	draw_text_height(xx,yy+(3*sep),"Yardage",height*0.6,fn_italic); // draw course yardage label
-	draw_text_height(xx,yy+40+(3*sep),course_yardage,height); // draw course yardage
-
-	draw_set_halign(fa_center);
-	draw_text_height(390,yy+(3*sep),"Slope/Rating",height*0.6,fn_italic); // draw course slope label
-	draw_text_height(390,yy+40+(3*sep),string(course_slope)+" / "+string(course_rating),height); // draw course slope*/
-
-	/*
-	// holes played
-	var xsep = room_width*0.33;
-	var xoff = (room_width/2)-xsep;
-	for(var i=0;i<3;i++)
-		{
-		switch i
-			{
-			case 0: var str = "18 Holes"; break;
-			case 1: var str = "Front 9"; break;
-			case 2: var str = "Back 9"; break;
-			}
-	
-		draw_textbox(xx+(i*xsep),yy+30+(3*sep),xsep*0.9,75,true);
-		draw_text_height(xoff+(i*xsep),yy+40+(3*sep),str,45);
-	
-		click_region_released(xx+(i*xsep),yy+(3*sep),xsep*0.9,sep,true,navbar.hidden);
-		}*/
-
-
-
+	}
 }

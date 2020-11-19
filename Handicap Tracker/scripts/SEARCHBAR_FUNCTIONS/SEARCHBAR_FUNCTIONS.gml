@@ -10,11 +10,12 @@ switch textboxIndex
 	case 0: friend_name_entry = string_capitalize(keyboard_string,22); break;
 	}	
 	
-if (searched_name == kvLastString) || mode_new_member
+if (searched_name == kvLastString)
 exit;
 
-master_friends_list_offset = 0;
-master_friends_list_offset_start = 0;
+// convert to using strings to set variables
+course_list_offset = 0;
+course_list_offset_start = 0;
 searched = true;
 
 // clear search results
@@ -25,7 +26,7 @@ var size = array_length(source_array);
 for(var i=0;i<size;i++)
 	{
 	var pointer = source_array[i];
-	var name = pointer.dispName;
+	var name = pointer.courseName;
 	var add_mem = true;
 	var found = (string_count(string_lower(searched_name),string_lower(name)) != 0)
 
@@ -47,7 +48,7 @@ switch textboxIndex
 	case 0: friend_name_entry = string_capitalize(keyboard_string,22); break;
 	}	
 	
-if (searched_name == kvLastString) || mode_new_member
+if (searched_name == kvLastString)
 exit;
 
 master_friends_list_offset = 0;
