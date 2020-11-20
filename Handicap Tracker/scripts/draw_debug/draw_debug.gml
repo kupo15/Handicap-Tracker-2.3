@@ -23,11 +23,15 @@ debug_draw_screens(xx,yy,debugyoff,sep,height);
 
 draw_text_height(xx,yy+((debugyoff+0)*sep),"courseStruct: "+string(course_struct != undefined),height);
 draw_text_height(xx,yy+((debugyoff+1)*sep),"scoreStruct: "+string(score_struct != undefined),height);
-draw_text_height(xx,yy+((debugyoff+2)*sep),"activeScore: "+string(active_score != undefined),height);
-draw_text_height(xx,yy+((debugyoff+3)*sep),"activeCourse: "+string(active_course != undefined),height);
-draw_text_height(xx,yy+((debugyoff+4)*sep),"activeTee: "+string(active_tee != undefined),height);
 
-debugyoff = 11;
+draw_text_height(xx,yy+((debugyoff+3)*sep),"activeScore: "+string(active_score != undefined),height);
+draw_text_height(xx,yy+((debugyoff+4)*sep),"activeCourse: "+string(active_course != undefined),height);
+draw_text_height(xx,yy+((debugyoff+5)*sep),"activeTee: "+string(active_tee != undefined),height);
+
+draw_text_height(xx,yy+((debugyoff+7)*sep),"course_index: "+string(course_index),height);
+draw_text_height(xx,yy+((debugyoff+8)*sep),"score_index: "+string(score_index),height);
+
+debugyoff = 15;
 //debug_draw_click_highlight(xx,yy,debugyoff,sep,height);
 //debug_draw_vk(xx,yy,debugyoff,sep,height);
 debug_draw_strings(xx,yy,debugyoff,sep,height);

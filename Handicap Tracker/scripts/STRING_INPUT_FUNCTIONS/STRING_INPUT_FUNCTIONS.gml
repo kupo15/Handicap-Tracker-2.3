@@ -89,154 +89,142 @@ return str;
 
 }
 
-/// @description capitalizes the first character in a string
 function string_capitalize(str,str_limit) {
+/// capitalizes the first character in a string
 
-#region capitalize
-	/*var str_1 = string_char_at(str_,1); // get the first character
-	str_1 = string_upper(str_1); // upper case character
-
-	str_ = string_delete(str_,1,1); // delete first character
-	str_ = string_insert(str_1,str_,1); // insert capital character*/
-#endregion
-
-	var str_ll = string_length(str);
-	if str_limit != -1 && str_ll > 0 && (str_ll > str_limit) // if more than the limit
+var str_ll = string_length(str);
+if str_limit != -1 && str_ll > 0 && (str_ll > str_limit) // if more than the limit
+	{
+	str = string_delete(str,str_limit+1,1); // remove extra digits
+	keyboard_string = str;
+	}
+else if cursorPos < textboxStringLength // if cursor is in the middle
 		{
-		str = string_delete(str,str_limit+1,1); // remove extra digits
+		if kv_input_backspace // if deleting a character
+		{
+		str = string_delete(kvLastString,cursorPos,1); // delete character from previous string
+		keyboard_string = str; // update keyboard string
+		}
+		else if (kvLastString != keyboard_string) // if adding a character
+		{
+		var last_char = string_char_at(str,str_ll); // get last character
+		str = string_delete(str,str_ll,1); // delete last letter
+
+		str = string_insert(last_char,str,cursorPos+1); // insert at cursor pos
 		keyboard_string = str;
 		}
-	else if cursorPos < textboxStringLength // if cursor is in the middle
-		 {
-		 if kv_input_backspace // if deleting a character
-			{
-			str = string_delete(kvLastString,cursorPos,1); // delete character from previous string
-			keyboard_string = str; // update keyboard string
-			}
-		 else if (kvLastString != keyboard_string) // if adding a character
-			{
-			var last_char = string_char_at(str,str_ll); // get last character
-			str = string_delete(str,str_ll,1); // delete last letter
-
-			str = string_insert(last_char,str,cursorPos+1); // insert at cursor pos
-			keyboard_string = str;
-			}
-		 }
-
-	// Override Auto capital
-	if os_type == os_android
-	if string_length(kvLastString) == 1 && kv_input_backspace
-		{
-		keyboard_string = "";
-		str = "";
 		}
 
-	return str;
+// Override Auto capital
+if os_type == os_android
+if string_length(kvLastString) == 1 && kv_input_backspace
+	{
+	keyboard_string = "";
+	str = "";
+	}
+
+return capitalize(str);
 
 
 }
 
-/// @description converts strings to currency format
 function string_convert_rating(str,limit) {
+/// converts strings to currency format
 
-	var decimal_places = 0; // one tenth place
+var decimal_places = 0; // one tenth place
 
-	var str_cull = string_digits(str); // string with non digits culled
-	var str_ll = string_length(str_cull); // length of string
+var str_cull = string_digits(str); // string with non digits culled
+var str_ll = string_length(str_cull); // length of string
 
-	// remove 0s in front
-	repeat (2)
-		{
-		if string_char_at(str_cull,1) == "0"
-		str_cull = string_delete(str_cull,1,1);
-		}
+// remove 0s in front
+repeat (2)
+	{
+	if string_char_at(str_cull,1) == "0"
+	str_cull = string_delete(str_cull,1,1);
+	}
 
-	if str_cull != str // if culled
-	keyboard_string = str_cull;
+if str_cull != str // if culled
+keyboard_string = str_cull;
 
-	if str_ll > limit // if more than the limit
-		{
-		str = string_delete(str_cull,limit+1,1); // remove extra digits
-		keyboard_string = str;
-		}
-	else str = str_cull;
+if str_ll > limit // if more than the limit
+	{
+	str = string_delete(str_cull,limit+1,1); // remove extra digits
+	keyboard_string = str;
+	}
+else str = str_cull;
 
-	str = string(str); // convert back to a string
+str = string(str); // convert back to a string
 
-	// add a decimal point
-	if str != ""
-		{
-		str_ll = string_length(str); // get the length of the string
+// add a decimal point
+if str != ""
+	{
+	str_ll = string_length(str); // get the length of the string
 	
-		var str_ins = ".";
+	var str_ins = ".";
 	
-		// decimal insert
-		if str_ll == 2
-		str += ".";
-		else if str_ll > 2
-		str = string_insert(str_ins,str,str_ll-decimal_places); // insert a decimal only
-		}
+	// decimal insert
+	if str_ll == 2
+	str += ".";
+	else if str_ll > 2
+	str = string_insert(str_ins,str,str_ll-decimal_places); // insert a decimal only
+	}
 	
-	if string_length(kvLastString) == 1 && kv_input_backspace
-		{
-		keyboard_string = "";
-		str = "";
-		}
+if string_length(kvLastString) == 1 && kv_input_backspace
+	{
+	keyboard_string = "";
+	str = "";
+	}
 
-	return str;
-
-
+return str;
 }
 	
 function string_convert_rating_numpad(str,limit) {
 
-	var decimal_places = 0; // one tenth place
+var decimal_places = 0; // one tenth place
 
-	var str_cull = string_digits(str); // string with non digits culled
-	var str_ll = string_length(str_cull); // length of string
+var str_cull = string_digits(str); // string with non digits culled
+var str_ll = string_length(str_cull); // length of string
 
-	// remove 0s in front
-	repeat (2)
-		{
-		if string_char_at(str_cull,1) == "0"
-		str_cull = string_delete(str_cull,1,1);
-		}
+// remove 0s in front
+repeat (2)
+	{
+	if string_char_at(str_cull,1) == "0"
+	str_cull = string_delete(str_cull,1,1);
+	}
 
-	if str_cull != str // if culled
-	numpad_value = str_cull;
+if str_cull != str // if culled
+numpad_value = str_cull;
 
-	if str_ll > limit // if more than the limit
-		{
-		str = string_delete(str_cull,limit+1,1); // remove extra digits
-		numpad_value = str;
-		}
-	else str = str_cull;
+if str_ll > limit // if more than the limit
+	{
+	str = string_delete(str_cull,limit+1,1); // remove extra digits
+	numpad_value = str;
+	}
+else str = str_cull;
 
-	str = string(str); // convert back to a string
+str = string(str); // convert back to a string
 
-	// add a decimal point
-	if str != ""
-		{
-		str_ll = string_length(str); // get the length of the string
+// add a decimal point
+if str != ""
+	{
+	str_ll = string_length(str); // get the length of the string
 	
-		var str_ins = ".";
+	var str_ins = ".";
 	
-		// decimal insert
-		if str_ll == 2
-		str += ".";
-		else if str_ll > 2
-		str = string_insert(str_ins,str,str_ll-decimal_places); // insert a decimal only
-		}
+	// decimal insert
+	if str_ll == 2
+	str += ".";
+	else if str_ll > 2
+	str = string_insert(str_ins,str,str_ll-decimal_places); // insert a decimal only
+	}
 	
-	if string_length(kvLastString) == 1 && kv_input_backspace
-		{
-		numpad_value = "";
-		str = "";
-		}
+if string_length(kvLastString) == 1 && kv_input_backspace
+	{
+	numpad_value = "";
+	str = "";
+	}
 
-	return str;
-
-
+return str;
 }
 
 function string_convert_upper(str) {
@@ -258,28 +246,24 @@ for(var i=1;i<str_ll+1;i++)
 	upper = true;
 	}
 	
-	return str;
+return str;
 }
 	
-	/// @description  scr_input_text(limit);
 function scr_input_text(limit) {
 
-	var str = keyboard_string;
+var str = keyboard_string;
 
-	if limit != -1 && string_length(str) > limit
-	    {
-	    str = string_delete(str,limit+1,1);
-	    keyboard_string = str;
-	    }
+if limit != -1 && string_length(str) > limit
+	{
+	str = string_delete(str,limit+1,1);
+	keyboard_string = str;
+	}
     
-	return str;
-
-
-
+return str;
 }
 
 function string_convert_currency(str_,limit) {
-/// @description converts strings to currency format
+/// converts strings to currency format
 /// @param string
 /// @param number_limit
 
@@ -339,7 +323,7 @@ return str_;
 }
 
 function string_convert_currency_numpad(str_,limit) {
-/// @description converts strings to currency format
+/// converts strings to currency format
 /// @param string
 /// @param number_limit
 

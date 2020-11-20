@@ -51,6 +51,7 @@ for(var i=0;i<size;i++)
 ds_grid_destroy(sorting_grid);
 }
 
+// Struct Sorting
 function ds_list_sort_nested_struct(source_list,key,ascending) {
 /// @description sorts nested lists within structs
 /// @param source_list
@@ -102,6 +103,13 @@ for(var i=0;i<size;i++) // loop through source array
 	var pointer = source_array[i]; // get the pointer
 	var sort_value = variable_struct_get(pointer,key); // get the sort value
 
+	// debug
+	if sort_value == undefined
+		{
+		sm("sort key undefined >> not sorted");
+		exit;
+		}
+
 	grid_row_add(sorting_grid); // add a row to the temp sorting grid
 	sorting_grid[# 0,i] = pointer; // add list pointer to grid
 	sorting_grid[# 1,i] = sort_value; // add value to sort to grid
@@ -119,6 +127,7 @@ ds_grid_destroy(sorting_grid);
 }
 
 
+// Addition GM functions
 function ds_list_push(id,val) {
 	
 ds_list_add(id,val);

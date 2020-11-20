@@ -76,6 +76,8 @@ var yy = room_height-hh-nav_height-10;
 if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,true,false,navbar.main)
 	{
 	course_next = true;
+	course_struct = scr_course_create("");
+	course_index = array_length(courselist_array);
 
 	screen_change(screen.add_course);
 	click_textbox_set("",course_data.name,kbv_type_default);

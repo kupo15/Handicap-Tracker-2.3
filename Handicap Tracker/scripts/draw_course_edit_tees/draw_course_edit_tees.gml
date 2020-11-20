@@ -131,7 +131,7 @@ var yy = 320;
 var height = 60;
 
 draw_set_halign(fa_center);
-draw_text_height(xx,yy,detail_arr[textboxIndex-course_data.yardage],height); 
+draw_text_height(xx,yy,detail_arr[textboxIndex-course_data.yardage],height);
 
 // draw value
 var height = 70;

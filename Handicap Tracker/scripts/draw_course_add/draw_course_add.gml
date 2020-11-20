@@ -57,7 +57,7 @@ click_textbox_set(course_name,0,kbv_type_default);
 draw_line_pixel(xx,yy+yoff+height+(0*ysep),ww,2,c_gray,0.8); // draw separating line
 #endregion
 
-// draw teebox markers
+#region draw teebox markers
 var xx = 10;
 var yy = 270;
 var button_hh = 60;
@@ -120,7 +120,7 @@ for(var i=0;i<size;i++)
 		draw_plus_button(xx+83,yy-4+(button_hh*0.5)+(off_ind*vsep),70,false);
 		}
 	}
-	
+#endregion
 
 if virtual_keyboard_enter
 vk_hide();
@@ -163,7 +163,7 @@ if (click_button(xx,yy,"Save",height,c_black,ww,hh,col,true,true,navbar.hidden) 
 	{	
 	// update course info
 	scr_course_details_update();
-	array_sort_nested_struct(courselist_array,"name",true); // sort list
+	array_sort_nested_struct(courselist_array,"courseName",true); // sort list
 			
 	screen_goto_prev(navbar.main);	
 	app_save;

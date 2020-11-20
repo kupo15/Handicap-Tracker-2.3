@@ -1,4 +1,14 @@
 
+
+
+
+// UNUSED
+
+function scr_course_add_struct(destStruct,courseStruct,courseName) {
+	
+variable_struct_set(destStruct,courseName,courseStruct);	
+}
+
 function scr_course_add_index(name,tee,yardage,slope,rating,par) {
 /// @param [name
 /// @param tee
@@ -64,79 +74,3 @@ return ds_list_size(master_course_list)-1;
 
 
 }
-
-
-function scr_course_create(name,array) {
-/// @param [name]
-/// @param [array]
-
-if argument[0] == undefined
-name = "";
-
-if argument[1] == undefined
-array = courselist_array;
-
-active_course = {
-	
-	courseName: name,
-	
-	subcourses: [
-		{
-		name: name,
-		//teeMap: {}
-		}
-		]
-		
-	}
-	
-// add to master courselist
-if array != undefined
-scr_course_add_array(array,active_course);
-
-return active_course;
-}
-
-function scr_course_add_array(array,courseStruct) {
-	
-array_push(array,courseStruct);	
-}
-
-function scr_course_add_struct(destStruct,courseStruct,courseName) {
-	
-variable_struct_set(destStruct,courseName,courseStruct);	
-}
-
-function scr_course_add_tee(courseName,teeColor,yardage,slope,rating,par) {
-/// @param courseName
-/// @param teeColor
-/// @param [yardage
-/// @param slope
-/// @param rating
-/// @param par]
-
-if argument[2] == undefined
-yardage = "";
-
-if argument[3] == undefined
-slope = "";
-
-if argument[4] == undefined
-rating = "";
-
-if argument[5] == undefined
-par = "";
-
-
-// create tee struct
-active_tee = {
-	
-	courseYardage: yardage,
-	courseSlope: slope,
-	courseRating: rating,
-	coursePar: par,
-	}
-
-// add tee color data to active course's teeMap
-variable_struct_set(active_course.subcourses[0],string_lower(teeColor),active_tee);
-}
-
