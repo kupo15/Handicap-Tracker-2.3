@@ -74,6 +74,8 @@ return val1;
 	
 }
 	
+	
+// Android display
 function pct_x(percent) {
 
 var xx = app_width*percent;
@@ -104,6 +106,12 @@ return pct;
 	
 function point_x(xx) {
 	
-return xx*(display_get_dpi_x()/DPI_POINT);
+return xx*global.DPI_X_CONVERT;
+
+}
+
+function point_y(yy) {
+	
+return yy*global.DPI_Y_CONVERT;
 
 }
