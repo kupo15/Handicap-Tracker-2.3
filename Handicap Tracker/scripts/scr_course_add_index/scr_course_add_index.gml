@@ -1,7 +1,7 @@
 
 
 
-
+/*
 // UNUSED
 
 function scr_course_add_struct(destStruct,courseStruct,courseName) {

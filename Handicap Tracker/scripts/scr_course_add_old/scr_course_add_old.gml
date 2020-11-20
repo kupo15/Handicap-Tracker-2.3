@@ -1,3 +1,5 @@
+
+/*
 /// @param [name]
 function scr_course_add_old() {
 

@@ -103,7 +103,7 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offse
 #endregion
     
 // Header
-draw_screen_header(headerType.back,headerType.none,"Score History");
+draw_screen_header(headerType.back,headerType.none,"Round History");
 	
 #region new score button
 var hh = 80;

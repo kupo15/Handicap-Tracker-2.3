@@ -24,7 +24,7 @@ mode_delete = false;
 mode_delete_list_id = noone;
 deleteList = ds_list_create();
 
-
+structUndoStack = ds_stack_create();
 undoMap = ds_map_create();
 
 mode_new_member = false;
