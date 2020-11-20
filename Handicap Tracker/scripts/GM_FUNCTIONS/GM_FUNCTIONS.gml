@@ -101,3 +101,9 @@ var pct = hh/room_height;
 
 return pct;
 }
+	
+function point_x(xx) {
+	
+return xx*(display_get_dpi_x()/DPI_POINT);
+
+}

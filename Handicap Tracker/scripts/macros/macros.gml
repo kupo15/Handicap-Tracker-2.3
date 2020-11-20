@@ -17,6 +17,7 @@
 // layout
 #macro res_bleed_xx 10
 #macro res_bleed_yy 10
+#macro DPI_POINT 72
 
 // textbox scrolling
 #macro fric 0.009

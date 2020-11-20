@@ -6,7 +6,7 @@
     "path": "folders/Android App Library/Scripts/Ini.yy",
   },
   "resourceVersion": "1.0",
-  "name": "ini_config",
+  "name": "app_setup_set",
   "tags": [],
   "resourceType": "GMScript",
 }
