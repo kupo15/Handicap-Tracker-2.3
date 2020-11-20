@@ -56,7 +56,7 @@ var course_height = text_reduce(course_name,ww-30,height);
 
 draw_set_halign(fa_left);
 draw_text_height(xx+20,yy+5,"Course",label_height,fn_italic); // draw course name label
-draw_text_height(xx+20,yy+35,course_name,course_height); // draw course name
+draw_text_height_label(xx+20,yy+35,course_name,"Select Course",course_height); // draw course name
 #endregion
 
 #region draw tee
@@ -73,10 +73,12 @@ if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
 
 var height = 45;
 var str = string(capitalize(course_tee))+" "+string(course_yardage)+" yds ("+string(course_slope)+" / "+string(course_rating)+")";
+if course_tee == ""
+var str = "";
 
 draw_set_halign(fa_left);
 draw_text_height(xx+20,yy+5,"Tee",label_height,fn_italic); // draw course tee markers label
-draw_text_height(xx+20,yy+35,str,height); // draw course name
+draw_text_height_label(xx+20,yy+35,str,"Select Tee",height); // draw course name
 #endregion
 
 #region draw score/strokes
@@ -96,17 +98,8 @@ draw_text_height(xx+20,yy+5,"Gross Score",label_height,fn_italic); // draw score
 draw_text_height(xx+20+(ww*0.5),yy+5,"Strokes Reduced",label_height,fn_italic); // draw score label
 
 // draw values
-var score_str = pick(roundScore,"enter score",roundScore == "");
-var stroke_str = pick(roundStrokes,"0",roundStrokes == "");
-
-var score_col = pick(c_black,c_gray,roundScore == "");
-var stroke_col = pick(c_black,c_gray,roundStrokes == "");
-
-var score_font = pick(fn_normal,fn_italic,roundScore == "");
-var strokes_font = pick(fn_normal,fn_italic,roundStrokes == "");
-
-draw_text_height_color(xx+70,yy+40,score_str,score_col,height,score_font);
-draw_text_height_color(xx+70+(ww*0.5),yy+40,stroke_str,stroke_col,height,strokes_font);
+draw_text_height_label(xx+70,yy+40,roundScore,"enter score",height);
+draw_text_height_label(xx+70+(ww*0.5),yy+40,roundStrokes,"0",height);
 
 // click on strokes
 if click_region(xx,yy,ww*0.5,hh,true,mb_left,navbar.hidden) // score

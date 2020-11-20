@@ -17,6 +17,32 @@ var alpha = draw_get_alpha();
 return draw_text_height_ext_color(xx,yy,str,sep,w,angle,col,alpha,height,font);
 }
 
+function draw_text_height_label(xx,yy,str,str_label,height,font) {
+/// @param xx
+/// @param yy
+/// @param str
+/// @param str_label
+/// @param height
+/// @param [font]
+
+var int = argument[5];
+
+var sep = -1;
+var w = -1;
+var angle = 0;
+var col = draw_get_color();
+var alpha = draw_get_alpha();
+
+if str == ""
+	{
+	str = str_label;
+	col = c_gray;
+	font = fn_italic
+	}
+
+return draw_text_height_ext_color(xx,yy,str,sep,w,angle,col,alpha,height,font);
+}
+
 function draw_text_height_middled(xx,yy,str,hh,height,alpha,font) {
 /// @param xx
 /// @param yy
