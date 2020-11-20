@@ -59,5 +59,5 @@ score_struct_pointer.teeColor = teeColor; // set tee color
 score_struct_pointer.courseYardage = yardage; // set yardage
 score_struct_pointer.courseSlope = slope; // set slope
 score_struct_pointer.courseRating = rating; // set rating
-//score_struct_pointer.coursePar = par; // set par
+score_struct_pointer.coursePar = par; // set par
 }

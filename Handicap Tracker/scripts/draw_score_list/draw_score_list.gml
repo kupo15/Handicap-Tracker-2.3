@@ -110,9 +110,9 @@ draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);
 if click_button(xx,yy,"Add Score",50,c_black,ww,hh,c_white,true,false,navbar.main)
 	{
 	var date = date_current_datetime();
-	index = scr_score_add("","","","","","","",date,"0"); // create a new score row
-	temp_score = "";
-	temp_strokes = "";
+	score_struct = scr_score_create("","","","","","","",date,"0"); // create a new score row
+	score_index = array_length(scorelist_array);
+
 	popup_coursebar();
 	screen_change(screen.add_score);
 	}

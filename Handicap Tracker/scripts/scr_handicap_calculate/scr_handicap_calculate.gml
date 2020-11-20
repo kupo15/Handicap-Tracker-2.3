@@ -1,5 +1,5 @@
 function scr_handicap_calculate() {
-	
+
 array_sort_nested_struct(scorelist_array,"roundDate",true); // date sort
 
 // clear ESR

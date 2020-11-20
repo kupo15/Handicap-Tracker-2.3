@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts/Scripts.yy",
+    "name": "Handicap Tracker",
+    "path": "Handicap Tracker.yyp",
   },
   "resourceVersion": "1.0",
-  "name": "scr_score_add",
+  "name": "SCORE_STRUCTS",
   "tags": [],
   "resourceType": "GMScript",
 }

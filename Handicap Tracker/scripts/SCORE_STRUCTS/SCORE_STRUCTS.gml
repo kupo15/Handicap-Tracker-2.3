@@ -1,4 +1,29 @@
 
+function scr_score_create(course_name,tee_color,yardage,slope,rating,par,score,date,strokes) {
+
+score_struct = {
+
+	courseName: course_name,
+	teeColor: tee_color,
+	courseYardage: yardage,
+	courseSlope: slope,
+	courseRating: rating,
+	coursePar: par,
+	
+	roundScore: score,
+	roundStrokes: strokes,
+	roundDate: date,
+	
+	courseHandicap: undefined,
+	indexHistory: undefined,
+	indexIncluded: true,
+	practiceRound: false,
+	esr: 0,
+	}	
+
+return score_struct;
+}
+
 function scr_score_add_index(c_name,tee_color,_score,date,strokes) {
 /// @param course_name
 /// @param tee_color
@@ -30,27 +55,10 @@ var course_slope = teeData.courseSlope;
 var course_rating = teeData.courseRating;
 var course_par = teeData.coursePar;
 
-// add score data
-score_struct = {
+// create score data
+score_struct = scr_score_create(c_name,tee_color,course_yardage,course_slope,course_rating,course_par,_score,date,strokes);
 
-	courseName: c_name,
-	teeColor: tee_color,
-	courseYardage: course_yardage,
-	courseSlope: course_slope,
-	courseRating: course_rating,
-	coursePar: course_par,
-	
-	roundScore: _score,
-	roundStrokes: strokes,
-	roundDate: date,
-	
-	courseHandicap: undefined,
-	indexHistory: undefined,
-	indexIncluded: true,
-	practiceRound: false,
-	esr: 0,
-	}	
-
+// add score
 array_push(scorelist_array,score_struct);
 rounds_played ++;
 

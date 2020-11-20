@@ -220,11 +220,13 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,"cours
 	// set values
 	course_struct = friend_id;
 	
+	// reset values
 	score_struct.courseName = course_struct.courseName;
 	score_struct.teeColor = "";
 	score_struct.courseYardage = "";
 	score_struct.courseSlope = "";
 	score_struct.courseRating = "";
+	score_struct.coursePar = "";
 	
 	// open teebar 
 	submenu = navbar.teebar;
