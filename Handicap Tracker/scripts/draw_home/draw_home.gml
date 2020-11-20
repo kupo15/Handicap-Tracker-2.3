@@ -10,9 +10,9 @@ function draw_home() {
 // draw the 3 bars
 draw_screen_header(headerType.bars,headerType.none,"Home");
 	
-// draw Handicap Index
+#region draw Handicap Index
 var xx = app_width/2;
-var yy = 140;
+var yy = 110;
 var height = 40;
 
 if is_nan(ghin_index)
@@ -25,24 +25,20 @@ draw_text_height(xx,yy,"Index",height);
 draw_text_height(xx,yy+30,str,height*3);
 draw_set_halign(fa_left);
 	
-// var half = 70;
-// draw_rectangle(xx-half,yy+210,xx+half,yy+210+10,true);
-
 // clicked on index
-if click_region_released(165,150,235,150,true,navbar.main)
-	{
-	scr_trend_set();
-	exit;
-	}
-	
+if click_region_released(0,header_height,app_width,330-header_height,true,navbar.main)
+scr_trend_set();
+#endregion
 
-// draw rounds played
+#region draw rounds played
 var xx = 20;
-var yy = 350;
-var height = 60;
+var yy = 330;
+var height = 35;
 
-draw_text_height(xx,yy,"Rounds Played: "+string(rounds_played),height);
+draw_line_pixel(0,yy,app_width,1,c_gray,1);
+draw_text_height(xx,yy-height,"Rounds Played: "+string(rounds_played),height);
+#endregion
 
 // draw round falling off
-draw_falling_off(10,800);
+draw_falling_off(10,830);
 }

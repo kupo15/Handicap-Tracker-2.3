@@ -23,13 +23,6 @@ if trash_delete
 	}
 #endregion
 
-if kvActive
-switch textboxIndex
-	{
-	case score_data.score_: score_struct.roundScore = string_convert_real_numpad(numpad_value,3); break;
-	case score_data.strokes: score_struct.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
-	}		
-		
 var course_name = score_struct.courseName;
 var course_tee = score_struct.teeColor;
 var course_yardage = score_struct.courseYardage;

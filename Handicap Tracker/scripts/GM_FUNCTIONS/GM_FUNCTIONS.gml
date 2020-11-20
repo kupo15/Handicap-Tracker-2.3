@@ -26,8 +26,8 @@ return val;
 function draw_line_pixel(xx,yy,ww,hh,col,alpha) {
 /// @param xx
 /// @param yy
-/// @param length
 /// @param width
+/// @param height
 /// @param col
 /// @param alpha
 
