@@ -22,6 +22,8 @@ drawScreen[screen.enumcount] = draw_undefScreen;
 
 drawScreen[screen.add_score] = draw_score_add;
 drawScreen[screen.edit_score] = draw_score_edit;
+drawScreen[screen.view_score] = draw_score_view;
+drawScreen[screen.score_details] = draw_score_details;
 
 drawScreen[screen.add_course] = draw_course_add;
 drawScreen[screen.edit_course] = draw_course_edit;
@@ -78,6 +80,7 @@ vk_hide();
 switch screenIndex
 	{
 	// change to hidden
+	case screen.view_score:
 	case screen.edit_score:
 	case screen.score_card: submenu = navbar.hidden; break;	
 	

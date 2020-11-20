@@ -38,7 +38,7 @@ debug_draw_strings(xx,yy,debugyoff,sep,height);
 debug_draw_textbox(xx,yy,debugyoff,sep,height);
 //debug_draw_modes(xx,yy,debugyoff,sep,height);
 //debug_draw_textbox_cursor(xx,yy,debugyoff,sep,height);	
-debug_draw_scrollbars(xx,yy,debugyoff,sep,height);	
+//debug_draw_scrollbars(xx,yy,debugyoff,sep,height);	
 //debug_device_info(xx,yy,debugyoff,sep,height);	
 //draw_text_height(xx,yy+((debugyoff+0)*sep),"numpad_value: "+string(numpad_value),height);
 //debug_draw_calendar(xx,yy,debugyoff,sep,height);
@@ -52,11 +52,11 @@ debug_draw_mouse(xx,yy,debugyoff,sep,height);
 var xx = 550;
 
 // draw elements
-var size = ds_list_size(deleteList);
+/*var size = ds_list_size(deleteList);
 for(var i=0;i<size;i++)
 draw_text_height(xx,yy+(i*sep),deleteList[| i],height);
 	
-yy += (size+1)*sep;
+yy += (size+1)*sep;*/
 
 // draw prev screen stack
 var size = ds_list_size(prev_screen_stack);

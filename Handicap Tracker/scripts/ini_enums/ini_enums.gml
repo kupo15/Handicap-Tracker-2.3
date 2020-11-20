@@ -18,6 +18,8 @@ enumcount,
 
 add_score,
 edit_score,
+view_score,
+score_details,
 
 add_course,
 edit_course,
@@ -43,17 +45,11 @@ enumcount
 
 enum score_data {
 course,
-tee,
-yardage,
-slope,
-rating,
-par,
 score_,
-date,
 strokes,
-course_handicap,
-index,
-esr
+
+tee,
+
 }
 
 enum tee_data {

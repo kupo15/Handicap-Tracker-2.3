@@ -4,18 +4,8 @@ function draw_score_details() {
 var bg_col = c_lt_gray;
 draw_clear(bg_col);
 
-var str = pick("Add Score","Edit Score",screenIndex == screen.edit_score);
-var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);	
-
-if trash_delete
-	{
-	array_delete(scorelist_array,score_index,1); // delete score
-	score_index = 0;
-
-	screen_goto_prev(navbar.main);
-	app_save;
-	exit;
-	}
+var str = "Round Score";
+draw_screen_header(headerType.back,headerType.none,str);	
 #endregion
 
 if kvActive
@@ -25,33 +15,136 @@ switch textboxIndex
 	case score_data.strokes: score_struct.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
 	}	
 
-#region draw score/strokes
+
+// exceptions
+if score_struct.roundStrokes == ""
+	{
+	score_struct.roundStrokes = "0";
+	numpad_value = score_struct.roundStrokes;
+	}
+
+if string_length(score_struct.roundStrokes) > 1
+&& string_char_at(score_struct.roundStrokes,1) == "0"
+	{
+	score_struct.roundStrokes = string_delete(score_struct.roundStrokes,1,1);
+	numpad_value = score_struct.roundStrokes;
+	}
+
+
+var roundScore = score_struct.roundScore;
+var roundStrokes = score_struct.roundStrokes;
+
+#region draw tee details
 var xx = 0;
-var yy = 300;
-var ww = app_width-xx-xx;
-var hh = 90;
+var yy = 200;
+var ww = app_width
+var hh = 400;
+var dialgue_end = yy+hh;
+var col = c_white;
 
-draw_roundrect_color(xx,yy,xx+ww,yy+hh,c_white,c_white,false);
-draw_line_pixel(ww*0.5,yy+10,1,hh-20,c_gray,1);
+draw_roundrect_color(xx,yy,xx+ww,yy+hh,col,col,false);
 
-var height = 45;
+var detail_arr = ["Gross Score","Strokes Reduced"];
+var detail_val = [roundScore,roundStrokes];
 
-// draw labels
-draw_set_halign(fa_left);
-draw_text_height(xx+20,yy+5,"Gross Score",label_height,fn_italic); // draw score label
-draw_text_height(xx+20+(ww*0.5),yy+5,"Strokes Reduced",label_height,fn_italic); // draw score label
+// detail buttons
+var size = array_length(detail_arr);
+var button_spacing = 10;
+var button_sep = ww/size;
+var button_ww = button_sep-button_spacing;
+var xoff = button_spacing*0.5;
 
-// draw values
-draw_text_height_label(xx+70,yy+40,roundScore,"enter score",height);
-draw_text_height_label(xx+70+(ww*0.5),yy+40,roundStrokes,"0",height);
+// click on header button
+var move = false;
 
-// click on strokes
-if click_region(xx,yy,ww*0.5,hh,true,mb_left,submenu) // score
-click_textbox_set(roundScore,score_data.score_,kbv_type_numbers);
+for(var i=0;i<size;i++)
+	{
+	if click_button(xx+xoff+(i*button_sep),yy+10,detail_arr[i],35,c_black,button_ww,60,c_lt_gray,true,false,submenu)
+		{
+		textboxIndex = score_data.score_+i;
+		move = true;
+		}
 	
-if click_region(xx+(ww*0.5),yy,ww*0.5,hh,true,mb_left,submenu) // strokes
-click_textbox_set(roundStrokes,score_data.strokes,kbv_type_numbers);
+	// draw values
+	draw_text_height(xx+xoff+(button_ww*0.5)+(i*button_sep),yy+10+60,detail_val[i],25);
+	}
+
+// draw highlight
+draw_set_alpha(0.2);	
+draw_dialogue_box(xx+xoff+((textboxIndex-score_data.score_)*button_sep),yy+10,button_sep-button_spacing,60,header_color,undefined);
+draw_set_alpha(1);
 #endregion
 
+if virtual_keyboard_enter 
+	{
+	textboxIndex = clamp(textboxIndex+1,score_data.score_,score_data.strokes); // move to next textbox
+	move = true;
+	}
+
+#region draw forward and back arrows
+var button_ww = ww*0.5;
+var button_hh = 80;
+var height = 70;
+var xx = 10;
+var yy = dialgue_end-button_hh;
+var button_col = make_color_rgb(240,240,240);
+
+if click_button(xx,yy,"<<",height,c_black,button_ww,button_hh,button_col,false,false,submenu)
+	{
+	textboxIndex = clamp(textboxIndex-1,score_data.score_,score_data.strokes);
+	move = true;
+	}
+
+if click_button(xx+button_ww,yy,">>",height,c_black,button_ww,button_hh,button_col,false,false,submenu)
+	{
+	textboxIndex = clamp(textboxIndex+1,score_data.score_,score_data.strokes);
+	move = true;
+	}
+	
+draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);
+	
+#endregion
+
+if move
+switch (textboxIndex)
+	{	
+	case score_data.score_: click_textbox_set(roundScore,textboxIndex,kbv_type_numbers); break;
+	
+	case score_data.strokes: click_textbox_set(roundStrokes,textboxIndex,kbv_type_numbers); break;
+	}
+	
+#region draw label
+var xx = app_width*0.5;
+var yy = 320;
+var height = 60;
+
+draw_set_halign(fa_center);
+draw_text_height(xx,yy,detail_arr[textboxIndex-score_data.score_],height);
+
+// draw value
+var height = 70;
+draw_text_height(xx,yy+80,detail_val[textboxIndex-score_data.score_],height);	
+#endregion	
+
+#region Save
+var submit = (roundScore != "");
+var hh = 60;
+var xx = 0;
+var yy = app_height-hh;
+var height = 40;
+var ww = app_width-xx-xx;
+var col = pick(c_gray,header_color,submit);
+
+if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
+	{
+		
+		
+		
+	androidBack = true;
+	}
+#endregion	
+
+if androidBack
+screen_goto_prev(navbar.hidden);
 }
 

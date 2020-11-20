@@ -125,7 +125,7 @@ switch (textboxIndex)
 	case course_data.par: click_textbox_set(course_edit_par,textboxIndex,kbv_type_numbers); break;
 	}
 	
-// draw label
+#region draw label
 var xx = app_width*0.5;
 var yy = 320;
 var height = 60;
@@ -136,6 +136,8 @@ draw_text_height(xx,yy,detail_arr[textboxIndex-course_data.yardage],height);
 // draw value
 var height = 70;
 draw_text_height(xx,yy+80,detail_val[textboxIndex-course_data.yardage],height);	
+#endregion	
+	
 	
 #region Finished button
 var submit = (course_yardage != "") && (course_slope != "") && (course_par != "") && (course_rating != "");

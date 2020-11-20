@@ -78,7 +78,7 @@ for(var i=pos_start;i<pos_end;i++)
 			score_struct = struct_copy(scorelist_array[score_index]);
 				
 			// change screen
-			screen_change(screen.edit_score);		
+			screen_change(screen.view_score);		
 			scr_tee_filled_set();
 			}
 		}
