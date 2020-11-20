@@ -52,7 +52,7 @@ for(var i=pos_start;i<pos_end;i++)
 	var off_pos = (off_ind*ysep);
 	var friend_pointer = ref_array[i];
 	var name = friend_pointer.courseName;
-	var initial = string_char_at(name,1);	
+	var initial = string_char_at(name,1);
 		
 	if name == "z"
 		{
@@ -76,11 +76,13 @@ for(var i=pos_start;i<pos_end;i++)
 		continue;
 		}
 			
+	// draw the circle icon
 	var col = c_lt_gray;
 	draw_set_halign(fa_center);
 	draw_circle_color(65,yy+off_pos+(ysep*0.5),30,col,col,false);
 	draw_text_height_middled(65,yy+off_pos,initial,ysep,height);
 		
+	// draw full name
 	draw_set_halign(fa_left);
 	draw_text_height_middled(xx,yy+off_pos,name,ysep,height); // draw name
 	

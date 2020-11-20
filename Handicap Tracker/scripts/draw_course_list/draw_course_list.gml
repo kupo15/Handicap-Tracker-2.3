@@ -3,9 +3,9 @@ var col = c_lt_gray;
 draw_clear(col);	
 	
 var course_next = false;
-var xx = 30;
+var xx = 120;
 var yy = header_height;
-var height = 35;
+var height = 30;
 var sep = 80;
 var ww = app_width;
 var hh = app_height-nav_height-yy-sep-20;
@@ -23,13 +23,22 @@ for(var i=pos_start;i<pos_end;i++)
 	var course_pointer = courselist_array[i];
 	var course_name = course_pointer.courseName; // course name
 	var course_str = string_abbreviate(course_name,485,height,"...");
-	var off_pos = i-course_list_offset;
+	var off_ind = i-course_list_offset;
+	var off_pos = (off_ind*sep);
+	var initial = string_char_at(course_name,1);
+	
+	// draw the circle icon
+	var col = c_lt_gray;
+	draw_set_halign(fa_center);
+	draw_circle_color(65,yy+off_pos+(sep*0.5),30,col,col,false);
+	draw_text_height_middled(65,yy+off_pos,initial,sep,height);
     
-	draw_text_height_middled(xx,yy+(off_pos*sep),course_str,sep,height,1); // draw course name
-	draw_line_pixel(25,yy+((1+off_pos)*sep),room_width,1,c_black,0.2); // draw row lines
+	draw_set_halign(fa_left);
+	draw_text_height_middled(xx,yy+off_pos,course_str,sep,height,1); // draw course name
+	draw_line_pixel(25,yy+((1+off_ind)*sep),room_width,1,c_black,0.2); // draw row lines
 		
 	// click released on course
-	if click_region_released_clamp_array(0,yy,(off_pos*sep),ww,sep,hh,mb_left,c_yellow,navbar.main,i,courselist_array)
+	if click_region_released_clamp_array(0,yy,(off_ind*sep),ww,sep,hh,mb_left,c_yellow,navbar.main,i,courselist_array)
 		{
 		if mode_delete
 			{
