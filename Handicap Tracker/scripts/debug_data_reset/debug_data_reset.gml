@@ -123,7 +123,7 @@ scr_course_add_tee("Waverly Oaks","gold","6682","124","72.3","72");
 scr_course_create("Windham Country Club",arr);
 scr_course_add_tee("Windham Country Club","blue","6033","130","69.1","72");
 
-array_sort_nested_struct(arr,"name",true);
+array_sort_nested_struct(arr,"courseName",true);
 
 // add scores
 var date = date_create_datetime(2018,5,16,1,1,1); scr_score_add_index("Putterham Meadows","white","86",date);
@@ -173,9 +173,9 @@ var date = date_create_datetime(2020,9,4,1,1,1); scr_score_add_index("McCullough
 var date = date_create_datetime(2020,9,26,1,1,1); scr_score_add_index("West Bridgewater Country Club","gold","91",date,2);
 var date = date_create_datetime(2020,9,30,1,1,1); scr_score_add_index("Bass Rocks","gold","79",date,1);
 var date = date_create_datetime(2020,10,3,1,1,1); scr_score_add_index("Crotched Mountain","blue","87",date,2);
-var date = date_create_datetime(2020,10,11,1,1,1); scr_score_add_index("Olde Scottish Links","blue","83",date,2);
+var date = date_create_datetime(2020,10,11,1,1,1); scr_score_add_index("Olde Scottish Links","blue","85",date,2);
 
-array_sort_nested_struct(scorelist_array,"date",false); // date sort
+array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
 
 scr_handicap_calculate();
 app_save;

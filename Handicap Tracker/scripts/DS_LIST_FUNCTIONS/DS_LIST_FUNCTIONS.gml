@@ -106,7 +106,7 @@ for(var i=0;i<size;i++) // loop through source array
 	// debug
 	if sort_value == undefined
 		{
-		sm("sort key undefined >> not sorted");
+		sm("sort key '"+string(key)+"' undefined >> not sorted");
 		exit;
 		}
 

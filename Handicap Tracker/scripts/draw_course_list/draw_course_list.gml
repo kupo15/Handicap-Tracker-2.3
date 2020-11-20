@@ -11,6 +11,8 @@ var ww = app_width;
 var hh = app_height-nav_height-yy-sep-20;
 var rows = hh/sep;
 
+var box_hh_end = yy+hh;
+
 draw_roundrect_color(0,yy,ww,yy+hh,c_white,c_white,false);
 
 var list_size = array_length(courselist_array);
@@ -64,10 +66,11 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offse
 // header
 draw_screen_header(headerType.back,headerType.none,"Course List");
     
-draw_rectangle_color(0,yy+hh,app_width,app_height,col,col,col,col,false);	
+// draw lt gray cover
+draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);	
 	
 #region new course button
-var hh = sep;
+var hh = 80;
 var xx = 0;
 var ww = app_width-xx-xx;
 var yy = room_height-hh-nav_height-10;

@@ -1,6 +1,6 @@
 function scr_handicap_calculate() {
 	
-array_sort_nested_struct(scorelist_array,"date",true); // date sort
+array_sort_nested_struct(scorelist_array,"roundDate",true); // date sort
 
 // clear ESR
 var size = array_length(scorelist_array);
@@ -93,7 +93,7 @@ ghin_index = index_history; // set current index
 			score_pointer[| score_data.esr] += esr_test;
 			}*/
 
-array_sort_nested_struct(scorelist_array,"date",false); // date sort
+array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
 ds_list_destroy(diff_arr);
 
 // set recent scores

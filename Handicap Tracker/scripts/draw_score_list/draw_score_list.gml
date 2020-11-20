@@ -1,13 +1,18 @@
 function draw_score_list() {
-	
+var col = c_lt_gray;
+draw_clear(col);
+
 var xx = 20;
-var yy = 100;
+var yy = header_height;
 var height = 35;
 var sep = 120;
 var ww = app_width;
-var hh = app_height-sep-yy;
+var hh = app_height-nav_height-yy-80-20;
 var rows = hh/sep;
 var col = make_color_rgb(232,237,255);
+var box_hh_end = yy+hh;
+
+draw_roundrect_color(0,yy,ww,box_hh_end,c_white,c_white,false);
 
 var list_size = array_length(scorelist_array);
 var pos_start = floor(score_list_offset);
@@ -92,13 +97,17 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offse
 // Header
 draw_screen_header(headerType.back,headerType.none,"Score History");
 	
-// new score button
-var ww = app_width;
-var hh = sep;
+#region new score button
+var hh = 80;
 var xx = 0;
-var yy = room_height-hh-(nav_height*nav_sca_off);
+var ww = app_width-xx-xx;
+var yy = room_height-hh-nav_height-10;
 
-if click_button(xx,yy,"Add Score",50,c_black,ww,hh,c_white,false,true,navbar.main)
+// draw lt gray cover
+draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);	
+
+// clicked on score create
+if click_button(xx,yy,"Add Score",50,c_black,ww,hh,c_white,true,false,navbar.main)
 	{
 	var date = date_current_datetime();
 	index = scr_score_add("","","","","","","",date,"0"); // create a new score row
@@ -107,6 +116,10 @@ if click_button(xx,yy,"Add Score",50,c_black,ww,hh,c_white,false,true,navbar.mai
 	popup_coursebar();
 	screen_change(screen.add_score);
 	}
+	
+draw_plus_button(xx+130,yy+(hh*0.5)-3,70,false);
+
+#endregion
 	
 
 }
