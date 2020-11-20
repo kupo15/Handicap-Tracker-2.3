@@ -138,7 +138,7 @@ var height = 70;
 draw_text_height(xx,yy+80,detail_val[textboxIndex-course_data.yardage],height);	
 	
 #region Finished button
-var submit = (course_edit_yardage != "") && (course_edit_slope != "") && (course_edit_par != "") && (course_edit_rating != "");
+var submit = (course_yardage != "") && (course_slope != "") && (course_par != "") && (course_rating != "");
 var hh = 60;
 var xx = 0;
 var yy = app_height-hh;
@@ -154,7 +154,10 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) &
 #endregion
 	
 if androidBack 
-screen_goto_prev(navbar.hidden);
+	{
+	active_tee = undefined; // delete tee struct
+	screen_goto_prev(navbar.hidden);
+	}
 
 
 }

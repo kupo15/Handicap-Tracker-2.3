@@ -1,4 +1,6 @@
 function draw_course_list() {
+var col = c_lt_gray;
+draw_clear(col);	
 	
 var course_next = false;
 var xx = 30;
@@ -6,8 +8,10 @@ var yy = header_height;
 var height = 35;
 var sep = 80;
 var ww = app_width;
-var hh = app_height-nav_height-yy-sep;
+var hh = app_height-nav_height-yy-sep-20;
 var rows = hh/sep;
+
+draw_roundrect_color(0,yy,ww,yy+hh,c_white,c_white,false);
 
 var list_size = array_length(courselist_array);
 var pos_start = floor(course_list_offset);
@@ -35,8 +39,11 @@ for(var i=pos_start;i<pos_end;i++)
 		else // select course
 			{
 		    course_index = i;
-			course_edit_name = course_name;
 			course_next = true;
+			
+			// assign struct
+			course_struct = courselist_array[course_index];
+			active_course = struct_copy(course_struct);
 
 			screen_change(screen.edit_course);
 			break;
@@ -57,30 +64,30 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offse
 // header
 draw_screen_header(headerType.back,headerType.none,"Course List");
     
+draw_rectangle_color(0,yy+hh,app_width,app_height,col,col,col,col,false);	
+	
 #region new course button
-var ww = app_width;
 var hh = sep;
 var xx = 0;
-var yy = room_height-hh-nav_height;
+var ww = app_width-xx-xx;
+var yy = room_height-hh-nav_height-10;
 
 // clicked on course create
-if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,false,true,navbar.main)
+if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,true,false,navbar.main)
 	{
-	course_edit_name = "";
 	course_next = true;
 
 	screen_change(screen.add_course);
 	click_textbox_set("",course_data.name,kbv_type_default);
 	}
+	
+draw_plus_button(xx+130,yy+(hh*0.5)-3,70,false);
 
 #endregion
     
 // go to course edit/add
 if course_next 
 	{
-	course_struct = courselist_array[course_index];
-	active_course = struct_copy(course_struct);
-
 	submenu = navbar.hidden;
 	scr_tee_filled_set(); // mark tees with data
 	}

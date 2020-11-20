@@ -1,30 +1,10 @@
-function scr_course_update(ind) {
-/*	
-course_edit_name = active_expense.receiptList[ind].description;
-course_edit_yardage = active_expense.receiptList[ind].price;
-course_edit_slope = active_expense.receiptList[ind].currency;
-course_edit_rating = ind;
-//course_edit_par = 
-
-course_index = ind;
-
-screen_change(screen.receiptUpdate);
-click_textbox_set(receipt_price,0,kbv_type_numbers);	
-	*/
-
-}
 
 function scr_course_details_update() {
 	
-// set variables	
-active_course.courseName = course_edit_name;	
-
 // overwrite struct
 courselist_array[@ course_index] = active_course;
 
 // reset variables
-course_edit_name = "";
-
 course_index = undefined;
 active_course = undefined;
 }

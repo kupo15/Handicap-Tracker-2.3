@@ -21,8 +21,10 @@ draw_screen_header(headerType.back,headerType.none,str);
 if kvActive
 switch textboxIndex
 	{
-	case course_data.name: course_edit_name = string_capitalize(keyboard_string,-1); break;
+	case course_data.name: active_course.courseName = string_capitalize(keyboard_string,-1); break;
 	}
+
+var course_name = active_course.courseName;
 
 #region draw course name
 var xx = 40;
@@ -33,8 +35,6 @@ var hh = 120;
 var yoff = 35;
 var ysep = 80;
 var height = 50;
-
-var course_name = course_edit_name;
 var course_height = text_reduce(course_name,ww,height);
 
 // background
@@ -153,7 +153,7 @@ if draw_button_trash(xx,yy,ww,hh,ico_trash1,c_red,screen.edit_course,navbar.hidd
 #endregion
 
 #region Save
-var submit = (course_edit_name != "");
+var submit = (course_name != "");
 var ww = 350;
 var xx = 185;
 var col = lerp(c_lt_gray,c_white,submit);	

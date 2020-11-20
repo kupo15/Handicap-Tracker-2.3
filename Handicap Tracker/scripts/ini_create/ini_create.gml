@@ -23,13 +23,12 @@ handicap_trend_type = 0;
 stat_tee_index = noone;
 stat_index = 0;
 
-course_edit_name = undefined;
-
 course_struct = undefined;
 score_struct = undefined;
+tee_struct = undefined;
 
-course_index = 0;
-score_index = 0;
+course_index = undefined;
+score_index = undefined;
 
 active_course = undefined;
 active_tee = undefined;

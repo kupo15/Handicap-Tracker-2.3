@@ -60,10 +60,10 @@ var size = ds_list_size(prev_screen_stack);
 // draw current screen
 var str = script_get_name(drawScreen[screenIndex]);
 str = string_replace(str,"draw_","");
-draw_text_height(xx,yy+(0*sep),"CurrentScreen: "+string(str),height);
+draw_text_height(xx,yy+(0*sep),string(str),height);
 
 // draw dividing line
-draw_line(xx,yy+sep,xx+300,yy+sep);
+draw_line(xx,yy+sep,xx+200,yy+sep);
 
 // draw prev screens
 for(var i=0;i<size;i++)
