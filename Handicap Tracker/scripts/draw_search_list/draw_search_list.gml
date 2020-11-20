@@ -1,9 +1,10 @@
+/*
+function draw_search_list(argument0, argument1, argument2, argument3, argument4, argument5) {
 /// @param xx
 /// @param yy
 /// @param sep
 /// @param rows
 /// @param text_height
-function draw_search_list(argument0, argument1, argument2, argument3, argument4, argument5) {
 
 	var xx = argument0;
 	var yy = argument1;

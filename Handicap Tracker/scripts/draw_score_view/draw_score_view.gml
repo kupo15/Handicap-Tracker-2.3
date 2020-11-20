@@ -1,11 +1,15 @@
 
+function draw_score_create() {
+draw_score_view();	
+}
+
 function draw_score_view() {
 	
 #region header
 var bg_col = c_lt_gray;
 draw_clear(bg_col);
 
-var str = pick("View Score","View Score",screenIndex == screen.edit_score);
+var str = pick("View Score","Enter Round",screenIndex == screen.score_create);
 var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);	
 
 if trash_delete

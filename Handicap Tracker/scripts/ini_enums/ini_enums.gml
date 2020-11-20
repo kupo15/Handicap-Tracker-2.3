@@ -16,9 +16,9 @@ help_info,
 settings,
 enumcount,
 
-add_score,
 edit_score,
-view_score,
+score_create,
+score_view,
 score_details,
 
 add_course,

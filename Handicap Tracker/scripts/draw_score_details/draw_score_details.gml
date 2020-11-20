@@ -30,7 +30,6 @@ if string_length(score_struct.roundStrokes) > 1
 	numpad_value = score_struct.roundStrokes;
 	}
 
-
 var roundScore = score_struct.roundScore;
 var roundStrokes = score_struct.roundStrokes;
 

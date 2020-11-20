@@ -1,4 +1,4 @@
-
+/*
 function scr_coursebar_select(ind,course_name) {
 
 	textboxIndex = noone;
@@ -33,7 +33,7 @@ function scr_coursebar_select(ind,course_name) {
 	// set navbar
 	if screenIndex == screen.playing
 	submenu = navbar.teebar;
-	else if screenIndex == screen.add_score
+	else if screenIndex == screen.score_create
 	submenu = navbar.teebar; // move to tee selection
 	else if screenIndex == screen.stats
 		{

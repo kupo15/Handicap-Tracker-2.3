@@ -1,8 +1,5 @@
 function draw_score_card() {
 
-// header
-// draw_screen_header("Score Card",60);
-
 var ww = room_width-20;
 var hh = 800;
 var xsep = ww*0.5;

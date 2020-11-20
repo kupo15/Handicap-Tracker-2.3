@@ -78,7 +78,7 @@ for(var i=pos_start;i<pos_end;i++)
 			score_struct = struct_copy(scorelist_array[score_index]);
 				
 			// change screen
-			screen_change(screen.view_score);		
+			screen_change(screen.score_view);		
 			scr_tee_filled_set();
 			}
 		}
@@ -114,7 +114,7 @@ if click_button(xx,yy,"Add Score",50,c_black,ww,hh,c_white,true,false,navbar.mai
 	score_index = array_length(scorelist_array);
 
 	popup_coursebar();
-	screen_change(screen.add_score);
+	screen_change(screen.score_create);
 	}
 	
 draw_plus_button(xx+130,yy+(hh*0.5)-3,70,false);

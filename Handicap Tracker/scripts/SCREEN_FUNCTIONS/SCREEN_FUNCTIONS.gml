@@ -20,9 +20,9 @@ drawScreen[screen.help_info] = draw_help_info;
 drawScreen[screen.settings] = undefined;
 drawScreen[screen.enumcount] = draw_undefScreen;
 
-drawScreen[screen.add_score] = draw_score_add;
-drawScreen[screen.edit_score] = draw_score_edit;
-drawScreen[screen.view_score] = draw_score_view;
+drawScreen[screen.score_create] = draw_score_create;
+drawScreen[screen.edit_score] = undefined; // draw_score_edit;
+drawScreen[screen.score_view] = draw_score_view;
 drawScreen[screen.score_details] = draw_score_details;
 
 drawScreen[screen.add_course] = draw_course_add;
@@ -80,8 +80,7 @@ vk_hide();
 switch screenIndex
 	{
 	// change to hidden
-	case screen.view_score:
-	case screen.edit_score:
+	case screen.score_view:
 	case screen.score_card: submenu = navbar.hidden; break;	
 	
 	// edit tees
