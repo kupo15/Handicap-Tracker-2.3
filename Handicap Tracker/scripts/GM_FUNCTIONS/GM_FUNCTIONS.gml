@@ -73,3 +73,31 @@ else
 return val1;
 	
 }
+	
+function pct_x(percent) {
+
+var xx = app_width*percent;
+
+return xx;
+}
+
+function pct_y(percent) {
+
+var yy = app_height*percent;
+
+return yy;
+}
+
+function pct_x_convert(ww) {
+
+var pct = ww/room_width;
+
+return pct;
+}
+
+function pct_y_convert(hh) {
+
+var pct = hh/room_height;
+
+return pct;
+}
