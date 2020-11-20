@@ -8,20 +8,24 @@ ini_timers();
 ini_highlight_vars();
 ini_cursor_vars();
 
+// custom vk
 numpad_value = "";
-	
+
+// searching lists
 searching = false;
 searched = false;
 searched_name = "";
 searchedList = array_create(0);
 searchedMap = ds_map_create();
 
+// delete list entries
 can_delete = false;
 mode_delete = false;
 mode_delete_list_id = noone;
 deleteList = ds_list_create();
 
-undo_map = ds_map_create();
+
+undoMap = ds_map_create();
 
 mode_new_member = false;
 

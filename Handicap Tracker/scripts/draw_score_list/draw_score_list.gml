@@ -28,6 +28,7 @@ for(var i=pos_start;i<pos_end;i++)
 	var _score = score_pointer.roundScore;
 	var strokes = score_pointer.roundStrokes;
 	var course_esr = score_pointer.esr;
+	var course_practice = score_pointer.practiceRound;
 	
 	var date = score_pointer.roundDate;
 	var month = date_get_month(date);
@@ -41,7 +42,7 @@ for(var i=pos_start;i<pos_end;i++)
 	//draw_text_height(xx+390,yy+(off_pos*sep),course_esr,40); // draw score shot
 
 	var course_str = string_abbreviate(course_name,380,height,"...");
-	draw_text_height(xx,yy+20+(off_pos*sep),course_str,height); // draw course name
+	draw_text_height(xx,yy+10+(off_pos*sep),course_str,height); // draw course name
 	draw_text_height(xx+425,yy+15+(off_pos*sep),real(_score)-real(strokes),50); // draw score shot
 	
 	if strokes != 0
@@ -49,9 +50,12 @@ for(var i=pos_start;i<pos_end;i++)
 	
 	// tee info
 	var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
-	draw_tee_marker(xx+10,yy+70+(off_pos*sep),30,course_tee,str,true); // draw tee marker
+	draw_tee_marker(xx+10,yy+55+(off_pos*sep),30,course_tee,str,true); // draw tee marker
+	
+	if course_practice
+	draw_text_height_color(xx+13,yy+95+(off_pos*sep),"Practice Round",c_red,20,fn_italic);
 
-	draw_text_height_color(xx+270,yy+80+(off_pos*sep),date_string,c_gray,23); // draw date played
+	draw_text_height_color(xx+270,yy+65+(off_pos*sep),date_string,c_gray,23); // draw date played
 			
 	// draw_text_height(xx,yy+45+(off_pos*sep),i+1,height); // i
 	// draw_text_height(xx+35,yy+40+(off_pos*sep),string_format(course_handicap,2,1),36); // draw course handicap
@@ -76,6 +80,10 @@ for(var i=pos_start;i<pos_end;i++)
 		    score_index = i;
 			course_struct = course_find_array(course_name);
 			score_struct = struct_copy(scorelist_array[score_index]);
+				
+			// set switch tabs
+			switchTabDisp[0] = score_struct.practiceRound;
+			switchTabDispEnd[0] = score_struct.practiceRound;
 				
 			// change screen
 			screen_change(screen.score_view);		

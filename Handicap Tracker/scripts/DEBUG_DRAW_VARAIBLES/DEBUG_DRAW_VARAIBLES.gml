@@ -36,6 +36,15 @@ draw_text_height(xx,yy+((debugyoff+1)*sep),"screenDarkenAlpha: "+string(screenDa
 debugyoff += 4;
 }
 
+function debug_draw_switch_tabs(xx,yy,ind,sep,height) {
+	
+//for(var i=0;i<switchTabNum;i++)
+draw_text_height(xx,yy+((debugyoff+0)*sep),"switchTabDisp:    "+string(switchTabDisp),height);
+draw_text_height(xx,yy+((debugyoff+1)*sep),"switchTabDispEnd: "+string(switchTabDispEnd),height);
+	
+debugyoff += 4;
+}
+
 function debug_draw_click_highlight(xx,yy,ind,sep,height) {
 	
 draw_text_height(xx,yy+((ind+0)*sep),"highlight_width: "+string(click_highlight_width)+" ["+string(click_highlight_width_end)+"]",height);
