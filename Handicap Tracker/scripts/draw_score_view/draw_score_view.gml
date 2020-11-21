@@ -99,8 +99,8 @@ draw_text_height_label(xx+30+(ww*0.5),yy+40,roundStrokes,"0",height);
 // click on strokes
 if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	{	
-	click_textbox_set(roundScore,score_data.score_,kbv_type_numbers);
 	screen_change(screen.score_details);
+	click_textbox_set(roundScore,score_data.score_,kbv_type_numbers);
 	}
 	
 #endregion

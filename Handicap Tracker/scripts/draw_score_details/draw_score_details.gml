@@ -8,7 +8,6 @@ var str = "Round Score";
 draw_screen_header(headerType.back,headerType.none,str);	
 #endregion
 
-if kvActive
 switch textboxIndex
 	{
 	case score_data.score_: score_struct.roundScore = string_convert_real_numpad(numpad_value,3); break;

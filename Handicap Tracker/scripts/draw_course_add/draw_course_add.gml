@@ -21,10 +21,10 @@ draw_screen_header(headerType.back,headerType.none,str);
 if kvActive
 switch textboxIndex
 	{
-	case course_data.name: active_course.courseName = string_capitalize(keyboard_string,-1); break;
+	case course_data.name: activeStruct.courseName = string_capitalize(keyboard_string,-1); break;
 	}
 
-var course_name = active_course.courseName;
+var course_name = activeStruct.courseName;
 
 #region draw course name
 var xx = 40;
@@ -74,10 +74,10 @@ for(var i=0;i<size;i++)
 	var teeColor = teebox_list[| i];
 	var yoff = (i*vsep);
 
-	if has_data && (course_struct != undefined)
+	if has_data //&& (course_struct != undefined)
 		{
 		// set from temp tee data
-		var teeData_pointer = variable_struct_get(active_course.subcourses[0],string_lower(teeColor));
+		var teeData_pointer = variable_struct_get(activeStruct.subcourses[0],string_lower(teeColor));
 		var course_yardage = teeData_pointer.courseYardage;
 		var course_slope = teeData_pointer.courseSlope;
 		var course_rating = teeData_pointer.courseRating;
@@ -93,14 +93,15 @@ for(var i=0;i<size;i++)
 	// clicked on a tee marker
 	if draw_dialogue_box(xx,yy+yoff,ww,button_hh,c_white,navbar.hidden)
 		{
-		screen_change(screen.edit_tees);
-					
-		// set temp entry data
-		active_tee = variable_struct_get(active_course.subcourses[0],string_lower(teeColor));
-		tee_index = i;
-		
 		scr_course_tee_set(teeColor);
-		click_textbox_set(course_edit_yardage,course_data.yardage,kbv_type_numbers);		
+
+		// set temp entry data
+		activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[0],string_lower(teeColor));
+		tee_index = i;
+
+		screen_change(screen.edit_tees);
+		click_textbox_set(activeStruct.courseYardage,course_data.yardage,kbv_type_numbers);
+		break;
 		}
 			
 	// draw teebox details
@@ -139,16 +140,10 @@ if draw_button_trash(xx,yy,ww,hh,ico_trash1,c_red,screen.edit_course,navbar.hidd
 	// original course name
 	if course_struct.courseName == play_course_name
 	scr_playing_clear();	
-			
-	course_struct = undefined;
-	active_course = undefined;
-	textboxIndex = noone;
-	course_index = undefined;
-
-	screen_goto_prev(navbar.main);
 	
 	app_save;
-	exit;
+	
+	androidBack = true;
 	}
 #endregion
 
@@ -162,11 +157,12 @@ var col = lerp(c_lt_gray,c_white,submit);
 if (click_button(xx,yy,"Save",height,c_black,ww,hh,col,true,true,navbar.hidden) || keyboard_check_released(vk_enter)) && submit
 	{	
 	// update course info
-	scr_course_details_update();
+	courselist_array[@ course_index] = workingStruct; // overwrite with working copy
+	
 	array_sort_nested_struct(courselist_array,"courseName",true); // sort list
-			
-	screen_goto_prev(navbar.main);	
 	app_save;
+	
+	androidBack = true;
 	}
 	
 #endregion
@@ -175,13 +171,15 @@ if androidBack
 && !kvActive
 	{		
 	// delete course unsaved
-	active_course = undefined;
+	course_struct = undefined;
+	workingStruct = undefined;
+	activeStruct = undefined;
+	
 	course_index = undefined;
 	textboxIndex = undefined;
 		
 	// from course edit
 	screen_goto_prev(navbar.main);
-	index = 0;
 	}
 	
 }

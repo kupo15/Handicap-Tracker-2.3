@@ -22,23 +22,13 @@ handicap_trend_type = 0;
 
 stat_tee_index = noone;
 stat_index = 0;
+tee_index = undefined;
 
 course_struct = undefined;
 score_struct = undefined;
-tee_struct = undefined;
 
 course_index = undefined;
 score_index = undefined;
-
-active_course = undefined;
-active_tee = undefined;
-active_score = undefined;
-tee_index = undefined;
-
-course_edit_yardage = "";
-course_edit_slope = "";
-course_edit_rating = "";
-course_edit_par = "";
 
 #region offsets
 navbar_yoff = 0;

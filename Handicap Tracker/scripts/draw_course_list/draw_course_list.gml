@@ -54,7 +54,8 @@ for(var i=pos_start;i<pos_end;i++)
 			
 			// assign struct
 			course_struct = courselist_array[course_index];
-			active_course = struct_copy(course_struct);
+			workingStruct = struct_copy(course_struct);
+			activeStruct = workingStruct;
 
 			screen_change(screen.edit_course);
 			break;

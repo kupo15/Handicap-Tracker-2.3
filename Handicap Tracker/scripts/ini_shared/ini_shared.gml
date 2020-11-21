@@ -24,7 +24,11 @@ mode_delete = false;
 mode_delete_list_id = noone;
 deleteList = ds_list_create();
 
-structUndoStack = ds_stack_create();
+// structs
+structUndoStack = ds_list_create();
+workingStruct = undefined;
+activeStruct = undefined;
+
 undoMap = ds_map_create();
 
 mode_new_member = false;

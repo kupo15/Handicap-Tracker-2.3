@@ -24,19 +24,18 @@ debug_draw_screens(xx,yy,debugyoff,sep,height);
 draw_text_height(xx,yy+((debugyoff+0)*sep),"courseStruct: "+string(course_struct != undefined),height);
 draw_text_height(xx,yy+((debugyoff+1)*sep),"scoreStruct: "+string(score_struct != undefined),height);
 
-draw_text_height(xx,yy+((debugyoff+3)*sep),"activeScore: "+string(active_score != undefined),height);
-draw_text_height(xx,yy+((debugyoff+4)*sep),"activeCourse: "+string(active_course != undefined),height);
-draw_text_height(xx,yy+((debugyoff+5)*sep),"activeTee: "+string(active_tee != undefined),height);
+draw_text_height(xx,yy+((debugyoff+3)*sep),"workingStruct: "+string(workingStruct != undefined),height);
+draw_text_height(xx,yy+((debugyoff+4)*sep),"activeStruct: "+string(activeStruct != undefined),height);
 
-draw_text_height(xx,yy+((debugyoff+7)*sep),"course_index: "+string(course_index),height);
-draw_text_height(xx,yy+((debugyoff+8)*sep),"score_index: "+string(score_index),height);
+draw_text_height(xx,yy+((debugyoff+6)*sep),"course_index: "+string(course_index),height);
+draw_text_height(xx,yy+((debugyoff+7)*sep),"score_index: "+string(score_index),height);
 
-debugyoff = 15;
+debugyoff = 14;
 //debug_draw_click_highlight(xx,yy,debugyoff,sep,height);
-//debug_draw_vk(xx,yy,debugyoff,sep,height);
+debug_draw_vk(xx,yy,debugyoff,sep,height);
 debug_draw_strings(xx,yy,debugyoff,sep,height);
 debug_draw_textbox(xx,yy,debugyoff,sep,height);
-debug_draw_switch_tabs(xx,yy,debugyoff,sep,height);
+//debug_draw_switch_tabs(xx,yy,debugyoff,sep,height);
 //debug_draw_modes(xx,yy,debugyoff,sep,height);
 //debug_draw_textbox_cursor(xx,yy,debugyoff,sep,height);	
 //debug_draw_scrollbars(xx,yy,debugyoff,sep,height);	

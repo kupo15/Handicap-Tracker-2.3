@@ -7,24 +7,23 @@ draw_clear(bg_col);
 var str = "Course Tees";
 draw_screen_header(headerType.back,headerType.none,str);
 
-
-if kvActive // textbox entry
+// textbox entry
 switch (textboxIndex)
 	{	
-	case course_data.yardage: course_edit_yardage = string_convert_real_numpad(numpad_value,4); break;
+	case course_data.yardage: activeStruct.courseYardage = string_convert_real_numpad(numpad_value,4); break;
 							  
-	case course_data.slope: course_edit_slope = string_convert_real_numpad(numpad_value,3); break;
+	case course_data.slope: activeStruct.courseSlope = string_convert_real_numpad(numpad_value,3); break;
 							  
-	case course_data.rating: course_edit_rating = string_convert_rating_numpad(numpad_value,3); break;
+	case course_data.rating: activeStruct.courseRating = string_convert_rating_numpad(numpad_value,3); break;
 							  
-	case course_data.par: course_edit_par = string_convert_real_numpad(numpad_value,2); break;
+	case course_data.par: activeStruct.coursePar = string_convert_real_numpad(numpad_value,2); break;
 	}
 
 var course_tee = teebox_list[| tee_index];
-var course_yardage = course_edit_yardage;
-var course_slope = course_edit_slope;
-var course_rating = course_edit_rating;
-var course_par = course_edit_par;
+var course_yardage = activeStruct.courseYardage;
+var course_slope = activeStruct.courseSlope;
+var course_rating = activeStruct.courseRating;
+var course_par = activeStruct.coursePar;
 
 #region draw tee 
 var xx = 10;
@@ -116,13 +115,13 @@ draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);
 if move
 switch (textboxIndex)
 	{	
-	case course_data.yardage: click_textbox_set(course_edit_yardage,textboxIndex,kbv_type_numbers); break;
+	case course_data.yardage: click_textbox_set(activeStruct.courseYardage,textboxIndex,kbv_type_numbers); break;
 	
-	case course_data.slope: click_textbox_set(course_edit_slope,textboxIndex,kbv_type_numbers); break;
+	case course_data.slope: click_textbox_set(activeStruct.courseSlope,textboxIndex,kbv_type_numbers); break;
 	
-	case course_data.rating: click_textbox_set(course_edit_rating,textboxIndex,kbv_type_numbers); break;
+	case course_data.rating: click_textbox_set(activeStruct.courseRating,textboxIndex,kbv_type_numbers); break;
 	
-	case course_data.par: click_textbox_set(course_edit_par,textboxIndex,kbv_type_numbers); break;
+	case course_data.par: click_textbox_set(activeStruct.coursePar,textboxIndex,kbv_type_numbers); break;
 	}
 	
 #region draw label
@@ -138,7 +137,6 @@ var height = 70;
 draw_text_height(xx,yy+80,detail_val[textboxIndex-course_data.yardage],height);	
 #endregion	
 	
-	
 #region Finished button
 var submit = (course_yardage != "") && (course_slope != "") && (course_par != "") && (course_rating != "");
 var hh = 60;
@@ -149,15 +147,17 @@ var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
-	{
-	scr_course_details_tee_update();	
+	{	
+	activeStruct = struct_undo_pop(workingStruct,course_struct,true);
+
+	scr_tee_filled_set(workingStruct); // mark tees with data
 	screen_goto_prev(navbar.hidden);
 	}
 #endregion
 	
 if androidBack 
 	{
-	active_tee = undefined; // delete tee struct
+	activeStruct = struct_undo_pop(workingStruct,course_struct);
 	screen_goto_prev(navbar.hidden);
 	}
 

@@ -8,32 +8,52 @@ ini_shared();
 json_data_load();
 ini_create();
 
-
 /*
+exit;
 test_arr = [];
 
 scr_course_create("name",test_arr)
 scr_course_add_tee("","blue","0","0","0","0");
 
 course_index = 0;
-course_struct = test_arr[course_index];
-active_course = struct_copy(course_struct);
+original_struct = test_arr[course_index];
+working_struct = struct_copy(original_struct); // details screen
+sm(working_struct);
 
-// change value
-active_course.courseName = "change";
+// enter tee data screen
+active_struct = struct_undo_push(working_struct,working_struct.subcourses[0],"blue");
+sm(active_struct)
+
+// change tee value
+active_struct.coursePar = "CHANGE";
+sm(working_struct);
+
+// back out
+active_struct = struct_undo_pop(working_struct,original_struct);
+sm(working_struct)
+
+// enter tee data screen
+active_struct = struct_undo_push(working_struct,working_struct.subcourses[0],"blue");
+sm(active_struct)
+
+// change tee value
+active_struct.coursePar = "YESSS";
+sm(working_struct)
+
+// save 
+active_struct = struct_undo_pop(working_struct,original_struct,true);
+sm(working_struct)
+
+// save all
+test_arr[course_index] = working_struct;
+active_struct = undefined;
+working_struct = undefined;
+
+sm(original_struct)
+sm(test_arr[course_index])
 
 
-tee_struct = variable_struct_get(active_course.subcourses[0],"blue");
-active_tee = struct_copy(tee_struct);
-
-active_tee.coursePar = 10;
 
 
-sm(tee_struct)
-
-tee_struct = active_tee
-sm(tee_struct)
-
-sm(active_course)
 
 
