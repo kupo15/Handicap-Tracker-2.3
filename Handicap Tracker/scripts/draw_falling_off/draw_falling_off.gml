@@ -18,9 +18,9 @@ for(var i=0;i<rows;i++)
 	var score_pointer = scorelist_array[slot];
 	var course_name = score_pointer.courseName;
 	var course_tee = score_pointer.teeColor;
-	var course_yardage = score_pointer.courseYardage;
-	var course_slope = score_pointer.courseSlope;
-	var course_rating = score_pointer.courseRating;
+	var course_yardage = score_pointer.teeYardage;
+	var course_slope = score_pointer.teeSlope;
+	var course_rating = score_pointer.teeRating;
 	var _score = score_pointer.roundScore;
 	
 	var date = score_pointer.roundDate;

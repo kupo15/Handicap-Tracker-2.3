@@ -7,6 +7,7 @@ function scr_course_create(name,array) {
 course_struct = {
 	
 	courseName: name,
+	favorite: false,
 	
 	subcourses: [
 		{
@@ -47,10 +48,10 @@ par = "";
 // create tee struct
 var tee = {
 	
-	courseYardage: yardage,
-	courseSlope: slope,
-	courseRating: rating,
-	coursePar: par,
+	teeYardage: yardage,
+	teeSlope: slope,
+	teeRating: rating,
+	teePar: par,
 	}
 
 // add tee color data to active course's teeMap

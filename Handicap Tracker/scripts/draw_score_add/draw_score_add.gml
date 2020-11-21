@@ -26,9 +26,9 @@ if trash_delete
 
 var course_name = score_struct.courseName;
 var course_tee = score_struct.teeColor;
-var course_yardage = score_struct.courseYardage;
-var course_slope = score_struct.courseSlope;
-var course_rating = score_struct.courseRating;
+var course_yardage = score_struct.teeYardage;
+var course_slope = score_struct.teeSlope;
+var course_rating = score_struct.teeRating;
 
 var roundScore = score_struct.roundScore;
 var roundStrokes = score_struct.roundStrokes;
@@ -210,10 +210,10 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,"cours
 	// reset values
 	score_struct.courseName = course_struct.courseName;
 	score_struct.teeColor = "";
-	score_struct.courseYardage = "";
-	score_struct.courseSlope = "";
-	score_struct.courseRating = "";
-	score_struct.coursePar = "";
+	score_struct.teeYardage = "";
+	score_struct.teeSlope = "";
+	score_struct.teeRating = "";
+	score_struct.teePar = "";
 	
 	// open teebar 
 	submenu = navbar.teebar;

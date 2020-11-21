@@ -5,10 +5,10 @@ score_struct = {
 
 	courseName: course_name,
 	teeColor: tee_color,
-	courseYardage: yardage,
-	courseSlope: slope,
-	courseRating: rating,
-	coursePar: par,
+	teeYardage: yardage,
+	teeSlope: slope,
+	teeRating: rating,
+	teePar: par,
 	
 	roundScore: score,
 	roundStrokes: strokes,
@@ -50,10 +50,10 @@ if teeData == undefined
 	exit;
 	}
 
-var course_yardage = teeData.courseYardage;
-var course_slope = teeData.courseSlope;
-var course_rating = teeData.courseRating;
-var course_par = teeData.coursePar;
+var course_yardage = teeData.teeYardage;
+var course_slope = teeData.teeSlope;
+var course_rating = teeData.teeRating;
+var course_par = teeData.teePar;
 
 // create score data
 score_struct = scr_score_create(c_name,tee_color,course_yardage,course_slope,course_rating,course_par,_score,date,strokes);

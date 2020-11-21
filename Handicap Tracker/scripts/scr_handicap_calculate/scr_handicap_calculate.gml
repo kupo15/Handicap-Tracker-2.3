@@ -35,9 +35,9 @@ for(var n=0;n<num;n++)
 		_strokes = 0;
 
 		var score_ = real(score_pointer.roundScore)-real(_strokes);
-		var course_rating = real(score_pointer.courseRating);
-		var course_slope = real(score_pointer.courseSlope);
-		var course_par = real(score_pointer.coursePar);
+		var course_rating = real(score_pointer.teeRating);
+		var course_slope = real(score_pointer.teeSlope);
+		var course_par = real(score_pointer.teePar);
 	
 		var diff = score_-course_rating;
 		var adj_diff = diff*113/course_slope;

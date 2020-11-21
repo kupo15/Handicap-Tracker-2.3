@@ -25,7 +25,7 @@ active_struct = struct_undo_push(working_struct,working_struct.subcourses[subcou
 sm(active_struct)
 
 // change tee value
-active_struct.coursePar = "CHANGE";
+active_struct.teePar = "CHANGE";
 sm(working_struct);
 
 // back out
@@ -37,7 +37,7 @@ active_struct = struct_undo_push(working_struct,working_struct.subcourses[0],"bl
 sm(active_struct)
 
 // change tee value
-active_struct.coursePar = "YESSS";
+active_struct.teePar = "YESSS";
 sm(working_struct)
 
 // save 

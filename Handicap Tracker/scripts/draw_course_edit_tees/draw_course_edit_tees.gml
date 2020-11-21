@@ -10,20 +10,20 @@ draw_screen_header(headerType.back,headerType.none,str);
 // textbox entry
 switch (textboxIndex)
 	{	
-	case course_data.yardage: activeStruct.courseYardage = string_convert_real_numpad(numpad_value,4); break;
+	case course_data.yardage: activeStruct.teeYardage = string_convert_real_numpad(numpad_value,4); break;
 							  
-	case course_data.slope: activeStruct.courseSlope = string_convert_real_numpad(numpad_value,3); break;
+	case course_data.slope: activeStruct.teeSlope = string_convert_real_numpad(numpad_value,3); break;
 							  
-	case course_data.rating: activeStruct.courseRating = string_convert_rating_numpad(numpad_value,3); break;
+	case course_data.rating: activeStruct.teeRating = string_convert_rating_numpad(numpad_value,3); break;
 							  
-	case course_data.par: activeStruct.coursePar = string_convert_real_numpad(numpad_value,2); break;
+	case course_data.par: activeStruct.teePar = string_convert_real_numpad(numpad_value,2); break;
 	}
 
 var course_tee = teebox_list[| tee_index];
-var course_yardage = activeStruct.courseYardage;
-var course_slope = activeStruct.courseSlope;
-var course_rating = activeStruct.courseRating;
-var course_par = activeStruct.coursePar;
+var course_yardage = activeStruct.teeYardage;
+var course_slope = activeStruct.teeSlope;
+var course_rating = activeStruct.teeRating;
+var course_par = activeStruct.teePar;
 
 #region draw tee 
 var xx = 10;
@@ -115,13 +115,13 @@ draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);
 if move
 switch (textboxIndex)
 	{	
-	case course_data.yardage: click_textbox_set(activeStruct.courseYardage,textboxIndex,kbv_type_numbers); break;
+	case course_data.yardage: click_textbox_set(activeStruct.teeYardage,textboxIndex,kbv_type_numbers); break;
 	
-	case course_data.slope: click_textbox_set(activeStruct.courseSlope,textboxIndex,kbv_type_numbers); break;
+	case course_data.slope: click_textbox_set(activeStruct.teeSlope,textboxIndex,kbv_type_numbers); break;
 	
-	case course_data.rating: click_textbox_set(activeStruct.courseRating,textboxIndex,kbv_type_numbers); break;
+	case course_data.rating: click_textbox_set(activeStruct.teeRating,textboxIndex,kbv_type_numbers); break;
 	
-	case course_data.par: click_textbox_set(activeStruct.coursePar,textboxIndex,kbv_type_numbers); break;
+	case course_data.par: click_textbox_set(activeStruct.teePar,textboxIndex,kbv_type_numbers); break;
 	}
 	
 #region draw label

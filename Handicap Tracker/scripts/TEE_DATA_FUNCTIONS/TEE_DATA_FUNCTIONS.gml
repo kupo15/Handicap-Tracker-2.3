@@ -37,27 +37,27 @@ if teePointer == undefined
 if argument[2] == undefined
 yardage = "";
 else
-yardage = teePointer.courseYardage;
+yardage = teePointer.teeYardage;
 
 if argument[3] == undefined
 slope = "";
 else
-slope = teePointer.courseSlope;
+slope = teePointer.teeSlope;
 
 if argument[4] == undefined
 rating = "";
 else
-rating = teePointer.courseRating;
+rating = teePointer.teeRating;
 
 if argument[5] == undefined
 par = "";
 else
-par = teePointer.coursePar;
+par = teePointer.teePar;
 
 // set values
 score_struct_pointer.teeColor = teeColor; // set tee color
-score_struct_pointer.courseYardage = yardage; // set yardage
-score_struct_pointer.courseSlope = slope; // set slope
-score_struct_pointer.courseRating = rating; // set rating
-score_struct_pointer.coursePar = par; // set par
+score_struct_pointer.teeYardage = yardage; // set yardage
+score_struct_pointer.teeSlope = slope; // set slope
+score_struct_pointer.teeRating = rating; // set rating
+score_struct_pointer.teePar = par; // set par
 }

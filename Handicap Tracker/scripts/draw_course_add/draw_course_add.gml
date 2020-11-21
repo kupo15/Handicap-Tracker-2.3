@@ -78,10 +78,10 @@ for(var i=0;i<size;i++)
 		{
 		// set from temp tee data
 		var teeData_pointer = variable_struct_get(workingStruct.subcourses[subcourse_index],string_lower(teeColor));
-		var course_yardage = teeData_pointer.courseYardage;
-		var course_slope = teeData_pointer.courseSlope;
-		var course_rating = teeData_pointer.courseRating;
-		var course_par = teeData_pointer.coursePar;
+		var course_yardage = teeData_pointer.teeYardage;
+		var course_slope = teeData_pointer.teeSlope;
+		var course_rating = teeData_pointer.teeRating;
+		var course_par = teeData_pointer.teePar;
 		
 		var teebox_str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
    		
@@ -100,7 +100,7 @@ for(var i=0;i<size;i++)
 		tee_index = i;
 
 		screen_change(screen.edit_tees);
-		click_textbox_set(activeStruct.courseYardage,course_data.yardage,kbv_type_numbers);
+		click_textbox_set(activeStruct.teeYardage,course_data.yardage,kbv_type_numbers);
 		}
 			
 	// draw teebox details
