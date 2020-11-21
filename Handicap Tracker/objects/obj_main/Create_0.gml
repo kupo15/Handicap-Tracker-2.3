@@ -21,7 +21,7 @@ working_struct = struct_copy(original_struct); // details screen
 sm(working_struct);
 
 // enter tee data screen
-active_struct = struct_undo_push(working_struct,working_struct.subcourses[0],"blue");
+active_struct = struct_undo_push(working_struct,working_struct.subcourses[subcourse_index],"blue");
 sm(active_struct)
 
 // change tee value

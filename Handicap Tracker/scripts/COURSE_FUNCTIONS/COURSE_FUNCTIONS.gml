@@ -54,12 +54,12 @@ var tee = {
 	}
 
 // add tee color data to active course's teeMap
-variable_struct_set(struct.subcourses[0],string_lower(teeColor),tee);
+variable_struct_set(struct.subcourses[subcourse_index],string_lower(teeColor),tee);
 }
 
 function scr_course_tee_set(teeCol) {
 	
-var tee_struct = variable_struct_get(activeStruct.subcourses[0],string_lower(teeCol));
+var tee_struct = variable_struct_get(activeStruct.subcourses[subcourse_index],string_lower(teeCol));
 
 // create new tee
 if tee_struct == undefined

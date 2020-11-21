@@ -23,6 +23,7 @@ handicap_trend_type = 0;
 stat_tee_index = noone;
 stat_index = 0;
 tee_index = undefined;
+subcourse_index = 0;
 
 course_struct = undefined;
 score_struct = undefined;

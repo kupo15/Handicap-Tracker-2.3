@@ -31,7 +31,7 @@ for(var i=0;i<rows;i++)
 	if has_data && (course_struct != undefined)
 		{
 		// set from temp tee data
-		var teeData_pointer = variable_struct_get(course_struct.subcourses[0],string_lower(teeColor));
+		var teeData_pointer = variable_struct_get(course_struct.subcourses[subcourse_index],string_lower(teeColor));
 		var course_yardage = teeData_pointer.courseYardage;
 		var course_slope = teeData_pointer.courseSlope;
 		var course_rating = teeData_pointer.courseRating;

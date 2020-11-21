@@ -77,7 +77,7 @@ for(var i=0;i<size;i++)
 	if has_data //&& (course_struct != undefined)
 		{
 		// set from temp tee data
-		var teeData_pointer = variable_struct_get(activeStruct.subcourses[0],string_lower(teeColor));
+		var teeData_pointer = variable_struct_get(workingStruct.subcourses[subcourse_index],string_lower(teeColor));
 		var course_yardage = teeData_pointer.courseYardage;
 		var course_slope = teeData_pointer.courseSlope;
 		var course_rating = teeData_pointer.courseRating;
@@ -96,12 +96,11 @@ for(var i=0;i<size;i++)
 		scr_course_tee_set(teeColor);
 
 		// set temp entry data
-		activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[0],string_lower(teeColor));
+		activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index],string_lower(teeColor));
 		tee_index = i;
 
 		screen_change(screen.edit_tees);
 		click_textbox_set(activeStruct.courseYardage,course_data.yardage,kbv_type_numbers);
-		break;
 		}
 			
 	// draw teebox details

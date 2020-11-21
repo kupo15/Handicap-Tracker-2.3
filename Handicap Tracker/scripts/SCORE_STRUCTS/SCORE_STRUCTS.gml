@@ -42,7 +42,7 @@ if struct == undefined
 	exit;
 	}
 	
-var teeData = variable_struct_get(struct.subcourses[0],tee_color);
+var teeData = variable_struct_get(struct.subcourses[subcourse_index],tee_color);
 
 if teeData == undefined
 	{	
