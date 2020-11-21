@@ -21,11 +21,11 @@ draw_set_halign(fa_left);
 debug_draw_screens(xx,yy,debugyoff,sep,height);
 //debug_draw_screen_darken(xx,yy,debugyoff,sep,height);
 
-draw_text_height(xx,yy+((debugyoff+0)*sep),"courseStruct: "+string(course_struct != undefined),height);
-draw_text_height(xx,yy+((debugyoff+1)*sep),"scoreStruct: "+string(score_struct != undefined),height);
+draw_text_height(xx,yy+((debugyoff+0)*sep),"courseStruct: "+string(pick("active","undefined",course_struct == undefined)),height);
+draw_text_height(xx,yy+((debugyoff+1)*sep),"scoreStruct: "+string(pick("active","undefined",score_struct == undefined)),height);
 
-draw_text_height(xx,yy+((debugyoff+3)*sep),"workingStruct: "+string(workingStruct != undefined),height);
-draw_text_height(xx,yy+((debugyoff+4)*sep),"activeStruct: "+string(activeStruct != undefined),height);
+draw_text_height(xx,yy+((debugyoff+3)*sep),"workingStruct: "+string(pick("active","undefined",workingStruct == undefined)),height);
+draw_text_height(xx,yy+((debugyoff+4)*sep),"activeStruct: "+string(pick("active","undefined",activeStruct == undefined)),height);
 
 draw_text_height(xx,yy+((debugyoff+6)*sep),"course_index: "+string(course_index),height);
 draw_text_height(xx,yy+((debugyoff+7)*sep),"score_index: "+string(score_index),height);

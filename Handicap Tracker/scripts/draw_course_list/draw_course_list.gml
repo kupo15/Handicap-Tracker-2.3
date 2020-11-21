@@ -58,7 +58,6 @@ for(var i=pos_start;i<pos_end;i++)
 			activeStruct = workingStruct;
 
 			screen_change(screen.edit_course);
-			break;
 			}
 		}
 	}

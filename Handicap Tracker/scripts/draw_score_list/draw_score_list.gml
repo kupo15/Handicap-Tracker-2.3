@@ -79,8 +79,11 @@ for(var i=pos_start;i<pos_end;i++)
 		    {
 		    score_index = i;
 			course_struct = course_find_array(course_name);
-			score_struct = struct_copy(scorelist_array[score_index]);
-				
+			
+			score_struct = scorelist_array[score_index];
+			workingStruct = struct_copy(score_struct);
+			activeStruct = workingStruct;
+			
 			// set switch tabs
 			switchTabDisp[0] = score_struct.practiceRound;
 			switchTabDispEnd[0] = score_struct.practiceRound;

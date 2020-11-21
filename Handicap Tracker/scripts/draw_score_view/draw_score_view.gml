@@ -15,23 +15,21 @@ var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);
 if trash_delete
 	{
 	array_delete(scorelist_array,score_index,1); // delete score
-	score_index = 0;
-
-	screen_goto_prev(navbar.main);
 	app_save;
-	exit;
+	
+	androidBack = true;
 	}
 #endregion
 
-var course_name = score_struct.courseName;
-var course_tee = score_struct.teeColor;
-var course_yardage = score_struct.courseYardage;
-var course_slope = score_struct.courseSlope;
-var course_rating = score_struct.courseRating;
+var course_name = activeStruct.courseName;
+var course_tee = activeStruct.teeColor;
+var course_yardage = activeStruct.courseYardage;
+var course_slope = activeStruct.courseSlope;
+var course_rating = activeStruct.courseRating;
 
-var roundScore = score_struct.roundScore;
-var roundStrokes = score_struct.roundStrokes;
-var practice_round = score_struct.practiceRound;
+var roundScore = activeStruct.roundScore;
+var roundStrokes = activeStruct.roundStrokes;
+var practice_round = activeStruct.practiceRound;
 
 #region draw course
 var xx = 0;
@@ -99,6 +97,8 @@ draw_text_height_label(xx+30+(ww*0.5),yy+40,roundStrokes,"0",height);
 // click on strokes
 if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	{	
+	//activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index],string_lower(teeColor));
+
 	screen_change(screen.score_details);
 	click_textbox_set(roundScore,score_data.score_,kbv_type_numbers);
 	}
@@ -113,7 +113,7 @@ var hh = 90;
 
 if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
 	{
-	score_struct.practiceRound = !score_struct.practiceRound;
+	activeStruct.practiceRound = !activeStruct.practiceRound;
 	}
 	
 // draw switch tab
@@ -130,7 +130,7 @@ var yy = 890;
 var ww = app_width-xx-xx;
 var hh = 90;
 var col = c_white;
-var date_pointer = score_struct.roundDate;
+var date_pointer = activeStruct.roundDate;
 
 // clicked on calendar
 if draw_dialogue_box(xx,yy,ww,hh,col,navbar.hidden)
@@ -159,13 +159,13 @@ draw_text_height_color(xx+115,yy+50,date_str,c_gray,35);
 // pressed OK in calendar
 if calendarDateEntry != undefined
 	{
-	score_struct.roundDate = calendarDateEntry;
+	activeStruct.roundDate = calendarDateEntry;
 	calendarDateEntry = undefined;
 	}
 	
 #endregion	
 			  			 	  			
-#region Create/Update
+#region Save
 var submit = (course_tee != "") && (roundScore != "");
 var hh = 60;
 var xx = 0;
@@ -177,26 +177,17 @@ var col = pick(c_gray,header_color,submit);
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
 	{
 	if roundStrokes == ""
-	roundStrokes = "0";
+	activeStruct.roundStrokes = "0";
 		
 	// update score
-	scorelist_array[@ score_index] = score_struct;
-
-	// reset variables
-	score_list_offset = 0;
-	score_list_offset_start = 0;
-	
-	score_index = undefined;
-	
-	score_struct = undefined;
-	course_struct = undefined;
-	
+	scorelist_array[@ score_index] = activeStruct;
+		
 	// sort
 	array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
 	scr_handicap_calculate();
 
-	screen_goto_prev(navbar.main);
-	app_save;
+	app_save;	
+	androidBack = true;
 	}
 #endregion	
 
@@ -205,20 +196,21 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,"cours
 	{
 	submenu = navbar.hidden;
 
+	// if clicking the same course as selected
 	if course_name == friend_id.courseName
 	exit;
 	
 	// set values
 	course_struct = friend_id;
-	
+	activeStruct.courseName = course_struct.courseName;
+
 	// reset values
-	score_struct.courseName = course_struct.courseName;
-	score_struct.teeColor = "";
-	score_struct.courseYardage = "";
-	score_struct.courseSlope = "";
-	score_struct.courseRating = "";
-	score_struct.coursePar = "";
-	
+	activeStruct.teeColor = "";
+	activeStruct.courseYardage = "";
+	activeStruct.courseSlope = "";
+	activeStruct.courseRating = "";
+	activeStruct.coursePar = "";
+
 	// open teebar 
 	submenu = navbar.teebar;
 	scr_tee_filled_set(); // mark tees with data
@@ -231,7 +223,7 @@ if tee_ind != undefined
 	submenu = navbar.hidden;
 	
 	// set variables
-	scr_score_tee_update(score_struct,course_struct,teebox_list[| tee_ind]);
+	scr_score_tee_update(activeStruct,course_struct,teebox_list[| tee_ind]);
 	}
 
 // navigation
@@ -241,13 +233,41 @@ if androidBack
 	submenu = navbar.hidden;
 	else if (submenu == navbar.hidden)
 		{
+		// reset variables
+		//score_list_offset = 0;
+		//score_list_offset_start = 0;
+	
 		textboxIndex = undefined;
 		score_index = undefined;
 
 		score_struct = undefined;
-		course_struct = undefined;	
+		course_struct = undefined;
+		
+		workingStruct = undefined;
+		activeStruct = undefined;
 
 		screen_goto_prev(navbar.main);
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

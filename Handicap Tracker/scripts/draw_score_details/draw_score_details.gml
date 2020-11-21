@@ -10,27 +10,27 @@ draw_screen_header(headerType.back,headerType.none,str);
 
 switch textboxIndex
 	{
-	case score_data.score_: score_struct.roundScore = string_convert_real_numpad(numpad_value,3); break;
-	case score_data.strokes: score_struct.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
+	case score_data.score_: activeStruct.roundScore = string_convert_real_numpad(numpad_value,3); break;
+	case score_data.strokes: activeStruct.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
 	}	
 
 
 // exceptions
-if score_struct.roundStrokes == ""
+if activeStruct.roundStrokes == ""
 	{
-	score_struct.roundStrokes = "0";
-	numpad_value = score_struct.roundStrokes;
+	activeStruct.roundStrokes = "0";
+	numpad_value = activeStruct.roundStrokes;
 	}
 
-if string_length(score_struct.roundStrokes) > 1
-&& string_char_at(score_struct.roundStrokes,1) == "0"
+if string_length(activeStruct.roundStrokes) > 1
+&& string_char_at(activeStruct.roundStrokes,1) == "0"
 	{
-	score_struct.roundStrokes = string_delete(score_struct.roundStrokes,1,1);
-	numpad_value = score_struct.roundStrokes;
+	activeStruct.roundStrokes = string_delete(activeStruct.roundStrokes,1,1);
+	numpad_value = activeStruct.roundStrokes;
 	}
 
-var roundScore = score_struct.roundScore;
-var roundStrokes = score_struct.roundStrokes;
+var roundScore = activeStruct.roundScore;
+var roundStrokes = activeStruct.roundStrokes;
 
 #region draw tee details
 var xx = 0;
@@ -134,15 +134,14 @@ var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
-	{
-		
-		
-		
-	androidBack = true;
-	}
+screen_goto_prev(navbar.hidden);
+
 #endregion	
 
 if androidBack
-screen_goto_prev(navbar.hidden);
+	{
+	activeStruct = struct_copy(score_struct); // revert
+	screen_goto_prev(navbar.hidden);
+	}
 }
 
