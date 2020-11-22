@@ -11,20 +11,20 @@ switch ind
 						  
 	// playing
 	case screen.playing: activeStruct = play_course_struct;
-							//scr_tee_filled_set(); // set teebox fill
+						 //scr_tee_filled_set(); // set teebox fill
 
-							scr_handicap_calculate();
-							 
-							if activeStruct.esc == "0"
-							activeStruct.esc = "";
-						   
-							if activeStruct.teeColor != ""
-							{
-							scr_handicap_predict(90,false); // determine lower handicap
-							scr_handicap_predict(play_course_struct.handicap_dec,true); // determine upper handicap
-							}
+						 scr_handicap_calculate();
+						 	 
+						 if activeStruct.esc == "0"
+						 activeStruct.esc = "";
+						    
+						 if activeStruct.teeColor != ""
+						 {
+						 scr_handicap_predict(90,false); // determine lower handicap
+						 scr_handicap_predict(play_course_struct.handicap_dec,true); // determine upper handicap
+						 }
 							
-							break;
+						 break;
 				
 	// stats screen
 	case screen.stats: course_struct = courselist_array[stat_index];
