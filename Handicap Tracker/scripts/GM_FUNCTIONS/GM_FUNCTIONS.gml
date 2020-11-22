@@ -34,6 +34,20 @@ function draw_line_pixel(xx,yy,ww,hh,col,alpha) {
 draw_sprite_ext(spr_pixel,0,xx,yy,ww,hh,0,col,alpha);
 }
 	
+function draw_rectangle_pixel(xx,yy,ww,hh,outline) {
+
+if outline
+	{
+	draw_sprite_ext(spr_pixel,0,xx,yy,ww,1,0,c_black,1); // top line
+	draw_sprite_ext(spr_pixel,0,xx,yy,1,hh,0,c_black,1); // left line
+	draw_sprite_ext(spr_pixel,0,xx,yy+hh,ww,1,0,c_black,1); // bottom line
+	draw_sprite_ext(spr_pixel,0,xx+ww,yy,1,hh,0,c_black,1); // right line
+	}
+else
+draw_sprite_ext(spr_pixel,0,xx,yy,ww,hh,0,c_black,1);
+
+}	
+	
 function funct_mouse_wheel(scale) {
 /// @param multiplier
 
