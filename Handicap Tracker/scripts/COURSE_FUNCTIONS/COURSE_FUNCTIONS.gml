@@ -1,13 +1,16 @@
 
-function scr_course_create(name,array) {
+function scr_course_create(name,loc,array) {
 /// @param name
+/// @param location
 /// @param [arrayId]
 
 // create struct
 course_struct = {
 	
 	courseName: name,
+	courseLocation: loc,
 	favorite: false,
+	lastPlayed: undefined,
 	
 	subcourses: [
 		{
@@ -18,7 +21,7 @@ course_struct = {
 	}
 		
 // add to master courselist
-if argument[1] != undefined
+if argument[2] != undefined
 array_push(array,course_struct);
 
 return course_struct;

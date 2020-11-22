@@ -110,7 +110,7 @@ for(var i=0;i<size;i++)
 	score_pointer.indexIncluded = false; // index
 	}
 
-ds_list_sort_nested_struct(recent_scores_list,"roundScore",true); // date sort
+ds_list_sort_nested_struct(recent_scores_list,"roundScore",true); // score sort
 	
 // set the first 8 scores to active
 var num = min(top_scores,rounds_played)
@@ -121,7 +121,7 @@ for(var i=0;i<num;i++)
 	score_pointer.indexIncluded = true; // index
 	}
 
-ds_list_sort_nested_struct(recent_scores_list,"roundDate",true); // date sort
+ds_list_sort_nested_struct(recent_scores_list,"roundDate",false); // date sort
 
 
 // debug

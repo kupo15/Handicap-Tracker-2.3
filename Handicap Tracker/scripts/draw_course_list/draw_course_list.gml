@@ -22,6 +22,7 @@ for(var i=pos_start;i<pos_end;i++)
 	{
 	var course_pointer = courselist_array[i];
 	var course_name = course_pointer.courseName; // course name
+	var course_location = course_pointer.courseLocation; // course location
 	var course_str = string_abbreviate(course_name,485,height,"...");
 	var off_ind = i-course_list_offset;
 	var off_pos = (off_ind*sep);
@@ -32,9 +33,12 @@ for(var i=pos_start;i<pos_end;i++)
 	draw_set_halign(fa_center);
 	draw_circle_color(65,yy+off_pos+(sep*0.5),30,col,col,false);
 	draw_text_height_middled(65,yy+off_pos,initial,sep,height);
-    
+
 	draw_set_halign(fa_left);
-	draw_text_height_middled(xx,yy+off_pos,course_str,sep,height,1); // draw course name
+	draw_text_height_middled(xx,yy+off_pos-5,course_str,sep,height,1); // draw course name
+	
+	//var name_off = string_width_height(course_str,height);
+	draw_text_height_middled_color(xx+10,yy+off_pos+height-5,course_location,sep,c_gray,height*0.8,fn_italic); // draw course location
 	draw_line_pixel(25,yy+((1+off_ind)*sep),room_width,1,c_black,0.2); // draw row lines
 		
 	// click released on course
