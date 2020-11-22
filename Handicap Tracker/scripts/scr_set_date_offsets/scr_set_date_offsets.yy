@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts/Scripts.yy",
+    "name": "Calendar",
+    "path": "folders/Android App Library/Calendar.yy",
   },
   "resourceVersion": "1.0",
   "name": "scr_set_date_offsets",

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Navbar",
-    "path": "folders/Scripts/Main/Draw/Navbar.yy",
+    "path": "folders/Scripts/Draw/Navbar.yy",
   },
   "resourceVersion": "1.0",
   "name": "draw_popup_par",

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Calendar",
-    "path": "folders/Scripts/Main/Draw/Calendar.yy",
+    "path": "folders/Android App Library/Calendar.yy",
   },
   "resourceVersion": "1.0",
   "name": "draw_date_edit_calendar",

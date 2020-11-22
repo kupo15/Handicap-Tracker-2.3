@@ -129,7 +129,7 @@ scr_course_add_tee(course_struct,"blue","5966","119","69.1","71");
 array_sort_nested_struct(arr,"courseName",true);
 
 // add scores
-/*var date = date_create_datetime(2018,5,16,1,1,1); scr_score_add_index("Putterham Meadows","white","86",date);
+var date = date_create_datetime(2018,5,16,1,1,1); scr_score_add_index("Putterham Meadows","white","86",date);
 var date = date_create_datetime(2018,5,19,1,1,1); scr_score_add_index("Apple Mountain Golf","blue","84",date);
 var date = date_create_datetime(2018,5,28,1,1,1); scr_score_add_index("Riverwinds","white","89",date);
 var date = date_create_datetime(2018,6,2,1,1,1); scr_score_add_index("South Shore Country Club","blue","97",date);
@@ -154,7 +154,7 @@ var date = date_create_datetime(2019,7,27,1,1,1); scr_score_add_index("Pembroke 
 var date = date_create_datetime(2019,7,28,1,1,1); scr_score_add_index("Braintree Municipal","white","88",date);
 var date = date_create_datetime(2019,8,3,1,1,1); scr_score_add_index("Ledges Golf Club","black","81",date);
 var date = date_create_datetime(2019,8,10,1,1,1); scr_score_add_index("Riverwinds","white","81",date);
-var date = date_create_datetime(2019,8,17,1,1,1); scr_score_add_index("Windham Country Club","blue","90",date);*/
+var date = date_create_datetime(2019,8,17,1,1,1); scr_score_add_index("Windham Country Club","blue","90",date);
 var date = date_create_datetime(2019,9,11,1,1,1); scr_score_add_index("Charleston Springs","gold","82",date);
 var date = date_create_datetime(2019,10,28,1,1,1); scr_score_add_index("Broad Run Golf Club","white","84",date);
 var date = date_create_datetime(2020,5,16,1,1,1); scr_score_add_index("Waverly Oaks","gold","84",date,1);

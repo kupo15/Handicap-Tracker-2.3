@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Handicap Tracker",
-    "path": "Handicap Tracker.yyp",
+    "name": "Calendar",
+    "path": "folders/Android App Library/Calendar.yy",
   },
   "resourceVersion": "1.0",
   "name": "draw_overlay_calendar",

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Step",
-    "path": "folders/Scripts/Main/Step.yy",
+    "path": "folders/Android App Library/Scripts/Step.yy",
   },
   "resourceVersion": "1.0",
   "name": "sidebar_fades",
