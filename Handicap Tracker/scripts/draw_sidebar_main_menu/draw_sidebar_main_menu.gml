@@ -42,6 +42,7 @@ var sep = 70;
 var height = 30;
 
 draw_set_halign(fa_left);
+draw_set_color(c_black);
 draw_text_height_middled(xx+xx_off,yy+(screen.home*sep),"Home",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.stats*sep),"Course Stats",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.playing*sep),"Playing Round",sep,height);

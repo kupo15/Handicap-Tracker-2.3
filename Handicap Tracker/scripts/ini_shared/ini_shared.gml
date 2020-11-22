@@ -14,6 +14,8 @@ numpad_value = "";
 // searching lists
 searching = false;
 searched = false;
+searchedIndex = undefined;
+returnedSearch = undefined;
 searched_name = "";
 searchedList = array_create(0);
 searchedMap = ds_map_create();

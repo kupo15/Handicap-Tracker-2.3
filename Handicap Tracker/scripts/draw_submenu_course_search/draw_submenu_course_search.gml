@@ -104,8 +104,8 @@ for(var i=pos_start;i<pos_end;i++)
 			keyboard_string = "";
 			vk_hide();
 				
-			friend_index = i;
-			friend_id = friend_pointer;
+			searchedIndex = i;
+			returnedSearch = friend_pointer;
 				
 			clicked = true;
 			}

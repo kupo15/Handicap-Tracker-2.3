@@ -27,7 +27,7 @@ function scr_navbar_click(ind) {
 							  break;
 				
 		// stats screen
-		case screen.stats: course_id = courselist_array[stat_index];
+		case screen.stats: course_struct = courselist_array[stat_index];
 						   scr_stats_set();
 						   break;							   
 			

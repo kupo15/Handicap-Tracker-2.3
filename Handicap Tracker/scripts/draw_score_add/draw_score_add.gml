@@ -201,11 +201,11 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,"cours
 	{
 	submenu = navbar.hidden;
 
-	if course_name == friend_id.courseName
+	if course_name == returnedSearch.courseName
 	exit;
 	
 	// set values
-	course_struct = friend_id;
+	course_struct = returnedSearch;
 	
 	// reset values
 	score_struct.courseName = course_struct.courseName;

@@ -7,13 +7,18 @@ function draw_tee_marker(xx,yy,hh,teeColor,str,enclosed) {
 /// @param tee_string
 /// @param enclosed
 
+var rad_scale = 0.2;
+
 if argument[4] == undefined
 str = "";
+	
+if str = ""
+rad_scale = 1;
 
 var tee_str_col = make_color_rgb(38,72,106);
 var outline = false;
 var height = hh*0.83;
-var radius = hh*0.2;
+var radius = hh*rad_scale;
 var circle_yoff = hh*0.5;
 var ww = string_width_height(str,height)+50;
 

@@ -197,11 +197,11 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,"cours
 	submenu = navbar.hidden;
 
 	// if clicking the same course as selected
-	if course_name == friend_id.courseName
+	if course_name == returnedSearch.courseName
 	exit;
 	
 	// set values
-	course_struct = friend_id;
+	course_struct = returnedSearch;
 	activeStruct.courseName = course_struct.courseName;
 
 	// reset values

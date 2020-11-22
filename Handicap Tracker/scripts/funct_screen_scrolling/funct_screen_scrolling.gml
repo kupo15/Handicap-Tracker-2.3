@@ -2,7 +2,7 @@ function funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,list_disp,offset_start
 
 if (list_size < list_disp) || (sub != submenu) 
 exit;    
-
+db("***")
 // flicking speed slow down
 scrollbar_speed[scrollbar_index] -= fric*sign(scrollbar_speed[scrollbar_index]);
 
