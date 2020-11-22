@@ -11,5 +11,4 @@ ROOT_data_struct = {
 	}
 	
 scr_playing_clear();
-
 }

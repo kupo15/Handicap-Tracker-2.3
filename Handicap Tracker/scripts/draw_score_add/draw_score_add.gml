@@ -231,7 +231,8 @@ if tee_ind != undefined
 	}
 
 // navigation
-if androidBack 
+if androidBack
+&& !kvActive
 	{
 	if (submenu != navbar.hidden)
 	submenu = navbar.hidden;

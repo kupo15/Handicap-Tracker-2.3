@@ -4,22 +4,9 @@ draw_score_view();
 }
 
 function draw_score_view() {
-	
-#region header
+
 var bg_col = c_lt_gray;
 draw_clear(bg_col);
-
-var str = pick("View Score","Enter Round",screenIndex == screen.score_create);
-var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);	
-
-if trash_delete
-	{
-	array_delete(scorelist_array,score_index,1); // delete score
-	app_save;
-	
-	androidBack = true;
-	}
-#endregion
 
 var course_name = activeStruct.courseName;
 var course_tee = activeStruct.teeColor;
@@ -226,8 +213,22 @@ if tee_ind != undefined
 	scr_score_tee_update(activeStruct,course_struct,teebox_list[| tee_ind]);
 	}
 
+#region header
+var str = pick("View Score","Enter Round",screenIndex == screen.score_create);
+var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);	
+
+if trash_delete
+	{
+	array_delete(scorelist_array,score_index,1); // delete score
+	app_save;
+	
+	androidBack = true;
+	}
+#endregion
+
 // navigation
-if androidBack 
+if androidBack
+&& !kvActive
 	{
 	if (submenu != navbar.hidden)
 	submenu = navbar.hidden;

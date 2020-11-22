@@ -47,10 +47,11 @@ debug_draw_scrollbars(xx,yy,debugyoff,sep,height);
 //draw_text_height(xx,yy+(25*sep),"search results "+string(ds_list_size(searchedList)),height);
 //draw_text_height(xx,yy+((debugyoff+0)*sep),"Resolution: "+string(win_ww)+"x"+string(win_hh),height); // resolution
 	
-debug_draw_mouse(xx,yy,debugyoff,sep,height);
 
 // right side
 var xx = 550;
+
+debug_draw_mouse(xx,yy,30,sep,height);
 
 // draw elements
 /*var size = ds_list_size(deleteList);

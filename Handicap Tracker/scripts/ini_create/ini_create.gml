@@ -4,9 +4,6 @@ layout_normal();
 ini_teebox();
 scr_playing_clear();
 
-course_id = noone; // depreciate
-index = 0; // depreciate
-
 //
 
 

@@ -4,7 +4,7 @@ function draw_playing_score_enter() {
 	if submenu != navbar.scorebar
 	exit;
 
-	var course_name = play_course_id[| course_data.name]
+	var course_name = play_course_struct[| course_data.name]
 
 	// keyboard entry
 	if kvActive
@@ -80,7 +80,7 @@ function draw_playing_score_enter() {
 	click_textbox_set(play_course_esc,1,kbv_type_numbers);
 		
 	// submit round
-	// var submit = (play_course_id != noone) && (play_course_teebox != noone) && (play_course_score != "");
+	// var submit = (play_course_struct != undefined) && (play_course_teebox != noone) && (play_course_score != "");
 	var ww = app_width;
 	var hh = 95;
 	var xx = 0;
@@ -120,7 +120,7 @@ function draw_playing_score_enter() {
 		app_save;
 	
 		// reset playing course
-		play_course_id = noone;
+		play_course_struct = undefined;
 		play_course_teebox = noone;
 		play_course_yardage = noone;
 		play_course_slope = noone;

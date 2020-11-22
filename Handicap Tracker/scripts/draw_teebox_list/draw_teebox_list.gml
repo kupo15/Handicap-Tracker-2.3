@@ -42,8 +42,8 @@ for(var i=0;i<rows;i++)
 	else 
 	var teebox_str = "";
 		
-	var str = teebox_list[| i]+" "+teebox_str;
-	draw_tee_marker(xx+25,yy+(i*sep)+10,50,teebox_list[| i],str,true); // draw teebox marker
+	var str = teeColor+" "+teebox_str;
+	draw_tee_marker(xx+25,yy+(i*sep)+10,50,teeColor,str,true); // draw teebox marker
 	
 	// background color for missing data
 	if !has_data
@@ -69,23 +69,7 @@ for(var i=0;i<rows;i++)
 			{
 			if has_data
 				{
-				play_course_teebox_index = i;
-
-				var tee_pointer = course_id[| 1]; // tee marker MAP
-				var tee_data_pointer = tee_pointer[? tee];
-				var course_yardage = tee_data_pointer[| tee_data.yardage];
-				var course_slope = tee_data_pointer[| tee_data.slope];
-				var course_rating = tee_data_pointer[| tee_data.rating];
-				var course_par = tee_data_pointer[| tee_data.par];
-			
-				// set play course variables
-				play_course_teebox = tee;
-				play_course_yardage = course_yardage;
-				play_course_slope = course_slope;
-				play_course_rating = course_rating;
-				play_course_par = course_par;
-			
-				submenu = navbar.main;
+				play_course_teebox_index = i;		
 
 				scr_handicap_predict(false);
 				scr_handicap_predict(true);
@@ -100,7 +84,7 @@ for(var i=0;i<rows;i++)
 				temp_course_par = "";
 	
 				textboxIndex = 1;
-				course_id = play_course_id;
+				course_id = play_course_struct;
 				
 				screen_change(screen.edit_course);
 				submenu = navbar.hidden;

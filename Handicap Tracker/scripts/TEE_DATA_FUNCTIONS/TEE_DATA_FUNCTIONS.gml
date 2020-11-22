@@ -1,6 +1,6 @@
 function scr_tee_filled_set(source_id) {
 /// @param [source_id]	
-	
+
 if argument[0] == undefined
 source_id = course_struct;
 

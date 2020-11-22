@@ -10,21 +10,21 @@ function scr_navbar_click(ind) {
 		case screen.home: scr_handicap_calculate(); break;
 						  
 		// playing
-		case screen.playing: course_id = play_course_id;
-							 scr_tee_filled_set(); // set teebox fill
+		case screen.playing: activeStruct = play_course_struct;
+							 //scr_tee_filled_set(); // set teebox fill
 
 							 scr_handicap_calculate();
 							 
-							  if play_course_esc == "0"
-							  play_course_esc = "";
+							 if activeStruct.esc == "0"
+							 activeStruct.esc = "";
 						   
-							  if play_course_teebox != noone
-							  	{
-							  	scr_handicap_predict(false);
-							  	scr_handicap_predict(true);
-							  	}
-								
-							  break;
+							 if activeStruct.teeColor != ""
+							 	{
+							 	scr_handicap_predict(90,false); // determine lower handicap
+							 	scr_handicap_predict(play_course_struct.handicap_dec,true); // determine upper handicap
+							 	}
+							
+							 break;
 				
 		// stats screen
 		case screen.stats: course_struct = courselist_array[stat_index];

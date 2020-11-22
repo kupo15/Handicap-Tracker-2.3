@@ -112,7 +112,6 @@ for(var i=pos_start;i<pos_end;i++)
 		}
 	}
 
-
 #region scrolling
 var offset_start_pointer = [self,offsetStr+"_start"];
 var offset_pointer = [self,offsetStr];

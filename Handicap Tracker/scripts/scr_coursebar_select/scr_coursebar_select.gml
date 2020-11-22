@@ -8,8 +8,8 @@ function scr_coursebar_select(ind,course_name) {
 	if screenIndex == screen.playing
 		{
 		play_course_index = ind;
-		play_course_id = master_course_list[| play_course_index]; // set course id;
-		play_course_name = play_course_id[| course_data.name];
+		play_course_struct = master_course_list[| play_course_index]; // set course id;
+		play_course_name = play_course_struct[| course_data.name];
 		play_course_teebox = noone;
 		play_course_yardage = noone;
 		play_course_slope = noone;
