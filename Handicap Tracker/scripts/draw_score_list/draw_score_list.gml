@@ -29,7 +29,8 @@ for(var i=pos_start;i<pos_end;i++)
 	var strokes = score_pointer.roundStrokes;
 	var course_esr = score_pointer.esr;
 	var course_practice = score_pointer.practiceRound;
-	
+	//var index = score_pointer.indexHistory;
+
 	var date = score_pointer.roundDate;
 	var month = date_get_month(date);
 	var day = date_get_day(date);

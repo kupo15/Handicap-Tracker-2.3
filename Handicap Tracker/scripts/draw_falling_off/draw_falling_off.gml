@@ -1,12 +1,12 @@
 function falling_off_struct_get() {
 	
-var list_size = array_length(scorelist_array);
+var list_size = ds_list_size(included_scores);
 var ind = clamp(round_selection-1,0,list_size-1);
 
 if ind < 0
 return -1;
 else
-return scorelist_array[ind];
+return included_scores[| ind];
 }
 
 

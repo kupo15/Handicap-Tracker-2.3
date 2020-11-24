@@ -16,7 +16,7 @@ score_struct = {
 	
 	courseHandicap: undefined,
 	indexHistory: undefined,
-	indexIncluded: true,
+	indexIncluded: false,
 	practiceRound: false,
 	esr: 0,
 	}	

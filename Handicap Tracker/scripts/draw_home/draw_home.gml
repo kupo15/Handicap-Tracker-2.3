@@ -27,7 +27,10 @@ draw_set_halign(fa_left);
 
 // clicked on index
 if click_region_released(0,header_height,app_width,330-header_height,true,navbar.main)
-scr_trend_set();
+	{
+	scr_trend_set();
+	screen_change(screen.index);
+	}
 #endregion
 
 #region draw rounds played

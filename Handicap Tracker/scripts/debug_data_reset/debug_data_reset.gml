@@ -6,6 +6,8 @@ exit;
 rounds_played = 0;
 root_data_create();
 
+
+
 // debug
 var arr = courselist_array;
 scr_course_create("Atlantic Country Club","MA",arr);

@@ -1,8 +1,9 @@
 function scr_handicap_calculate() {
 
 var index_history = undefined;
-var included_scores = ds_list_create();
 var diff_arr = ds_list_create();
+
+ds_list_clear(included_scores);
 
 // calculate practice rounds
 var size = array_length(scorelist_array);
@@ -52,19 +53,22 @@ ds_list_sort_nested_struct(included_scores,"roundDate",true); // included score 
 var index_prev = undefined;
 var rounds_included = ds_list_size(included_scores);
 var num = clamp(rounds_included-round_selection+1,1,rounds_included); // number of rounds to calculate
-for(var n=0;n<num;n++)
+
+var num = ds_list_size(included_scores);
+for(var n=0;n<num;n++) // loop through all included scores
 	{
-	show_debug_message("********************");
+	db("********************");
 	ds_list_clear(diff_arr);
 	
 	var pos_start = n;
-	var pos_end = min(n+round_selection,rounds_included);
-	for(var i=pos_start;i<pos_end;i++) // loop through last x score list
+	var pos_end = max(n-round_selection,-1);
+	for(var i=pos_start;i>pos_end;i--) // loop back through last up to 20 scores
 		{
-		ds_list_add(diff_arr,included_scores[| i]); // add 20 diff to list
-		// db(score_pointer.courseName+": "+string(round_tenth(adj_diff)));
+		ds_list_add(diff_arr,included_scores[| i]); // add up to last 20 score structs
+		//db(included_scores[| i].courseName);
 		}
 			
+	// sort diff list lowest to highest
 	ds_list_sort_nested_struct(diff_arr,"adjDiff",true);
 
 	// calculate index
@@ -74,7 +78,7 @@ for(var n=0;n<num;n++)
 	
 	for(var i=0;i<top_limit;i++)
 		{
-		db(diff_arr[| i].courseName+": "+string(round_tenth(diff_arr[| i].adjDiff)));
+		//db(diff_arr[| i].courseName+": "+string(round_tenth(diff_arr[| i].adjDiff)));
 		ave += diff_arr[| i].adjDiff;
 		}
 		
@@ -82,17 +86,17 @@ for(var n=0;n<num;n++)
 	var index_history = clamp(round_tenth(ave/top_limit),-20,54);
 	
 	score_pointer.indexHistory = index_history; // set the index up to this point
-	
+
 	// set course handicap at this point
 	if index_prev != undefined
 		{
 		var course_handicap = scr_course_handicap(index_prev,course_slope,course_rating,course_par);
 		score_pointer.courseHandicap = course_handicap;
 		}
-	
+		
 	var index_prev = index_history;
 	}
-	
+
 ghin_index = index_history; // set current index
 
 		// set ESR
@@ -134,7 +138,6 @@ recent_scores_list[| i].indexIncluded = true; // index
 ds_list_sort_nested_struct(recent_scores_list,"roundDate",false); // date sort recent scores recent first
 
 // cleanup
-ds_list_destroy(included_scores);
 ds_list_destroy(diff_arr);
 
 // debug

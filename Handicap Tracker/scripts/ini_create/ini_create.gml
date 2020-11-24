@@ -8,6 +8,7 @@ scr_playing_clear();
 
 
 recent_scores_list = ds_list_create();
+included_scores = ds_list_create();
 
 top_scores = 8;
 ghin_index = 0;
