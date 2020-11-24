@@ -24,6 +24,7 @@ for(var i=0;i<size;i++)
 		
 	var course_name = string_abbreviate(score_pointer.courseName,210,height*0.8,"...");
 	var score_ = real(score_pointer.roundScore)-real(_strokes);
+	
 	var date = score_pointer.roundDate;
 	var month = date_get_month(date);
 	var day = date_get_day(date);
@@ -37,6 +38,8 @@ for(var i=0;i<size;i++)
 	draw_text_height(xx+(xsep*(i>=10)),yy+((i mod 10)*ysep),date_str,height); // draw date
 	draw_text_height(xx+180+(xsep*(i>=10)),yy+((i mod 10)*ysep)-4,string(score_)+active,height*1.2,fn_bold); // draw score
 	draw_text_height(xx+(xsep*(i>=10)),yy+35+((i mod 10)*ysep),course_name,height*0.8); // draw course name
+	
+	draw_text_height(xx+130+(xsep*(i>=10)),yy+((i mod 10)*ysep),score_pointer.adjDiff,height*0.8); // draw score
 	}
 	
 	

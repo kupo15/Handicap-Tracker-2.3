@@ -47,9 +47,11 @@ for(var n=0;n<num;n++)
 		var adj_diff = diff*113/course_slope;
 
 		score_pointer.netScore = score_;
+		score_pointer.adjDiff = adj_diff;
+		
 		ds_list_add(diff_arr,adj_diff); // add 20 diff to list
 		
-		//db(score_pointer[| score_data.course]+": "+string(round_tenth(adj_diff)));
+		//db(score_pointer.courseName+": "+string(round_tenth(adj_diff)));
 		}
 			
 	ds_list_sort(diff_arr,true);
@@ -116,7 +118,7 @@ for(var i=0;i<size;i++)
 	score_pointer.indexIncluded = false; // index
 	}
 
-ds_list_sort_nested_struct(recent_scores_list,"netScore",true); // score sort
+ds_list_sort_nested_struct(recent_scores_list,"adjDiff",true); // score sort
 	
 // set the first 8 scores to active
 var num = min(top_scores,rounds_played)
