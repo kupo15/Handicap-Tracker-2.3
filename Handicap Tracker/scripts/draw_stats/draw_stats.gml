@@ -6,6 +6,9 @@ var ww = app_width;
 var sep = 130;
 var height = 60;
 
+if course_struct == undefined
+var course_name = "No Courses";
+else
 var course_name = course_struct.courseName;
 
 if string_length(course_name) > 16

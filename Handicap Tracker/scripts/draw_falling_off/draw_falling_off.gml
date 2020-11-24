@@ -3,6 +3,9 @@ function falling_off_struct_get() {
 var list_size = array_length(scorelist_array);
 var ind = clamp(round_selection-1,0,list_size-1);
 
+if ind < 0
+return -1;
+else
 return scorelist_array[ind];
 }
 
@@ -20,6 +23,9 @@ var col = make_color_rgb(232,237,255);
 draw_text_height(xx+10,yy-50,"Round Falling Off",50,fn_italic);
 
 var score_pointer = falling_off_struct_get();
+if score_pointer == -1
+exit;
+
 var course_name = score_pointer.courseName;
 var course_tee = score_pointer.teeColor;
 var course_yardage = score_pointer.teeYardage;

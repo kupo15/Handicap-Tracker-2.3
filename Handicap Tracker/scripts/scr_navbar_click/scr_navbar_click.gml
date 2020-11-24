@@ -27,9 +27,13 @@ switch ind
 						 break;
 				
 	// stats screen
-	case screen.stats: course_struct = courselist_array[stat_index];
-						scr_stats_set();
-						break;							   
+	case screen.stats: if array_length(courselist_array) > 0
+						   {
+						   course_struct = courselist_array[stat_index];					 
+						   scr_stats_set();
+						   }
+						   
+					   break;							   
 			
 	// trends
 	case screen.index: scr_trend_set(); break;

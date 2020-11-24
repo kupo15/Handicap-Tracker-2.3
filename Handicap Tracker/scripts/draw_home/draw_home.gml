@@ -15,13 +15,16 @@ var xx = app_width/2;
 var yy = 110;
 var height = 40;
 
-var str = if_undef(string_format(ghin_index,1,1),"N/A");
+if ghin_index == undefined
+var str = "N/A";
+else
+var str = string_format(ghin_index,1,1);
 
 draw_set_halign(fa_center);
 draw_text_height(xx,yy,"Index",height);
 draw_text_height(xx,yy+30,str,height*3);
 draw_set_halign(fa_left);
-	
+
 // clicked on index
 if click_region_released(0,header_height,app_width,330-header_height,true,navbar.main)
 scr_trend_set();

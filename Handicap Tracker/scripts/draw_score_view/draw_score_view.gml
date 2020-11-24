@@ -45,6 +45,7 @@ var hh = 90;
 var height = 35;
 
 if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
+if course_tee != ""
 	{
 	submenu = navbar.teebar;
 	scr_tee_filled_set(); // mark tees with data

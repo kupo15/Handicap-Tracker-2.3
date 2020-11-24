@@ -34,23 +34,32 @@ else
 	var hh = app_height;
 	var scale = 1.5;
 	var debug_ww = 2.5;
+		
+	var disp_ww = display_get_width();
+	var disp_hh = display_get_height();
 	
-	surface_resize(application_surface,ww*scale,hh*scale);
-	display_set_gui_size(app_width,app_height); // set GUI
+	var window_ww = ww*scale;
+	var window_hh = hh*scale;
+	
+	if disp_hh < window_hh
+		{
+		var adjust_scale = disp_hh/window_hh;
+		
+		window_ww *= adjust_scale*0.9;
+		window_hh *= adjust_scale*0.9;
+		}
+		
+	window_set_size(window_ww*debug_ww,window_hh);
 	
 	// set window
-	var window_ww = ww*debug_ww*scale;
-	var window_hh = hh*scale;
-		
-	window_set_size(window_ww,window_hh);
-
-	var disp_center_ww = display_get_width()*0.5;
-	var disp_center_hh = display_get_height()*0.5;
+	var window_xx = (disp_ww-(window_ww*debug_ww))*0.5;
+	var window_yy = (disp_hh-window_hh)*0.5; // disp_center_hh-(window_hh*0.5);
 	
-	var window_xx = disp_center_ww-(window_ww*0.5);
-	var window_yy = disp_center_hh-(window_hh*0.5);
+	window_set_position(window_xx,window_yy);
 	
-	window_set_position(window_xx-200,window_yy);
+	// set surface
+	surface_resize(application_surface,window_ww,window_hh);
+	display_set_gui_size(app_width,app_height); // set GUI
 	}
 	
 // set dpi variables

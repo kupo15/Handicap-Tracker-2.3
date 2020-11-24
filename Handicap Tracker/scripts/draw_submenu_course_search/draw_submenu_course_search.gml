@@ -139,7 +139,9 @@ if virtual_keyboard_enter
 */
 // draw search bar
 var col = make_color_rgb(140,238,255);
-draw_list_searchbar(0,yy-searchbar_hh,"Enter name",height,ww,searchbar_hh,col,submenu);
+
+draw_set_halign(fa_left);
+draw_list_searchbar(0,yy-searchbar_hh,"Enter course",height,ww,searchbar_hh,col,submenu);
 
 // if no results
 if searched && (list_size == 0) 
