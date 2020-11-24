@@ -15,10 +15,7 @@ var xx = app_width/2;
 var yy = 110;
 var height = 40;
 
-if is_nan(ghin_index)
-var str = "N/A";
-else
-var str = string_format(ghin_index,1,1);
+var str = if_undef(string_format(ghin_index,1,1),"N/A");
 
 draw_set_halign(fa_center);
 draw_text_height(xx,yy,"Index",height);
