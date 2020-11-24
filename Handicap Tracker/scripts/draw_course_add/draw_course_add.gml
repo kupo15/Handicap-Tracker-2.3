@@ -15,7 +15,20 @@ var str = "Edit Course";
 if screenIndex == screen.add_course
 str = "Create Course";
 
-draw_screen_header(headerType.back,headerType.none,str);
+var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);	
+
+if trash_delete
+	{
+	// delete course from courselist
+	array_delete(courselist_array,course_index,1);
+		
+	// original course name
+	if course_struct.courseName == play_course_struct.courseName
+	scr_playing_clear();	
+	
+	app_save;
+	androidBack = true;
+	}
 
 // textbox entry
 if kvActive
@@ -125,35 +138,16 @@ for(var i=0;i<size;i++)
 if virtual_keyboard_enter
 vk_hide();
 
-#region delete course
-var ww = 170;
-var hh = 80;
-var xx = 5;
-var yy = room_height-hh-5;
-
-if draw_button_trash(xx,yy,ww,hh,ico_trash1,c_red,screen.edit_course,navbar.hidden,true)
-	{
-	// delete course from courselist
-	array_delete(courselist_array,course_index,1);
-		
-	// original course name
-	if course_struct.courseName == play_course_name
-	scr_playing_clear();	
-	
-	app_save;
-	
-	androidBack = true;
-	}
-#endregion
-
-#region Save
+#region Finished button
 var submit = (course_name != "");
-var ww = 350;
-var xx = 185;
-var col = lerp(c_lt_gray,c_white,submit);	
+var hh = 60;
+var xx = 0;
+var yy = app_height-hh;
+var height = 40;
+var ww = app_width-xx-xx;
+var col = pick(c_gray,header_color,submit);
 
-// if Create/Save
-if (click_button(xx,yy,"Save",height,c_black,ww,hh,col,true,true,navbar.hidden) || keyboard_check_released(vk_enter)) && submit
+if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
 	{	
 	// update course info
 	courselist_array[@ course_index] = workingStruct; // overwrite with working copy
@@ -182,3 +176,4 @@ if androidBack
 	}
 	
 }
+

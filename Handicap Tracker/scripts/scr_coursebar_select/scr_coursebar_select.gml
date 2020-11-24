@@ -1,4 +1,4 @@
-
+/*
 function scr_coursebar_select(ind,course_name) {
 
 	textboxIndex = noone;

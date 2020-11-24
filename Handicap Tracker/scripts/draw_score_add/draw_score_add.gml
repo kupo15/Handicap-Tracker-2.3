@@ -20,7 +20,8 @@ if trash_delete
 
 	screen_goto_prev(navbar.main);
 	app_save;
-	exit;
+	
+	androidBack = true;
 	}
 #endregion
 

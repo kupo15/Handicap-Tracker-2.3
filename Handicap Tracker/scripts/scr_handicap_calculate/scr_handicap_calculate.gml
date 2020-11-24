@@ -18,9 +18,9 @@ var index_prev = noone;
 var num = clamp(rounds_played-round_selection+1,1,rounds_played); // number of rounds to calculate
 for(var n=0;n<num;n++)
 	{
-		
 	var pos_start = n;
 	var pos_end = min(n+round_selection,rounds_played);
+
 	for(var i=pos_start;i<pos_end;i++) // loop through last x score list
 		{
 		var score_pointer = scorelist_array[i];
@@ -49,12 +49,12 @@ for(var n=0;n<num;n++)
 		score_pointer.netScore = score_;
 		score_pointer.adjDiff = adj_diff;
 		
-		ds_list_add(diff_arr,adj_diff); // add 20 diff to list
-		
-		//db(score_pointer.courseName+": "+string(round_tenth(adj_diff)));
+		ds_list_add(diff_arr,score_pointer); // add 20 diff to list
+
+		// db(score_pointer.courseName+": "+string(round_tenth(adj_diff)));
 		}
 			
-	ds_list_sort(diff_arr,true);
+	ds_list_sort_nested_struct(diff_arr,"adjDiff",true);
 
 
 	var list_size = ds_list_size(diff_arr); // up to 20 scores
@@ -63,8 +63,9 @@ for(var n=0;n<num;n++)
 	
 	for(var i=0;i<top_limit;i++)
 		{
-		db(round_tenth(diff_arr[| i]));
-		ave += diff_arr[| i];
+		//db(diff_arr[| i].courseName+": "+string(round_tenth(diff_arr[| i].adjDiff)));
+		
+		ave += diff_arr[| i].adjDiff;
 		}
 
 	var index_history = clamp(round_tenth(ave/top_limit),-20,54);

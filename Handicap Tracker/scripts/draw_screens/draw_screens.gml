@@ -36,7 +36,6 @@ draw_sidebar_main_menu();
 
 // popup overlays
 draw_overlay_calendar();
-draw_popup_par();
 draw_playing_score_enter();
 draw_overlay_circle_button();
 	
