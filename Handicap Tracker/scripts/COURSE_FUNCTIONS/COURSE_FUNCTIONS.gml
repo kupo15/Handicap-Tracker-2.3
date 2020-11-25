@@ -28,13 +28,14 @@ array_push(array,course_struct);
 return course_struct;
 }
 
-function scr_course_add_tee(struct,teeColor,yardage,slope,rating,par) {
+function scr_course_add_tee(struct,teeColor,yardage,slope,rating,par,date) {
 /// @param struct
 /// @param teeColor
 /// @param [yardage
 /// @param slope
 /// @param rating
-/// @param par]
+/// @param par
+/// @param date]
 
 if argument[2] == undefined
 yardage = "";
@@ -48,10 +49,13 @@ rating = "";
 if argument[5] == undefined
 par = "";
 
+if argument[6] == undefined
+date = start_date;
 
 // create tee struct
 var tee = {
 	
+	dateCreated: date,
 	teeYardage: yardage,
 	teeSlope: slope,
 	teeRating: rating,
