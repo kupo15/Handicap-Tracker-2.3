@@ -133,7 +133,7 @@ if within_region
 		}
 		
 	if test_failed
-	exit;
+	return -1;
 	
 	// clicked highlight
 	if mouse_check_button_pressed(button) && highlight

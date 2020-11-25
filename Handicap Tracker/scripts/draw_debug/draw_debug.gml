@@ -31,7 +31,9 @@ draw_text_height(xx,yy+((debugyoff+6)*sep),"course_index: "+string(course_index)
 draw_text_height(xx,yy+((debugyoff+7)*sep),"score_index: "+string(score_index),height);
 draw_text_height(xx,yy+((debugyoff+8)*sep),"stat_index: "+string(stat_index),height);
 
-debugyoff = 15;
+draw_text_height(xx,yy+((debugyoff+10)*sep),"index_trend_offset: "+string(index_trend_offset),height);
+
+debugyoff = 17;
 //debug_draw_click_highlight(xx,yy,debugyoff,sep,height);
 debug_draw_vk(xx,yy,debugyoff,sep,height);
 debug_draw_strings(xx,yy,debugyoff,sep,height);

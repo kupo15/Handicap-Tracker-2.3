@@ -1,15 +1,9 @@
 function scr_trend_set() {
 	
-var list_size = 0;
-var size = array_length(scorelist_array);
-for(var i=0;i<size;i++)
-	{
-	var pointer = scorelist_array[i];
-	var ind = pointer.indexHistory;
-		
-	if ind != undefined
-	list_size ++;
-	}
+var size = ds_list_size(included_scores);
+var list_size = clamp(size-round_selection,0,size);
 
-index_trend_offset = 0;// list_size-8;
+index_trend_offset = 0; // max(list_size-8,0);
+
+ds_list_sort_nested_struct(included_scores,"roundDate",true); // included score sort oldest first
 }

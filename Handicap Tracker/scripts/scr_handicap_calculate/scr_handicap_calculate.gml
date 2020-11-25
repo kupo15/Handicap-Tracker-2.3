@@ -40,7 +40,6 @@ for(var i=0;i<size;i++) // loop through all
 	score_pointer.adjDiff = adj_diff;
 	score_pointer.indexIncluded = false;
 	score_pointer.esr = 0;
-	score_pointer.indexHistory = undefined;
 	score_pointer.courseHandicap = undefined;
 	
 	if !score_pointer.practiceRound

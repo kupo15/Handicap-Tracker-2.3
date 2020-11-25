@@ -19,6 +19,8 @@ var pos_start = floor(score_list_offset);
 var pos_end = min(list_size,ceil(score_list_offset)+rows);
 for(var i=pos_start;i<pos_end;i++)
 	{
+	var off_pos = i-score_list_offset;
+
 	var score_pointer = scorelist_array[i];
 	var course_name = score_pointer.courseName;
 	var course_tee = score_pointer.teeColor;
@@ -36,7 +38,6 @@ for(var i=pos_start;i<pos_end;i++)
 	var day = date_get_day(date);
 	var year = date_get_year(date);
 	var date_string = string(month)+"/"+string(day)+"/"+string(year);
-	var off_pos = i-score_list_offset;
 	
 	//var course_handicap = score_pointer.courseHandicap;
 	//draw_text_height(xx+390,yy+50+(off_pos*sep),course_handicap,40); // draw score shot
