@@ -7,7 +7,7 @@ function draw_index_trend() {
 
 var xx = 60;
 var yy = 750;
-var ww = app_width-xx-8;
+var ww = app_width-xx-30;
 var hh = 400;
 var ymin = 100; // lowest index number
 var ymax = 0;
@@ -91,7 +91,9 @@ for(var i=pos_start;i<pos_end;i++)
 		else if i+1 == pos_end
 		var ww_off = 100;
 		
-		if click_region(xx+xoff+off_pos,yy-hh,ww_off,hh,true,mb_left,navbar.main)
+		if point_in_rectangle(mouse_x,mouse_y,xx+xoff+off_pos,yy-hh,xx+xoff+off_pos+ww_off,yy)
+		&& mouse_check_button(mb_left)
+		//if click_region(xx+xoff+off_pos,yy-hh,ww_off,hh,true,mb_left,navbar.main)
 			{
 			var buf = 30;
 			draw_line_pixel(xx+8+off_pos,yy-hh+buf,1,hh,c_gray,0.5);
@@ -154,7 +156,7 @@ for(var i=0;i<2;i++)
 	var col = pick(c_white,lt_yellow,i==handicap_trend_type);
 	var arr = ["Yearly","Max"];
 		
-	if click_button(xx+(i*xsep)-20,yy+20,arr[i],height,c_black,150,ysep,col,true,col==c_black,navbar.main)
+	if click_button(xx+(i*xsep)-20,yy+20,arr[i],height,c_black,150,ysep,col,true,col==c_white,navbar.main)
 		{
 		handicap_trend_type = i;
 		}
