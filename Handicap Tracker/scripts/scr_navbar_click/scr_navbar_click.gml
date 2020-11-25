@@ -19,10 +19,10 @@ switch ind
 						 activeStruct.esc = "";
 						    
 						 if activeStruct.teeColor != ""
-						 {
-						 scr_handicap_predict(90,false); // determine lower handicap
-						 scr_handicap_predict(play_course_struct.handicap_dec,true); // determine upper handicap
-						 }
+							 {
+							 scr_handicap_predict(90,false); // determine lower handicap
+							 scr_handicap_predict(play_course_struct.handicap_dec,true); // determine upper handicap
+							 }
 							
 						 break;
 				

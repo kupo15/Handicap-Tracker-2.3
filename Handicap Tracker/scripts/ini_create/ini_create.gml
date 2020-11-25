@@ -2,8 +2,6 @@ function ini_create() {
 
 layout_normal();
 ini_teebox();
-scr_playing_clear();
-
 //
 
 

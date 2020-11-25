@@ -1,5 +1,8 @@
 function draw_playing_score_submit(){
 	
+// header
+draw_screen_header(headerType.back,headerType.none,"Enter Score");
+exit
 // keyboard entry
 if kvActive
 switch textboxIndex
@@ -32,6 +35,7 @@ var hh = 90;
 draw_roundrect_color(xx,yy,xx+ww,yy+hh,c_white,c_white,false);
 draw_line_pixel(ww*0.5,yy+10,1,hh-20,c_gray,1);
 
+var label_height = 30;
 var height = 45;
 
 // draw labels

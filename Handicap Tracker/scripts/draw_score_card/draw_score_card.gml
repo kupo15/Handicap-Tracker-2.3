@@ -5,10 +5,15 @@ var hh = 800;
 var xsep = ww*0.5;
 var ysep = hh/10;
 var xx = ((room_width-ww)*0.5)+18;
-var yy = 150;
+var yy = 180;
 var height = 30;
 
-draw_text_height(xx,yy-55,"Handicap Index: "+string_format(ghin_index,1,1),height*1.2);
+var month = funct_convert_month(current_month,false);
+var date_str = month+" "+string(current_day)+", "+string(current_year);
+
+draw_text_height(xx,yy-80,"Rounds Played: "+string(rounds_played),height);
+draw_text_height(xx,yy-50,"Handicap Index: "+string_format(ghin_index,1,1),height*1.1);
+draw_text_height_color(380,yy-45,date_str,c_gray,height*0.8,fn_italic);
 
 draw_line_pixel(xx-18,yy-15,ww,1,c_black,0.5);
 draw_line_pixel(room_width*0.5,yy-15,1,hh+15,c_black,0.5);

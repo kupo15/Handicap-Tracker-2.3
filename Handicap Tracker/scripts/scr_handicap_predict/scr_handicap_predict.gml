@@ -1,4 +1,4 @@
-///@param upper
+
 function scr_handicap_predict(starting_score,upper) {
 
 var diff_arr = ds_list_create();
@@ -59,13 +59,13 @@ for(var n=0;n<150;n++)
 
 	for(var i=0;i<top_limit;i++)
 		{
-		show_debug_message(diff_arr_copy[| i]);
+		//db(diff_arr_copy[| i]);
 		ave += diff_arr_copy[| i];
 		}
 
 	var temp_handicap = round_tenth(ave/top_limit); // set predicative handicap	
 	
-	db("score: "+string(net_score)+" - "+string(n)+"** "+string(temp_handicap));
+	//db("score: "+string(net_score)+" - "+string(n)+"** "+string(temp_handicap));
 
 	// test conditions
 	if upper

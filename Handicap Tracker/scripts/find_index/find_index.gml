@@ -51,7 +51,10 @@ for(var i=0;i<size;i++)
 	var name = struct.courseName;
 	
 	if name == courseName
-	return struct;
+		{
+		course_index = i;
+		return struct;
+		}
 	}
 	
 return undefined;

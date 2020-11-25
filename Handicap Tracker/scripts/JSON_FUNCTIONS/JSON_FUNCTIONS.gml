@@ -45,7 +45,8 @@ if file_exists(_filename)
 		// create data arrays
 		courselist_array = ROOT_data_struct.courselist;
 		scorelist_array = ROOT_data_struct.scorelist;
-
+		play_course_struct = ROOT_data_struct.activeRound;
+		
 		db(string(_filename)+" loaded");
 		}
 	}

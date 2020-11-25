@@ -61,7 +61,22 @@ for(var i=0;i<rows;i++)
 	    {			
 		if has_data
 		return i;
-				
+		else
+			{			
+			// assign struct
+			/*course_struct = course_find_array(score_struct.courseName);
+			workingStruct = struct_copy(course_struct);
+			activeStruct = workingStruct;
+
+			tee_index = i;
+
+			scr_course_tee_set(teeColor);
+			screen_change(screen.edit_tees);
+			
+			submenu = navbar.hidden;*/
+			//scr_tee_filled_set(); // mark tees with data
+			}
+			
 		//var tee = teebox_list[| teebox_index]; // tee color
 /*
 		// play course
