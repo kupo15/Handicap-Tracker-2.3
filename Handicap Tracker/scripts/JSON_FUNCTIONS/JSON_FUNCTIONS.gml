@@ -42,10 +42,10 @@ if file_exists(_filename)
 		}
 	else // load 
 		{
-		// create data arrays
-		courselist_array = ROOT_data_struct.courselist;
-		scorelist_array = ROOT_data_struct.scorelist;
-		play_course_struct = ROOT_data_struct.activeRound;
+		profile_index = ROOT_data_struct.meta.profileIndex;
+		courselist_array = ROOT_data_struct.courselist; // shared courselist
+
+		scr_profile_set(profile_index);
 		
 		db(string(_filename)+" loaded");
 		}

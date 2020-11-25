@@ -88,6 +88,7 @@
     {"id":{"name":"scr_course_add_old","path":"scripts/scr_course_add_old/scr_course_add_old.yy",},"order":4,},
     {"id":{"name":"scr_course_add_index","path":"scripts/scr_course_add_index/scr_course_add_index.yy",},"order":5,},
     {"id":{"name":"fn_normal","path":"fonts/fn_normal/fn_normal.yy",},"order":2,},
+    {"id":{"name":"scr_profile_set","path":"scripts/scr_profile_set/scr_profile_set.yy",},"order":0,},
     {"id":{"name":"scr_handicap_calculate","path":"scripts/scr_handicap_calculate/scr_handicap_calculate.yy",},"order":4,},
     {"id":{"name":"scr_handicap_predict","path":"scripts/scr_handicap_predict/scr_handicap_predict.yy",},"order":5,},
     {"id":{"name":"scr_course_teebox_add","path":"scripts/scr_course_teebox_add/scr_course_teebox_add.yy",},"order":6,},

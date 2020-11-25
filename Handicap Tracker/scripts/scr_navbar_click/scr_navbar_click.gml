@@ -11,7 +11,6 @@ switch ind
 						  
 	// playing
 	case screen.playing: activeStruct = play_course_struct;
-						 //scr_tee_filled_set(); // set teebox fill
 
 						 scr_handicap_calculate();
 						 	 

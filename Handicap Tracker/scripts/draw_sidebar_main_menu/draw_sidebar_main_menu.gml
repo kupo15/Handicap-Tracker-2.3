@@ -18,22 +18,19 @@ androidBackSidebar = true;
 var yy_sep = 180;
 draw_line(xx+xx_off,yy_sep,xx+xx_off+ww,yy_sep); // separating line
 
-/*
-var xx = 95;
-var yy = 55;
-var ww_hh = sprite_get_width(spr_icon_blank_profile);
-draw_sprite(spr_icon_blank_profile,0,xx+xx_off,yy); // profile picture
 
-if scr_mouse_position_room_released(xx+xx_off,yy,ww_hh,ww_hh,mb_left,noone,navbar.sidebar) // clicked on PROFILE PIC
-funct_screen_set(screen.user_profile); // goto to profile
+var xx = side_menu_width*0.5;
+var yy = 15;
+draw_icon_height(spr_icon_blank_profile,xx+xx_off,yy,120,1); // profile picture
 
-var xx = 140;
-var yy = 155;
+//if scr_mouse_position_room_released(xx+xx_off,yy,ww_hh,ww_hh,mb_left,noone,navbar.sidebar) // clicked on PROFILE PIC
+//funct_screen_set(screen.user_profile); // goto to profile
+
+var yy = 150;
 draw_set_halign(fa_center);
 draw_set_color(c_black);
-draw_text_height(xx+xx_off,yy,user_disp_name,0,30,true); // draw user name
-draw_text_height(xx+xx_off,yy+25,"@"+user_username,0,25,true); // draw user id*/
-
+draw_text_height(xx+xx_off,yy,user_disp_name,30,true); // draw user name
+//draw_text_height(xx+xx_off,yy+25,"@"+user_username,25,true); // draw user id
 
 // draw menu items
 var xx = 100;
@@ -45,7 +42,7 @@ draw_set_halign(fa_left);
 draw_set_color(c_black);
 draw_text_height_middled(xx+xx_off,yy+(screen.home*sep),"Home",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.stats*sep),"Course Stats",sep,height);
-draw_text_height_middled(xx+xx_off,yy+(screen.playing*sep),"Playing Round",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.playing*sep),"Active Round",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.score_list*sep),"Score History",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.course_list*sep),"Courses",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.score_card*sep),"My Card",sep,height);

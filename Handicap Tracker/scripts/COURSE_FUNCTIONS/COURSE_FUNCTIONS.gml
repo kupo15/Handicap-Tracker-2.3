@@ -11,6 +11,7 @@ course_struct = {
 	courseLocation: loc,
 	favorite: false,
 	lastPlayed: undefined,
+	frequency: 0,
 	
 	subcourses: [
 		{

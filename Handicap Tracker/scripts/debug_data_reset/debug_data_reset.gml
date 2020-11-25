@@ -3,9 +3,11 @@ function debug_data_reset() {
 if !debug_reset
 exit;
 
-rounds_played = 0;
 root_data_create();
 
+ROOT_data_struct.profiles[0].name = "Matt";
+rounds_played = 0;
+scr_profile_set(0);
 
 
 // debug
