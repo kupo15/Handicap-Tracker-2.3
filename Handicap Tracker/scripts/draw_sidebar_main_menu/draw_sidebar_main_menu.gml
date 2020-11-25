@@ -46,7 +46,8 @@ draw_text_height_middled(xx+xx_off,yy+(screen.playing*sep),"Active Round",sep,he
 draw_text_height_middled(xx+xx_off,yy+(screen.score_list*sep),"Score History",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.course_list*sep),"Courses",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.score_card*sep),"My Card",sep,height);
-draw_text_height_middled(xx+xx_off,yy+(screen.index*sep),"Handicap Trends",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.indexTrend*sep),"Handicap Trends",sep,height);
+draw_text_height_middled(xx+xx_off,yy+(screen.handicapSeason*sep),"Handicap Season",sep,height);
 
 draw_text_height_middled(xx+xx_off,yy+(screen.help_info*sep),"Help and Info",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.settings*sep),"Settings",sep,height);
@@ -55,7 +56,7 @@ draw_text_height(xx_off+15,room_height-40,"Vers. "+string(GM_version),30);
 
 for(var i=0;i<screen.enumcount;i++)
 	{
-	if (i>screen.index) && (i<screen.help_info)
+	if (i>screen.handicapSeason) && (i<screen.help_info)
 	continue;
 		
 	draw_icon_height_centered_color(spr_footer_icon,i,res_bleed_xx+xx_off,yy+(i*sep),sep*0.7,sep,sep*0.7,header_color,1); // draw menu icons

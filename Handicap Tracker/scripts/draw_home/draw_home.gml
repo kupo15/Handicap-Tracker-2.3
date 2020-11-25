@@ -31,7 +31,7 @@ draw_set_halign(fa_left);
 if click_region_released(0,header_height,app_width,330-header_height,true,navbar.main)
 	{
 	scr_trend_set();
-	screen_change(screen.index);
+	screen_change(screen.indexTrend);
 	}
 #endregion
 

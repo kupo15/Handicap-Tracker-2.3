@@ -12,8 +12,8 @@ drawScreen[screen.playing] = draw_playing;
 drawScreen[screen.score_list] = draw_score_list;
 drawScreen[screen.course_list] = draw_course_list;
 drawScreen[screen.score_card] = draw_score_card;
-drawScreen[screen.index] = draw_index_info;
-drawScreen[screen.blank7] = undefined;
+drawScreen[screen.indexTrend] = draw_index_info;
+drawScreen[screen.handicapSeason] = draw_handicap_season;
 drawScreen[screen.blank8] = undefined
 
 drawScreen[screen.help_info] = draw_help_info;

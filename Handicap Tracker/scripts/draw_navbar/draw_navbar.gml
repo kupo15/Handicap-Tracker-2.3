@@ -25,7 +25,7 @@ draw_line_pixel(-1,yy_nav,app_width+1,1,c_gray,alph*0.7); // horizontal line
 draw_set_halign(fa_center);
 for(var i=0;i<ico_num;i++)
 	{
-	name_arr =["Home","Stats","Active Round","Score","Courses"];
+	name_arr =["Home","Stats","Playing","Score","Courses"];
 
 	var xpos = i*xsep;
 	var str = name_arr[i];
