@@ -95,6 +95,7 @@ scr_course_create("Riverwinds","NJ",arr);
 scr_course_add_tee(course_struct,"white","6576","128","70.3","72");
 scr_course_add_tee(course_struct,"blue","6843","132","72.3","72");
 scr_course_add_tee(course_struct,"black","7086","135","73.8","72");
+scr_course_add_tee(course_struct,"green","6544","126","70.8","72");
 
 scr_course_create("Rolling Green","PA",arr);
 scr_course_add_tee(course_struct,"blue","6695","140","73.7","71");
@@ -183,6 +184,7 @@ var date = date_create_datetime(2020,10,3,1,1,1); scr_score_add_index("Crotched 
 var date = date_create_datetime(2020,10,11,1,1,1); scr_score_add_index("Olde Scottish Links","blue","85",date,2);
 var date = date_create_datetime(2020,11,8,1,1,1); scr_score_add_index("Stow Acres C. C.-North Course","blue","85",date,2);
 var date = date_create_datetime(2020,11,21,1,1,1); scr_score_add_index("Crystal Lake Golf Club - RI","blue","83",date);
+var date = date_create_datetime(2018,11,25,1,1,1); scr_score_add_index("Riverwinds","green","85",date);
 
 array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
 

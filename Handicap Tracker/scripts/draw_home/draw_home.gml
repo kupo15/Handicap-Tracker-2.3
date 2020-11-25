@@ -4,7 +4,6 @@ draw_home();
 draw_text_height(20,app_height-50,"Undefined Screen",40);
 }
 
-
 function draw_home() {
 
 // draw the 3 bars
@@ -43,6 +42,8 @@ var height = 35;
 draw_line_pixel(0,yy,app_width,1,c_gray,1);
 draw_text_height_color(xx,yy-height,"Rounds Played: "+string(rounds_played),c_white,height);
 #endregion
+
+// draw
 
 // draw round falling off
 draw_falling_off(10,830);

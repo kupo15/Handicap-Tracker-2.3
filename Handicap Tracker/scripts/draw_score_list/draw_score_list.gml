@@ -43,8 +43,10 @@ for(var i=pos_start;i<pos_end;i++)
 	//draw_text_height(xx+390,yy+50+(off_pos*sep),course_handicap,40); // draw score shot
 	//draw_text_height(xx+390,yy+(off_pos*sep),course_esr,40); // draw score shot
 
-	var course_str = string_abbreviate(course_name,380,height,"...");
-	draw_text_height(xx,yy+10+(off_pos*sep),course_str,height); // draw course name
+	var col = pick(c_black,header_color,i<20);
+	var course_str = string_abbreviate(course_name,370,height,"...");
+	
+	draw_text_height_color(xx+10,yy+10+(off_pos*sep),course_str,col,height); // draw course name
 	draw_text_height(xx+425,yy+15+(off_pos*sep),real(_score)-real(strokes),50); // draw score shot
 	
 	if strokes != 0
@@ -65,6 +67,7 @@ for(var i=pos_start;i<pos_end;i++)
 	// var index_history = score_pointer.indexHistory;
 	// draw_text_height(xx+105,yy+40+(off_pos*sep),string_format(index_history,2,1),36); // draw index
 	
+	//var col = pick(c_black,c_red,i==19);
 	draw_line_pixel(25,yy+((1+off_pos)*sep),room_width,1,c_black,0.2); // draw row lines
 	
 	// click released on score
