@@ -7,10 +7,12 @@
 
 #macro scoresort array_sort_nested_struct(scorelist_array,"roundDate",false)
 #macro coursesort array_sort_nested_struct(courselist_array,"courseName",true)
+#macro PROFILE_data ROOT_data_struct.profiles[profile_index]
 
 // header
 #macro header_color make_color_rgb(0,145,206)
 #macro header_height 80
+#macro header_submenu_height 50
 #macro header_font_height 50
 
 // background colors

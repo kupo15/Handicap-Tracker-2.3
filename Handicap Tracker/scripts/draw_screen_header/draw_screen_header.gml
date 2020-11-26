@@ -5,7 +5,6 @@ function draw_screen_header(header_left,header_right,header_string,height) {
 /// @param header_string
 /// @param [stringHeight]
 
-
 if argument[3] == undefined
 height = header_font_height;
 
@@ -84,6 +83,41 @@ repeat 2
 draw_header_delete(0,ww,hh);
 
 return false;
+}
+
+function draw_screen_header_submenu() {
+/// param header_string...
+
+var xx = 0;
+var yy = header_height;
+var hh = header_height+header_submenu_height;
+var col = header_color;
+
+draw_rectangle_color(xx,yy,app_width,hh,col,col,col,col,false);
+	
+var header_num = argument_count;
+var header_sep = app_width/header_num;
+var height = 40;
+var val = undefined;
+var sort_index = PROFILE_data.courseSort;
+
+for(var i=0;i<header_num;i++)
+	{
+	var str_col = pick(c_lt_gray,c_white,i==sort_index);
+	
+	if click_button(i*header_sep,yy,argument[i],height,str_col,header_sep,header_submenu_height,undefined,false,false,submenu)
+	val = i;
+	}
+
+// draw highlight underline
+var xx = sort_index*header_sep;
+var width = 4;
+var col = c_white;
+
+draw_line_pixel(xx,yy+header_submenu_height-width+1,header_sep,width,col,1); 
+draw_line_pixel(xx,yy+header_submenu_height,header_sep,1,c_lt_gray,1); 
+
+return val;
 }
 
 function draw_header_delete(yy,ww,hh){

@@ -117,7 +117,8 @@ draw_screen_header(headerType.back,headerType.none,"Round History");
 var hh = 80;
 var xx = 0;
 var ww = app_width-xx-xx;
-var yy = room_height-hh-nav_height-10;
+var yy = room_height-hh-nav_height-10;	
+var col = c_lt_gray;
 
 // draw lt gray cover
 draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);	

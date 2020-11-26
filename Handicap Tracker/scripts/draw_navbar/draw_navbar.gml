@@ -12,8 +12,7 @@ var yy_nav = app_height-hh+(hh*navbar_yoff_start);
 var col = header_color;
 
 draw_rectangle_color(0,yy_nav,app_width,yy_nav+hh,c_white,c_white,c_white,c_white,false);
-
-draw_rectangle_colour(xx,yy_nav,xx+xsep,yy_nav+hh,col,col,col,col,false);
+draw_rectangle_colour(xx,yy_nav,xx+xsep,yy_nav+hh,col,col,col,col,false); // draw highlight
 
 // draw navbar
 var ww = app_width;

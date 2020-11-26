@@ -87,6 +87,11 @@ switch screenIndex
 	
 	// edit tees
 	case screen.edit_tees: submenu = navbar.numpad; break;
+	
+	// course list
+	case screen.course_list: scr_update_course_frequency(); 
+							 scr_course_list_sort(PROFILE_data.courseSort);
+							 break;
 		
 	//case screen.receiptCreate: click_textbox_set(receipt_price,0,kbv_type_numbers); break;
 	

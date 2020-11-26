@@ -170,7 +170,7 @@ var ww = 200;
 var xoff = -ww*0.5;
 
 // draw Submit button
-if click_button(xx+xoff,yy+(yoff*ysep),"Cancel",50,c_black,ww,hh,undefined,false,false,navbar.calendar,calendarAlpha)
+if click_button(xx+xoff,yy+(yoff*ysep),"Cancel",50,c_black,ww,hh,undefined,false,false,navbar.calendar,undefined,calendarAlpha)
 androidBack = true;
 	
 #endregion
@@ -181,7 +181,7 @@ var xx = room_width*0.8;
 var xoff = -ww*0.5;
 
 // draw Submit button
-if click_button(xx+xoff,yy+(yoff*ysep),"OK",50,header_color,ww,hh,undefined,false,false,navbar.calendar,calendarAlpha)
+if click_button(xx+xoff,yy+(yoff*ysep),"OK",50,header_color,ww,hh,undefined,false,false,navbar.calendar,undefined,calendarAlpha)
 	{
 	calendarDateEntry = date_create_datetime(dateSelectYear,dateSelectMonth,dateSelectDay,1,1,1);
 	androidBack = true;

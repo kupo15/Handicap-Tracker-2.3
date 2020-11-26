@@ -30,6 +30,12 @@ edit_tees,
 edit_date,
 }
 
+enum course_sort {
+abc,
+frequency,
+favorite
+}
+
 enum highlightAction {
 courseSelect,	
 navbarSwitch

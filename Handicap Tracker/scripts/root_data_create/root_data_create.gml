@@ -16,6 +16,7 @@ ROOT_data_struct = {
 		
 		scorelist: scorelist_array,
 		activeRound: play_course_struct,
+		courseSort: course_sort.abc,
 		}
 	],
 	

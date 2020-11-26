@@ -4,7 +4,7 @@ draw_clear(col);
 	
 var course_next = false;
 var xx = 120;
-var yy = header_height;
+var yy = header_height+header_submenu_height;
 var height = 30;
 var sep = 80;
 var ww = app_width;
@@ -78,7 +78,14 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offse
 
 // header
 draw_screen_header(headerType.back,headerType.none,"Course List");
-    
+
+var header = draw_screen_header_submenu("A-Z","Popular","Favorites");
+if header != undefined
+	{
+	scr_course_list_sort(header);
+	app_save;
+	}
+
 // draw lt gray cover
 draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);	
 	
@@ -111,3 +118,16 @@ if course_next
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
