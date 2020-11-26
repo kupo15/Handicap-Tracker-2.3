@@ -43,7 +43,7 @@ for(var i=pos_start;i<pos_end;i++)
 	//draw_text_height(xx+390,yy+50+(off_pos*sep),course_handicap,40); // draw score shot
 	//draw_text_height(xx+390,yy+(off_pos*sep),course_esr,40); // draw score shot
 
-	var col = pick(c_black,header_color,i<20);
+	var col = pick(c_black,make_color_rgb(38,72,106),i<20);
 	var course_str = string_abbreviate(course_name,370,height,"...");
 	
 	draw_text_height_color(xx+10,yy+10+(off_pos*sep),course_str,col,height); // draw course name

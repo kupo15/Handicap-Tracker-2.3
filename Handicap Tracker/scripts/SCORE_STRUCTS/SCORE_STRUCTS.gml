@@ -18,6 +18,7 @@ score_struct = {
 	indexHistory: undefined,
 	indexIncluded: false,
 	practiceRound: false,
+	offSeason: false,
 	esr: 0,
 	}	
 

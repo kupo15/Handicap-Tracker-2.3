@@ -43,7 +43,8 @@ draw_line_pixel(0,yy,app_width,1,c_gray,1);
 draw_text_height_color(xx,yy-height,"Rounds Played: "+string(rounds_played),c_white,height);
 #endregion
 
-// draw
+// draw active round
+draw_active_round(10,600);
 
 // draw round falling off
 draw_falling_off(10,830);

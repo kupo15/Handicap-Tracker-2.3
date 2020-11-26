@@ -65,4 +65,7 @@ index_trend_offset_start = 0;
 
 debug_data_reset();
 scr_handicap_calculate();
+scr_update_course_info();
+//array_sort_nested_struct(courselist_array,"frequency",false); // sort list
+
 }

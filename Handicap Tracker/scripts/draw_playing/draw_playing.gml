@@ -166,7 +166,7 @@ if click_button(xx,yy,"Clear",height,c_black,ww,hh,col,true,false,navbar.main) /
 	}
 #endregion*/
 
-#region Enter Score
+#region Begin Round
 var hh = 80;
 var xx = 0;
 var yy = app_height-nav_height-hh-10;
@@ -174,7 +174,7 @@ var height = 40;
 var ww = app_width-xx-xx;
 var col = header_color;
 
-if click_button(xx,yy,"Enter Score",height,c_white,ww,hh,col,false,false,navbar.main)
+if click_button(xx,yy,"Begin Round",height,c_white,ww,hh,col,false,false,navbar.main)
 	{
 	screen_change(screen.playing_score_enter);
 	}

@@ -9,10 +9,9 @@ else
 return included_scores[| ind];
 }
 
-
 function draw_falling_off(xx,yy) {
-
 // draw round that will be getting kicked out
+
 var rows = 1;
 var sep = 100;
 var ww = app_width;
