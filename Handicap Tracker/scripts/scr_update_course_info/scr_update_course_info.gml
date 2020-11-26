@@ -28,7 +28,8 @@ for(var i=0;i<score_size;i++) // loop through scores
 
 function scr_course_list_sort(ind) {
 	
-PROFILE_data.courseSort = ind; // update header preferences
+META_data.courseSort = ind; // update header preferences
+
 switch ind
 	{
 	case course_sort.abc: array_sort_nested_struct(courselist_array,"courseName",true); break; // sort list

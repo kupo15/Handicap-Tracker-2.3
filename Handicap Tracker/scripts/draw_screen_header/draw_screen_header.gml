@@ -99,7 +99,7 @@ var header_num = argument_count;
 var header_sep = app_width/header_num;
 var height = 40;
 var val = undefined;
-var sort_index = PROFILE_data.courseSort;
+var sort_index = META_data.courseSort;
 
 for(var i=0;i<header_num;i++)
 	{

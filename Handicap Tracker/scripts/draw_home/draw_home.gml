@@ -44,7 +44,7 @@ draw_text_height_color(xx,yy-height,"Rounds Played: "+string(rounds_played),c_wh
 #endregion
 
 // draw active round
-draw_active_round(10,600);
+draw_active_round(10,500);
 
 // draw round falling off
 draw_falling_off(10,830);

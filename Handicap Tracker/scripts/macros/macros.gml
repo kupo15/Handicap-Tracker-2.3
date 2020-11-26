@@ -5,9 +5,11 @@
 #macro app_save json_save_array(save_data,ROOT_data_struct)
 #macro app_load json_load_array(save_data)
 
+#macro PROFILE_data ROOT_data_struct.profiles[profile_index]
+#macro META_data ROOT_data_struct.meta
+
 #macro scoresort array_sort_nested_struct(scorelist_array,"roundDate",false)
 #macro coursesort array_sort_nested_struct(courselist_array,"courseName",true)
-#macro PROFILE_data ROOT_data_struct.profiles[profile_index]
 
 // header
 #macro header_color make_color_rgb(0,145,206)
