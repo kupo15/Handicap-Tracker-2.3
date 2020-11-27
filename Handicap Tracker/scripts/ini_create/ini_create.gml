@@ -28,9 +28,6 @@ course_index = undefined;
 score_index = undefined;
 
 #region scrollbar
-stat_offset = 0;
-stat_offset_start = 0;
-
 index_trend_offset = 0;
 index_trend_offset_start = 0;
 #endregion

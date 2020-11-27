@@ -1,5 +1,11 @@
 function draw_stats() {
 	
+// set offsets
+var scrollbar_index = offsetScroll.statsOffset;
+var stats_offset = offsetArray[scrollbar_index];
+var stats_offset_start = offsetArrayStart[scrollbar_index];	
+	
+#region draw course and tee
 var xx = 20;
 var yy = 100;
 var ww = app_width;
@@ -23,6 +29,7 @@ if click_region_released(0,yy-10,ww,sep,true,navbar.main)
 	popup_coursebar();
 	mouse_clear(mb_left);
 	}
+#endregion
 
 // draw graph
 var xx = 60;
@@ -104,12 +111,12 @@ if !ds_list_empty(stat_tee[i]) // if there is data in the list
 	var xprev = xx;
 	var yprev = yy-500;
 	
-	var disp_start = floor(stat_offset);
-	var disp_end = min(score_num,ceil(stat_offset)+max_disp);
+	var disp_start = floor(stats_offset);
+	var disp_end = min(score_num,ceil(stats_offset)+max_disp);
 	for(var n=disp_start;n<disp_end;n++)
 		{
 		var _score = ds_list_find_value(stat_tee[i],n); // score
-		var xpos = xx+8+(n*xsep)-(stat_offset*xsep);
+		var xpos = xx+8+(n*xsep)-(stats_offset*xsep);
 		var ypos = yy-((_score-ymin)*ysep);
 		var tee_col = teebox_list[| i];
 
@@ -118,7 +125,7 @@ if !ds_list_empty(stat_tee[i]) // if there is data in the list
 		if (stat_tee_index != noone) && (i == tee_marker.white)
 		col = c_black;
 		
-		if n > stat_offset
+		if n > stats_offset
 		draw_line_width_color(xprev,yprev,xpos,ypos,3,col,col);
 		
 		var dir = 1;
@@ -154,15 +161,12 @@ for(var i=0;i<ticks;i++)
 	}
 	
 #region scrolling
-var offset_start_pointer = [self,"stat_offset_start"];
-var offset_pointer = [self,"stat_offset"];
-var scrollbar_index = 1;
 var xx = 0;
 var yy = 220;
 var hh = 400;
 var sub = navbar.main;
 
-funct_screen_scrolling_hor(0,yy,room_width,hh,xsep,list_size,max_disp,offset_start_pointer,offset_pointer,scrollbar_index,sub);
+funct_screen_scrolling_hor(0,yy,room_width,hh,xsep,list_size,max_disp,scrollbar_index,sub);
 #endregion
     
 if draw_submenu_course_search(header_height,app_width,90,courselist_array,offsetScroll.courselistOffset)

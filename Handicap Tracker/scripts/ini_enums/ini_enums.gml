@@ -39,6 +39,7 @@ teebarYoff,
 scorelistOffset,
 courselistOffset,
 seasonOffset,
+statsOffset,
 
 enumcount,
 }

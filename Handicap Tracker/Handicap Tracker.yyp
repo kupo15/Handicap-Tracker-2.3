@@ -117,6 +117,7 @@
     {"id":{"name":"popup_coursebar","path":"scripts/popup_coursebar/popup_coursebar.yy",},"order":14,},
     {"id":{"name":"scr_coursebar_select","path":"scripts/scr_coursebar_select/scr_coursebar_select.yy",},"order":2,},
     {"id":{"name":"draw_playing_score_submit","path":"scripts/draw_playing_score_submit/draw_playing_score_submit.yy",},"order":1,},
+    {"id":{"name":"funct_screen_scrolling_hor_old","path":"scripts/funct_screen_scrolling_hor_old/funct_screen_scrolling_hor_old.yy",},"order":6,},
     {"id":{"name":"debug_data_reset","path":"scripts/debug_data_reset/debug_data_reset.yy",},"order":17,},
     {"id":{"name":"fn_italic","path":"fonts/fn_italic/fn_italic.yy",},"order":1,},
     {"id":{"name":"scr_playing_clear","path":"scripts/scr_playing_clear/scr_playing_clear.yy",},"order":18,},
