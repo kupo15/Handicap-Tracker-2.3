@@ -67,7 +67,6 @@ draw_text_height(xx,yy+((ind+5)*sep),"activeSubmenu: "+string(activeSubmenu),hei
 debugyoff += 7;
 }
 
-
 function debug_draw_strings(xx,yy,ind,sep,height) {
 	
 draw_text_height(xx,yy+((ind+0)*sep),"kvLastString:",height);
@@ -168,7 +167,7 @@ debugyoff += 5;
 function debug_device_info(xx,yy,ind,sep,height) {
 	
 draw_set_halign(fa_left);
-draw_rectangle(50,250,250,450,true);
+//draw_rectangle(50,250,250,450,true);
 
 var ww = display_get_width();
 var hh = display_get_height();
@@ -177,20 +176,28 @@ draw_text_height(xx,yy+((ind+0)*sep),"display: "+string(ww)+" x "+string(hh),hei
 
 var ww = window_get_width();
 var hh = window_get_height();
+
 draw_text_height(xx,yy+((ind+1)*sep),"window: "+string(ww)+" x "+string(hh),height);
 
 var ww = surface_get_width(application_surface);
 var hh = surface_get_height(application_surface);
+
 draw_text_height(xx,yy+((ind+2)*sep),"app surf: "+string(ww)+" x "+string(hh),height);
 
 var ww = display_get_gui_width();
 var hh = display_get_gui_height();
+
 draw_text_height(xx,yy+((ind+3)*sep),"gui window: "+string(ww)+" x "+string(hh),height);
 
 draw_text_height(xx,yy+((ind+4)*sep),"window xpos: "+string(window_get_x),height);
 draw_text_height(xx,yy+((ind+5)*sep),"window ypos: "+string(window_get_y),height);
 
-debugyoff += 7;
+draw_text_height(xx,yy+((ind+6)*sep),"app width: "+string(app_width),height);
+draw_text_height(xx,yy+((ind+7)*sep),"app height: "+string(app_height),height);
+draw_text_height(xx,yy+((ind+8)*sep),"DPI_X: "+string(DPI_X),height);
+draw_text_height(xx,yy+((ind+9)*sep),"DPI_Y: "+string(DPI_Y),height);
+
+debugyoff += 11;
 }
 
 goto_draw_debug();

@@ -9,22 +9,21 @@ if os_type == os_android
 	display_set_ui_visibility(flags);	
 	
 	// set layout
-	app_width = display_get_width();
-	app_height = display_get_height();
+	var ww = display_get_width();
+	var hh = display_get_height();
 	
-	// set app layout variables
-	DPI_X = display_get_dpi_x();
-	DPI_Y = display_get_dpi_y();
+	app_width = room_width;
+	app_height = room_height;
 
 	// apply settings
-	alarm[0] = 1;
+	alarm[0] = 15;
 	}
 else
 	{
 	// set app settings
 	app_width = room_width;	
 	app_height = room_height;	
-	
+
 	// set app layout variables
 	DPI_X = DPI_POINT;
 	DPI_Y = DPI_POINT;

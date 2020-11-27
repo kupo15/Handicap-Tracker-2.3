@@ -9,7 +9,7 @@ function draw_home() {
 // draw the 3 bars
 draw_screen_header(headerType.bars,headerType.none,"Home");
 	
-draw_icon_width(spr_home_course,0,header_height,app_width,1);	
+draw_icon_width(spr_home_course,0,header_height-1,app_width,1);	
 	
 #region draw Handicap Index
 var xx = app_width/2;
@@ -44,8 +44,18 @@ draw_text_height_color(xx,yy-height,"Rounds Played: "+string(rounds_played),c_wh
 #endregion
 
 // draw active round
-draw_active_round(10,500);
+draw_active_round(20,500);
 
 // draw round falling off
-draw_falling_off(10,830);
+draw_falling_off(20,830);
+
+// debug
+if multiTouch[3]
+	{
+	var col = c_white;
+	debugyoff = 0;
+
+	draw_rectangle_color(0,0,app_width,500,col,col,col,col,false);
+	debug_device_info(20,0,0,30,30);
+	}
 }

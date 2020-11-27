@@ -25,7 +25,18 @@ if mouse_check_button_pressed(mb_left)
 	mouse_xstart = mouse_x;
 	mouse_ystart = mouse_y;
 	}
+	
+// multi touch
+var touch = 0;
+for(var i=0;i<4;i++)
+touch += device_mouse_check_button(i,mb_left);
 
+multiTouch[0] = (touch==0);
+multiTouch[1] = (touch==1);
+multiTouch[2] = (touch==2);
+multiTouch[3] = (touch==3);
+
+// mouse
 mouse_xdist = mouse_x-mouse_xstart;
 mouse_ydist = mouse_y-mouse_ystart;
 

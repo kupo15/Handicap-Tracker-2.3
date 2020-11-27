@@ -12,6 +12,9 @@ ini_cursor_vars();
 // custom vk
 numpad_value = "";
 
+// inputs
+multiTouch = array_create(4,false);
+
 // searching lists
 searching = false;
 searched = false;

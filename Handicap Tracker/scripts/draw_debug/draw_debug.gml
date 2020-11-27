@@ -38,7 +38,7 @@ debugyoff = 15;
 //debug_draw_vk(xx,yy,debugyoff,sep,height);
 debug_draw_strings(xx,yy,debugyoff,sep,height);
 debug_draw_textbox(xx,yy,debugyoff,sep,height);
-debug_draw_sidebar_fades(xx,yy,debugyoff,sep,height);
+//debug_draw_sidebar_fades(xx,yy,debugyoff,sep,height);
 //debug_draw_switch_tabs(xx,yy,debugyoff,sep,height);
 //debug_draw_modes(xx,yy,debugyoff,sep,height);
 //debug_draw_textbox_cursor(xx,yy,debugyoff,sep,height);	
