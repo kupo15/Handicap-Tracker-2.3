@@ -1,6 +1,7 @@
 
 function draw_teebox_list() {
 
+var teebar_yoff_start = offsetArrayStart[offsetScroll.teebarYoff] ;
 var alph = (teebar_yoff_start/1);
 var col = c_black;
 

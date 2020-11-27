@@ -31,7 +31,6 @@
     {"id":{"name":"draw_score_list","path":"scripts/draw_score_list/draw_score_list.yy",},"order":2,},
     {"id":{"name":"funct_screen_scrolling","path":"scripts/funct_screen_scrolling/funct_screen_scrolling.yy",},"order":1,},
     {"id":{"name":"draw_teebox_list","path":"scripts/draw_teebox_list/draw_teebox_list.yy",},"order":6,},
-    {"id":{"name":"draw_courselist_list","path":"scripts/draw_courselist_list/draw_courselist_list.yy",},"order":1,},
     {"id":{"name":"draw_score_add","path":"scripts/draw_score_add/draw_score_add.yy",},"order":0,},
     {"id":{"name":"ini_shared","path":"scripts/ini_shared/ini_shared.yy",},"order":0,},
     {"id":{"name":"draw_course_add","path":"scripts/draw_course_add/draw_course_add.yy",},"order":0,},

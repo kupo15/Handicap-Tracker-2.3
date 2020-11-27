@@ -1,17 +1,16 @@
 function sidebar_fades() {
 var fade_spd = 0.14;
 	
-// navbar
-navbar_yoff = (submenu != navbar.main); // ? navbar_yoff = false : navbar_yoff = true
+offsetArray[offsetScroll.navbarYoff] = (submenu != navbar.main); // ? navbar_yoff = false : navbar_yoff = true
 
-if navbar_yoff != navbar_yoff_start
-navbar_yoff_start = lerp(navbar_yoff_start,navbar_yoff,fade_spd);
+if offsetArray[offsetScroll.navbarYoff] != offsetArrayStart[offsetScroll.navbarYoff]
+offsetArrayStart[offsetScroll.navbarYoff] = lerp(offsetArrayStart[offsetScroll.navbarYoff],offsetArray[offsetScroll.navbarYoff],fade_spd);
 
 // teebar
-teebar_yoff = (submenu == navbar.teebar); // ? teebar_yoff = true : teebar_yoff = false
+offsetArray[offsetScroll.teebarYoff] = (submenu == navbar.teebar); // ? teebar_yoff = true : teebar_yoff = false
 
-if teebar_yoff != teebar_yoff_start
-teebar_yoff_start = lerp(teebar_yoff_start,teebar_yoff,fade_spd);
+if offsetArray[offsetScroll.teebarYoff] != offsetArrayStart[offsetScroll.teebarYoff]
+offsetArrayStart[offsetScroll.teebarYoff] = lerp(offsetArrayStart[offsetScroll.teebarYoff],offsetArray[offsetScroll.teebarYoff],fade_spd);
 
 // parbar
 parbar_yoff = (submenu == navbar.parbar); // ? parbar_yoff = true : parbar_yoff = false
@@ -26,16 +25,16 @@ if scorebar_yoff != scorebar_yoff_start
 scorebar_yoff_start = lerp(scorebar_yoff_start,scorebar_yoff,fade_spd);
 
 // coursebar
-coursebar_yoff = (submenu != navbar.coursebar); // ? coursebar_yoff = true : coursebar_yoff = false
+offsetArray[offsetScroll.coursebarYoff] = (submenu != navbar.coursebar); // ? coursebar_yoff = true : coursebar_yoff = false
 
-if coursebar_yoff != coursebar_yoff_start
-coursebar_yoff_start = lerp(coursebar_yoff_start,coursebar_yoff,fade_spd);
+if offsetArray[offsetScroll.coursebarYoff] != offsetArrayStart[offsetScroll.coursebarYoff]
+offsetArrayStart[offsetScroll.coursebarYoff] = lerp(offsetArrayStart[offsetScroll.coursebarYoff],offsetArray[offsetScroll.coursebarYoff],fade_spd);
 
 // numpad
-numpad_yoff = !(submenu == navbar.numpad); // ? coursebar_yoff = true : coursebar_yoff = false
+offsetArray[offsetScroll.numpadYoff] = !(submenu == navbar.numpad); // ? coursebar_yoff = true : coursebar_yoff = false
 
-if numpad_yoff != numpad_yoff_start
-numpad_yoff_start = lerp(numpad_yoff_start,numpad_yoff,fade_spd);
+if offsetArray[offsetScroll.numpadYoff] != offsetArrayStart[offsetScroll.numpadYoff]
+offsetArrayStart[offsetScroll.numpadYoff] = lerp(offsetArrayStart[offsetScroll.numpadYoff],offsetArray[offsetScroll.numpadYoff],fade_spd);
 
 // alpha
 if alpha_lerp != alpha_lerp_end

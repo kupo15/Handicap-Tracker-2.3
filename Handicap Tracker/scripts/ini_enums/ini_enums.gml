@@ -30,6 +30,16 @@ edit_tees,
 edit_date,
 }
 
+enum offsetScroll {
+navbarYoff,
+numpadYoff,
+coursebarYoff,
+teebarYoff,
+
+enumcount,
+	
+}
+
 enum course_sort {
 abc,
 frequency,

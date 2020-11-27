@@ -27,27 +27,6 @@ score_struct = undefined;
 course_index = undefined;
 score_index = undefined;
 
-#region offsets
-navbar_yoff = 0;
-navbar_yoff_start = 0;
-
-teebar_yoff = 0;
-teebar_yoff_start = 0;
-	
-scorebar_yoff = 0;
-scorebar_yoff_start = 0;
-	
-parbar_yoff = 0;
-parbar_yoff_start = 0;
-
-coursebar_yoff = 0;
-coursebar_yoff_start = 0;
-
-numpad_yoff = 0;
-numpad_yoff_start = 0;
-	
-#endregion
-
 #region scrollbar
 
 score_list_offset = 0;

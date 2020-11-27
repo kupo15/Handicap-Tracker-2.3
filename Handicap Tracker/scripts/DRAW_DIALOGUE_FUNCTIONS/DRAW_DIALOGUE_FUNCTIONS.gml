@@ -31,6 +31,7 @@ draw_rectangle_color(xx,yy,xx+ww,yy+hh,col,col,col,col,false);
 
 function draw_numpad(variable) {
 
+var numpad_yoff = offsetArray[offsetScroll.numpadYoff];
 var xx = element_numpad.xx;
 var yy = element_numpad.yy+(numpad_yoff*381);
 var vsep = element_numpad.vsep;
@@ -93,6 +94,7 @@ return variable;
 
 function draw_numpad_golf(variable) {
 
+var numpad_yoff =offsetArray[offsetScroll.numpadYoff];
 var xx = element_numpad.xx;
 var yy = element_numpad.yy+(numpad_yoff*441);
 

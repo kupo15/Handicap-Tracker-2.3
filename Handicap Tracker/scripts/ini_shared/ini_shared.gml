@@ -77,6 +77,15 @@ switchTabNum = 5;
 switchTabDisp = array_create(switchTabNum,0);
 switchTabDispEnd = array_create(switchTabNum,0);
 
+// scrolling offset
+offsetArray = array_create(offsetScroll.enumcount,0);
+offsetArrayStart = array_create(offsetScroll.enumcount,0);
+offsetArrayEnd = array_create(offsetScroll.enumcount,0);
+
+// set starting offsets
+offsetArray[offsetScroll.navbarYoff] = 1;
+offsetArrayStart[offsetScroll.navbarYoff] = 1;
+
 // debug
 debugStringXpos = 0;
 debugStringYpos = 0;
@@ -112,9 +121,6 @@ screenDarkenAlpha = 0;
 screenDarkenIndex = 0;
 
 // offsets
-navbar_yoff = 1;
-navbar_yoff_start = 1;
-
 monthOffset = 0;
 monthOffsetStart = 0;
 monthOffsetEnd = 0;

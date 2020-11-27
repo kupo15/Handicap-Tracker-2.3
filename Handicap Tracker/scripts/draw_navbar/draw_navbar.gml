@@ -1,6 +1,6 @@
 function draw_navbar() {
 
-var alph = 1-(navbar_yoff_start/1);
+var alph = 1-(offsetArrayStart[offsetScroll.navbarYoff]/1);
 draw_set_alpha(alph);
 
 // draw highlight
@@ -8,7 +8,7 @@ var ico_num = nav_ico_num;
 var xsep = app_width/ico_num;
 var hh = nav_height;
 var xx = xsep*screenIndex;
-var yy_nav = app_height-hh+(hh*navbar_yoff_start);
+var yy_nav = app_height-hh+(hh*offsetArrayStart[offsetScroll.navbarYoff]);
 var col = header_color;
 
 draw_rectangle_color(0,yy_nav,app_width,yy_nav+hh,c_white,c_white,c_white,c_white,false);
