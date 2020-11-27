@@ -1,6 +1,12 @@
 
 function draw_handicap_season() {
 
+// set offsets
+var scrollbar_index = offsetScroll.seasonOffset;
+var handicap_season_offset = offsetArray[scrollbar_index];
+var handicap_season_offset_start = offsetArrayStart[scrollbar_index];
+
+// draw season
 var xx = 0;
 var xoff = 30;
 var yy = header_height;
@@ -61,13 +67,10 @@ for(var i=pos_start;i<pos_end;i++)
 	}
 
 #region scrolling
-var offset_start_pointer = [self,"handicap_season_offset_start"];
-var offset_pointer = [self,"handicap_season_offset"];
-var scrollbar_index = 0;
 var xx = 0;
 var sub = navbar.main;
 
-funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offset_pointer,scrollbar_index,sub);
+funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
 
 // draw the 3 bars

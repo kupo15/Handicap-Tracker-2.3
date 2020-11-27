@@ -43,9 +43,7 @@ if action
 	
 if !mode_new_member && (list_ext < rows)
 offsetArray[scrollbar_index] = 0;
-//variable_instance_set(id,offsetStr,0);
 		
-//var offset_value = variable_instance_get(id,offsetStr);
 var offset_value = offsetArray[scrollbar_index];
 var pos_start = floor(offset_value);
 var pos_end = min(list_size,ceil(offset_value)+rows);
@@ -134,7 +132,6 @@ if virtual_keyboard_enter
 		searched_name = "";
 		scr_friend_create(capitalize(friend_name_entry),undefined);
 		offsetArray[scrollbar_index] = offset_value+1;
-		//variable_instance_set(id,offsetStr,offset_value+1);
 		}
 	}
 */

@@ -28,10 +28,6 @@ course_index = undefined;
 score_index = undefined;
 
 #region scrollbar
-
-handicap_season_offset = 0;
-handicap_season_offset_start = handicap_season_offset;
-
 stat_offset = 0;
 stat_offset_start = 0;
 
