@@ -3,8 +3,9 @@ var col = c_lt_gray;
 draw_clear(col);
 
 // set offsets
-var scorelist_offset = offsetArray[offsetScroll.scorelistOffset];
-var scorelist_offset_start = offsetArrayStart[offsetScroll.scorelistOffset];
+var scrollbar_index = offsetScroll.scorelistOffset;
+var scorelist_offset = offsetArray[scrollbar_index];
+var scorelist_offset_start = offsetArrayStart[scrollbar_index];
 
 // draw scorelist
 var xx = 20;
@@ -112,7 +113,6 @@ for(var i=pos_start;i<pos_end;i++)
 	}
 	
 #region scrolling
-var scrollbar_index = offsetScroll.scorelistOffset;
 var xx = 0;
 var sub = navbar.main;
 

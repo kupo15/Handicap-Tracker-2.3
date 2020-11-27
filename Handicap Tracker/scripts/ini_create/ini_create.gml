@@ -29,9 +29,6 @@ score_index = undefined;
 
 #region scrollbar
 
-score_list_offset = 0;
-score_list_offset_start = score_list_offset;
-
 handicap_season_offset = 0;
 handicap_season_offset_start = handicap_season_offset;
 

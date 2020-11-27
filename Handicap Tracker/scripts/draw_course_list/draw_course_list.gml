@@ -1,7 +1,13 @@
 function draw_course_list() {
 var col = c_lt_gray;
 draw_clear(col);	
-	
+
+// set offsets
+var scrollbar_index = offsetScroll.courselistOffset;
+var courselist_offset = offsetArray[scrollbar_index];
+var courselist_offset_start = offsetArrayStart[scrollbar_index];
+
+// draw course list	
 var course_next = false;
 var xx = 120;
 var yy = header_height+header_submenu_height;
@@ -16,15 +22,15 @@ var box_hh_end = yy+hh;
 draw_roundrect_color(0,yy,ww,yy+hh,c_white,c_white,false);
 
 var list_size = array_length(courselist_array);
-var pos_start = floor(course_list_offset);
-var pos_end = min(list_size,ceil(course_list_offset)+rows);
+var pos_start = floor(courselist_offset);
+var pos_end = min(list_size,ceil(courselist_offset)+rows);
 for(var i=pos_start;i<pos_end;i++)
 	{
 	var course_pointer = courselist_array[i];
 	var course_name = course_pointer.courseName; // course name
 	var course_location = course_pointer.courseLocation; // course location
 	var course_str = string_abbreviate(course_name,485,height,"...");
-	var off_ind = i-course_list_offset;
+	var off_ind = i-courselist_offset;
 	var off_pos = (off_ind*sep);
 	var initial = string_char_at(course_name,1);
 	
@@ -67,20 +73,17 @@ for(var i=pos_start;i<pos_end;i++)
 	}
 	
 #region scrolling
-var offset_start_pointer = [self,"course_list_offset_start"];
-var offset_pointer = [self,"course_list_offset"];
-var scrollbar_index = 0;
 var xx = 0;
 var sub = navbar.main;
 
-funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offset_pointer,scrollbar_index,sub);
+funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
 
 // header
 draw_screen_header(headerType.back,headerType.none,"Course List");
 
 var header = draw_screen_header_submenu("A-Z","Popular","Favorites");
-if header != undefined
+if (header != undefined) && (header != META_data.courseSort)
 	{
 	scr_course_list_sort(header);
 	app_save;

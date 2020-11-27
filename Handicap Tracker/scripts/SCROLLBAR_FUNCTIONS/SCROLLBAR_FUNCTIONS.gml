@@ -80,3 +80,7 @@ draw_rectangle(scroll_yy,yy+ww,scroll_yy+scroll_hh,yy+scroll_ww+ww,false); // dr
 draw_set_alpha(1);
 }
 
+function scrollbar_set(scroll_ind) {
+	
+	
+}

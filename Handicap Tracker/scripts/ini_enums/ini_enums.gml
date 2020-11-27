@@ -35,7 +35,9 @@ navbarYoff,
 numpadYoff,
 coursebarYoff,
 teebarYoff,
+
 scorelistOffset,
+courselistOffset,
 
 enumcount,
 }

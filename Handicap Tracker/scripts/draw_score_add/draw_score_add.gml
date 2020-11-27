@@ -183,9 +183,6 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 	offsetArray[offsetScroll.scorelistOffset] = 0;
 	offsetArrayStart[offsetScroll.scorelistOffset] = 0;
 	
-	score_list_offset = 0;
-	score_list_offset_start = 0;
-	
 	score_index = undefined;
 	
 	score_struct = undefined;
