@@ -39,15 +39,15 @@ switch ind
 
 }
 
-function scr_course_list_sort(ind) {
+function scr_score_list_sort(ind) {
 	
 META_data.scoreSort = ind; // update header preferences
 exit;
 switch ind
 	{
-	case course_sort.abc: array_sort_nested_struct(courselist_array,"courseName",true); break; // sort list
-	case course_sort.frequency: array_sort_nested_struct(courselist_array,"frequency",false); break; // sort list
-	case course_sort.favorite: array_sort_nested_struct(courselist_array,"favorite",true); break; // sort list
+	case score_sort.currentYear: array_sort_nested_struct(courselist_array,"courseName",true); break; // sort list
+	case score_sort.lastYear: array_sort_nested_struct(courselist_array,"frequency",false); break; // sort list
+	case score_sort.all: array_sort_nested_struct(courselist_array,"favorite",true); break; // sort list
 	}
 
 }
