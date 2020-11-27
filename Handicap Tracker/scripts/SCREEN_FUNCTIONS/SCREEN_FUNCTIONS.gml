@@ -82,6 +82,7 @@ vk_hide();
 switch screenIndex
 	{
 	// change to hidden
+	case screen.handicapSeason:
 	case screen.score_view:
 	case screen.score_card: submenu = navbar.hidden; break;	
 	

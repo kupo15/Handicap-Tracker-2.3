@@ -98,12 +98,13 @@ draw_sprite_ext(spr,0,xx,yy,sca,sca,0,col,alpha);
 function draw_icon_width(spr,xx,yy,width,alpha) {
 	
 var spr_ww = sprite_get_width(spr);
+var spr_hh = sprite_get_height(spr);
 var sca = width/spr_ww;
 var col = c_white;
 
 draw_sprite_ext(spr,0,xx,yy,sca,sca,0,col,alpha);
 
-return width;
+return spr_hh*sca;
 }
 
 function draw_icon_height(spr,xx,yy,height,alpha) {

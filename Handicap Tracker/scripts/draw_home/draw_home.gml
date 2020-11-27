@@ -5,15 +5,24 @@ draw_text_height(20,app_height-50,"Undefined Screen",40);
 }
 
 function draw_home() {
-
-// draw the 3 bars
-draw_screen_header(headerType.bars,headerType.none,"Home");
 	
-draw_icon_width(spr_home_course,0,header_height-1,app_width,1);	
+var yy = header_height-1;
+var hh = draw_icon_width(spr_home_course,0,header_height-1,app_width,1);	
+
+draw_line_pixel(0,yy+hh,app_width,1,c_gray,1);
+
+// draw rounds played
+var xx = 20;
+var height = 35;
+
+draw_text_height_color(xx,yy+hh-height,"Rounds Played: "+string(rounds_played),c_white,height);
+	
+// draw header
+draw_screen_header(headerType.bars,headerType.none,"Home");	
 	
 #region draw Handicap Index
 var xx = app_width/2;
-var yy = 110;
+var yy = header_height+30;
 var height = 40;
 
 if ghin_index == undefined
@@ -27,20 +36,11 @@ draw_text_height_color(xx,yy+30,str,c_white,height*3);
 draw_set_halign(fa_left);
 
 // clicked on index
-if click_region_released(0,header_height,app_width,330-header_height,true,navbar.main)
+if click_region_released(0,header_height,app_width,hh,true,navbar.main)
 	{
 	scr_trend_set();
 	screen_change(screen.indexTrend);
 	}
-#endregion
-
-#region draw rounds played
-var xx = 20;
-var yy = 330;
-var height = 35;
-
-draw_line_pixel(0,yy,app_width,1,c_gray,1);
-draw_text_height_color(xx,yy-height,"Rounds Played: "+string(rounds_played),c_white,height);
 #endregion
 
 // draw active round

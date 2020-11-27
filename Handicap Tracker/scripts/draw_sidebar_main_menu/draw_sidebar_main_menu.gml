@@ -80,11 +80,11 @@ for(var i=0;i<screen.enumcount;i++)
 #endregion
 
 
-	if androidBackSidebar
-		{	
-		if !new_submenu && (submenu == navbar.sidebar)
-		submenu = submenuPrevious;
-		}
+if androidBackSidebar
+	{	
+	if !new_submenu && (submenu == navbar.sidebar)
+	submenu = submenuPrevious;
+	}
 
 
 }

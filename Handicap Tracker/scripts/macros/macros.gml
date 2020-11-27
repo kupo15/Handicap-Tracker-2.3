@@ -13,8 +13,8 @@
 
 // header
 #macro header_color make_color_rgb(0,145,206)
-#macro header_height 80
-#macro header_submenu_height 50
+#macro header_height 90
+#macro header_submenu_height 60
 #macro header_font_height 50
 
 // background colors

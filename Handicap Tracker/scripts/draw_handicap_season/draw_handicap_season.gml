@@ -8,13 +8,14 @@ var handicap_season_offset_start = offsetArrayStart[scrollbar_index];
 
 // draw season
 var xx = 0;
-var xoff = 30;
 var yy = header_height;
-var sep = 110;
+var xoff = 30;
+var yoff = 10;
+var sep = 120;
 var ww = app_width;
 var hh = app_height-nav_height-yy;
 var rows = hh/sep;
-var height = 30;
+var height = 35;
 
 var list_size = array_length(handicap_season_array);
 var pos_start = floor(handicap_season_offset);
@@ -27,18 +28,18 @@ for(var i=pos_start;i<pos_end;i++)
 	var pointer = handicap_season_array[i];
 	var state_name = pointer.stateName;
 	
-	draw_text_height(xx+xoff,yy+10+off_pos,state_name,height,fn_bold);
+	draw_text_height(xx+xoff,yy+yoff+off_pos,state_name,height,fn_bold);
 	
 	var district_num = array_length(pointer.districts);
 	var district_num = 1;
 	for(var n=0;n<district_num;n++)
 		{
 		var ysep = 35;
-		var ypos = yy+off_pos+45+(n*ysep);
+		var ypos = yy+off_pos+height+5+(n*ysep);
 		var district_pointer = pointer.districts[n];
 		var district_name = district_pointer.districtName;
 		
-		draw_text_height_ext(xx+xoff,ypos,district_name,30,280,0,height*0.8); // draw district name
+		draw_text_height_ext(xx+xoff,ypos+yoff,district_name,30,280,0,height*0.8); // draw district name
 
 		if district_pointer.yearRound
 		var season_str = "Year-Round";
@@ -57,18 +58,18 @@ for(var i=pos_start;i<pos_end;i++)
 			var season_str = startDate_str+"-"+endDate_str;
 			}
 
-		draw_text_height_color(380,ypos,season_str,c_gray,height*0.8,fn_italic); // draw season dates
+		draw_text_height_color(360,ypos+10,season_str,c_gray,height*0.8,fn_italic); // draw season dates
 		}
 	
 	draw_line_pixel(xoff,yy+off_pos,app_width,1,c_lt_gray,1);
 	
-	if click_region_released_clamp_array(0,yy,off_pos,ww,sep,hh,mb_left,c_yellow,navbar.main,i,handicap_season_array)
+	if click_region_released_clamp_array(0,yy,off_pos,ww,sep,hh,mb_left,c_yellow,navbar.hidden,i,handicap_season_array)
 	{}
 	}
 
 #region scrolling
 var xx = 0;
-var sub = navbar.main;
+var sub = navbar.hidden;
 
 funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
