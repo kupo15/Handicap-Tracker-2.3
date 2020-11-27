@@ -69,7 +69,7 @@ if !ds_list_empty(stat_tee[i]) // if there is data in the list
 	// draw the tee available
 	var tee_xx = xx+10;
 	var tee_yy = yy+15;
-	var tee_ysep = 35;
+	var tee_ysep = 45;
 	var tee_str = teebox_list[| i];
 
 	draw_tee_marker(tee_xx,tee_yy+(tee_ind*tee_ysep),tee_ysep,tee_str,tee_str,false);
@@ -87,12 +87,6 @@ if !ds_list_empty(stat_tee[i]) // if there is data in the list
 	tee_ind ++;
 	}
 	
-if can_select
-	{
-	if click_region_released(0,0,room_width,800,noone,navbar.main) // mouse_check_button_released(mb_left)
-	stat_tee_index = noone;
-	}
-
 var max_disp = 10;
 var size = ds_list_size(teebox_list);
 for(var i=0;i<size;i++)
@@ -183,12 +177,18 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,offset
 // draw header
 draw_screen_header(headerType.back,headerType.none,"Course Stats");
 
+// unselect tee
+if can_select
+	{
+	if click_region_released(0,0,app_width,800,noone,navbar.main) // mouse_check_button_released(mb_left)
+	stat_tee_index = noone;
+	}
+
 if androidBack
 && !kvActive
 	{
 	if submenu >= 0
 	submenu = navbar.main;
 	}
-
 
 }

@@ -166,7 +166,7 @@ function click_region_released(x_left,y_top,ww,hh,highlight,sub,alpha) {
 	
 var button = mb_left;	
 var condition = mouse_check_button_released(button);
-	
+
 return click_region_home(x_left,y_top,ww,hh,button,highlight,condition,sub,undefined,alpha);
 }
 

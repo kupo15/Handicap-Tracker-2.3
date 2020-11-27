@@ -25,6 +25,7 @@ if header_string != ""
 var xpos = 0;
 var region = header_height;
 var header_type = header_left;
+
 repeat 2
 	{
 	if header_type == headerType.bars

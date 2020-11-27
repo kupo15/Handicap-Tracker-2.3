@@ -2,7 +2,7 @@
 function scr_navbar_click(ind) {
 
 // switch screens
-screen_change(ind);
+screen_change(ind,true);
 
 switch ind
 	{

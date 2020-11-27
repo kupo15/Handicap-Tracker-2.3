@@ -9,7 +9,7 @@ var box_col = c_white;
 
 draw_clear(bg_col);
 
-// header
+#region header
 var str = pick("Edit Course","Create Course",screenIndex == screen.add_course);
 var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);	
 
@@ -25,6 +25,7 @@ if trash_delete
 	app_save;
 	androidBack = true;
 	}
+#endregion
 
 // textbox entry
 if kvActive
@@ -95,9 +96,10 @@ draw_text_height_label(xx+30,yy+35,str,"Select Location",height); // draw course
 #region draw teebox markers
 var xx = 10;
 var yy = 300;
-var button_hh = 60;
-var vsep = 70;
+var button_hh = 80;
+var vsep = 90;
 var height = 40;
+var ypos_off = (button_hh-40)*0.5;
 var ww = app_width-xx-xx;
 
 // size of teebox list
@@ -140,7 +142,7 @@ for(var i=0;i<size;i++)
 			
 	// draw teebox details
 	var str = teebox_list[| i]+" "+teebox_str;	
-	draw_tee_marker(xx+25,yy+yoff+10,40,teeColor,str,true); // draw teebox marker
+	draw_tee_marker(xx+25,yy+yoff+ypos_off,40,teeColor,str,true); // draw teebox marker
 		
 	// create tee
 	if (i+1) == size // last index

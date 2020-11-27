@@ -32,7 +32,7 @@ draw_text_height(xx+400,yy+115,"+ (Course Rating-Par)\n ",60);
 draw_line_pixel(xx+30,yy+130,240,1,c_black,1);
 
 
-
-
+if multiTouch[3]
+debug_reset = true;
 
 }
