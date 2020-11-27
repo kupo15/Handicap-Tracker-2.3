@@ -47,7 +47,7 @@ switch ind
 	{
 	case score_sort.currentYear: array_sort_nested_struct(courselist_array,"courseName",true); break; // sort list
 	case score_sort.lastYear: array_sort_nested_struct(courselist_array,"frequency",false); break; // sort list
-	case score_sort.all: array_sort_nested_struct(courselist_array,"favorite",true); break; // sort list
+	case score_sort.allScores: array_sort_nested_struct(courselist_array,"favorite",true); break; // sort list
 	}
 
 }

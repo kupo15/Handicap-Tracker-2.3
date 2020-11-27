@@ -54,7 +54,7 @@ enumcount,
 enum score_sort {
 currentYear,
 lastYear,
-all
+allScores
 }
 
 enum course_sort {
