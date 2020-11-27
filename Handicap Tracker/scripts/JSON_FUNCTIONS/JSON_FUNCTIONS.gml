@@ -32,9 +32,8 @@ if file_exists(_filename)
 	ROOT_data_struct = LoadJSONFromFile(_filename); 
 
 	var saveVersion = variable_struct_get(ROOT_data_struct,"version");
-
 	if saveVersion != json_version
-		{
+		{// transition to new version
 		scr_json_version_transition(saveVersion);
 		ROOT_data_struct.version = json_version;
 		

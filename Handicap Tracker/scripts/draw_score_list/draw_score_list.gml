@@ -8,9 +8,9 @@ var scrollbar_index = offsetScroll.scorelistOffset;
 var scorelist_offset = offsetArray[scrollbar_index];
 var scorelist_offset_start = offsetArrayStart[scrollbar_index];
 
-// draw scorelist
+#region draw scorelist
 var xx = 20;
-var yy = header_height;
+var yy = header_height+header_submenu_height;
 var height = 35;
 var sep = 120;
 var ww = app_width;
@@ -112,7 +112,8 @@ for(var i=pos_start;i<pos_end;i++)
 			}
 		}
 	}
-	
+#endregion	
+
 #region scrolling
 var xx = 0;
 var sub = navbar.main;
@@ -122,6 +123,14 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
     
 // Header
 draw_screen_header(headerType.back,headerType.none,"Round History");
+	
+var sort_index = offsetArray[offsetScroll.scoreSortUnderline];
+var header = draw_screen_header_submenu(sort_index,current_year,current_year-1,"All");
+if (header != undefined) && (header != META_data.scoreSort)
+	{
+	scr_course_list_sort(header);
+	app_save;
+	}	
 	
 #region new score button
 var hh = 80;

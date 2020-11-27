@@ -8,7 +8,7 @@ var scrollbar_index = offsetScroll.courselistOffset;
 var courselist_offset = offsetArray[scrollbar_index];
 var courselist_offset_start = offsetArrayStart[scrollbar_index];
 
-// draw course list	
+#region draw course list	
 var course_next = false;
 var xx = 120;
 var yy = header_height+header_submenu_height;
@@ -17,7 +17,6 @@ var sep = 80;
 var ww = app_width;
 var hh = app_height-nav_height-yy-sep-20;
 var rows = hh/sep;
-
 var box_hh_end = yy+hh;
 
 draw_roundrect_color(0,yy,ww,yy+hh,c_white,c_white,false);
@@ -72,7 +71,8 @@ for(var i=pos_start;i<pos_end;i++)
 			}
 		}
 	}
-	
+#endregion
+
 #region scrolling
 var xx = 0;
 var sub = navbar.main;
@@ -83,7 +83,8 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 // header
 draw_screen_header(headerType.back,headerType.none,"Course List");
 
-var header = draw_screen_header_submenu("A-Z","Popular","Favorites");
+var sort_index = offsetArray[offsetScroll.courseSortUnderline];
+var header = draw_screen_header_submenu(sort_index,"A-Z","Popular","Favorites");
 if (header != undefined) && (header != META_data.courseSort)
 	{
 	scr_course_list_sort(header);

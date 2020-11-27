@@ -84,7 +84,8 @@ draw_header_delete(0,ww,hh);
 return false;
 }
 
-function draw_screen_header_submenu() {
+function draw_screen_header_submenu(sort_index) {
+/// param sort_index
 /// param header_string...
 
 var xx = 0;
@@ -94,17 +95,16 @@ var col = header_color;
 
 draw_rectangle_color(xx,yy,app_width,hh,col,col,col,col,false);
 	
-var header_num = argument_count;
+var header_num = argument_count-1;
 var header_sep = app_width/header_num;
 var height = 40;
 var val = undefined;
-var sort_index = META_data.courseSort;
 
 for(var i=0;i<header_num;i++)
 	{
 	var str_col = pick(c_lt_gray,c_white,i==sort_index);
 	
-	if click_button(i*header_sep,yy,argument[i],height,str_col,header_sep,header_submenu_height,undefined,false,false,submenu)
+	if click_button(i*header_sep,yy,argument[i+1],height,str_col,header_sep,header_submenu_height,undefined,false,false,submenu)
 	val = i;
 	}
 

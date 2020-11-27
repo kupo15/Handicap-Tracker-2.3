@@ -46,7 +46,7 @@ debugyoff += 4;
 
 function debug_draw_sidebar_fades(xx,yy,ind,sep,height) {
 	
-var sind = offsetScroll.numpadYoff;
+var sind = offsetScroll.courseSortUnderline;
 
 draw_text_height(xx,yy+((debugyoff+0)*sep),"offsetArray:    "+string(offsetArray[sind]),height);
 draw_text_height(xx,yy+((debugyoff+1)*sep),"offsetArrayStart: "+string(offsetArrayStart[sind]),height);

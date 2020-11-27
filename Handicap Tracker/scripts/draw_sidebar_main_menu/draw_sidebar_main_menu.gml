@@ -19,7 +19,6 @@ androidBackSidebar = true;
 var yy_sep = 180;
 draw_line(xx+xx_off,yy_sep,xx+xx_off+ww,yy_sep); // separating line
 
-
 var xx = side_menu_width*0.5;
 var yy = 15;
 draw_icon_height(spr_icon_blank_profile,xx+xx_off,yy,120,1); // profile picture

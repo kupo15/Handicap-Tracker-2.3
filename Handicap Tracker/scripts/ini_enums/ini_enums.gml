@@ -39,7 +39,8 @@ teebarYoff,
 
 sidebarXoff,
 
-underlineXpos,
+scoreSortUnderline,
+courseSortUnderline,
 
 scorelistOffset,
 courselistOffset,
@@ -48,6 +49,12 @@ statsOffset,
 indexOffset,
 
 enumcount,
+}
+
+enum score_sort {
+currentYear,
+lastYear,
+all
 }
 
 enum course_sort {

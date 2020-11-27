@@ -25,6 +25,7 @@ ROOT_data_struct = {
 	
 	meta: {
 		profileIndex: 0,
+		scoreSort: score_sort.currentYear,
 		courseSort: course_sort.abc,
 		},
 	}

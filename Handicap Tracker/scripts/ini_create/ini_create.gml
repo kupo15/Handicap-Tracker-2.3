@@ -11,7 +11,6 @@ included_scores = ds_list_create();
 top_scores = 8;
 ghin_index = 0;
 round_selection = 20;
-rounds_played = array_length(scorelist_array);
 old_course_name = "";
 
 handicap_trend_type = 0;

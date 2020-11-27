@@ -143,6 +143,4 @@ year_offset_end = 0;
 	
 headerDeleteOffsetDisp = 0;
 headerDeleteOffset = 0;
-
-
 }
