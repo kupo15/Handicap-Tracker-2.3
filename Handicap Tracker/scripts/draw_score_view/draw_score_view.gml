@@ -17,6 +17,7 @@ var course_rating = activeStruct.teeRating;
 var roundScore = activeStruct.roundScore;
 var roundStrokes = activeStruct.roundStrokes;
 var practice_round = activeStruct.practiceRound;
+var off_season = activeStruct.offSeason;
 
 #region draw course
 var xx = 0;
@@ -93,23 +94,34 @@ if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	
 #endregion
 	
-#region draw practice
+#region draw practice/off season
 var xx = 0;
-var yy = 800;
+var yy = 800-90;
 var ww = app_width-xx-xx;
 var hh = 90;
 
-if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
+if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden) // practice tab
 	{
 	activeStruct.practiceRound = !activeStruct.practiceRound;
 	}
 	
+if draw_dialogue_box(xx,yy+hh,ww,hh,c_white,navbar.hidden) // off season tab
+	{
+	activeStruct.offSeason = !activeStruct.offSeason;
+	}
+	
 // draw switch tab
 draw_switch_tab(xx+450,yy,hh,20,0,practice_round);
+draw_switch_tab(xx+450,yy+hh,hh,20,1,off_season);
 
 var height = 40;
 draw_text_height(xx+20,yy+5,"Round Type",label_height,fn_italic); // draw course tee markers label
 draw_text_height(xx+20,yy+35,"Practice Round",height); // draw course name
+
+draw_line_pixel(xx+20,yy+hh,app_width,1,c_lt_gray,1);
+
+draw_text_height(xx+20,yy+5+hh,"Type",label_height,fn_italic); // draw course tee markers label
+draw_text_height(xx+20,yy+35+hh,"Off Season",height); // draw course name
 #endregion	
 	
 #region draw calendar

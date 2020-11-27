@@ -31,6 +31,7 @@ for(var i=pos_start;i<pos_end;i++)
 	var strokes = score_pointer.roundStrokes;
 	var course_esr = score_pointer.esr;
 	var course_practice = score_pointer.practiceRound;
+	var off_season = score_pointer.offSeason;
 	//var index = score_pointer.indexHistory;
 
 	var date = score_pointer.roundDate;
@@ -56,8 +57,13 @@ for(var i=pos_start;i<pos_end;i++)
 	var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
 	draw_tee_marker(xx+10,yy+55+(off_pos*sep),30,course_tee,str,true); // draw tee marker
 	
-	if course_practice
-	draw_text_height_color(xx+13,yy+95+(off_pos*sep),"Practice Round",c_red,20,fn_italic);
+	if course_practice || off_season
+		{
+		var str = pick("Practice Round","Off Season",off_season);
+		var str_col = pick(c_red,make_color_rgb(38,72,106),off_season);
+		
+		draw_text_height_color(xx+13,yy+95+(off_pos*sep),str,str_col,20,fn_italic);
+		}
 
 	draw_text_height_color(xx+270,yy+65+(off_pos*sep),date_string,c_gray,23); // draw date played
 			
