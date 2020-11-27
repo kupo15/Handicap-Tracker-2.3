@@ -82,8 +82,8 @@ offsetArray = array_create(offsetScroll.enumcount,0);
 offsetArrayStart = array_create(offsetScroll.enumcount,0);
 offsetArrayEnd = array_create(offsetScroll.enumcount,0);
 
-scrollbar_disp = array_create(offsetScroll.enumcount,0);
-scrollbar_disp_end = array_create(offsetScroll.enumcount,0);
+scrollbarDisp = array_create(offsetScroll.enumcount,0);
+scrollbarDispEnd = array_create(offsetScroll.enumcount,0);
 
 scrollbar_speed = array_create(offsetScroll.enumcount,0);
 
