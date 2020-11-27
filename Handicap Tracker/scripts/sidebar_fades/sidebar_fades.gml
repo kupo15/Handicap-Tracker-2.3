@@ -31,8 +31,8 @@ alpha_lerp = lerp(alpha_lerp,alpha_lerp_end,fade_spd);
 // lerp the side menu position
 var lerp_spd = SIDEBAR_LERP;
 
-if submenu_menu_xpos != submenu_menu_xpos_disp
-submenu_menu_xpos_disp = lerp(submenu_menu_xpos_disp,submenu_menu_xpos,lerp_spd);
+if offsetArray[offsetScroll.sidebarXoff] != offsetArrayEnd[offsetScroll.sidebarXoff]
+offsetArray[offsetScroll.sidebarXoff] = lerp(offsetArray[offsetScroll.sidebarXoff],offsetArrayEnd[offsetScroll.sidebarXoff],lerp_spd);
 		
 // header delete
 headerDeleteOffset = mode_delete;

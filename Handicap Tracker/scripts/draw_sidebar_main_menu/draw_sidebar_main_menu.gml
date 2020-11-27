@@ -2,7 +2,7 @@ function draw_sidebar_main_menu() {
 
 #region draw menu
 var new_submenu = false;
-var xx_off = submenu_menu_xpos_disp;
+var xx_off = offsetArray[offsetScroll.sidebarXoff];
 var xx = 0;
 var yy = 0;
 var ww = side_menu_width;
@@ -82,8 +82,8 @@ for(var i=0;i<screen.enumcount;i++)
 
 	if androidBackSidebar
 		{
-		// submenu_menu_xpos = 1;
-		submenu_menu_xpos = -side_menu_width-30;
+		// offsetArrayEnd[offsetScroll.sidebarXoff] = 1;
+		offsetArrayEnd[offsetScroll.sidebarXoff] = -side_menu_width-30;
 	
 		if !new_submenu && (submenu == navbar.sidebar)
 		submenu = submenuPrevious;

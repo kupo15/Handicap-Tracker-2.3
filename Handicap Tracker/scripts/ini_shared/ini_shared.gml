@@ -96,6 +96,9 @@ debugFlickSpeed = 0;
 // set starting offsets
 offsetArray[offsetScroll.navbarYoff] = 1;
 offsetArrayStart[offsetScroll.navbarYoff] = 1;
+
+offsetArray[offsetScroll.sidebarXoff] = -side_menu_width-30;;
+offsetArrayEnd[offsetScroll.sidebarXoff] = offsetArray[offsetScroll.sidebarXoff];
 #endregion
 
 // debug
@@ -124,10 +127,7 @@ alpha_lerp_end = 0;
 
 debug_reset = false;
 
-// submenus
-submenu_menu_xpos = -side_menu_width-30;
-submenu_menu_xpos_disp = submenu_menu_xpos;
-	
+// submenus	
 darken_screen = false;
 screenDarkenAlpha = 0;
 screenDarkenIndex = 0;

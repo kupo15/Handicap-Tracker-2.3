@@ -36,6 +36,8 @@ numpadYoff,
 coursebarYoff,
 teebarYoff,
 
+sidebarXoff,
+
 scorelistOffset,
 courselistOffset,
 seasonOffset,

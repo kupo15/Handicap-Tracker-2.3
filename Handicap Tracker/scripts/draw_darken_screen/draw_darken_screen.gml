@@ -6,7 +6,7 @@ draw_rectangle_color(0,0,room_width,room_height,col,col,col,col,false); // darke
 
 }
 
-function draw_darken_screen(){
+function draw_darken_screen() {
 	
 if androidBack
 switch screenDarkenIndex
@@ -26,7 +26,7 @@ var lerp_spd = 0.15;
 switch screenDarkenIndex
 	{
 	case darkenIndex.none: screenDarkenAlpha = lerp(screenDarkenAlpha,0,lerp_spd); break;
-	case darkenIndex.sidebar: screenDarkenAlpha = 1-(abs(submenu_menu_xpos_disp)/side_menu_width); break;
+	case darkenIndex.sidebar: screenDarkenAlpha = 1-(abs(offsetArray[offsetScroll.sidebarXoff])/side_menu_width); break;
 	case darkenIndex.calendar: screenDarkenAlpha = lerp(screenDarkenAlpha,1,lerp_spd); break;
 	}
 
