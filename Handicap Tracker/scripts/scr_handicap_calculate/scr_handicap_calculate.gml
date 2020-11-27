@@ -30,6 +30,7 @@ for(var i=0;i<size;i++) // loop through all
 	var course_slope = real(score_pointer.teeSlope);
 	var course_par = real(score_pointer.teePar);
 	var practice = score_pointer.practiceRound;
+	var off_season = score_pointer.offSeason;
 	
 	// calc diff
 	var diff = net_score-course_rating;
@@ -42,7 +43,7 @@ for(var i=0;i<size;i++) // loop through all
 	score_pointer.esr = 0;
 	score_pointer.courseHandicap = undefined;
 	
-	if !score_pointer.practiceRound
+	if !practice && !off_season
 	ds_list_add(included_scores,score_pointer);
 	}
 

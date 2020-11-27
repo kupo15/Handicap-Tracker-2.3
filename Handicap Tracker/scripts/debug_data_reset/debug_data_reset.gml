@@ -182,9 +182,9 @@ var date = date_create_datetime(2020,9,26,1,1,1); scr_score_add_index("West Brid
 var date = date_create_datetime(2020,9,30,1,1,1); scr_score_add_index("Bass Rocks","gold","79",date,1);
 var date = date_create_datetime(2020,10,3,1,1,1); scr_score_add_index("Crotched Mountain","blue","87",date,2);
 var date = date_create_datetime(2020,10,11,1,1,1); scr_score_add_index("Olde Scottish Links","blue","85",date,2);
-var date = date_create_datetime(2020,11,8,1,1,1); scr_score_add_index("Stow Acres C. C.-North Course","blue","85",date,2);
-var date = date_create_datetime(2020,11,21,1,1,1); scr_score_add_index("Crystal Lake Golf Club - RI","blue","83",date);
-var date = date_create_datetime(2018,11,25,1,1,1); scr_score_add_index("Riverwinds","green","85",date);
+var date = date_create_datetime(2020,11,8,1,1,1); scr_score_add_index("Stow Acres C. C.-North Course","blue","85",date,2,true);
+var date = date_create_datetime(2020,11,21,1,1,1); scr_score_add_index("Crystal Lake Golf Club - RI","blue","83",date,undefined,true);
+var date = date_create_datetime(2020,11,25,1,1,1); scr_score_add_index("Riverwinds","green","85",date,undefined,true);
 
 array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
 
