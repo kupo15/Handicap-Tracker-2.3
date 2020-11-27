@@ -64,5 +64,6 @@ index_trend_offset_start = 0;
 #endregion
 
 debug_data_reset();
+ini_handicap_season();
 scr_handicap_calculate();
 }

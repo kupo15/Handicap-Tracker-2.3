@@ -78,6 +78,7 @@
     {"id":{"name":"draw_help_info","path":"scripts/draw_help_info/draw_help_info.yy",},"order":6,},
     {"id":{"name":"draw_falling_off","path":"scripts/draw_falling_off/draw_falling_off.yy",},"order":2,},
     {"id":{"name":"enums_library","path":"scripts/enums_library/enums_library.yy",},"order":2,},
+    {"id":{"name":"ini_handicap_season","path":"scripts/ini_handicap_season/ini_handicap_season.yy",},"order":0,},
     {"id":{"name":"scr_inputs","path":"scripts/scr_inputs/scr_inputs.yy",},"order":1,},
     {"id":{"name":"room_template","path":"rooms/room_template/room_template.yy",},"order":0,},
     {"id":{"name":"sidebar_fades","path":"scripts/sidebar_fades/sidebar_fades.yy",},"order":3,},

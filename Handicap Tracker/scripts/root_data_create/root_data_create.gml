@@ -2,6 +2,7 @@ function root_data_create() {
 	
 courselist_array = array_create(0);
 scorelist_array = array_create(0);
+handicap_season_array = array_create(0);
 scr_playing_clear();
 
 ROOT_data_struct = {
