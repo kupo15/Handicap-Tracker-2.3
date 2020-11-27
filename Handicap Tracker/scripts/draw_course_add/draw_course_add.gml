@@ -10,11 +10,7 @@ var box_col = c_white;
 draw_clear(bg_col);
 
 // header
-var str = "Edit Course";
-
-if screenIndex == screen.add_course
-str = "Create Course";
-
+var str = pick("Edit Course","Create Course",screenIndex == screen.add_course);
 var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);	
 
 if trash_delete
@@ -40,39 +36,65 @@ switch textboxIndex
 var course_name = activeStruct.courseName;
 
 #region draw course name
-var xx = 40;
+var xx = 0;
+var xoff = 30;
 var yy = 90;
-var ww = app_width-xx-xx-20;
-var hh = 120;
+var ww = app_width-xoff-xoff-25;
+var hh = 100;
 
 var yoff = 35;
 var ysep = 80;
-var height = 50;
+var height = 45;
 var course_height = text_reduce(course_name,ww,height);
+var label_height = 30;
 
 // background
 draw_rectangle_color(0,yy,app_width,yy+hh,box_col,box_col,box_col,box_col,false);
 
 // draw course label
 draw_set_halign(fa_left);
-draw_set_color(c_gray);
-draw_text_height(xx,yy+yoff+height,"Course Name",30);
+draw_text_height_color(xx+xoff+5,yy+5,"Course Name",c_gray,label_height,fn_italic); // draw course tee markers label
 
 // draw textbox
 var ypos_off = 35+height-course_height;
 draw_set_color(c_black);
-draw_text_height_ext_cursor(xx+5,yy+ypos_off,course_name,"Enter course",-1,ww,0,course_height,0);
+draw_text_height_ext_cursor(xx+35,yy+ypos_off,course_name,"Enter course",-1,-1,0,course_height,0);
 
-
-if click_region_released(0,yy+20+(0*ysep),app_width,ysep-15,true,navbar.hidden)
+if click_region_released(0,yy+(0*ysep),app_width,hh,true,navbar.hidden)
 click_textbox_set(course_name,0,kbv_type_default);
 		
-draw_line_pixel(xx,yy+yoff+height+(0*ysep),ww,2,c_gray,0.8); // draw separating line
+if kvActive
+draw_line_pixel(xx+xoff,yy+yoff+height+(0*ysep),ww,2,header_color,0.8); // draw separating line
+#endregion
+
+#region course location
+var xx = 0;
+var yy = 190;
+var ww = app_width-xx-xx;
+var hh = 90;
+var height = 35;
+
+if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
+if course_name != ""
+	{
+	//submenu = navbar.teebar;
+	//scr_tee_filled_set(); // mark tees with data
+	}
+
+draw_line_pixel(20,yy,app_width,1,c_lt_gray,1);
+
+//var str = string(capitalize(course_tee))+" "+string(course_yardage)+" yds ("+string(course_slope)+" / "+string(course_rating)+")";
+//if course_tee == ""
+var str = "";
+
+draw_set_halign(fa_left);
+draw_text_height_color(xx+30,yy+5,"Location",c_gray,label_height,fn_italic); // draw course tee markers label
+draw_text_height_label(xx+30,yy+35,str,"Select Location",height); // draw course name
 #endregion
 
 #region draw teebox markers
 var xx = 10;
-var yy = 270;
+var yy = 300;
 var button_hh = 60;
 var vsep = 70;
 var height = 40;
