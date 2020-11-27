@@ -40,6 +40,7 @@ scorelistOffset,
 courselistOffset,
 seasonOffset,
 statsOffset,
+indexOffset,
 
 enumcount,
 }

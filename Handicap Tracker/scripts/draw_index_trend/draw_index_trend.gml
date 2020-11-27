@@ -1,10 +1,12 @@
-/// @param x
-/// @param y
-/// @param ww_hh
-/// @param ymin
-/// @param ymax
+
 function draw_index_trend() {
 
+// set offsets
+var scrollbar_index = offsetScroll.indexOffset;
+var index_trend_offset = offsetArray[scrollbar_index];
+var index_trend_offset_start = offsetArrayStart[scrollbar_index];
+
+// draw trend
 var xx = 60;
 var yy = 750;
 var ww = app_width-xx-30;
@@ -40,8 +42,9 @@ var ysep = hh/ticks;
 if handicap_trend_type == 1
 var max_disp = size;
 		
-index_trend_offset += funct_mouse_wheel(1);
-index_trend_offset = clamp(index_trend_offset,0,size-max_disp);
+// debug
+offsetArray[offsetScroll.indexOffset] += funct_mouse_wheel(1);
+offsetArray[offsetScroll.indexOffset] = clamp(offsetArray[offsetScroll.indexOffset],0,size-max_disp);
 	
 // draw the hor trends
 var col = c_black;
@@ -135,13 +138,10 @@ for(var i=0;i<ticks;i++)
 	}
 	
 #region scrolling
-var offset_start_pointer = [self,"index_trend_offset_start"];
-var offset_pointer = [self,"index_trend_offset"];
-var scrollbar_index = 0;
 var xx = 0;
 var sub = navbar.main;
 
-funct_screen_scrolling_hor(0,yy-hh,room_width,hh,xsep,size,max_disp,offset_start_pointer,offset_pointer,scrollbar_index,sub);
+funct_screen_scrolling_hor(0,yy-hh,room_width,hh,xsep,size,max_disp,scrollbar_index,sub);
 #endregion
     
 #region draw display type

@@ -1,4 +1,5 @@
 function draw_score_list() {
+	
 var col = c_lt_gray;
 draw_clear(col);
 
