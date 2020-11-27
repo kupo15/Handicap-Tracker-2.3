@@ -39,7 +39,7 @@ function draw_calendar_icon(xx,yy,sq_yoff,sq_size,date) {
 	
 var day = date_get_day(date);
 var weekday = date_get_weekday(date);
-var day_str = funct_convert_day(weekday,false);
+var day_str = funct_convert_weekday(weekday,false);
 
 // draw calendar icon
 draw_roundrect_color(xx+1,yy+sq_yoff,xx+sq_size,yy+sq_size-1+sq_yoff,c_gray,c_gray,true);

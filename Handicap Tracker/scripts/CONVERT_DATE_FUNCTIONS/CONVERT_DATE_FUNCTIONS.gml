@@ -45,7 +45,7 @@ function funct_convert_month(month_num,month_full) {
 
 }
 
-function funct_convert_day(weekday_num,day_full) {
+function funct_convert_weekday(weekday_num,day_full) {
 /// @param day
 /// @param day_full
 

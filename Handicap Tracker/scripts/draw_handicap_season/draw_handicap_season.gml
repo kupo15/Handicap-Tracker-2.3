@@ -4,7 +4,7 @@ function draw_handicap_season() {
 var xx = 0;
 var xoff = 30;
 var yy = header_height;
-var sep = 100;
+var sep = 110;
 var ww = app_width;
 var hh = app_height-nav_height-yy;
 var rows = hh/sep;
@@ -24,6 +24,35 @@ for(var i=pos_start;i<pos_end;i++)
 	draw_text_height(xx+xoff,yy+10+off_pos,state_name,height,fn_bold);
 	
 	var district_num = array_length(pointer.districts);
+	var district_num = 1;
+	for(var n=0;n<district_num;n++)
+		{
+		var ysep = 35;
+		var ypos = yy+off_pos+45+(n*ysep);
+		var district_pointer = pointer.districts[n];
+		var district_name = district_pointer.districtName;
+		
+		draw_text_height_ext(xx+xoff,ypos,district_name,30,280,0,height*0.8); // draw district name
+
+		if district_pointer.yearRound
+		var season_str = "Year-Round";
+		else
+			{
+			var start_month = date_get_month(district_pointer.startSeason);
+			var month_str = funct_convert_month(start_month,false);
+			var start_day = date_get_day(district_pointer.startSeason);
+			var startDate_str = month_str+" "+string(start_day);
+
+			var end_month = date_get_month(district_pointer.endSeason);
+			var month_str = funct_convert_month(end_month,false);
+			var end_day = date_get_day(district_pointer.endSeason);
+			var endDate_str = month_str+" "+string(end_day);
+			
+			var season_str = startDate_str+"-"+endDate_str;
+			}
+
+		draw_text_height_color(380,ypos,season_str,c_gray,height*0.8,fn_italic); // draw season dates
+		}
 	
 	draw_line_pixel(xoff,yy+off_pos,app_width,1,c_lt_gray,1);
 	

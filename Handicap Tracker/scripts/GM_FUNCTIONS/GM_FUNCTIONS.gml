@@ -88,6 +88,13 @@ return val1;
 	
 }
 	
+function frac_whole(num) {
+
+var str = string(frac(num));
+var new_str = string_replace(str,"0.","");
+
+return real(new_str);	
+}
 	
 // Android display
 function pct_x(percent) {

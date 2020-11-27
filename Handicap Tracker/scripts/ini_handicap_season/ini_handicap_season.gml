@@ -10,16 +10,17 @@ var ins = argument[3];
 if !allYear
 	{
 	var start_month = floor(startDate);
-	var start_day = frac(startDate);
+	var start_day = frac_whole(startDate);
 	startDate = date_create_datetime(current_year,start_month,start_day,1,1,1);
 	
 	var end_month = floor(endDate);
-	var end_day = frac(endDate);
+	var end_day = frac_whole(endDate);
 	endDate = date_create_datetime(current_year,end_month,end_day,1,1,1);
 	}
 	
 var district_data = {
 	
+	districtName: district,
 	yearRound: allYear,
 	startSeason: startDate,
 	endSeason: endDate,	
