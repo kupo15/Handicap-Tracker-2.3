@@ -43,7 +43,6 @@ repeat 2
 			submenuPrevious = submenu;
 			submenu = navbar.sidebar;
 	
-			offsetArrayEnd[offsetScroll.sidebarXoff] = 0;
 			screenDarkenIndex = darkenIndex.sidebar;
 			}
 		}

@@ -26,7 +26,7 @@ var lerp_spd = 0.15;
 switch screenDarkenIndex
 	{
 	case darkenIndex.none: screenDarkenAlpha = lerp(screenDarkenAlpha,0,lerp_spd); break;
-	case darkenIndex.sidebar: screenDarkenAlpha = 1-(abs(offsetArray[offsetScroll.sidebarXoff])/side_menu_width); break;
+	case darkenIndex.sidebar: screenDarkenAlpha = offsetArray[offsetScroll.sidebarXoff]; break;
 	case darkenIndex.calendar: screenDarkenAlpha = lerp(screenDarkenAlpha,1,lerp_spd); break;
 	}
 

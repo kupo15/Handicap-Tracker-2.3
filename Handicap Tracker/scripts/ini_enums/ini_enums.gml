@@ -30,6 +30,7 @@ edit_tees,
 edit_date,
 }
 
+
 enum offsetScroll {
 navbarYoff,
 numpadYoff,
@@ -37,6 +38,8 @@ coursebarYoff,
 teebarYoff,
 
 sidebarXoff,
+
+underlineXpos,
 
 scorelistOffset,
 courselistOffset,
@@ -87,6 +90,7 @@ par
 
 
 enum navbar {
+profileChange = -6,
 sidebar = -5,
 main = -4,
 hidden = -1,

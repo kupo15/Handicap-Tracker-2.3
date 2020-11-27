@@ -2,7 +2,7 @@
 
 function draw_submenu_course_search(ypos,ww,ysep,ref_array,scrollbar_index) {
 	
-var coursebar_yoff_start = offsetArrayStart[offsetScroll.coursebarYoff];
+var coursebar_yoff_start = 1-offsetArray[offsetScroll.coursebarYoff];
 var clicked = false;
 var searchbar_hh = ysep*0.75;
 var xx = 120;

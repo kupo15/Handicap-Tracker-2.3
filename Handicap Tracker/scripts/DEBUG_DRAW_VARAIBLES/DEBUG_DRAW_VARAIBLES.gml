@@ -38,11 +38,21 @@ debugyoff += 4;
 
 function debug_draw_switch_tabs(xx,yy,ind,sep,height) {
 	
-//for(var i=0;i<switchTabNum;i++)
 draw_text_height(xx,yy+((debugyoff+0)*sep),"switchTabDisp:    "+string(switchTabDisp),height);
 draw_text_height(xx,yy+((debugyoff+1)*sep),"switchTabDispEnd: "+string(switchTabDispEnd),height);
 	
 debugyoff += 4;
+}
+
+function debug_draw_sidebar_fades(xx,yy,ind,sep,height) {
+	
+var sind = offsetScroll.numpadYoff;
+
+draw_text_height(xx,yy+((debugyoff+0)*sep),"offsetArray:    "+string(offsetArray[sind]),height);
+draw_text_height(xx,yy+((debugyoff+1)*sep),"offsetArrayStart: "+string(offsetArrayStart[sind]),height);
+draw_text_height(xx,yy+((debugyoff+2)*sep),"offsetArrayEnd: "+string(offsetArrayEnd[sind]),height);
+	
+debugyoff += 5;
 }
 
 function debug_draw_click_highlight(xx,yy,ind,sep,height) {

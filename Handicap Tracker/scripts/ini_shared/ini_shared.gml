@@ -92,13 +92,6 @@ scrollbarIndexScrolling = noone;
 
 canFlick = true;
 debugFlickSpeed = 0;
-
-// set starting offsets
-offsetArray[offsetScroll.navbarYoff] = 1;
-offsetArrayStart[offsetScroll.navbarYoff] = 1;
-
-offsetArray[offsetScroll.sidebarXoff] = -side_menu_width-30;;
-offsetArrayEnd[offsetScroll.sidebarXoff] = offsetArray[offsetScroll.sidebarXoff];
 #endregion
 
 // debug
