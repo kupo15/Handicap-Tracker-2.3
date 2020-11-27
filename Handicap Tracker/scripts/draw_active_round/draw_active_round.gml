@@ -16,5 +16,5 @@ draw_text_height(xx,yy,course_name,height); // course name
 
 // if clicked
 if click_region_released(0,yy-50,ww,hh+50,c_yellow,navbar.main)
-screen_change(screen.playing);
+scr_navbar_click(screen.playing);
 }
