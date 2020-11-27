@@ -112,6 +112,7 @@ else
 #region draw course info
 var xx = 0;
 var yy = 290;
+var xoff = 20;
 var ww = app_width-xx-xx;
 var hh = app_height-nav_height-80-10;
 var height = 35;
@@ -119,17 +120,17 @@ var col = c_white;
 
 draw_roundrect_color(xx,yy,xx+ww,yy+hh,col,col,false);
 	
-draw_text_height(xx+10,yy,"Course Handicap: "+string(_handicap),height);
+draw_text_height(xx+xoff,yy,"Course Handicap: "+string(_handicap),height);
 draw_text_height(xx+360,yy,"Par "+string(tee_par),height); // draw par
 	
-draw_text_height(xx+10,yy+60,"Max Strokes",30,fn_italic); // draw max score
-draw_text_height(xx+10,yy+90,"HCP Holes "+string(_handicap_under),35); // draw HCP holes
-//draw_text_height(xx+10+270,yy+90,max_score_text(max_under),38,fn_italic); // draw max score
+draw_text_height(xx+xoff,yy+60,"Max Strokes",30,fn_italic); // draw max score
+draw_text_height(xx+xoff,yy+90,"HCP Holes "+string(_handicap_under),35); // draw HCP holes
+//draw_text_height(xx+xoff+270,yy+90,max_score_text(max_under),38,fn_italic); // draw max score
 	
 if is_real(_handicap) && ((_handicap mod 18) != 0)
 	{
-	draw_text_height(xx+10,yy+125,"HCP Holes "+string(_handicap_over),35); // draw HCP holes
-	//draw_text_height(xx+10+270,yy+125,max_score_text(max_over),38,fn_italic); // draw max score
+	draw_text_height(xx+xoff,yy+125,"HCP Holes "+string(_handicap_over),35); // draw HCP holes
+	//draw_text_height(xx+xoff+270,yy+125,max_score_text(max_over),38,fn_italic); // draw max score
 	}
 #endregion	
 	
@@ -167,7 +168,7 @@ if click_button(xx,yy,"Clear",height,c_black,ww,hh,col,true,false,navbar.main) /
 #endregion*/
 
 #region Begin Round
-var hh = 80;
+var hh = 90;
 var xx = 0;
 var yy = app_height-nav_height-hh-10;
 var height = 40;

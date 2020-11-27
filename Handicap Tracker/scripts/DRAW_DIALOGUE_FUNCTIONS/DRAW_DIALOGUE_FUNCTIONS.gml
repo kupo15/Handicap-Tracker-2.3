@@ -96,7 +96,7 @@ function draw_numpad_golf(variable) {
 
 var numpad_yoff = 1-offsetArray[offsetScroll.numpadYoff];
 var xx = element_numpad.xx;
-var yy = element_numpad.yy+(numpad_yoff*441);
+var yy = element_numpad.yy+(numpad_yoff*471);
 
 var hh = 380;
 var vsep = element_numpad.vsep;

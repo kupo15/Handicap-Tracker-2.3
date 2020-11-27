@@ -44,10 +44,10 @@ if click_region_released(0,header_height,app_width,hh,true,navbar.main)
 #endregion
 
 // draw active round
-draw_active_round(20,500);
+draw_active_round(30,500);
 
 // draw round falling off
-draw_falling_off(20,830);
+draw_falling_off(30,830);
 
 // debug
 if multiTouch[3]

@@ -19,10 +19,10 @@
 
 // background colors
 #macro c_lt_gray make_color_rgb(228,228,228)
-#macro c_click_color make_color_rgb(235,235,235)
+#macro c_click_color c_lt_gray // make_color_rgb(235,235,235)
 
 // layout
-#macro res_bleed_xx 10
+#macro res_bleed_xx 20
 #macro res_bleed_yy 10
 #macro DPI_POINT 72
 

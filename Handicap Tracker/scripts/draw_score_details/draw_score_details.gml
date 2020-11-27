@@ -36,7 +36,7 @@ var roundStrokes = activeStruct.roundStrokes;
 var xx = 0;
 var yy = 200;
 var ww = app_width
-var hh = 400;
+var hh = 370;
 var dialgue_end = yy+hh;
 var col = c_white;
 
@@ -126,10 +126,10 @@ draw_text_height(xx,yy+80,detail_val[textboxIndex-score_data.score_],height);
 
 #region Save
 var submit = (roundScore != "");
-var hh = 60;
+var hh = element_finished.hh;
+var height = element_finished.stringHeight;
 var xx = 0;
 var yy = app_height-hh;
-var height = 40;
 var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 

@@ -46,7 +46,7 @@ draw_text_height(xx+50,yy+25,course_tee+" Tee",height); // draw course tee marke
 
 #region draw tee details
 var yy = 200;
-var hh = 400;
+var hh = 370;
 var dialgue_end = yy+hh;
 
 draw_roundrect_color(xx,yy,xx+ww,yy+hh,col,col,false);
@@ -108,8 +108,7 @@ if click_button(xx+button_ww,yy,">>",height,c_black,button_ww,button_hh,button_c
 	move = true;
 	}
 	
-draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);
-	
+draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);	
 #endregion
 
 if move
@@ -139,10 +138,10 @@ draw_text_height(xx,yy+80,detail_val[textboxIndex-course_data.yardage],height);
 	
 #region Finished button
 var submit = (course_yardage != "") && (course_slope != "") && (course_par != "") && (course_rating != "");
-var hh = 60;
+var hh = element_finished.hh;
+var height = element_finished.stringHeight;
 var xx = 0;
 var yy = app_height-hh;
-var height = 40;
 var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 

@@ -12,8 +12,8 @@ var courselist_offset_start = offsetArrayStart[scrollbar_index];
 var course_next = false;
 var xx = 120;
 var yy = header_height+header_submenu_height;
-var height = 30;
-var sep = 80;
+var height = 35;
+var sep = 110;
 var ww = app_width;
 var hh = app_height-nav_height-yy-sep-20;
 var rows = hh/sep;
@@ -80,7 +80,7 @@ var sub = navbar.main;
 funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
 
-// header
+#region header
 draw_screen_header(headerType.back,headerType.none,"Course List");
 
 var sort_index = offsetArray[offsetScroll.courseSortUnderline];
@@ -90,12 +90,13 @@ if (header != undefined) && (header != META_data.courseSort)
 	scr_course_list_sort(header);
 	app_save;
 	}
+#endregion
 
 // draw lt gray cover
 draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);	
 	
 #region new course button
-var hh = 80;
+var hh = 110;
 var xx = 0;
 var ww = app_width-xx-xx;
 var yy = room_height-hh-nav_height-10;

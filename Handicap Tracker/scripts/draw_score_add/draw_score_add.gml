@@ -164,10 +164,10 @@ if calendarDateEntry != undefined
 			  			 	  			
 #region Create/Update
 var submit = (course_tee != "") && (roundScore != "");
-var hh = 60;
+var hh = element_finished.hh;
+var height = element_finished.stringHeight;
 var xx = 0;
 var yy = app_height-hh;
-var height = 40;
 var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 

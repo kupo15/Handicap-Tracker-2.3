@@ -95,10 +95,10 @@ if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 #endregion
 	
 #region draw practice/off season
-var xx = 0;
-var yy = 800-90;
-var ww = app_width-xx-xx;
 var hh = 90;
+var xx = 0;
+var yy = 780-hh;
+var ww = app_width-xx-xx;
 
 if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden) // practice tab
 	{
@@ -111,8 +111,8 @@ if draw_dialogue_box(xx,yy+hh,ww,hh,c_white,navbar.hidden) // off season tab
 	}
 	
 // draw switch tab
-draw_switch_tab(xx+450,yy,hh,20,0,practice_round);
-draw_switch_tab(xx+450,yy+hh,hh,20,1,off_season);
+draw_switch_tab(xx+450,yy,hh,23,0,practice_round);
+draw_switch_tab(xx+450,yy+hh,hh,23,1,off_season);
 
 var height = 40;
 draw_text_height(xx+20,yy+5,"Round Type",label_height,fn_italic); // draw course tee markers label
@@ -126,7 +126,7 @@ draw_text_height(xx+20,yy+35+hh,"Off Season",height); // draw course name
 	
 #region draw calendar
 var xx = 0;
-var yy = 890;
+var yy = 870;
 var ww = app_width-xx-xx;
 var hh = 90;
 var col = c_white;
@@ -167,10 +167,10 @@ if calendarDateEntry != undefined
 			  			 	  			
 #region Save
 var submit = (course_tee != "") && (roundScore != "");
-var hh = 60;
+var hh = element_finished.hh;
+var height = element_finished.stringHeight;
 var xx = 0;
 var yy = app_height-hh;
-var height = 40;
 var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
