@@ -1,8 +1,5 @@
 function debug_data_reset() {
 	
-if !debug_reset
-exit;
-
 root_data_create();
 
 ROOT_data_struct.profiles[0].name = "Matt";

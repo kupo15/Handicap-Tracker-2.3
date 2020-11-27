@@ -26,6 +26,5 @@ score_struct = undefined;
 course_index = undefined;
 score_index = undefined;
 
-debug_data_reset();
 scr_handicap_calculate();
 }
