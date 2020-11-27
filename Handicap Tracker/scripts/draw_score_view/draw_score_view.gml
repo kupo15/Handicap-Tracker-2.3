@@ -247,10 +247,7 @@ if androidBack
 	submenu = navbar.hidden;
 	else if (submenu == navbar.hidden)
 		{
-		// reset variables
-		//score_list_offset = 0;
-		//score_list_offset_start = 0;
-	
+		// reset variables	
 		textboxIndex = undefined;
 		score_index = undefined;
 

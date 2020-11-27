@@ -82,6 +82,17 @@ offsetArray = array_create(offsetScroll.enumcount,0);
 offsetArrayStart = array_create(offsetScroll.enumcount,0);
 offsetArrayEnd = array_create(offsetScroll.enumcount,0);
 
+scrollbar_disp = array_create(offsetScroll.enumcount,0);
+scrollbar_disp_end = array_create(offsetScroll.enumcount,0);
+
+scrollbar_speed = array_create(offsetScroll.enumcount,0);
+
+scrollbarIndex = noone;
+scrollbarIndexScrolling = noone;
+
+canFlick = true;
+debugFlickSpeed = 0;
+
 // set starting offsets
 offsetArray[offsetScroll.navbarYoff] = 1;
 offsetArrayStart[offsetScroll.navbarYoff] = 1;
@@ -139,20 +150,6 @@ year_offset_end = 0;
 	
 headerDeleteOffsetDisp = 0;
 headerDeleteOffset = 0;
-
-// variables
-scrollbar_num = 3;
-scrollbar_disp = array_create(scrollbar_num,0);
-scrollbar_disp_end = array_create(scrollbar_num,0);
-scrollbar_speed = array_create(scrollbar_num,0);
-
-scrollbarIndex = noone;
-scrollbarIndexScrolling = noone;
-
-canFlick = true;
-debugFlickSpeed = 0;
-
-
 
 
 }

@@ -6,6 +6,7 @@ draw_clear(col);
 var scorelist_offset = offsetArray[offsetScroll.scorelistOffset];
 var scorelist_offset_start = offsetArrayStart[offsetScroll.scorelistOffset];
 
+// draw scorelist
 var xx = 20;
 var yy = header_height;
 var height = 35;
@@ -111,13 +112,11 @@ for(var i=pos_start;i<pos_end;i++)
 	}
 	
 #region scrolling
-var offset_start_pointer = [self,"score_list_offset_start"];
-var offset_pointer = [self,"score_list_offset"];
-var scrollbar_index = 0;
+var scrollbar_index = offsetScroll.scorelistOffset;
 var xx = 0;
 var sub = navbar.main;
 
-funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,offset_start_pointer,offset_pointer,scrollbar_index,sub);
+funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
     
 // Header
