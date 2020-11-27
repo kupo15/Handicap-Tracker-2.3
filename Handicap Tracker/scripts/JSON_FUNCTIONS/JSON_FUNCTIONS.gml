@@ -44,6 +44,7 @@ if file_exists(_filename)
 		{
 		profile_index = ROOT_data_struct.meta.profileIndex;
 		courselist_array = ROOT_data_struct.courselist; // shared courselist
+		handicap_season_array = ROOT_data_struct.seasonList;
 
 		scr_profile_set(profile_index);
 		

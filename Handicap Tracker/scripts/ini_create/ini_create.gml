@@ -53,6 +53,9 @@ numpad_yoff_start = 0;
 score_list_offset = 0;
 score_list_offset_start = score_list_offset;
 
+handicap_season_offset = 0;
+handicap_season_offset_start = handicap_season_offset;
+
 course_list_offset = 0;
 course_list_offset_start = 0;
 
@@ -64,6 +67,5 @@ index_trend_offset_start = 0;
 #endregion
 
 debug_data_reset();
-ini_handicap_season();
 scr_handicap_calculate();
 }
