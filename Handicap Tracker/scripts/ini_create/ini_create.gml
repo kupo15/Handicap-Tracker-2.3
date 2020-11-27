@@ -32,9 +32,6 @@ score_index = undefined;
 handicap_season_offset = 0;
 handicap_season_offset_start = handicap_season_offset;
 
-course_list_offset = 0;
-course_list_offset_start = 0;
-
 stat_offset = 0;
 stat_offset_start = 0;
 

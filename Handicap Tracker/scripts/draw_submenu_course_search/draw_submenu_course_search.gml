@@ -1,6 +1,6 @@
 
 
-function draw_submenu_course_search(ypos,ww,ysep,ref_array,offsetStr) {
+function draw_submenu_course_search(ypos,ww,ysep,ref_array,scrollbar_index) {
 	
 var coursebar_yoff_start = offsetArrayStart[offsetScroll.coursebarYoff];
 var clicked = false;
@@ -42,9 +42,11 @@ if action
 
 	
 if !mode_new_member && (list_ext < rows)
-variable_instance_set(id,offsetStr,0);
+offsetArray[scrollbar_index] = 0;
+//variable_instance_set(id,offsetStr,0);
 		
-var offset_value = variable_instance_get(id,offsetStr);
+//var offset_value = variable_instance_get(id,offsetStr);
+var offset_value = offsetArray[scrollbar_index];
 var pos_start = floor(offset_value);
 var pos_end = min(list_size,ceil(offset_value)+rows);
 for(var i=pos_start;i<pos_end;i++)
@@ -114,12 +116,9 @@ for(var i=pos_start;i<pos_end;i++)
 	}
 
 #region scrolling
-var offset_start_pointer = [self,offsetStr+"_start"];
-var offset_pointer = [self,offsetStr];
-var scrollbar_index = 0;
 var sub = submenu;
 
-funct_screen_scrolling(0,yy,ww,hh,ysep,list_ext,rows,offset_start_pointer,offset_pointer,scrollbar_index,sub);
+funct_screen_scrolling(0,yy,ww,hh,ysep,list_ext,rows,scrollbar_index,sub);
 #endregion
 	
 	/*
@@ -134,7 +133,8 @@ if virtual_keyboard_enter
 		{
 		searched_name = "";
 		scr_friend_create(capitalize(friend_name_entry),undefined);
-		variable_instance_set(id,offsetStr,offset_value+1);
+		offsetArray[scrollbar_index] = offset_value+1;
+		//variable_instance_set(id,offsetStr,offset_value+1);
 		}
 	}
 */

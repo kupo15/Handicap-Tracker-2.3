@@ -165,7 +165,7 @@ var sub = navbar.main;
 funct_screen_scrolling_hor(0,yy,room_width,hh,xsep,list_size,max_disp,offset_start_pointer,offset_pointer,scrollbar_index,sub);
 #endregion
     
-if draw_submenu_course_search(header_height,app_width,90,courselist_array,"course_list_offset")
+if draw_submenu_course_search(header_height,app_width,90,courselist_array,offsetScroll.courselistOffset)
 	{
 	submenu = navbar.main;
 	course_struct = returnedSearch;
