@@ -1,6 +1,8 @@
 
 function scr_score_create(course_name,tee_color,yardage,slope,rating,par,score,date,strokes,season) {
 
+var int = argument[9];
+
 score_struct = {
 
 	courseName: course_name,

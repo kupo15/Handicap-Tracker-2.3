@@ -77,7 +77,7 @@ switchTabNum = 5;
 switchTabDisp = array_create(switchTabNum,0);
 switchTabDispEnd = array_create(switchTabNum,0);
 
-// scrolling offset
+#region scrolling offset
 offsetArray = array_create(offsetScroll.enumcount,0);
 offsetArrayStart = array_create(offsetScroll.enumcount,0);
 offsetArrayEnd = array_create(offsetScroll.enumcount,0);
@@ -85,6 +85,7 @@ offsetArrayEnd = array_create(offsetScroll.enumcount,0);
 // set starting offsets
 offsetArray[offsetScroll.navbarYoff] = 1;
 offsetArrayStart[offsetScroll.navbarYoff] = 1;
+#endregion
 
 // debug
 debugStringXpos = 0;

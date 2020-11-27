@@ -12,18 +12,6 @@ offsetArray[offsetScroll.teebarYoff] = (submenu == navbar.teebar); // ? teebar_y
 if offsetArray[offsetScroll.teebarYoff] != offsetArrayStart[offsetScroll.teebarYoff]
 offsetArrayStart[offsetScroll.teebarYoff] = lerp(offsetArrayStart[offsetScroll.teebarYoff],offsetArray[offsetScroll.teebarYoff],fade_spd);
 
-// parbar
-parbar_yoff = (submenu == navbar.parbar); // ? parbar_yoff = true : parbar_yoff = false
-
-if parbar_yoff != parbar_yoff_start
-parbar_yoff_start = lerp(parbar_yoff_start,parbar_yoff,fade_spd);
-
-// scorebar
-scorebar_yoff = (submenu == navbar.scorebar); // ?	scorebar_yoff = true : scorebar_yoff = false
-
-if scorebar_yoff != scorebar_yoff_start
-scorebar_yoff_start = lerp(scorebar_yoff_start,scorebar_yoff,fade_spd);
-
 // coursebar
 offsetArray[offsetScroll.coursebarYoff] = (submenu != navbar.coursebar); // ? coursebar_yoff = true : coursebar_yoff = false
 

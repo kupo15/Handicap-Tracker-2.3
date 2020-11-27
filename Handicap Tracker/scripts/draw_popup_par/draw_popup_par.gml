@@ -1,6 +1,6 @@
 function draw_popup_par() {
 	
-	
+	/*
 var alph = (parbar_yoff_start/1);
 draw_set_alpha(alph);
 
@@ -18,6 +18,6 @@ draw_roundrect_colour(-1,yy,xx+ww,yy+hh,col,col,false);
 draw_roundrect(-1,yy,xx+ww,yy+hh,true);
 
 
-draw_set_alpha(1);
+draw_set_alpha(1);*/
 
 }

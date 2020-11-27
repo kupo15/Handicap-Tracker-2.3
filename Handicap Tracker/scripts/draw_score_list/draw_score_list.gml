@@ -2,6 +2,10 @@ function draw_score_list() {
 var col = c_lt_gray;
 draw_clear(col);
 
+// set offsets
+var scorelist_offset = offsetArray[offsetScroll.scorelistOffset];
+var scorelist_offset_start = offsetArrayStart[offsetScroll.scorelistOffset];
+
 var xx = 20;
 var yy = header_height;
 var height = 35;
@@ -15,11 +19,11 @@ var box_hh_end = yy+hh;
 draw_roundrect_color(0,yy,ww,box_hh_end,c_white,c_white,false);
 
 var list_size = array_length(scorelist_array);
-var pos_start = floor(score_list_offset);
-var pos_end = min(list_size,ceil(score_list_offset)+rows);
+var pos_start = floor(scorelist_offset);
+var pos_end = min(list_size,ceil(scorelist_offset)+rows);
 for(var i=pos_start;i<pos_end;i++)
 	{
-	var off_pos = i-score_list_offset;
+	var off_pos = i-scorelist_offset;
 
 	var score_pointer = scorelist_array[i];
 	var course_name = score_pointer.courseName;

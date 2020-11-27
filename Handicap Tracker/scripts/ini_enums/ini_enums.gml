@@ -35,9 +35,9 @@ navbarYoff,
 numpadYoff,
 coursebarYoff,
 teebarYoff,
+scorelistOffset,
 
 enumcount,
-	
 }
 
 enum course_sort {

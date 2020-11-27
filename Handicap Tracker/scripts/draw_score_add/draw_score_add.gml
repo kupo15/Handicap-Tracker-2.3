@@ -180,6 +180,9 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 	scorelist_array[@ score_index] = score_struct;
 
 	// reset variables
+	offsetArray[offsetScroll.scorelistOffset] = 0;
+	offsetArrayStart[offsetScroll.scorelistOffset] = 0;
+	
 	score_list_offset = 0;
 	score_list_offset_start = 0;
 	
