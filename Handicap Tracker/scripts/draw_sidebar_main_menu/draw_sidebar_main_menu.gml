@@ -1,45 +1,46 @@
 function draw_sidebar_main_menu() {
+	
+draw_set_halign(fa_left);
+draw_set_color(c_black);
 
-#region draw menu
 var offset = 1-offsetArray[offsetScroll.sidebarXoff];
 var new_submenu = false;
 var xx_off =  offset*(-side_menu_width-30);
 var xx = 0;
 var yy = 0;
 var ww = side_menu_width;
-var hh = room_height;
+var hh = app_height;
+var profile_hh = 220;
 var col = c_white;
+var profile_col = make_color_rgb(76,102,145);
 
+#region draw menu
 draw_rectangle_color(xx+xx_off,yy,xx+xx_off+ww,yy+hh,col,col,col,col,false); // menu background
 
 // if click outside of menu
-if click_region_released(xx+xx_off+side_menu_width,yy,ww,hh,noone,navbar.sidebar) // make_color_rgb(0,255,255)
+if click_region_released(xx+xx_off+ww,yy,ww,hh,noone,navbar.sidebar) // make_color_rgb(0,255,255)
 androidBackSidebar = true;
+else if click_button(xx_off,yy,"",0,c_black,ww,profile_hh,profile_col,false,false,navbar.sidebar)
+submenu = navbar.profileChange;
 
-var yy_sep = 180;
-draw_line(xx+xx_off,yy_sep,xx+xx_off+ww,yy_sep); // separating line
+var xx = 25;
+var yy = 25;
 
-var xx = side_menu_width*0.5;
-var yy = 15;
-draw_icon_height(spr_icon_blank_profile,xx+xx_off,yy,120,1); // profile picture
+draw_icon_height(spr_icon_blank_profile,xx+xx_off,yy,100,1); // profile picture
 
-//if scr_mouse_position_room_released(xx+xx_off,yy,ww_hh,ww_hh,mb_left,noone,navbar.sidebar) // clicked on PROFILE PIC
-//funct_screen_set(screen.user_profile); // goto to profile
+var height = 30;
+var yy = profile_hh-height-10;
 
-var yy = 150;
-draw_set_halign(fa_center);
-draw_set_color(c_black);
-draw_text_height(xx+xx_off,yy,user_disp_name,30,true); // draw user name
-//draw_text_height(xx+xx_off,yy+25,"@"+user_username,25,true); // draw user id
+draw_text_height_color(xx+xx_off,yy,user_disp_name,c_white,height,fn_bold); // draw user name
+//draw_text_height(xx+xx_off,yy+25,"@"+user_username,25); // draw user id
+#endregion
 
-// draw menu items
 var xx = 100;
-var yy = yy_sep;
+var yy = profile_hh;
 var sep = 70;
 var height = 30;
-
+#region draw menu items
 draw_set_halign(fa_left);
-draw_set_color(c_black);
 draw_text_height_middled(xx+xx_off,yy+(screen.home*sep),"Home",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.stats*sep),"Course Stats",sep,height);
 draw_text_height_middled(xx+xx_off,yy+(screen.playing*sep),"Active Round",sep,height);
@@ -79,12 +80,9 @@ for(var i=0;i<screen.enumcount;i++)
 
 #endregion
 
-
 if androidBackSidebar
 	{	
 	if !new_submenu && (submenu == navbar.sidebar)
 	submenu = submenuPrevious;
 	}
-
-
 }

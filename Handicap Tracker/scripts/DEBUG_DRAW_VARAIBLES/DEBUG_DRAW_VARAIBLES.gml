@@ -3,25 +3,27 @@ goto_draw_debug();
 
 function debug_submenu_names() {
 
-enum_name_submenu[5+navbar.sidebar] = "sidebar";         
-enum_name_submenu[5+navbar.main] = "main";
-enum_name_submenu[5+navbar.hidden] = "hidden";
-enum_name_submenu[5+navbar.coursebar] = "coursebar";
-enum_name_submenu[5+navbar.teebar] = "teebar";
-enum_name_submenu[5+navbar.year_select] = "year_select";
-enum_name_submenu[5+navbar.parbar] = "parbar";
-enum_name_submenu[5+navbar.scorebar] = "scorebar";
-enum_name_submenu[5+navbar.numpad] = "numpad";
-enum_name_submenu[5+navbar.calendar] = "calendar";
-enum_name_submenu[5+navbar.calendarYearSelect] = "calendarYearSelect";
+enum_name_submenu[6+navbar.profileChange] = "profile_change";         
+enum_name_submenu[6+navbar.sidebar] = "sidebar";         
+enum_name_submenu[6+navbar.main] = "main";
+enum_name_submenu[6+navbar.hidden] = "hidden";
+enum_name_submenu[6+navbar.coursebar] = "coursebar";
+enum_name_submenu[6+navbar.teebar] = "teebar";
+enum_name_submenu[6+navbar.year_select] = "year_select";
+enum_name_submenu[6+navbar.parbar] = "parbar";
+enum_name_submenu[6+navbar.scorebar] = "scorebar";
+enum_name_submenu[6+navbar.numpad] = "numpad";
+enum_name_submenu[6+navbar.calendar] = "calendar";
+enum_name_submenu[6+navbar.calendarYearSelect] = "calendarYearSelect";
 }
 
 function debug_draw_screens(xx,yy,ind,sep,height) {
 	
 var str = script_get_name(drawScreen[screenIndex]);
 str = string_replace(str,"draw_","");
+
 draw_text_height(xx,yy+((debugyoff+0)*sep),"screenIndex: "+string(str),height);
-draw_text_height(xx,yy+((debugyoff+1)*sep),"submenu: "+string(enum_name_submenu[submenu+5]),height);
+draw_text_height(xx,yy+((debugyoff+1)*sep),"submenu: "+string(enum_name_submenu[submenu+6]),height);
 draw_text_height(xx,yy+((debugyoff+2)*sep),"submenuPrevious: "+string(submenuPrevious),height);
 draw_text_height(xx,yy+((debugyoff+3)*sep),"activeSubmenu: "+string(activeSubmenu),height);
 	

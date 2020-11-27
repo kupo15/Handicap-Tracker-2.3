@@ -6,7 +6,18 @@ ROOT_data_struct.profiles[0].name = "Matt";
 rounds_played = 0;
 scr_profile_set(0);
 
+debug_data_courses();
+debug_data_scores();
 
+score_struct = undefined;
+course_struct = undefined;
+
+scr_handicap_calculate();
+app_save;
+}
+
+function debug_data_courses() {
+	
 // debug
 var arr = courselist_array;
 scr_course_create("Atlantic Country Club","MA",arr);
@@ -129,7 +140,10 @@ scr_course_create("Crystal Lake Golf Club - RI","RI",arr);
 scr_course_add_tee(course_struct,"blue","5966","119","69.1","71");
 
 array_sort_nested_struct(arr,"courseName",true);
+}
 
+function debug_data_scores() {
+	
 // add scores
 var date = date_create_datetime(2018,5,16,1,1,1); scr_score_add_index("Putterham Meadows","white","86",date);
 var date = date_create_datetime(2018,5,19,1,1,1); scr_score_add_index("Apple Mountain Golf","blue","84",date);
@@ -184,12 +198,4 @@ var date = date_create_datetime(2020,11,21,1,1,1); scr_score_add_index("Crystal 
 var date = date_create_datetime(2020,11,25,1,1,1); scr_score_add_index("Riverwinds","green","85",date,undefined,true);
 
 array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
-
-score_struct = undefined;
-course_struct = undefined;
-
-scr_handicap_calculate();
-app_save;
-
-
 }

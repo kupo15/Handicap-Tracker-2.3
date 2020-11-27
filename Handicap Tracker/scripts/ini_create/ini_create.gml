@@ -4,14 +4,12 @@ layout_normal();
 ini_teebox();
 //
 
-
 recent_scores_list = ds_list_create();
 included_scores = ds_list_create();
 
 top_scores = 8;
 ghin_index = 0;
 round_selection = 20;
-old_course_name = "";
 
 handicap_trend_type = 0;
 
