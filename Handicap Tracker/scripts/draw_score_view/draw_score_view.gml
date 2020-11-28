@@ -113,17 +113,17 @@ if draw_dialogue_box(xx,yy+hh,ww,hh,c_white,navbar.hidden) // off season tab
 // draw switch tab
 //draw_switch_tab(xx+450,yy,hh,23,0,practice_round);
 //draw_switch_tab(xx+450,yy+hh,hh,23,1,off_season);
-draw_radial_button(xx+450,yy+hh,hh,30,off_season,header_color);
+draw_radial_button(xx+450,yy+hh,hh,30,!off_season,header_color);
 
 var height = 40;
-var str = pick("Off-Season","In-season",off_season);
+var str = pick("Off-Season","In-season",!off_season);
 //draw_text_height(xx+20,yy+5,"Round Type",label_height,fn_italic); // draw course tee markers label
 //draw_text_height(xx+20,yy+35,"Practice Round",height); // draw course name
 
 draw_line_pixel(xx+20,yy+hh,app_width,1,c_lt_gray,1);
 
 //draw_text_height(xx+20,yy+5+hh,"Type",label_height,fn_italic); // draw course tee markers label
-draw_text_height_color(xx+20,yy+35+hh,str,c_gray,height,fn_italic); // draw in season
+draw_text_height_color(xx+30,yy+35+hh,str,c_gray,height,fn_italic); // draw in season
 #endregion	
 	
 #region draw calendar

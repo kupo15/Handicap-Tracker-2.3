@@ -21,6 +21,8 @@ score_create,
 score_view,
 score_details,
 
+score_card_details,
+
 playing_score_enter,
 
 add_course,

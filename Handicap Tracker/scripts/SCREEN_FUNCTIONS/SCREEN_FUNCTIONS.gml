@@ -25,6 +25,8 @@ drawScreen[screen.edit_score] = undefined; // draw_score_edit;
 drawScreen[screen.score_view] = draw_score_view;
 drawScreen[screen.score_details] = draw_score_details;
 
+drawScreen[screen.score_card_details] = draw_score_card_details;
+
 drawScreen[screen.playing_score_enter] = draw_playing_score_submit;
 
 drawScreen[screen.add_course] = draw_course_add;
