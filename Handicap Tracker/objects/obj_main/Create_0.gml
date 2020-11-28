@@ -5,7 +5,8 @@ debug_submenu_names();
 ini_config();
 ini_shared();
 
-json_data_load();
+//json_data_load();
+debug_data_reset();
 ini_create();
 
 
