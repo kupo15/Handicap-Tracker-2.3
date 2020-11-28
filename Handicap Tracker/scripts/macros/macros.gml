@@ -8,7 +8,6 @@
 #macro COURSE_data ROOT_data_struct.courselist
 #macro SEASON_data ROOT_data_struct.seasonList
 #macro SCORE_data ROOT_data_struct.profiles[profile_index].scorelist
-#macro ACTIVE_data ROOT_data_struct.profiles[profile_index].activeRound
 #macro PROFILE_data ROOT_data_struct.profiles[profile_index]
 #macro META_data ROOT_data_struct.meta
 

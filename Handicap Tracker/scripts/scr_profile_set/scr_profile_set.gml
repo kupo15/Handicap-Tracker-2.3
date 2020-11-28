@@ -5,8 +5,8 @@ profile_index = ind;
 	
 // set
 user_disp_name = PROFILE_data.dispName;	
-scorelist_array = SCORE_data;
-play_course_struct = ACTIVE_data;
+scorelist_array = PROFILE_data.scorelist;
+play_course_struct = PROFILE_data.activeRound;
 }
 
 function scr_profile_create(name) {

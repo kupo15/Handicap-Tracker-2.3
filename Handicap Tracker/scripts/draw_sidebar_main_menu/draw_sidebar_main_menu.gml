@@ -97,7 +97,6 @@ exit;
 
 var xx = 0+xx_off;
 var ww = side_menu_width;
-var hh = 530;
 var col = c_white;
 
 draw_rectangle_color(xx,yy,xx+ww,app_height-70,col,col,col,col,false);
@@ -133,12 +132,11 @@ for(var i=0;i<size;i++)
 		
 	draw_line_pixel(xx+text_xoff,yy+off_pos+sep,ww-text_xoff,1,c_lt_gray,1);	
 		
-	if click_region_released_clamp_array(0,yy,off_pos,ww,sep,hh,mb_left,c_yellow,navbar.profileChange,i,ROOT_data_struct.profiles)
+	if click_region(xx,yy+off_pos,ww,sep,true,mb_left,navbar.profileChange)
 		{
 		scr_profile_set(i);
 		scr_handicap_calculate();
-
-		submenu = navbar.main;
+		submenu = navbar.sidebar;
 		}
 	}
 	

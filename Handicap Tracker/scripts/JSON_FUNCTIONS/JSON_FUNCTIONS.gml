@@ -33,17 +33,17 @@ if file_exists(_filename)
 
 	var saveVersion = variable_struct_get(META_data,"version");
 	if (json_version == -4) || (saveVersion != json_version)
-		{// transition to new version			
+		{// transition to new version		
 		scr_json_version_transition(saveVersion);
-		META_data.version = json_version;
 		
+		META_data.version = json_version;
 		app_save;
 		}
 	else // load 
 		{
-		scr_profile_set(META_data.profileIndex);
-		courselist_array = COURSE_data; // shared courselist
-		handicap_season_array = SEASON_data;
+		profile_index = ROOT_data_struct.meta.profileIndex;
+		courselist_array = ROOT_data_struct.courselist; // shared courselist
+		handicap_season_array = ROOT_data_struct.seasonList;
 
 		db(string(_filename)+" loaded");
 		}
