@@ -148,3 +148,16 @@ draw_circle_color(xx+button_xoff,yy,r,button_col,button_col,false); // draw butt
 
 
 }
+
+function draw_radial_button(xx,yy,box_hh,diameter,variable,col) {
+	
+var r = diameter*0.5;
+yy += box_hh*0.5;
+	
+draw_circle_color(xx,yy,r,col,col,false); // full circle
+draw_circle_color(xx,yy,r*0.7,c_white,c_white,false); // white cutout
+
+if variable
+draw_circle_color(xx,yy,r*0.4,col,col,false); // selected center
+	
+}

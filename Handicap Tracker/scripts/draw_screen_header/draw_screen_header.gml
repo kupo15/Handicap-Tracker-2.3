@@ -58,7 +58,7 @@ repeat 2
 		}
 	else if header_type == headerType.back
 		{
-		draw_menu_arrow(xpos+20,header_height*0.5,40,30,4,1,c_white);
+		draw_menu_arrow(xpos+30,header_height*0.5,40,30,4,1,c_white);
 
 		if (submenu < 0) && !mode_delete
 		if click_region_released(xpos,0,region,region,true,submenu)

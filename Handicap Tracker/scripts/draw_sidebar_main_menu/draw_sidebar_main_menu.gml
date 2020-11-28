@@ -38,7 +38,7 @@ draw_text_height_color(xx+xx_off,yy,user_disp_name,c_white,height,fn_bold); // d
 
 var xx = 100;
 var yy = profile_hh;
-var sep = 70;
+var sep = 80;
 var height = 30;
 #region draw menu items
 draw_set_halign(fa_left);
@@ -105,7 +105,7 @@ draw_rectangle_color(xx,yy,xx+ww,app_height-70,col,col,col,col,false);
 var xoff = 30;
 var text_xoff = 110;
 var height = 30;
-var sep = 70;
+var sep = 80;
 
 var size = array_length(ROOT_data_struct.profiles)+1;
 for(var i=0;i<size;i++)
