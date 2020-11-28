@@ -27,6 +27,7 @@ enumcount
 enum darkenIndex {
 none,
 sidebar,
+profileChange,
 calendar,
 calendarYear
 }

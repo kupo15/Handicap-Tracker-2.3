@@ -21,7 +21,10 @@ draw_rectangle_color(xx+xx_off,yy,xx+xx_off+ww,yy+hh,col,col,col,col,false); // 
 if click_region_released(xx+xx_off+ww,yy,ww,hh,noone,navbar.sidebar) // make_color_rgb(0,255,255)
 androidBackSidebar = true;
 else if click_button(xx_off,yy,"",0,c_black,ww,profile_hh,profile_col,false,false,navbar.sidebar)
-submenu = navbar.profileChange;
+	{
+	submenu = navbar.profileChange;
+	screenDarkenIndex = darkenIndex.profileChange;
+	}
 
 var xx = 25;
 var yy = 25;
@@ -38,7 +41,7 @@ draw_text_height_color(xx+xx_off,yy,user_disp_name,c_white,height,fn_bold); // d
 
 var xx = 100;
 var yy = profile_hh;
-var sep = 80;
+var sep = 75;
 var height = 30;
 #region draw menu items
 draw_set_halign(fa_left);
@@ -81,7 +84,7 @@ for(var i=0;i<screen.enumcount;i++)
 
 #endregion
 
-draw_sidebar_profile_switch(xx_off,profile_hh);
+draw_sidebar_profile_switch(xx_off,profile_hh,sep);
 
 if androidBackSidebar
 	{	
@@ -90,7 +93,7 @@ if androidBackSidebar
 	}
 }
 
-function draw_sidebar_profile_switch(xx_off,yy) {
+function draw_sidebar_profile_switch(xx_off,yy,sep) {
 	
 if submenu != navbar.profileChange
 exit;
@@ -105,7 +108,6 @@ draw_rectangle_color(xx,yy,xx+ww,app_height-70,col,col,col,col,false);
 var xoff = 30;
 var text_xoff = 110;
 var height = 30;
-var sep = 80;
 
 var size = array_length(ROOT_data_struct.profiles)+1;
 for(var i=0;i<size;i++)
@@ -145,6 +147,7 @@ for(var i=0;i<size;i++)
 	
 if androidBack
 	{
+	screenDarkenIndex = darkenIndex.sidebar;
 	submenu = navbar.sidebar;
 	androidBack = false;
 	androidBackSidebar = false;

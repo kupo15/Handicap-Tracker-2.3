@@ -10,7 +10,6 @@ course_list,
 score_card,
 indexTrend,
 handicapSeason,
-blank8,
 
 help_info,
 settings,

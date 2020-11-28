@@ -19,7 +19,7 @@ draw_set_colour(c_white);
 draw_set_halign(fa_left);
 
 debug_draw_screens(xx,yy,debugyoff,sep,height);
-//debug_draw_screen_darken(xx,yy,debugyoff,sep,height);
+debug_draw_screen_darken(xx,yy,debugyoff,sep,height);
 
 draw_text_height(xx,yy+((debugyoff+0)*sep),"courseStruct: "+string(pick("active","undefined",course_struct == undefined)),height);
 draw_text_height(xx,yy+((debugyoff+1)*sep),"scoreStruct: "+string(pick("active","undefined",score_struct == undefined)),height);
