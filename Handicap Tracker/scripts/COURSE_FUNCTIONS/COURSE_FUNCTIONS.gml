@@ -1,14 +1,23 @@
 
-function scr_course_create(name,loc,array) {
+function scr_course_create(name,state,district,array) {
 /// @param name
-/// @param location
-/// @param [arrayId]
+/// @param [stateInitial
+/// @param district
+/// @param arrayId]
+
+if argument[2] == undefined
+district = 0;
+
+// find location struct
+var location_struct = pick(scr_course_location_find(state),state,state == undefined);
 
 // create struct
 course_struct = {
 	
 	courseName: name,
-	courseLocation: loc,
+	courseLocation: location_struct,
+	districtInd: district,
+	
 	favorite: false,
 	lastPlayed: undefined,
 	frequency: 0,
@@ -22,7 +31,7 @@ course_struct = {
 	}
 		
 // add to master courselist
-if argument[2] != undefined
+if argument[3] != undefined
 array_push(array,course_struct);
 
 return course_struct;
@@ -75,3 +84,22 @@ if tee_struct == undefined
 scr_course_add_tee(activeStruct,teeCol);
 }
 	
+function scr_course_location_find(state_name,district) {
+/// @param stateInitial
+/// @param [districtInd]
+
+if argument[1] == undefined
+district = 0;
+
+var list_size = array_length(handicap_season_array);
+for(var i=0;i<list_size;i++)
+	{
+	var pointer = handicap_season_array[i];
+	var check_state_abbrev = pointer.stateInitial;
+	
+	if state_name == check_state_abbrev
+	return pointer;	
+	}
+
+return undefined;
+}

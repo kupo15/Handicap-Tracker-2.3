@@ -28,7 +28,7 @@ for(var i=pos_start;i<pos_end;i++)
 	{
 	var course_pointer = courselist_array[i];
 	var course_name = course_pointer.courseName; // course name
-	var course_location = course_pointer.courseLocation; // course location
+	var course_location = course_pointer.courseLocation.stateInitial; // course location
 	var course_str = string_abbreviate(course_name,485,height,"...");
 	var off_ind = i-courselist_offset;
 	var off_pos = (off_ind*sep);
@@ -83,9 +83,10 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #region header
 draw_screen_header(headerType.back,headerType.none,"Course List");
 
-var sort_index = offsetArray[offsetScroll.courseSortUnderline];
-var header = draw_screen_header_submenu(sort_index,"A-Z","Popular","Favorites");
-if (header != undefined) && (header != META_data.courseSort)
+var sort_index = META_data.courseSort;
+var offset = offsetArray[offsetScroll.courseSortUnderline];
+var header = draw_screen_header_submenu(offset,sort_index,"A-Z","Popular","Favorites");
+if (header != undefined) && (header != sort_index)
 	{
 	scr_course_list_sort(header);
 	app_save;

@@ -37,6 +37,7 @@ navbarYoff,
 numpadYoff,
 coursebarYoff,
 teebarYoff,
+locationYoff,
 
 sidebarXoff,
 
@@ -105,6 +106,7 @@ profileChange,
 sidebar,
 
 coursebar,
+locationbar,
 teebar,
 year_select,
 parbar,

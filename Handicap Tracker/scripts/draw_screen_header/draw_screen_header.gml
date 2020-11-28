@@ -85,7 +85,8 @@ draw_header_delete(0,ww,hh);
 return false;
 }
 
-function draw_screen_header_submenu(sort_index) {
+function draw_screen_header_submenu(offset,sort_index) {
+/// param offset
 /// param sort_index
 /// param header_string...
 
@@ -96,7 +97,7 @@ var col = header_color;
 
 draw_rectangle_color(xx,yy,app_width,hh,col,col,col,col,false);
 	
-var header_num = argument_count-1;
+var header_num = argument_count-2;
 var header_sep = app_width/header_num;
 var height = 40;
 var val = undefined;
@@ -105,12 +106,12 @@ for(var i=0;i<header_num;i++)
 	{
 	var str_col = pick(c_lt_gray,c_white,i==sort_index);
 	
-	if click_button(i*header_sep,yy,argument[i+1],height,str_col,header_sep,header_submenu_height,undefined,false,false,submenu)
+	if click_button(i*header_sep,yy,argument[i+2],height,str_col,header_sep,header_submenu_height,undefined,false,false,submenu)
 	val = i;
 	}
 
 // draw highlight underline
-var xx = sort_index*header_sep;
+var xx = offset*header_sep;
 var width = 4;
 var col = c_white;
 

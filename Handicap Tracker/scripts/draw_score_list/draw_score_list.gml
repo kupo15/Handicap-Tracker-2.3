@@ -129,10 +129,11 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 draw_screen_header(headerType.back,headerType.none,"Round History");
 	
 // SubHeader
-var sort_index = offsetArray[offsetScroll.scoreSortUnderline];
-var header = draw_screen_header_submenu(sort_index,current_year,current_year-1,"All");
+var sort_index = META_data.scoreSort;
+var offset = offsetArray[offsetScroll.scoreSortUnderline];
+var header = draw_screen_header_submenu(offset,sort_index,current_year,current_year-1,"All");
 
-if (header != undefined) && (header != META_data.scoreSort)
+if (header != undefined) && (header != sort_index)
 	{
 	scr_score_list_sort(header);
 	app_save;

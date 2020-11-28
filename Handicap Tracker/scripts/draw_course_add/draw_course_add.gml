@@ -35,6 +35,7 @@ switch textboxIndex
 	}
 
 var course_name = activeStruct.courseName;
+var location_struct = activeStruct.courseLocation;
 
 #region draw course name
 var xx = 0;
@@ -77,16 +78,17 @@ var height = 35;
 
 if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
 if course_name != ""
-	{
-	//submenu = navbar.teebar;
-	//scr_tee_filled_set(); // mark tees with data
-	}
+submenu = navbar.locationbar;
 
 draw_line_pixel(20,yy,app_width,1,c_lt_gray,1);
 
-//var str = string(capitalize(course_tee))+" "+string(course_yardage)+" yds ("+string(course_slope)+" / "+string(course_rating)+")";
-//if course_tee == ""
 var str = "";
+
+if location_struct != undefined
+	{
+	var str = location_struct.stateName;
+		
+	}
 
 draw_set_halign(fa_left);
 draw_text_height_color(xx+30,yy+5,"Location",c_gray,label_height,fn_italic); // draw course tee markers label
@@ -171,7 +173,7 @@ var yy = app_height-hh;
 var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
-if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
+if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
 	{	
 	// update course info
 	courselist_array[@ course_index] = workingStruct; // overwrite with working copy
@@ -184,7 +186,26 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) &
 	
 #endregion
 	
-if androidBack 
+if submenu == navbar.locationbar
+	{
+	draw_clear(c_white);
+	
+	var struct = draw_handicap_season();	
+	if struct != undefined
+		{
+		var district = 0;
+		
+		// save location information
+		activeStruct.districtInd = district;
+		activeStruct.courseLocation = struct;
+
+		submenu = navbar.hidden;
+		}
+		
+	exit;
+	}
+	
+if androidBack
 && !kvActive
 	{		
 	// delete course unsaved
@@ -198,6 +219,5 @@ if androidBack
 	// from course edit
 	screen_goto_prev(navbar.main);
 	}
-	
 }
 

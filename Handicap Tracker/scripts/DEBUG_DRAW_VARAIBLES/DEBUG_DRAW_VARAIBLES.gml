@@ -8,6 +8,7 @@ enum_name_submenu[2+navbar.sidebar] = "sidebar";
 enum_name_submenu[2+navbar.main] = "main";
 enum_name_submenu[2+navbar.hidden] = "hidden";
 enum_name_submenu[2+navbar.coursebar] = "coursebar";
+enum_name_submenu[2+navbar.locationbar] = "locationbar";
 enum_name_submenu[2+navbar.teebar] = "teebar";
 enum_name_submenu[2+navbar.year_select] = "year_select";
 enum_name_submenu[2+navbar.parbar] = "parbar";

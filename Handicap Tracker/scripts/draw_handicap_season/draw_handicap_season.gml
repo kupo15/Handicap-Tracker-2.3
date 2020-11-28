@@ -1,6 +1,8 @@
 
 function draw_handicap_season() {
 
+var return_val = undefined;
+
 // set offsets
 var scrollbar_index = offsetScroll.seasonOffset;
 var handicap_season_offset = offsetArray[scrollbar_index];
@@ -63,13 +65,13 @@ for(var i=pos_start;i<pos_end;i++)
 	
 	draw_line_pixel(xoff,yy+off_pos,app_width,1,c_lt_gray,1);
 	
-	if click_region_released_clamp_array(0,yy,off_pos,ww,sep,hh,mb_left,c_yellow,navbar.hidden,i,handicap_season_array)
-	{}
+	if click_region_released_clamp_array(0,yy,off_pos,ww,sep,hh,mb_left,c_yellow,submenu,i,handicap_season_array)
+	return_val = pointer;
 	}
 
 #region scrolling
 var xx = 0;
-var sub = navbar.hidden;
+var sub = submenu;
 
 funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
@@ -78,5 +80,12 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 draw_screen_header(headerType.back,headerType.none,"Golf Season");
 	
 if androidBack
-screen_goto_prev(navbar.main);
+	{
+	if submenu == navbar.locationbar
+	submenu = navbar.hidden;
+	else
+	screen_goto_prev(navbar.main);
+	}
+
+return return_val;
 }
