@@ -44,9 +44,9 @@ for(var i=0;i<size;i++)
 	var xoff = xsep*(i>=10);
 	var yoff = (i mod 10)*ysep;
 	
-	draw_text_height(xx+xoff,yy+yoff,date_str,height); // draw date
-	draw_text_height(xx+180+xoff,yy+yoff-4,string(score_)+active,height*1.2,fn_bold); // draw score
-	draw_text_height(xx+xoff,yy+35+yoff,course_name,height*0.8); // draw course name
+	draw_text_height(xx+xoff,yy+10+yoff,date_str,height); // draw date
+	draw_text_height(xx+180+xoff,yy+yoff+4,string(score_)+active,height*1.2,fn_bold); // draw score
+	draw_text_height(xx+xoff,yy+45+yoff,course_name,height*0.8); // draw course name
 	
 	if click_region(app_width*0.5*(i>=10),yy+yoff,app_width*0.5,ysep,true,mb_left,submenu)
 	screen_change(screen.score_card_details);
