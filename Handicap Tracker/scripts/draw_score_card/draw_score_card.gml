@@ -11,6 +11,7 @@ var height = 30;
 var month = funct_convert_month(current_month,false);
 var date_str = month+" "+string(current_day)+", "+string(current_year);
 
+draw_text_height(xx,yy-110,string(PROFILE_data.dispName),height);
 draw_text_height(xx,yy-80,"Rounds Played: "+string(rounds_played),height);
 draw_text_height(xx,yy-50,"Handicap Index: "+string_format(ghin_index,1,1),height*1.1);
 draw_text_height_color(380,yy-45,date_str,c_gray,height*0.8,fn_italic);
