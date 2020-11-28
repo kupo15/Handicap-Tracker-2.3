@@ -76,7 +76,8 @@ scr_course_create("Ledges Golf Club","MA",arr);
 scr_course_add_tee(course_struct,"black","6981","137","74.2","72");
 
 scr_course_create("McCullough's Emerald Links","NJ",arr);
-scr_course_add_tee(course_struct,"blue","6132","125","69.8","71");
+scr_course_add_tee(course_struct,"white","6132","125","69.8","71");
+scr_course_add_tee(course_struct,"blue","6535","135","72.2","71");
 
 scr_course_create("Nashua Country Club","NH",arr);
 scr_course_add_tee(course_struct,"blue","5965","126","69.8","71");
@@ -195,7 +196,7 @@ var date = date_create_datetime(2020,8,8,1,1,1); scr_score_add_index("Atlantic C
 var date = date_create_datetime(2020,8,14,1,1,1); scr_score_add_index("Vineyard Golf","white","83",date);
 var date = date_create_datetime(2020,8,22,1,1,1); scr_score_add_index("Campbell's Scottish Highlands","blue","77",date);
 var date = date_create_datetime(2020,8,30,1,1,1); scr_score_add_index("West Bridgewater Country Club","gold","89",date);
-var date = date_create_datetime(2020,9,4,1,1,1); scr_score_add_index("McCullough's Emerald Links","blue","80",date);
+var date = date_create_datetime(2020,9,4,1,1,1); scr_score_add_index("McCullough's Emerald Links","white","80",date);
 var date = date_create_datetime(2020,9,26,1,1,1); scr_score_add_index("West Bridgewater Country Club","gold","91",date,2);
 var date = date_create_datetime(2020,9,30,1,1,1); scr_score_add_index("Bass Rocks","gold","79",date,1);
 var date = date_create_datetime(2020,10,3,1,1,1); scr_score_add_index("Crotched Mountain","blue","87",date,2);
@@ -203,6 +204,7 @@ var date = date_create_datetime(2020,10,11,1,1,1); scr_score_add_index("Olde Sco
 var date = date_create_datetime(2020,11,8,1,1,1); scr_score_add_index("Stow Acres C. C.-North Course","blue","85",date,2,true);
 var date = date_create_datetime(2020,11,21,1,1,1); scr_score_add_index("Crystal Lake Golf Club - RI","blue","83",date,undefined,true);
 var date = date_create_datetime(2020,11,25,1,1,1); scr_score_add_index("Riverwinds","green","85",date,undefined,true);
+var date = date_create_datetime(2020,11,28,1,1,1); scr_score_add_index("McCullough's Emerald Links","blue","83",date);
 
 array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
 

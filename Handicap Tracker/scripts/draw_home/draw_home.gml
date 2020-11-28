@@ -49,6 +49,8 @@ draw_active_round(30,500);
 // draw round falling off
 draw_falling_off(30,830);
 
+//draw_roundrect_ext(mouse_xpos,mouse_ypos,mouse_xpos+100,mouse_ypos+50,mouse_xdist,mouse_ydist,false);
+
 // debug
 if multiTouch[3]
 	{

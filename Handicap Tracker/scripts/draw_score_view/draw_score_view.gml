@@ -111,9 +111,9 @@ if draw_dialogue_box(xx,yy+hh,ww,hh,c_white,navbar.hidden) // off season tab
 	}
 	
 // draw switch tab
-//draw_switch_tab(xx+450,yy,hh,23,0,practice_round);
-//draw_switch_tab(xx+450,yy+hh,hh,23,1,off_season);
-draw_radial_button(xx+450,yy+hh,hh,30,!off_season,header_color);
+draw_switch_tab(xx+450,yy,hh,36,0,practice_round,false);
+draw_switch_tab(xx+450,yy+hh,hh,36,1,off_season,true);
+//draw_radio_button(xx+450,yy+hh,hh,30,!off_season,header_color);
 
 var height = 40;
 var str = pick("Off-Season","In-season",!off_season);
