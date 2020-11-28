@@ -43,11 +43,12 @@ function scr_score_list_sort(ind) {
 	
 META_data.scoreSort = ind; // update header preferences
 exit;
+
 switch ind
 	{
-	case score_sort.currentYear: array_sort_nested_struct(courselist_array,"courseName",true); break; // sort list
-	case score_sort.lastYear: array_sort_nested_struct(courselist_array,"frequency",false); break; // sort list
-	case score_sort.allScores: array_sort_nested_struct(courselist_array,"favorite",true); break; // sort list
+	case score_sort.currentYear: array_sort_nested_struct(scorelist_array,"courseName",true); break; // sort list
+	case score_sort.lastYear: array_sort_nested_struct(scorelist_array,"frequency",false); break; // sort list
+	case score_sort.allScores: array_sort_nested_struct(scorelist_array,"offSeason",false); break; // sort list
 	}
 
 }

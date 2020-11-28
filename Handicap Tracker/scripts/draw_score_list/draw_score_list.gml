@@ -54,7 +54,7 @@ for(var i=pos_start;i<pos_end;i++)
 	var col = pick(c_black,make_color_rgb(38,72,106),i<20);
 	var course_str = string_abbreviate(course_name,460,height,"...");
 	
-	draw_text_height_color(xx+10,yy+15+(off_pos*sep),course_str,col,height); // draw course name
+	draw_text_height_color(xx+15,yy+10+(off_pos*sep),course_str,col,height); // draw course name
 	
 	var net_score = real(_score)-real(strokes);
 	draw_set_halign(fa_right);
@@ -66,17 +66,17 @@ for(var i=pos_start;i<pos_end;i++)
 	
 	// tee info
 	var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
-	draw_tee_marker(xx+10,yy+70+(off_pos*sep),30,course_tee,str,true); // draw tee marker
+	draw_tee_marker(xx+10,yy+55+(off_pos*sep),30,course_tee,str,true); // draw tee marker
 	
 	if course_practice || off_season
 		{
 		var str = pick("Practice Round","Off Season",off_season);
 		var str_col = pick(c_red,make_color_rgb(38,72,106),off_season);
 		
-		draw_text_height_color(xx+13,yy+95+(off_pos*sep),str,str_col,20,fn_italic);
+		draw_text_height_color(xx+15,yy+95+(off_pos*sep),str,str_col,20,fn_italic);
 		}
 
-	draw_text_height_color(xx+270,yy+80+(off_pos*sep),date_string,c_gray,23); // draw date played
+	draw_text_height_color(xx+270,yy+65+(off_pos*sep),date_string,c_gray,23); // draw date played
 			
 	// draw_text_height(xx,yy+45+(off_pos*sep),i+1,height); // i
 	// draw_text_height(xx+35,yy+40+(off_pos*sep),string_format(course_handicap,2,1),36); // draw course handicap
@@ -125,7 +125,7 @@ var sub = navbar.main;
 funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
     
-// Header
+#region Header
 draw_screen_header(headerType.back,headerType.none,"Round History");
 	
 // SubHeader
@@ -138,7 +138,8 @@ if (header != undefined) && (header != sort_index)
 	scr_score_list_sort(header);
 	app_save;
 	}	
-	
+#endregion
+
 #region new score button
 var hh = 80;
 var xx = 0;
@@ -154,7 +155,7 @@ if click_button(xx,yy,"Add Score",50,c_black,ww,hh,c_white,true,false,navbar.mai
 	{
 	var date = date_current_datetime();
 	
-	score_struct = scr_score_create("","","","","","","",date,"0"); // create a new score row
+	score_struct = scr_score_create("","","","","","","",date,"0",false); // create a new score row
 	workingStruct = struct_copy(score_struct);
 	activeStruct = workingStruct;
 			
