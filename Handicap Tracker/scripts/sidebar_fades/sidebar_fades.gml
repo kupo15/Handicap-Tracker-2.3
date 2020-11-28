@@ -8,7 +8,7 @@ scr_sidebar_lerp(offsetScroll.coursebarYoff,submenu == navbar.coursebar,fade_spd
 scr_sidebar_lerp(offsetScroll.scoreSortUnderline,META_data.scoreSort,0.5); // underline
 scr_sidebar_lerp(offsetScroll.courseSortUnderline,META_data.courseSort,0.5); // underline
 scr_sidebar_lerp(offsetScroll.numpadYoff,submenu == navbar.numpad,1); // numpad
-scr_sidebar_lerp(offsetScroll.sidebarXoff,submenu <= navbar.sidebar,SIDEBAR_LERP); // sidebar position
+scr_sidebar_lerp(offsetScroll.sidebarXoff,(submenu = navbar.sidebar) || (submenu = navbar.profileChange),SIDEBAR_LERP); // sidebar position
 
 
 // alpha

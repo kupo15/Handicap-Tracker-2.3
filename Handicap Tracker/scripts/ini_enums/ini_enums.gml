@@ -98,10 +98,11 @@ par
 
 
 enum navbar {
-profileChange = -6,
-sidebar = -5,
-main = -4,
+main = -2,
 hidden = -1,
+
+profileChange,
+sidebar,
 
 coursebar,
 teebar,
