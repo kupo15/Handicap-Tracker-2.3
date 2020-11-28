@@ -106,9 +106,7 @@ if clickout || (clickMoved && width_reached)
 	click_highlight_alpha_end = 0; // fade away	
 	
 	// reset
-	canClick = false;
 	canClickPressed = true;
-	scrollbarIndexScrolling = noone;
 	}
 	
 if width_reached && transitionReady
