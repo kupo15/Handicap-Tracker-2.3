@@ -1,5 +1,6 @@
 function debug_data_reset() {
-		
+db("***debug reset***");
+
 root_data_create();
 scr_profile_create("Matt");
 scr_profile_create("Megan");

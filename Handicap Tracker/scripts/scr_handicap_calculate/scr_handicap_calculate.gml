@@ -57,7 +57,7 @@ var num = clamp(rounds_included-round_selection+1,1,rounds_included); // number 
 var num = ds_list_size(included_scores);
 for(var n=0;n<num;n++) // loop through all included scores
 	{
-	db("********************");
+	//db("*****Handicap Start******");
 	ds_list_clear(diff_arr);
 	
 	var pos_start = n;

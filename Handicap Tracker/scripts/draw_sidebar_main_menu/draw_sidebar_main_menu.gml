@@ -137,6 +137,7 @@ for(var i=0;i<size;i++)
 		{
 		scr_profile_set(i);
 		scr_handicap_calculate();
+		app_save;
 
 		submenu = navbar.main;
 		}

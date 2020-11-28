@@ -1,7 +1,8 @@
 function scr_profile_set(ind) {
 /// @param index
 
-profile_index = ind;	
+profile_index = ind;
+META_data.profileIndex = profile_index;
 	
 // set
 user_disp_name = PROFILE_data.dispName;	

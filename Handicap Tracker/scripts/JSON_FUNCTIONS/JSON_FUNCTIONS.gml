@@ -20,7 +20,7 @@ buffer_write(_buffer,buffer_string,_string);
 buffer_save(_buffer,_filename);
 buffer_delete(_buffer);
 
-db(_string);
+//db(_string);
 }
 
 
@@ -38,6 +38,9 @@ if file_exists(_filename)
 		META_data.version = json_version;
 		
 		app_save;
+		db("transitioned saved data");
+		
+		db("game end");
 		}
 	else // load 
 		{
@@ -46,12 +49,15 @@ if file_exists(_filename)
 		handicap_season_array = SEASON_data;
 
 		db(string(_filename)+" loaded");
+		
+		db("game end1");
 		}
 	}
 else
 	{
 	json_conversion_missing();
 	db(string(_filename)+" not found > creating data structures");
+	db("game end2");
 	}
 }
 
