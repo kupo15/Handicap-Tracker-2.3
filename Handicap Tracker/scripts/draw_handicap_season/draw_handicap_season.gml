@@ -75,7 +75,7 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
 
 // draw the 3 bars
-draw_screen_header(headerType.bars,headerType.none,"Golf Season");
+draw_screen_header(headerType.back,headerType.none,"Golf Season");
 	
 if androidBack
 screen_goto_prev(navbar.main);

@@ -1,10 +1,11 @@
 function debug_data_reset() {
-	
+		
 root_data_create();
+scr_profile_create("Matt");
+scr_profile_create("Megan");
 
-ROOT_data_struct.profiles[0].name = "Matt";
 rounds_played = 0;
-scr_profile_set(0);
+subcourse_index = 0;
 
 debug_data_courses();
 debug_data_scores();
@@ -12,8 +13,7 @@ debug_data_scores();
 score_struct = undefined;
 course_struct = undefined;
 
-scr_handicap_calculate();
-app_save;
+scr_profile_set(0);
 }
 
 function debug_data_courses() {
@@ -49,6 +49,7 @@ scr_course_create("Crosswinds-Jones/Zaharias","MA",arr);
 scr_course_add_tee(course_struct,"gold","6520","134","71.9","72");
 
 scr_course_create("Crotched Mountain","NH",arr);
+scr_course_add_tee(course_struct,"red","4604","117","67.4","71");
 scr_course_add_tee(course_struct,"blue","6277","125","69.2","71");
 
 scr_course_create("Crumpin Fox Club","MA",arr);
@@ -83,6 +84,7 @@ scr_course_create("Newton Commonwealth","MA",arr);
 scr_course_add_tee(course_struct,"blue","5354","119","67.0","70");
 
 scr_course_create("Olde Scottish Links","MA",arr);
+scr_course_add_tee(course_struct,"green","5396","110","65.9","72");
 scr_course_add_tee(course_struct,"blue","6306","124","70.3","72");
 scr_course_add_tee(course_struct,"black","6790","126","72.6","72");
 
@@ -97,6 +99,7 @@ scr_course_add_tee(course_struct,"white","5859","116","68.1","70");
 scr_course_add_tee(course_struct,"blue","6208","124","70.0","70");
 
 scr_course_create("West Bridgewater Country Club","MA",arr);
+scr_course_add_tee(course_struct,"red","4915","120","67.7","71");
 scr_course_add_tee(course_struct,"gold","6659","127","70.9","71");
 
 scr_course_create("Riverwinds","NJ",arr);
@@ -143,6 +146,9 @@ array_sort_nested_struct(arr,"courseName",true);
 }
 
 function debug_data_scores() {
+	
+// matt profile
+scr_profile_set(0);
 	
 // add scores
 var date = date_create_datetime(2018,5,16,1,1,1); scr_score_add_index("Putterham Meadows","white","86",date);
@@ -198,4 +204,14 @@ var date = date_create_datetime(2020,11,21,1,1,1); scr_score_add_index("Crystal 
 var date = date_create_datetime(2020,11,25,1,1,1); scr_score_add_index("Riverwinds","green","85",date,undefined,true);
 
 array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
+
+// set to megan's profile
+scr_profile_set(1);
+
+var date = date_create_datetime(2020,9,20,1,1,1); scr_score_add_index("Olde Scottish Links","green","134",date,4);
+var date = date_create_datetime(2020,9,26,1,1,1); scr_score_add_index("West Bridgewater Country Club","red","119",date);
+var date = date_create_datetime(2020,10,3,1,1,1); scr_score_add_index("Crotched Mountain","red","150",date,5);
+
+array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
+
 }

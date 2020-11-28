@@ -1,7 +1,6 @@
 {
   "resources": [
     {"id":{"name":"spr_footer_icon","path":"sprites/spr_footer_icon/spr_footer_icon.yy",},"order":2,},
-    {"id":{"name":"funct_screen_scrolling_old","path":"scripts/funct_screen_scrolling_old/funct_screen_scrolling_old.yy",},"order":5,},
     {"id":{"name":"ELEMENT_STRUCTS","path":"scripts/ELEMENT_STRUCTS/ELEMENT_STRUCTS.yy",},"order":2,},
     {"id":{"name":"spr_play","path":"sprites/spr_play/spr_play.yy",},"order":1,},
     {"id":{"name":"ico_backspace","path":"sprites/ico_backspace/ico_backspace.yy",},"order":0,},
@@ -86,7 +85,6 @@
     {"id":{"name":"input_android_back","path":"scripts/input_android_back/input_android_back.yy",},"order":0,},
     {"id":{"name":"spr_ico_calendar","path":"sprites/spr_ico_calendar/spr_ico_calendar.yy",},"order":5,},
     {"id":{"name":"scr_timer_beep","path":"scripts/scr_timer_beep/scr_timer_beep.yy",},"order":2,},
-    {"id":{"name":"scr_course_add_old","path":"scripts/scr_course_add_old/scr_course_add_old.yy",},"order":3,},
     {"id":{"name":"scr_course_add_index","path":"scripts/scr_course_add_index/scr_course_add_index.yy",},"order":4,},
     {"id":{"name":"fn_normal","path":"fonts/fn_normal/fn_normal.yy",},"order":2,},
     {"id":{"name":"scr_profile_set","path":"scripts/scr_profile_set/scr_profile_set.yy",},"order":0,},
@@ -115,9 +113,7 @@
     {"id":{"name":"scr_stats_set","path":"scripts/scr_stats_set/scr_stats_set.yy",},"order":11,},
     {"id":{"name":"find_index","path":"scripts/find_index/find_index.yy",},"order":12,},
     {"id":{"name":"popup_coursebar","path":"scripts/popup_coursebar/popup_coursebar.yy",},"order":14,},
-    {"id":{"name":"scr_coursebar_select","path":"scripts/scr_coursebar_select/scr_coursebar_select.yy",},"order":2,},
     {"id":{"name":"draw_playing_score_submit","path":"scripts/draw_playing_score_submit/draw_playing_score_submit.yy",},"order":1,},
-    {"id":{"name":"funct_screen_scrolling_hor_old","path":"scripts/funct_screen_scrolling_hor_old/funct_screen_scrolling_hor_old.yy",},"order":6,},
     {"id":{"name":"debug_data_reset","path":"scripts/debug_data_reset/debug_data_reset.yy",},"order":17,},
     {"id":{"name":"fn_italic","path":"fonts/fn_italic/fn_italic.yy",},"order":1,},
     {"id":{"name":"scr_playing_clear","path":"scripts/scr_playing_clear/scr_playing_clear.yy",},"order":18,},

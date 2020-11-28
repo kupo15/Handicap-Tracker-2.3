@@ -30,7 +30,7 @@ return score_struct;
 function scr_score_add_index(c_name,tee_color,_score,date,strokes,season) {
 /// @param course_name
 /// @param tee_color
-/// @param score
+/// @param gross_score
 /// @param date
 /// @param [strokes
 /// @param offSeason]

@@ -88,6 +88,8 @@ if !ds_list_empty(stat_tee[i]) // if there is data in the list
 	}
 	
 var max_disp = 10;
+var xsep = 0;
+
 var size = ds_list_size(teebox_list);
 for(var i=0;i<size;i++)
 if !ds_list_empty(stat_tee[i]) // if there is data in the list
@@ -160,7 +162,7 @@ var yy = 220;
 var hh = 400;
 var sub = navbar.main;
 
-funct_screen_scrolling_hor(0,yy,room_width,hh,xsep,list_size,max_disp,scrollbar_index,sub);
+funct_screen_scrolling_hor(0,yy,app_width,hh,xsep,list_size,max_disp,scrollbar_index,sub);
 #endregion
     
 if draw_submenu_course_search(header_height,app_width,90,courselist_array,offsetScroll.courselistOffset)

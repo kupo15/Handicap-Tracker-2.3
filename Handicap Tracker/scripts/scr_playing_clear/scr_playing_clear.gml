@@ -1,6 +1,6 @@
 function scr_playing_clear() {
 	
-play_course_struct = {
+var struct = {
 	
 	courseName: "",
 	
@@ -18,4 +18,6 @@ play_course_struct = {
 	
 	esc: "",
 	}
+	
+return struct;
 }

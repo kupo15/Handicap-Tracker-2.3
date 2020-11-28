@@ -33,6 +33,10 @@ draw_line_pixel(xx+30,yy+130,240,1,c_black,1);
 
 
 if multiTouch[3]
-debug_data_reset();
+	{
+	debug_data_reset();
+	scr_handicap_calculate();
+	app_save;
+	}
 
 }

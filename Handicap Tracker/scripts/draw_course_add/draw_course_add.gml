@@ -20,7 +20,7 @@ if trash_delete
 		
 	// original course name
 	if course_struct.courseName == play_course_struct.courseName
-	scr_playing_clear();	
+	play_course_struct = scr_playing_clear();	
 	
 	app_save;
 	androidBack = true;

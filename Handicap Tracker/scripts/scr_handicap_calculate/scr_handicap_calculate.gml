@@ -98,6 +98,7 @@ for(var n=0;n<num;n++) // loop through all included scores
 	}
 
 ghin_index = index_history; // set current index
+PROFILE_data.index = ghin_index;
 
 		// set ESR
 	/*	var esr_test = 0;

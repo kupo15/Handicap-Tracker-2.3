@@ -1,12 +1,28 @@
 function scr_profile_set(ind) {
-	
+/// @param index
+
 profile_index = ind;	
 	
 // set
-var data_struct = ROOT_data_struct.profiles[profile_index];
+user_disp_name = PROFILE_data.dispName;	
+scorelist_array = PROFILE_data.scorelist;
+play_course_struct = PROFILE_data.activeRound;
+}
 
-user_disp_name = data_struct.name;	
-scorelist_array = data_struct.scorelist;
-play_course_struct = data_struct.activeRound;
-
+function scr_profile_create(name) {
+/// @param [name]	
+	
+if argument[0] == undefined
+name = "";
+	
+var profileData = {
+		
+		dispName: name,
+		index: "N/A",
+		
+		scorelist: array_create(0),
+		activeRound: scr_playing_clear(),
+		}	
+	
+array_push(ROOT_data_struct.profiles,profileData);
 }

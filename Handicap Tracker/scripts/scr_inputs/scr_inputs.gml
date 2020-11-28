@@ -65,8 +65,12 @@ exit;
 	
 debug_reset = keyboard_check_pressed(vk_delete);
 
-if debug_reset 
-debug_data_reset();
+if debug_reset
+	{
+	debug_data_reset();
+	scr_handicap_calculate();
+	app_save;
+	}
 
 if keyboard_check(vk_control)
 	{

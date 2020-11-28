@@ -31,12 +31,12 @@ if file_exists(_filename)
 	{
 	ROOT_data_struct = LoadJSONFromFile(_filename); 
 
-	var saveVersion = variable_struct_get(ROOT_data_struct,"version");
-	if saveVersion != json_version
-		{// transition to new version
+	var saveVersion = variable_struct_get(META_data,"version");
+	if (json_version == -4) || (saveVersion != json_version)
+		{// transition to new version		
 		scr_json_version_transition(saveVersion);
-		ROOT_data_struct.version = json_version;
 		
+		META_data.version = json_version;
 		app_save;
 		}
 	else // load 
@@ -45,8 +45,6 @@ if file_exists(_filename)
 		courselist_array = ROOT_data_struct.courselist; // shared courselist
 		handicap_season_array = ROOT_data_struct.seasonList;
 
-		scr_profile_set(profile_index);
-		
 		db(string(_filename)+" loaded");
 		}
 	}
