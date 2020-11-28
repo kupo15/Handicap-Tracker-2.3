@@ -38,7 +38,7 @@ repeat 2
 		draw_menu_bars(xpos+xx,header_height*0.5,ww,hh,2,c_white);
 
 		// clicked on bars
-		if (submenu < 0) && !mode_delete
+		if !mode_delete && (submenu > navbar.sidebar)
 		if click_region_released(xpos,0,region,region,true,submenu)
 			{
 			submenuPrevious = submenu;
@@ -52,7 +52,7 @@ repeat 2
 		// draw the 3 dots
 		draw_menu_dots(xpos+(region*0.5),header_height*0.5,3,7,c_white);
 		
-		if (submenu < 0) && !mode_delete
+		if !mode_delete && (submenu > navbar.sidebar)
 		if click_region_released(xpos,0,region,region,true,submenu)
 			{}
 		}
@@ -60,7 +60,7 @@ repeat 2
 		{
 		draw_menu_arrow(xpos+30,header_height*0.5,40,30,4,1,c_white);
 
-		if (submenu < 0) && !mode_delete
+		if !mode_delete && (submenu > navbar.sidebar)
 		if click_region_released(xpos,0,region,region,true,submenu)
 		screen_goto_prev();
 		}
@@ -70,7 +70,7 @@ repeat 2
 		
 		var xpos = app_width-hh-20;
 
-		if (submenu < 0) && !mode_delete
+		if !mode_delete && (submenu > navbar.sidebar)
 		if click_region_released(xpos,0,region,region,true,submenu)
 		return true;
 		}
