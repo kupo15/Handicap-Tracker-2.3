@@ -181,14 +181,14 @@ var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
-	{		
-	activeStruct.courseData = course_struct;	
-		
+	{
+	// update offseason
+	activeStruct.handicapData.offSeason = scr_score_update_offseason(activeStruct);
+			
 	// update score
 	scorelist_array[@ score_index] = activeStruct;
-		
+
 	// sort
-	//scr_score_update_offseason();
 	scoresort;
 	scr_handicap_calculate();
 

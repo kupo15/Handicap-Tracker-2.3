@@ -170,8 +170,9 @@ else
 var compare_date = date;
 				
 //sm(date_date_string(compare_date))
-//sm(date_date_string(startDate))
+//sm(date_date_string(startDate)+"-"+date_date_string(endDate))
 //sm(date_compare_date(compare_date,startDate))	
+//sm(date_compare_date(compare_date,endDate))	
 				
 if date_compare_date(compare_date,startDate) > -1 // if on or after start
 && date_compare_date(compare_date,endDate) < 1 // if on or before end
