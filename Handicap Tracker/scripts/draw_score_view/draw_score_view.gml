@@ -184,6 +184,7 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 	scorelist_array[@ score_index] = activeStruct;
 		
 	// sort
+	//scr_score_update_offseason();
 	array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
 	scr_handicap_calculate();
 
@@ -204,7 +205,7 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,offset
 	// set values
 	course_struct = returnedSearch;
 	activeStruct.courseName = course_struct.courseName;
-
+//sm(course_struct)
 	// reset values
 	activeStruct.teeColor = "";
 	activeStruct.teeYardage = "";
