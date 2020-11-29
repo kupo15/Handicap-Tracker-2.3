@@ -42,6 +42,9 @@ var yy = profile_hh-height-10;
 draw_text_height_color(xx+xx_off,yy,user_disp_name,c_white,height,fn_bold); // draw user name
 //draw_text_height(xx+xx_off,yy+25,"@"+user_username,25); // draw user id
 
+draw_menu_triangle(xx_off+400,yy+15,10,submenu != navbar.profileChange);
+
+
 #endregion
 
 var xx = 100;

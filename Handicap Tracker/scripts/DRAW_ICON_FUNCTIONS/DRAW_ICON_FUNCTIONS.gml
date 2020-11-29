@@ -35,6 +35,23 @@ draw_line_width_color(xx,yy,xx+diag_ll,yy+half,thickness,col,col); // diagonal d
 	
 }
 	
+function draw_menu_triangle(xx,yy,hh,condition,col) {
+/// @param xx
+/// @param yy
+/// @param condition
+/// @param [color]
+
+if argument[4] == undefined
+col = c_white;
+
+var scale = hh/10;
+var ww = hh*1.87*scale;
+var flip = pick(-1,1,condition);
+var yoff = pick(hh*0.8,0,condition);
+
+draw_triangle_color(xx,yy+yoff,xx+ww,yy+yoff,xx+(ww*0.5),yy+yoff+(hh*flip),col,col,col,false);
+}
+	
 function draw_calendar_icon(xx,yy,sq_yoff,sq_size,date) {
 	
 var day = date_get_day(date);
