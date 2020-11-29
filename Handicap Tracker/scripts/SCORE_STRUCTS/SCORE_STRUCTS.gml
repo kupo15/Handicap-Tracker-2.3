@@ -6,22 +6,33 @@ var int = argument[9];
 score_struct = {
 
 	courseName: course_name,
-	teeColor: tee_color,
-	teeYardage: yardage,
-	teeSlope: slope,
-	teeRating: rating,
-	teePar: par,
+	roundDate: date,		
+	adjDiff: undefined,
+
+	teeData: {
+		teeColor: tee_color,
+		teeYardage: yardage,
+		teeSlope: slope,
+		teeRating: rating,
+		teePar: par,
+		},
 	
-	roundScore: score,
-	roundStrokes: strokes,
-	roundDate: date,
+	roundData: {
+		grossScore: score,
+		netScore: undefined,
+		roundStrokes: strokes,
+		},
 	
-	courseHandicap: undefined,
-	indexHistory: undefined,
-	indexIncluded: false,
-	practiceRound: false,
-	offSeason: off_season,
-	esr: 0,
+	courseLocation: undefined,
+	
+	handicapData: {
+		courseHandicap: undefined,
+		indexHistory: undefined,
+		indexIncluded: false,
+		offSeason: off_season,
+		practiceRound: false,
+		esr: 0,
+		}
 	}	
 
 return score_struct;
@@ -79,6 +90,11 @@ var course_par = teeData.teePar;
 
 // create score data
 score_struct = scr_score_create(c_name,tee_color,course_yardage,course_slope,course_rating,course_par,_score,date,strokes,off_season);
+score_struct.courseLocation = district_struct;
+
+//cs(js(score_struct));
+//sm(score_struct)
+
 
 // add score
 array_push(scorelist_array,score_struct);

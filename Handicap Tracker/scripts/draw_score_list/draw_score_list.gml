@@ -28,24 +28,29 @@ for(var i=pos_start;i<pos_end;i++)
 	{
 	var off_pos = i-scorelist_offset;
 
-	var score_pointer = scorelist_array[i];
+	var score_pointer = scorelist_array[i];	
 	var course_name = score_pointer.courseName;
-	var course_tee = score_pointer.teeColor;
-	var course_yardage = score_pointer.teeYardage;
-	var course_slope = score_pointer.teeSlope;
-	var course_rating = score_pointer.teeRating;
-	var _score = score_pointer.roundScore;
-	var strokes = score_pointer.roundStrokes;
-	var course_esr = score_pointer.esr;
-	var course_practice = score_pointer.practiceRound;
-	var off_season = score_pointer.offSeason;
-	//var index = score_pointer.indexHistory;
-
 	var date = score_pointer.roundDate;
 	var month = date_get_month(date);
 	var day = date_get_day(date);
 	var year = date_get_year(date);
 	var date_string = string(month)+"/"+string(day)+"/"+string(year);
+	
+	var tee_pointer = score_pointer.teeData;
+	var course_tee = tee_pointer.teeColor;
+	var course_yardage = tee_pointer.teeYardage;
+	var course_slope = tee_pointer.teeSlope;
+	var course_rating = tee_pointer.teeRating;
+	
+	var round_pointer = score_pointer.roundData;
+	var net_score = round_pointer.netScore;
+	var strokes = round_pointer.roundStrokes;
+	
+	var handicap_pointer = score_pointer.handicapData;
+	var course_esr = handicap_pointer.esr;
+	var course_practice = handicap_pointer.practiceRound;
+	var off_season = handicap_pointer.offSeason;
+	//var index = handicap_pointer.indexHistory;
 	
 	//var course_handicap = score_pointer.courseHandicap;
 	//draw_text_height(xx+390,yy+50+(off_pos*sep),course_handicap,40); // draw score shot
@@ -56,7 +61,6 @@ for(var i=pos_start;i<pos_end;i++)
 	
 	draw_text_height_color(xx+15,yy+10+(off_pos*sep),course_str,col,height); // draw course name
 	
-	var net_score = real(_score)-real(strokes);
 	draw_set_halign(fa_right);
 	draw_text_height(xx+465,yy+60+(off_pos*sep),net_score,50); // draw score shot
 	draw_set_halign(fa_left);
@@ -107,8 +111,8 @@ for(var i=pos_start;i<pos_end;i++)
 			activeStruct = workingStruct;
 			
 			// set switch tabs
-			switchTabDisp[0] = score_struct.practiceRound;
-			switchTabDispEnd[0] = score_struct.practiceRound;
+			switchTabDisp[0] = course_practice;
+			switchTabDispEnd[0] = course_practice;
 				
 			// change screen
 			screen_change(screen.score_view);		

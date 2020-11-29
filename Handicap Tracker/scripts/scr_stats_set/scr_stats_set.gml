@@ -11,16 +11,19 @@ for(var i=0;i<size;i++) // loop through scores
 	{
 	var pos = size-1-i;
 	var score_pointer = scorelist_array[pos]; // get course pointer
+	var round_pointer = score_pointer.roundData;
+	var tee_pointer = score_pointer.teeData;
+	
 	var course = score_pointer.courseName; // get the name
 	
 	// find a match is found
 	if course == course_name
 		{
-		var _score = score_pointer.roundScore; // get the score
-		var tee_color = capitalize(score_pointer.teeColor); // get tee color
+		var net_score = round_pointer.netScore; // get the score
+		var tee_color = capitalize(tee_pointer.teeColor); // get tee color
 		var tee_ind = ds_list_find_index(teebox_list,tee_color); // get the tee index
 		
-		ds_list_add(stat_tee[tee_ind],real(_score)); // add the score to the list
+		ds_list_add(stat_tee[tee_ind],real(net_score)); // add the score to the list
 		}
 	}
 

@@ -10,8 +10,12 @@ var size = array_length(scorelist_array);
 for(var i=0;i<size;i++) // loop through all
 	{
 	var score_pointer = scorelist_array[i];
-	var gross_score = score_pointer.roundScore;
-	var _strokes = score_pointer.roundStrokes;
+	var handicapData = score_pointer.handicapData;
+	var roundData = score_pointer.roundData;
+	var teeData = score_pointer.teeData;
+	
+	var gross_score = roundData.grossScore;
+	var _strokes = roundData.roundStrokes;
 	
 	if _strokes == ""
 	_strokes = 0;
@@ -26,23 +30,25 @@ for(var i=0;i<size;i++) // loop through all
 		}
 		
 	var net_score = real(gross_score)-real(_strokes);
-	var course_rating = real(score_pointer.teeRating);
-	var course_slope = real(score_pointer.teeSlope);
-	var course_par = real(score_pointer.teePar);
-	var practice = score_pointer.practiceRound;
-	var off_season = score_pointer.offSeason;
+	var course_rating = real(teeData.teeRating);
+	var course_slope = real(teeData.teeSlope);
+	var course_par = real(teeData.teePar);
+	var practice = handicapData.practiceRound;
+	var off_season = handicapData.offSeason;
 	
 	// calc diff
 	var diff = net_score-course_rating;
 	var adj_diff = diff*113/course_slope;
 
 	// set values in struct
-	score_pointer.netScore = net_score;
-	score_pointer.adjDiff = adj_diff;
-	score_pointer.indexIncluded = false;
-	score_pointer.esr = 0;
-	score_pointer.courseHandicap = undefined;
+	roundData.netScore = net_score;
 	
+	score_pointer.adjDiff = adj_diff;
+	
+	handicapData.indexIncluded = false;
+	handicapData.esr = 0;
+	handicapData.courseHandicap = undefined;
+
 	if !practice && !off_season
 	ds_list_add(included_scores,score_pointer);
 	}
@@ -85,13 +91,13 @@ for(var n=0;n<num;n++) // loop through all included scores
 	var score_pointer = included_scores[| n];
 	var index_history = clamp(round_tenth(ave/top_limit),-20,54);
 	
-	score_pointer.indexHistory = index_history; // set the index up to this point
+	score_pointer.handicapData.indexHistory = index_history; // set the index up to this point
 
 	// set course handicap at this point
 	if index_prev != undefined
 		{
 		var course_handicap = scr_course_handicap(index_prev,course_slope,course_rating,course_par);
-		score_pointer.courseHandicap = course_handicap;
+		score_pointer.handicapData.courseHandicap = course_handicap;
 		}
 		
 	var index_prev = index_history;
@@ -133,7 +139,7 @@ ds_list_sort_nested_struct(recent_scores_list,"adjDiff",true); // best to worst
 // set the first 8 scores to active
 var num = min(top_scores,rounds_included)
 for(var i=0;i<num;i++)
-recent_scores_list[| i].indexIncluded = true; // index
+recent_scores_list[| i].handicapData.indexIncluded = true; // index
 
 // sorting
 ds_list_sort_nested_struct(recent_scores_list,"roundDate",false); // date sort recent scores recent first

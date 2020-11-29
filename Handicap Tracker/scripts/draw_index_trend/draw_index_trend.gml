@@ -23,7 +23,7 @@ var pos_end = clamp(size-starting_pos,0,size);
 for(var i=0;i<pos_end;i++)
 	{
 	var score_pointer = included_scores[| i];
-	var index = score_pointer.indexHistory;
+	var index = score_pointer.handicapData.indexHistory;
 
 	if index < ymin
 	ymin = index;
@@ -60,15 +60,21 @@ for(var i=pos_start;i<pos_end;i++)
 	var off_pos = off_ind*xsep;
 	var n = i;
 	
-	var pointer = included_scores[| n];
-	var ind = pointer.indexHistory; // get the index
-	var teeColor = pointer.teeColor;
-
-	var date = pointer.roundDate; // get the date
+	// root data
+	var score_pointer = included_scores[| n];
+	var date = score_pointer.roundDate; // get the date
 	var month = date_get_month(date);
 	var day = date_get_day(date);
 	var year = date_get_year(date);
 	var date_str = string(funct_convert_date(month,false,noone,noone))+" "+string(day)+", "+string(year);
+	
+	// tee data
+	var tee_pointer = score_pointer.teeData;
+	var handicap_pointer = score_pointer.handicapData;
+	//sm(score_pointer)
+	// handicap data
+	var ind = handicap_pointer.indexHistory; // get the index
+	var teeColor = tee_pointer.teeColor;
 	
 	var xpos = xx+8+off_pos;
 	var ypos = yy-((ind-ymin)*ysep)*10;

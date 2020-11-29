@@ -7,27 +7,10 @@ var pos_start = 0;
 var pos_end = min(rounds_played,round_selection)-1;
 for(var i=pos_start;i<pos_end;i++) // loop through last x score list
 	{
-	var score_pointer = scorelist_array[i];
-	var score_test = score_pointer.roundScore;
-	
-	if score_test == "" // if blank
-		{// remove scores that have no scores
-		array_delete(scorelist_array,i,1);
-		i --;
-		pos_end --;
-		continue;
-		}
+	var score_pointer = scorelist_array[i];	
+	var adj_diff = score_pointer.adjDiff;
 		
 	// add last 19 diff to list
-	var round_score = real(score_test);
-	var round_strokes = real(score_pointer.roundStrokes);
-	var course_rating = real(score_pointer.teeRating);
-	var course_slope = real(score_pointer.teeSlope);
-	
-	var net_score = round_score-round_strokes;
-	var diff = net_score-course_rating;
-	var adj_diff = diff*113/course_slope;
-
 	ds_list_add(diff_arr,adj_diff); 
 	}
 	
@@ -73,8 +56,9 @@ for(var n=0;n<150;n++)
 		if temp_handicap > round_tenth(ghin_index)
 			{
 			var struct = falling_off_struct_get();
+			var condition = struct.handicapData.indexIncluded;
 			
-			play_course_struct.handicap_inc = pick("Free Round",net_score,struct.indexIncluded);			
+			play_course_struct.handicap_inc = pick("Free Round",net_score,condition);			
 			break;
 			}
 		}

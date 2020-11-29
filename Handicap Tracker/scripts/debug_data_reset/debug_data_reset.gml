@@ -206,7 +206,7 @@ var date = date_create_datetime(2020,11,21,1,1,1); scr_score_add_index("Crystal 
 var date = date_create_datetime(2020,11,25,1,1,1); scr_score_add_index("Riverwinds","green","85",date);
 var date = date_create_datetime(2020,11,28,1,1,1); scr_score_add_index("McCullough's Emerald Links","blue","83",date);
 
-array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
+scoresort;
 
 // set to megan's profile
 scr_profile_set(1);
@@ -215,6 +215,6 @@ var date = date_create_datetime(2020,9,20,1,1,1); scr_score_add_index("Olde Scot
 var date = date_create_datetime(2020,9,26,1,1,1); scr_score_add_index("West Bridgewater Country Club","red","119",date);
 var date = date_create_datetime(2020,10,3,1,1,1); scr_score_add_index("Crotched Mountain","red","150",date,5);
 
-array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
+scoresort;
 
 }

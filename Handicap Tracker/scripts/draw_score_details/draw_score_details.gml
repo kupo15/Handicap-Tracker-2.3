@@ -10,27 +10,26 @@ draw_screen_header(headerType.back,headerType.none,str);
 
 switch textboxIndex
 	{
-	case score_data.score_: activeStruct.roundScore = string_convert_real_numpad(numpad_value,3); break;
-	case score_data.strokes: activeStruct.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
+	case score_data.score_: activeStruct.roundData.grossScore = string_convert_real_numpad(numpad_value,3); break;
+	case score_data.strokes: activeStruct.roundData.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
 	}	
 
-
 // exceptions
-if activeStruct.roundStrokes == ""
+if activeStruct.roundData.roundStrokes == ""
 	{
-	activeStruct.roundStrokes = "0";
-	numpad_value = activeStruct.roundStrokes;
+	activeStruct.roundData.roundStrokes = "0";
+	numpad_value = activeStruct.roundData.roundStrokes;
 	}
 
-if string_length(activeStruct.roundStrokes) > 1
-&& string_char_at(activeStruct.roundStrokes,1) == "0"
+if string_length(activeStruct.roundData.roundStrokes) > 1
+&& string_char_at(activeStruct.roundData.roundStrokes,1) == "0"
 	{
-	activeStruct.roundStrokes = string_delete(activeStruct.roundStrokes,1,1);
-	numpad_value = activeStruct.roundStrokes;
+	activeStruct.roundData.roundStrokes = string_delete(activeStruct.roundData.roundStrokes,1,1);
+	numpad_value = activeStruct.roundData.roundStrokes;
 	}
-
-var roundScore = activeStruct.roundScore;
-var roundStrokes = activeStruct.roundStrokes;
+	
+var roundScore = activeStruct.roundData.grossScore;
+var roundStrokes = activeStruct.roundData.roundStrokes;
 
 #region draw tee details
 var xx = 0;

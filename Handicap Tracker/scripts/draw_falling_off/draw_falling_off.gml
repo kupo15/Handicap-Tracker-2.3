@@ -26,25 +26,28 @@ if score_pointer == -1
 exit;
 
 var course_name = score_pointer.courseName;
-var course_tee = score_pointer.teeColor;
-var course_yardage = score_pointer.teeYardage;
-var course_slope = score_pointer.teeSlope;
-var course_rating = score_pointer.teeRating;
-var _score = score_pointer.roundScore;
-	
 var date = score_pointer.roundDate;
 var month = date_get_month(date);
 var day = date_get_day(date);
 var year = date_get_year(date);
 var date_string = string(month)+"/"+string(day)+"/"+string(year);
+
+var teePointer = score_pointer.teeData;
+var course_tee = teePointer.teeColor;
+var course_yardage = teePointer.teeYardage;
+var course_slope = teePointer.teeSlope;
+var course_rating = teePointer.teeRating;
+
+var roundPointer = score_pointer.roundData;
+var net_score = roundPointer.netScore;
 	
 var active = "";
-if score_pointer.indexIncluded
+if score_pointer.handicapData.indexIncluded
 active = "*";
 
 var course_str = string_abbreviate(course_name,380,height,"...");
-draw_text_height(xx,yy+10,course_str,height); // draw course name
-draw_text_height(xx+425,yy+15,_score+active,50); // draw score shot
+draw_text_height(xx,yy+15,course_str,height); // draw course name
+draw_text_height(xx+425,yy+15,string(net_score)+active,50); // draw score shot
 	
 // tee info
 var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";

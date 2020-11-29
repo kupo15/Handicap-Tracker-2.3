@@ -9,15 +9,20 @@ var bg_col = c_lt_gray;
 draw_clear(bg_col);
 
 var course_name = activeStruct.courseName;
-var course_tee = activeStruct.teeColor;
-var course_yardage = activeStruct.teeYardage;
-var course_slope = activeStruct.teeSlope;
-var course_rating = activeStruct.teeRating;
 
-var roundScore = activeStruct.roundScore;
-var roundStrokes = activeStruct.roundStrokes;
-var practice_round = activeStruct.practiceRound;
-var off_season = activeStruct.offSeason;
+var tee_pointer = activeStruct.teeData;
+var course_tee = tee_pointer.teeColor;
+var course_yardage = tee_pointer.teeYardage;
+var course_slope = tee_pointer.teeSlope;
+var course_rating = tee_pointer.teeRating;
+
+var round_pointer = activeStruct.roundData;
+var roundScore = round_pointer.grossScore;
+var roundStrokes = round_pointer.roundStrokes;
+
+var handicap_pointer = activeStruct.handicapData;
+var practice_round = handicap_pointer.practiceRound;
+var off_season = handicap_pointer.offSeason;
 
 #region draw course
 var xx = 0;
@@ -176,16 +181,15 @@ var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
-	{
-	if roundStrokes == ""
-	activeStruct.roundStrokes = "0";
+	{		
+	activeStruct.courseData = course_struct;	
 		
 	// update score
 	scorelist_array[@ score_index] = activeStruct;
 		
 	// sort
 	//scr_score_update_offseason();
-	array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
+	scoresort;
 	scr_handicap_calculate();
 
 	app_save;	
@@ -205,7 +209,7 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,offset
 	// set values
 	course_struct = returnedSearch;
 	activeStruct.courseName = course_struct.courseName;
-//sm(course_struct)
+sm(course_struct)
 	// reset values
 	activeStruct.teeColor = "";
 	activeStruct.teeYardage = "";
