@@ -1,6 +1,5 @@
 function popup_coursebar() {
 	
-submenu = navbar.coursebar;
 searched = false;
 searching = false;
 searched_name = ""; // reset searched string
