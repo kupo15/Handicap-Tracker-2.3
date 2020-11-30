@@ -125,24 +125,24 @@ PROFILE_data.index = ghin_index;
 
 
 // set recent scores
-ds_list_clear(recent_scores_list);
+recent_scores_array = [];
 ds_list_sort_nested_struct(included_scores,"roundDate",false); // included score sort recent first
 
 // add last 20 score structs
 var size = min(rounds_included,round_selection);
 for(var i=0;i<size;i++)
-ds_list_add(recent_scores_list,included_scores[| i]);
+array_push(recent_scores_array,included_scores[| i]);
 
 // recent score sort
-ds_list_sort_nested_struct(recent_scores_list,"adjDiff",true); // best to worst
+array_sort_nested_struct(recent_scores_array,"adjDiff",true); // best to worst
 	
 // set the first 8 scores to active
 var num = min(top_scores,rounds_included)
 for(var i=0;i<num;i++)
-recent_scores_list[| i].handicapData.indexIncluded = true; // index
+recent_scores_array[i].handicapData.indexIncluded = true; // index
 
 // sorting
-ds_list_sort_nested_struct(recent_scores_list,"roundDate",false); // date sort recent scores recent first
+array_sort_nested_struct(recent_scores_array,"roundDate",false); // date sort recent scores recent first
 
 // cleanup
 ds_list_destroy(diff_arr);

@@ -19,10 +19,10 @@ draw_text_height_color(380,yy-45,date_str,c_gray,height*0.8,fn_italic);
 draw_line_pixel(xx-18,yy-15,ww,1,c_black,0.5);
 draw_line_pixel(app_width*0.5,yy-15,1,hh+15,c_black,0.5);
 
-var size = ds_list_size(recent_scores_list);
+var size = array_length(recent_scores_array);
 for(var i=0;i<size;i++)
 	{
-	var score_pointer = recent_scores_list[| i];
+	var score_pointer = recent_scores_array[i];
 	var course_name = string_abbreviate(score_pointer.courseName,210,height*0.8,"...");
 	var date = score_pointer.roundDate;
 	var month = date_get_month(date);

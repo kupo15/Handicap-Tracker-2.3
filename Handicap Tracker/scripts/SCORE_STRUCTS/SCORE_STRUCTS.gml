@@ -6,8 +6,8 @@ var int = argument[9];
 score_struct = {
 
 	courseName: course_name,
-	roundDate: date,		
 	adjDiff: undefined,
+	roundDate: date,		
 
 	teeData: {
 		teeColor: tee_color,

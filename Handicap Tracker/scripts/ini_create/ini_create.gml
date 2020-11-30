@@ -4,7 +4,7 @@ layout_normal();
 ini_teebox();
 //
 
-recent_scores_list = ds_list_create();
+recent_scores_array = [];
 included_scores = ds_list_create();
 
 top_scores = 8;
