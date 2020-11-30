@@ -83,9 +83,8 @@ if click_button(xx,yy,"Submit Round",height,c_black,ww,hh,col,true,false,navbar.
 
 	app_save;
 		
-	submenu = navbar.main;
 	textboxIndex = undefined;
-	screen_change(screen.home);
+	screen_change(screen.home,navbar.main);
 	}
 #endregion
 }

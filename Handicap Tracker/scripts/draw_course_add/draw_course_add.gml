@@ -138,7 +138,7 @@ for(var i=0;i<size;i++)
 		activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index],string_lower(teeColor));
 		tee_index = i;
 
-		screen_change(screen.edit_tees);
+		screen_change(screen.edit_tees,navbar.numpad);
 		click_textbox_set(activeStruct.teeYardage,course_data.yardage,kbv_type_numbers);
 		}
 			

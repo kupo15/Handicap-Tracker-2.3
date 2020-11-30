@@ -4,7 +4,7 @@ enumGOTO();
 
 function ini_screen_change() {
 
-prev_screen_stack = ds_list_create();
+prevScreenStack = ds_list_create();
 	
 drawScreen[screen.home] = draw_home;
 drawScreen[screen.stats] = draw_stats;
@@ -36,14 +36,20 @@ drawScreen[screen.edit_tees] = draw_course_edit_tees;
 drawScreen[screen.edit_date] = draw_date_edit_calendar;	
 }
 
-function screen_change(ind,clear) {
+function screen_change(ind,sub,clear) {
 /// @param screenIndex
-/// @param [clear]
+/// @param [submenu
+/// @param clear]
 
 if argument[1] == undefined
+sub = submenu;
+
+if argument[2] == undefined
 clear = false;
 
-ds_list_push(prev_screen_stack,screenIndex); // add current screen to the stack
+var arr = [screenIndex,submenu]; 
+
+ds_list_push(prevScreenStack,arr); // add current screen and submenu to the stack
 
 // change to new screen
 if (drawScreen[ind] == 0) || (drawScreen[ind] == undefined)
@@ -51,9 +57,11 @@ screenIndex = screen.enumcount;
 else
 screenIndex = ind;
 
+submemu = sub;
+
 // clear the prev screen stack
 if clear
-ds_list_clear(prev_screen_stack);
+ds_list_clear(prevScreenStack);
 
 screen_goto_actions();
 }
@@ -66,13 +74,17 @@ submenu = subIndex;
 
 click_highlight_screen = screenIndex;
 
-if ds_list_empty(prev_screen_stack)
+if ds_list_empty(prevScreenStack)
 	{
 	screenIndex = screen.home;
 	db("stack empty");
 	}
 else
-screenIndex = ds_list_pop(prev_screen_stack);
+	{
+	var arr = ds_list_pop(prevScreenStack);
+	screenIndex = arr[0];
+	submenu = arr[1];
+	}
 
 screen_goto_actions();
 }
@@ -84,12 +96,7 @@ vk_hide();
 switch screenIndex
 	{
 	// change to hidden
-	case screen.handicapSeason:
-	case screen.score_view:
-	case screen.score_card: submenu = navbar.hidden; break;	
-	
-	// edit tees
-	case screen.edit_tees: submenu = navbar.numpad; break;
+	case screen.handicapSeason: submenu = navbar.hidden; break;	
 	
 	// course list
 	case screen.course_list: scr_update_course_frequency(); 

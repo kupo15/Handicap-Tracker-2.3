@@ -14,7 +14,7 @@ if androidBack
 		game_end();
 
 		scr_handicap_calculate();
-		screen_change(screen.home,true);
+		screen_change(screen.home,undefined,true);
 		}
 	}
 	

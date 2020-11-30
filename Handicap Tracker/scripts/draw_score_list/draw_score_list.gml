@@ -115,7 +115,7 @@ for(var i=pos_start;i<pos_end;i++)
 			switchTabDispEnd[0] = course_practice;
 				
 			// change screen
-			screen_change(screen.score_view);		
+			screen_change(screen.score_view,navbar.hidden);		
 			scr_tee_filled_set();
 			}
 		}

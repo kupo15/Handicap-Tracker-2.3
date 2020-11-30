@@ -60,5 +60,5 @@ draw_text_height_color(xx+270,yy+80,date_string,c_gray,23); // draw date played
 
 // if clicked
 if click_region_released(0,yy-50,ww,sep+50,c_yellow,navbar.main)
-screen_change(screen.score_card);
+screen_change(screen.score_card,navbar.hidden);
 }

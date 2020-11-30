@@ -72,7 +72,7 @@ for(var i=0;i<rows;i++)
 			tee_index = i;
 
 			scr_course_tee_set(teeColor);
-			screen_change(screen.edit_tees);
+			screen_change(screen.edit_tees,navbar.numpad);
 			
 			submenu = navbar.hidden;*/
 			//scr_tee_filled_set(); // mark tees with data

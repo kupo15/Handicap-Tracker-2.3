@@ -64,7 +64,7 @@ draw_text_height(xx,yy+(i*sep),deleteList[| i],height);
 yy += (size+1)*sep;*/
 
 // draw prev screen stack
-var size = ds_list_size(prev_screen_stack);
+var size = ds_list_size(prevScreenStack);
 
 // draw current screen
 var str = script_get_name(drawScreen[screenIndex]);
@@ -77,8 +77,11 @@ draw_line(xx,yy+sep,xx+200,yy+sep);
 // draw prev screens
 for(var i=0;i<size;i++)
 	{
-	var val = prev_screen_stack[| size-i-1];
-	var str = script_get_name(drawScreen[val]);
+	var arr = prevScreenStack[| size-i-1];
+	var _screen = arr[0];
+	var _sub = arr[1];
+	
+	var str = script_get_name(drawScreen[_screen]);
 
 	draw_text_height(xx,yy+((i+1)*sep),str,height);
 	}
