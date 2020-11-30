@@ -26,12 +26,15 @@ var pos_start = floor(courselist_offset);
 var pos_end = min(list_size,ceil(courselist_offset)+rows);
 for(var i=pos_start;i<pos_end;i++)
 	{
+	var off_ind = i-courselist_offset;
+	var off_pos = (off_ind*sep);
+	
 	var course_pointer = courselist_array[i];
 	var course_name = course_pointer.courseName; // course name
 	var course_location = course_pointer.courseLocation.stateInitial; // course location
+	var course_favorite = course_pointer.favorite;
+	
 	var course_str = string_abbreviate(course_name,485,height,"...");
-	var off_ind = i-courselist_offset;
-	var off_pos = (off_ind*sep);
 	var initial = string_char_at(course_name,1);
 	
 	// draw the circle icon
@@ -42,6 +45,8 @@ for(var i=pos_start;i<pos_end;i++)
 
 	draw_set_halign(fa_left);
 	draw_text_height_middled(xx,yy+off_pos-5,course_str,sep,height,1); // draw course name
+	
+	draw_icon_height(ico_favorites,course_favorite,app_width-100,yy+off_pos-5,spe*0.8,1);
 	
 	//var name_off = string_width_height(course_str,height);
 	draw_text_height_middled_color(xx+10,yy+off_pos+height-5,course_location,sep,c_gray,height*0.8,fn_italic); // draw course location

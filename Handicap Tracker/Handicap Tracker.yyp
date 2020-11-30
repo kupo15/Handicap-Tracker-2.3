@@ -42,6 +42,7 @@
     {"id":{"name":"draw_screens","path":"scripts/draw_screens/draw_screens.yy",},"order":0,},
     {"id":{"name":"draw_navbar","path":"scripts/draw_navbar/draw_navbar.yy",},"order":2,},
     {"id":{"name":"spr_icon_friend_add","path":"sprites/spr_icon_friend_add/spr_icon_friend_add.yy",},"order":7,},
+    {"id":{"name":"ico_favorites","path":"sprites/ico_favorites/ico_favorites.yy",},"order":10,},
     {"id":{"name":"MATH_FUNCTIONS","path":"scripts/MATH_FUNCTIONS/MATH_FUNCTIONS.yy",},"order":0,},
     {"id":{"name":"draw_tee_marker","path":"scripts/draw_tee_marker/draw_tee_marker.yy",},"order":5,},
     {"id":{"name":"draw_date_edit","path":"scripts/draw_date_edit/draw_date_edit.yy",},"order":0,},

@@ -112,26 +112,26 @@ draw_sprite_ext(spr,0,xx,yy,sca,sca,0,col,alpha);
 
 }
 
-function draw_icon_width(spr,xx,yy,width,alpha) {
+function draw_icon_width(spr,ind,xx,yy,width,alpha) {
 	
 var spr_ww = sprite_get_width(spr);
 var spr_hh = sprite_get_height(spr);
 var sca = width/spr_ww;
 var col = c_white;
 
-draw_sprite_ext(spr,0,xx,yy,sca,sca,0,col,alpha);
+draw_sprite_ext(spr,ind,xx,yy,sca,sca,0,col,alpha);
 
 return spr_hh*sca;
 }
 
-function draw_icon_height(spr,xx,yy,height,alpha) {
+function draw_icon_height(spr,ind,xx,yy,height,alpha) {
 	
 var spr_ww = sprite_get_width(spr);
 var spr_hh = sprite_get_height(spr);
 var sca = height/spr_hh;
 var col = c_white;
 
-draw_sprite_ext(spr,0,xx,yy,sca,sca,0,col,alpha);
+draw_sprite_ext(spr,ind,xx,yy,sca,sca,0,col,alpha);
 
 return spr_ww*sca;
 }

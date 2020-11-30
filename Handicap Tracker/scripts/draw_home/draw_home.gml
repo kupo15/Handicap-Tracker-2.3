@@ -7,7 +7,7 @@ draw_text_height(20,app_height-50,"Undefined Screen",40);
 function draw_home() {
 	
 var yy = header_height-1;
-var hh = draw_icon_width(spr_home_course,0,header_height-1,app_width,1);	
+var hh = draw_icon_width(spr_home_course,0,0,header_height-1,app_width,1);	
 
 draw_line_pixel(0,yy+hh,app_width,1,c_gray,1);
 

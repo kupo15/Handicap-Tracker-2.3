@@ -34,7 +34,7 @@ else if click_button(xx_off,yy,"",0,c_black,ww,profile_hh,profile_col,false,fals
 var xx = 25;
 var yy = 25;
 
-draw_icon_height(spr_icon_blank_profile,xx+xx_off,yy,100,1); // profile picture
+draw_icon_height(spr_icon_blank_profile,0,xx+xx_off,yy,100,1); // profile picture
 
 var height = 30;
 var yy = profile_hh-height-10;
@@ -137,7 +137,7 @@ for(var i=0;i<size;i++)
 	var disp_name = profile_pointer.dispName;
 	var handicap_index = string_format(profile_pointer.index,1,1);
 		
-	draw_icon_height(spr_icon_blank_profile,xx+25,yy+((sep-(sep*0.8))*0.5)+off_pos,sep*0.8,1); // profile picture
+	draw_icon_height(spr_icon_blank_profile,0,xx+25,yy+((sep-(sep*0.8))*0.5)+off_pos,sep*0.8,1); // profile picture
 	draw_text_height_middled(xx+text_xoff,yy+off_pos,disp_name,sep,height,1); // profile name
 	draw_text_height_middled(xx+text_xoff+200,yy+off_pos,handicap_index,sep,height,1); // index
 		
