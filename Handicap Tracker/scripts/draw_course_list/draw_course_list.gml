@@ -45,7 +45,7 @@ for(var i=pos_start;i<pos_end;i++)
 
 	draw_set_halign(fa_left);
 	draw_text_height_middled(xx,yy+off_pos-5,course_str,sep,height,1); // draw course name
-	draw_icon_height(ico_favorites,course_favorite,app_width-60,yy+off_pos+70,35,1); // draw favorites
+	draw_icon_height(ico_favorites,course_favorite,app_width-60,yy+off_pos+70,30,1); // draw favorites
 	
 	//var name_off = string_width_height(course_str,height);
 	draw_text_height_middled_color(xx+10,yy+off_pos+height-5,course_location,sep,c_gray,height*0.8,fn_italic); // draw course location
