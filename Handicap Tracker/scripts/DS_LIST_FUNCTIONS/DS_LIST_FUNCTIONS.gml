@@ -95,37 +95,7 @@ function ds_list_sort_nested_struct_if(source_list,key,ifKey,ifCondition,ascendi
 /// @param if_valueCondition
 /// @param ascending
 
-// create temp sorting grid
-var sorting_grid = ds_grid_create(2,0); 
-
-// add all data to grid
-var size = ds_list_size(source_list); // size of the reference list
-for(var i=0;i<size;i++) // loop through list
-	{
-	var pointer = source_list[| i]; // get the pointer
-	var sort_value = variable_struct_get(pointer,key); // get the sort value
-	var if_value = variable_struct_get(pointer,if_key); // get the ifKey value
-
-	if if_value == ifCondition
-		{
-		grid_row_add(sorting_grid); // add a row to the temp sorting grid
-		sorting_grid[# 0,i] = pointer; // add list pointer to grid
-		sorting_grid[# 1,i] = sort_value; // add value to sort to grid
-		}
-	}
-	
-// sort grid
-ds_grid_sort(sorting_grid,1,ascending); 
-
-// re add pointers back to the source list
-for(var i=0;i<size;i++)
-	{
-	source_list[| i] = sorting_grid[# 0,i];
-	//ds_list_mark_as_list(source_list,i);
-	}
-
-// destroy temp sorting grid
-ds_grid_destroy(sorting_grid);
+ds_list_sort_nested_struct(source_list,key,ascending);
 }
 
 function array_sort_nested_struct(source_array,key,ascending) {
@@ -134,8 +104,6 @@ function array_sort_nested_struct(source_array,key,ascending) {
 /// @param sort_key
 /// @param ascending
 
-array_sort_nested_struct_if(source_array,key,key,undefined,ascending);
-exit;
 // create temp sorting grid
 var sorting_grid = ds_grid_create(2,0);
 
@@ -173,43 +141,11 @@ function array_sort_nested_struct_if(source_array,key,ifKey,ifCondition,ascendin
 /// @description sorts nested structs within arrays
 /// @param source_array
 /// @param sort_key
+/// @param if_key
+/// @param if_value
 /// @param ascending
 
-// create temp sorting grid
-var sorting_grid = ds_grid_create(2,0);
-
-// add all data to grid
-var size = array_length(source_array); // size of the reference array
-for(var i=0;i<size;i++) // loop through source array
-	{
-	var pointer = source_array[i]; // get the pointer
-	var sort_value = variable_struct_get(pointer,key); // get the sort value
-	var if_value = variable_struct_get(pointer,ifKey); // get the if value
-
-	// debug
-	if sort_value == undefined
-		{
-		sm("sort key '"+string(key)+"' undefined >> not sorted");
-		exit;
-		}
-
-	if (if_value == ifCondition) || (ifCondition == undefined)
-		{
-		grid_row_add(sorting_grid); // add a row to the temp sorting grid
-		sorting_grid[# 0,i] = pointer; // add list pointer to grid
-		sorting_grid[# 1,i] = sort_value; // add value to sort to grid
-		}
-	}
-
-// sort grid
-ds_grid_sort(sorting_grid,1,ascending); 
-
-// re add pointers back to the source array
-for(var i=0;i<size;i++)
-source_array[@ i] = sorting_grid[# 0,i];
-
-// destroy temp sorting grid
-ds_grid_destroy(sorting_grid);
+array_sort_nested_struct(source_array,key,ascending);
 }
 
 
