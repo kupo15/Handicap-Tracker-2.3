@@ -175,7 +175,7 @@ function click_region_pressed(x_left,y_top,ww,hh,highlight,sub) {
 var button = mb_left;	
 var condition = mouse_check_button_pressed(button);
 
-return click_region_home(x_left,y_top,ww,hh,button,highlight,condition,sub,undefined);
+return click_region_home(x_left,y_top,ww,hh,button,highlight,condition,sub,undefined)
 }
 
 function click_region(x_left,y_top,ww,hh,highlight,button,sub) {

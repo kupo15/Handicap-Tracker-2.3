@@ -45,15 +45,23 @@ for(var i=pos_start;i<pos_end;i++)
 
 	draw_set_halign(fa_left);
 	draw_text_height_middled(xx,yy+off_pos-5,course_str,sep,height,1); // draw course name
-	
-	draw_icon_height(ico_favorites,course_favorite,app_width-100,yy+off_pos-5,spe*0.8,1);
+	draw_icon_height(ico_favorites,course_favorite,app_width-60,yy+off_pos+70,35,1); // draw favorites
 	
 	//var name_off = string_width_height(course_str,height);
 	draw_text_height_middled_color(xx+10,yy+off_pos+height-5,course_location,sep,c_gray,height*0.8,fn_italic); // draw course location
 	draw_line_pixel(25,yy+((1+off_ind)*sep),room_width,1,c_black,0.2); // draw row lines
 		
 	// click released on course
-	if click_region_released_clamp_array(0,yy,(off_ind*sep),ww,sep,hh,mb_left,c_yellow,navbar.main,i,courselist_array)
+	if click_region_pressed(app_width-75,yy+off_pos+60,75,50,false,navbar.main)
+		{
+		canClick = false;
+		canClickPressed = true;
+		clickMoved = true;
+	
+		courselist_array[i].favorite = !courselist_array[i].favorite; // toggle favorite
+		app_save;
+		}
+	else if click_region_released_clamp_array(0,yy,off_pos,ww,sep,hh,mb_left,c_yellow,navbar.main,i,courselist_array)
 		{
 		if mode_delete
 			{

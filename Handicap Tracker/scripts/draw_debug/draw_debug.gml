@@ -37,7 +37,7 @@ debugyoff = 15;
 //debug_draw_click_highlight(xx,yy,debugyoff,sep,height);
 //debug_draw_vk(xx,yy,debugyoff,sep,height);
 debug_draw_strings(xx,yy,debugyoff,sep,height);
-debug_draw_textbox(xx,yy,debugyoff,sep,height);
+//debug_draw_textbox(xx,yy,debugyoff,sep,height);
 //debug_draw_sidebar_fades(xx,yy,debugyoff,sep,height);
 //debug_draw_switch_tabs(xx,yy,debugyoff,sep,height);
 //debug_draw_modes(xx,yy,debugyoff,sep,height);
@@ -54,7 +54,7 @@ debug_draw_textbox(xx,yy,debugyoff,sep,height);
 // right side
 var xx = 550;
 
-debug_draw_mouse(xx,yy,30,sep,height);
+debug_draw_mouse(xx,yy,25,sep,height);
 
 // draw elements
 /*var size = ds_list_size(deleteList);
