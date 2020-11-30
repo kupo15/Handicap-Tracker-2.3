@@ -33,7 +33,7 @@ for(var i=0;i<size;i++) // loop through all
 	var course_rating = real(teeData.teeRating);
 	var course_slope = real(teeData.teeSlope);
 	var course_par = real(teeData.teePar);
-	var practice = handicapData.practiceRound;
+	var practice = handicapData.roundType;
 	var off_season = handicapData.offSeason;
 	
 	// calc diff
@@ -49,7 +49,7 @@ for(var i=0;i<size;i++) // loop through all
 	handicapData.esr = 0;
 	handicapData.courseHandicap = undefined;
 
-	if !practice && !off_season
+	if (practice != round_Type.practice) && !off_season
 	ds_list_add(included_scores,score_pointer);
 	}
 

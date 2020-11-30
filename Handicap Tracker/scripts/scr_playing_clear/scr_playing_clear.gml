@@ -4,6 +4,7 @@ var struct = {
 	
 	courseName: "",
 	
+	
 	teeColor: "",
 	teeYardage: "",
 	teeSlope: "",

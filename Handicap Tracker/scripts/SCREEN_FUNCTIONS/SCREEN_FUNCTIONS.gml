@@ -57,7 +57,7 @@ screenIndex = screen.enumcount;
 else
 screenIndex = ind;
 
-submemu = sub;
+submenu = sub;
 
 // clear the prev screen stack
 if clear

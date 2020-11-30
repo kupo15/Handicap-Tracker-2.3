@@ -38,6 +38,7 @@ numpadYoff,
 coursebarYoff,
 teebarYoff,
 locationYoff,
+roundtypeYoff,
 
 sidebarXoff,
 
@@ -63,6 +64,12 @@ enum course_sort {
 abc,
 frequency,
 favorite
+}
+
+enum round_Type {
+practice,
+casual,
+tournament	
 }
 
 enum highlightAction {
@@ -110,6 +117,7 @@ locationbar,
 teebar,
 year_select,
 parbar,
+roundtype,
 scorebar,
 numpad,
 calendar,

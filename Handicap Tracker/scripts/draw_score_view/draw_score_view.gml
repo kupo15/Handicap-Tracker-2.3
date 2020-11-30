@@ -21,7 +21,7 @@ var roundScore = round_pointer.grossScore;
 var roundStrokes = round_pointer.roundStrokes;
 
 var handicap_pointer = activeStruct.handicapData;
-var practice_round = handicap_pointer.practiceRound;
+var round_type = handicap_pointer.roundType;
 var off_season = handicap_pointer.offSeason;
 
 #region draw course
@@ -100,34 +100,18 @@ if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 #endregion
 	
 #region draw practice/off season
-/*var hh = 90;
+var hh = 90;
 var xx = 0;
-var yy = 780-hh;
+var yy = 780;
 var ww = app_width-xx-xx;
 
 if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden) // practice tab
-	{
-	activeStruct.practiceRound = !activeStruct.practiceRound;
-	}
+submenu = navbar.roundtype;
 	
-if draw_dialogue_box(xx,yy+hh,ww,hh,c_white,navbar.hidden) // off season tab
-	{
-	activeStruct.offSeason = !activeStruct.offSeason;
-	}
-	
-// draw switch tab
-draw_switch_tab(xx+450,yy,hh,36,0,practice_round,false);
-draw_switch_tab(xx+450,yy+hh,hh,36,1,off_season,true);
-
 var height = 40;
-var str = pick("Off-Season","In-season",!off_season);
+var str_arr = ["Fun Round","Normal Round","Tournament Round"];
 draw_text_height(xx+20,yy+5,"Round Type",label_height,fn_italic); // draw course tee markers label
-draw_text_height(xx+20,yy+35,"Practice Round",height); // draw course name
-
-draw_line_pixel(xx+20,yy+hh,app_width,1,c_lt_gray,1);
-
-draw_text_height(xx+20,yy+5+hh,"Type",label_height,fn_italic); // draw course tee markers label
-draw_text_height_color(xx+30,yy+35+hh,str,c_gray,height,fn_italic); // draw in season*/
+draw_text_height(xx+20,yy+35,str_arr[round_type],height); // draw course name
 #endregion	
 	
 #region draw calendar
@@ -196,6 +180,14 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 	androidBack = true;
 	}
 #endregion	
+
+// draw round type overlay
+var round_type = draw_overlay_roundtype(round_type);
+if round_type != undefined
+	{
+	handicap_pointer.roundType = round_type;
+	submenu = navbar.hidden;
+	}
 
 // draw coursebar overlay
 if draw_submenu_course_search(header_height,app_width,90,courselist_array,offsetScroll.courselistOffset)

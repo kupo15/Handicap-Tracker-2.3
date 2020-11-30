@@ -33,7 +33,7 @@ var course_rating = score_struct.teeRating;
 
 var roundScore = score_struct.roundScore;
 var roundStrokes = score_struct.roundStrokes;
-var practice_round = score_struct.practiceRound;
+var practice_round = score_struct.roundType;
 
 #region draw course
 var xx = 0;

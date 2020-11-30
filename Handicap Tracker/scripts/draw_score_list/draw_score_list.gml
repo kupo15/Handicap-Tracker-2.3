@@ -48,7 +48,7 @@ for(var i=pos_start;i<pos_end;i++)
 	
 	var handicap_pointer = score_pointer.handicapData;
 	var course_esr = handicap_pointer.esr;
-	var course_practice = handicap_pointer.practiceRound;
+	var course_practice = handicap_pointer.roundType;
 	var off_season = handicap_pointer.offSeason;
 	//var index = handicap_pointer.indexHistory;
 	
@@ -72,7 +72,7 @@ for(var i=pos_start;i<pos_end;i++)
 	var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";
 	draw_tee_marker(xx+10,yy+55+(off_pos*sep),30,course_tee,str,true); // draw tee marker
 	
-	if course_practice || off_season
+	if off_season
 		{
 		var str = pick("Practice Round","Off Season",off_season);
 		var str_col = pick(c_red,make_color_rgb(38,72,106),off_season);
