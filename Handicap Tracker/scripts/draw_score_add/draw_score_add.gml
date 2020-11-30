@@ -189,8 +189,6 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 	course_struct = undefined;
 	
 	// sort
-	scoresort;
-	array_sort_nested_struct(scorelist_array,"roundDate",false); // date sort
 	scr_handicap_calculate();
 
 	screen_goto_prev(navbar.main);

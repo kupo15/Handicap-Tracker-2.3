@@ -77,14 +77,11 @@ if click_button(xx,yy,"Submit Round",height,c_black,ww,hh,col,true,false,navbar.
 	scr_score_add_index(course_name,course_teeColor,play_score,date,play_strokes);
 	
 	// save data
-	scoresort;
 	scr_handicap_calculate();
 	scr_playing_clear();
 
-	app_save;
-		
-	textboxIndex = undefined;
 	screen_change(screen.home,navbar.main);
+	app_save;
 	}
 #endregion
 }

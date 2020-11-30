@@ -3,6 +3,7 @@ function scr_handicap_calculate() {
 var index_history = undefined;
 var diff_arr = ds_list_create();
 
+scoresort;
 ds_list_clear(included_scores);
 
 // calculate practice rounds

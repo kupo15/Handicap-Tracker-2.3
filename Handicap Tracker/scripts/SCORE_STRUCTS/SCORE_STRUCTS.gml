@@ -26,12 +26,17 @@ score_struct = {
 	courseLocation: undefined,
 	
 	handicapData: {
-		courseHandicap: undefined,
 		indexHistory: undefined,
 		indexIncluded: false,
+		
+		courseHandicap: undefined,
+		esr: 0,
+
 		offSeason: off_season,
 		roundType: 1,
-		esr: 0,
+		
+		handicap_inc: "",
+		handicap_dec: "",
 		}
 	}	
 

@@ -202,6 +202,8 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,offset
 	activeStruct.teeRating = "";
 	activeStruct.teePar = "";
 	
+	activeStruct = scr_score_create(course_struct.courseName)
+	
 	// open teebar 
 	submenu = navbar.teebar;
 	scr_tee_filled_set(); // mark tees with data

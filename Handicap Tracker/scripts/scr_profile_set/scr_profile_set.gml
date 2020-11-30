@@ -22,7 +22,7 @@ var profileData = {
 		index: "N/A",
 		
 		scorelist: array_create(0),
-		activeRound: scr_playing_clear(),
+		activeRound: scr_score_create(""),
 		}	
 	
 array_push(ROOT_data_struct.profiles,profileData);

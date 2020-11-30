@@ -20,7 +20,7 @@ if trash_delete
 		
 	// original course name
 	if course_struct.courseName == play_course_struct.courseName
-	play_course_struct = scr_playing_clear();	
+	play_course_struct = scr_score_create("");	
 	
 	app_save;
 	androidBack = true;
@@ -178,7 +178,7 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 	// update course info
 	courselist_array[@ course_index] = workingStruct; // overwrite with working copy
 	
-	array_sort_nested_struct(courselist_array,"courseName",true); // sort list
+	coursesort; // sort list
 	app_save;
 	
 	androidBack = true;
