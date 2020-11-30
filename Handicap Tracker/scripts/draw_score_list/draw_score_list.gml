@@ -14,7 +14,7 @@ var yy = header_height+header_submenu_height;
 var height = 35;
 var sep = 120;
 var ww = app_width;
-var hh = app_height-nav_height-yy-80-20;
+var hh = app_height-nav_height-yy;
 var rows = hh/sep;
 var col = make_color_rgb(232,237,255);
 var box_hh_end = yy+hh;
@@ -130,7 +130,21 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
     
 #region Header
-draw_screen_header(headerType.back,headerType.none,"Round History");
+var new_score = draw_screen_header(headerType.back,headerType.plus,"Round History");
+	
+if new_score
+	{
+	var date = date_current_datetime();
+	
+	score_struct = scr_score_create("","","","","","","",date,"0",false); // create a new score row
+	workingStruct = struct_copy(score_struct);
+	activeStruct = workingStruct;
+			
+	score_index = array_length(scorelist_array);
+
+	popup_coursebar();
+	screen_change(screen.score_create);
+	}
 	
 // SubHeader
 var sort_index = META_data.scoreSort;
@@ -144,6 +158,7 @@ if (header != undefined) && (header != sort_index)
 	}	
 #endregion
 
+exit;
 #region new score button
 var hh = 80;
 var xx = 0;

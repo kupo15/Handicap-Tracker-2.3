@@ -15,7 +15,7 @@ var yy = header_height+header_submenu_height;
 var height = 35;
 var sep = 110;
 var ww = app_width;
-var hh = app_height-nav_height-yy-sep-20;
+var hh = app_height-nav_height-yy;
 var rows = hh/sep;
 var box_hh_end = yy+hh;
 
@@ -94,7 +94,21 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
 
 #region header
-draw_screen_header(headerType.back,headerType.none,"Course List");
+var new_course = draw_screen_header(headerType.back,headerType.plus,"Course List");
+
+if new_course
+	{
+	course_next = true;
+	
+	course_struct = scr_course_create("");
+	workingStruct = struct_copy(course_struct);
+	activeStruct = workingStruct;
+			
+	course_index = array_length(courselist_array);
+
+	screen_change(screen.add_course);
+	click_textbox_set("",course_data.name,kbv_type_default);
+	}
 
 var sort_index = META_data.courseSort;
 var offset = offsetArray[offsetScroll.courseSortUnderline];
@@ -108,6 +122,16 @@ if (header != undefined) && (header != sort_index)
 
 // draw lt gray cover
 draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);	
+	
+	
+// go to course edit/add
+if course_next 
+	{
+	submenu = navbar.hidden;
+	scr_tee_filled_set(); // mark tees with data
+	}
+	
+exit;	
 	
 #region new course button
 var hh = 110;
@@ -133,13 +157,6 @@ if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,true,false,navbar.ma
 draw_plus_button(xx+130,yy+(hh*0.5)-3,70,false);
 
 #endregion
-    
-// go to course edit/add
-if course_next 
-	{
-	submenu = navbar.hidden;
-	scr_tee_filled_set(); // mark tees with data
-	}
 
 }
 

@@ -3,7 +3,8 @@ none,
 bars,
 dots,
 back,
-trash
+trash,
+plus
 
 }
 

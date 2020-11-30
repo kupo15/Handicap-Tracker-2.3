@@ -85,15 +85,19 @@ if click_region_released(room_width-hh,yy,hh,hh,true,submenu)
 	
 }
 
-function draw_plus_button(xx,yy,d,enclosed,col) {
+function draw_plus_button(xx,yy,d,enclosed,str_col,col) {
 // centered
 /// @param xx
 /// @param yy
 /// @param diameter
 /// @param enclosed
-/// @param [buttonColor]
+/// @param [strColor
+/// @param buttonColor]
 
 if argument[4] == undefined
+str_col = c_black;
+
+if argument[5] == undefined
 col = c_white;
 
 var r = d*0.5;
@@ -104,8 +108,8 @@ if enclosed
 draw_circle_color(xx,yy,r,col,col,false);
 
 // draw plus
-draw_line_width_color(xx-line_ll,yy,xx+line_ll,yy,ww,c_black,1);
-draw_line_width_color(xx,yy-line_ll,xx,yy+line_ll,ww,c_black,1);
+draw_line_width_color(xx-line_ll,yy,xx+line_ll,yy,ww,str_col,str_col);
+draw_line_width_color(xx,yy-line_ll,xx,yy+line_ll,ww,str_col,str_col);
 }
 
 function draw_switch_tab(xx,yy,box_hh,switch_hh,ind,variable,enclosed) {

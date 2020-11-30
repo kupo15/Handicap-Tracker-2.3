@@ -69,6 +69,7 @@ var size = ds_list_size(prevScreenStack);
 // draw current screen
 var str = script_get_name(drawScreen[screenIndex]);
 str = string_replace(str,"draw_","");
+
 draw_text_height(xx,yy+(0*sep),string(str),height);
 
 // draw dividing line
@@ -83,7 +84,7 @@ for(var i=0;i<size;i++)
 	
 	var str = script_get_name(drawScreen[_screen]);
 
-	draw_text_height(xx,yy+((i+1)*sep),str,height);
+	draw_text_height(xx,yy+((i+1)*sep),str+" - "+string(enum_name_submenu[2+_sub]),height);
 	}
 		
 draw_set_colour(c_black);

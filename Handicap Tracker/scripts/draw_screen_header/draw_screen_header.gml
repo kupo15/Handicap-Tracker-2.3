@@ -74,6 +74,17 @@ repeat 2
 		if click_region_released(xpos,0,region,region,true,submenu)
 		return true;
 		}
+	else if header_type == headerType.plus
+		{
+		var pos_off = region*0.5;
+		draw_plus_button(xpos-20+pos_off,pos_off,region,false,c_white); // plus button
+		
+		var xpos = app_width-hh-20;
+
+		if !mode_delete && (submenu < 0)
+		if click_region_released(xpos,0,region,region,true,submenu)
+		return true;
+		}
 		
 	var header_type = header_right;
 	var xpos = room_width-region;
