@@ -34,7 +34,11 @@ switch ind
 	{
 	case course_sort.abc: array_sort_nested_struct(courselist_array,"courseName",true); break; // sort list
 	case course_sort.frequency: array_sort_nested_struct(courselist_array,"frequency",false); break; // sort list
-	case course_sort.favorite: array_sort_nested_struct(courselist_array,"favorite",true); break; // sort list
+	case course_sort.favorite: 
+	
+	array_sort_nested_struct(courselist_array,"courseName",true);
+	array_sort_nested_struct(courselist_array,"favorite",false);
+	break;
 	}
 
 }
