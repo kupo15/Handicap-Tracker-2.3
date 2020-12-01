@@ -7,7 +7,9 @@ screen_change(ind,undefined,true);
 switch ind
 	{
 	// home
-	case screen.home: scr_handicap_calculate(); break;
+	case screen.home: submenu = navbar.main;
+					  scr_handicap_calculate();
+					  break;
 						  
 	// playing
 	case screen.playing: course_struct = course_find_array(active_course_struct.courseName,courselist_array);
@@ -36,6 +38,9 @@ switch ind
 			
 	// trends
 	case screen.indexTrend: scr_trend_set(); break;
+	
+	// card
+	case screen.score_card: submenu = navbar.hidden; break;
 			
 	// settings
 	//case screen.settings: break;

@@ -4,6 +4,9 @@ function scr_tee_filled_set(source_id) {
 if argument[0] == undefined
 source_id = course_struct;
 
+if source_id == undefined
+exit;
+
 var tee_pointer = source_id.subcourses[subcourse_index]; // tee marker MAP
 var size = ds_list_size(teebox_filled);
 

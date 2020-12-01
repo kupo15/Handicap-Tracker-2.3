@@ -3,9 +3,6 @@ function draw_playing() {
 var col = c_lt_gray;
 draw_clear(col);	
 	
-// header
-draw_screen_header(headerType.back,headerType.none,"Playing Course");
-
 var course_name = active_course_struct.courseName;
 
 var tee_pointer = active_course_struct.teeData;
@@ -216,6 +213,9 @@ if tee_ind != undefined
 	ACTIVE_data = active_course_struct;				
 	app_save;
 	}
+
+// header
+draw_screen_header(headerType.back,headerType.none,"Playing Course");
 
 if androidBack
 && !kvActive
