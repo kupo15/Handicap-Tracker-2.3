@@ -20,6 +20,11 @@ draw_rectangle_color(xx+xx_off,yy,xx+xx_off+ww,yy+hh,col,col,col,col,false); // 
 // if click outside of menu
 if click_region_released(xx+xx_off+ww,yy,ww,hh,noone,navbar.sidebar) // make_color_rgb(0,255,255)
 androidBackSidebar = true;
+else if click_button(xx_off,0,"",0,c_black,140,140,undefined,false,undefined,submenu)
+	{
+	submenu = navbar.hidden;
+	screen_change(screen.profile);
+	}
 else if click_button(xx_off,yy,"",0,c_black,ww,profile_hh,profile_col,false,false,submenu)
 	{
 	if submenu == navbar.profileChange
@@ -39,7 +44,7 @@ draw_icon_height(spr_icon_blank_profile,0,xx+xx_off,yy,100,1); // profile pictur
 var height = 30;
 var yy = profile_hh-height-10;
 
-draw_text_height_color(xx+xx_off,yy,user_disp_name,c_white,height,fn_bold); // draw user name
+draw_text_height_color(xx+xx_off,yy,PROFILE_data.dispName,c_white,height,fn_bold); // draw user name
 //draw_text_height(xx+xx_off,yy+25,"@"+user_username,25); // draw user id
 
 draw_menu_triangle(xx_off+400,yy+15,10,submenu != navbar.profileChange);

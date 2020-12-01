@@ -27,6 +27,8 @@ drawScreen[screen.score_details] = draw_score_details;
 
 drawScreen[screen.score_card_details] = draw_score_card_details;
 
+drawScreen[screen.profile] = draw_profile;
+
 drawScreen[screen.playing_score_enter] = draw_playing_score_submit;
 
 drawScreen[screen.add_course] = draw_course_add;
@@ -95,6 +97,8 @@ vk_hide();
 
 switch screenIndex
 	{
+	case screen.home: submenu = navbar.main; break;
+	
 	// change to hidden
 	case screen.handicapSeason: submenu = navbar.hidden; break;	
 	
@@ -102,6 +106,11 @@ switch screenIndex
 	case screen.course_list: scr_update_course_frequency(); 
 							 scr_course_list_sort(META_data.courseSort);
 							 break;
+							 
+	// profile
+	case screen.profile: workingStruct = struct_copy(PROFILE_data);
+						 activeStruct = workingStruct;
+						 break;						
 		
 	//case screen.receiptCreate: click_textbox_set(receipt_price,0,kbv_type_numbers); break;
 	

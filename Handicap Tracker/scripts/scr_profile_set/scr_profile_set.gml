@@ -24,7 +24,6 @@ profile_index = ind;
 META_data.profileIndex = profile_index;
 	
 // set
-user_disp_name = PROFILE_data.dispName;	
 scorelist_array = SCORE_data;
 active_course_struct = ACTIVE_data;
 }

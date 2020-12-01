@@ -22,6 +22,8 @@ score_details,
 
 score_card_details,
 
+profile,
+
 playing_score_enter,
 
 add_course,
@@ -39,6 +41,7 @@ coursebarYoff,
 teebarYoff,
 locationYoff,
 roundtypeYoff,
+entryYoff,
 
 sidebarXoff,
 
@@ -77,6 +80,11 @@ courseSelect,
 navbarSwitch
 }
 
+enum profile_data {
+name	
+	
+}
+
 enum course_data {
 name,
 yardage,
@@ -103,7 +111,10 @@ rating,
 par
 }
 
-
+enum textboxEntry {
+	
+popupEntryText,
+}
 
 enum navbar {
 main = -2,
@@ -120,6 +131,7 @@ parbar,
 roundtype,
 scorebar,
 numpad,
+popupEntry,
 calendar,
 calendarYearSelect
 }

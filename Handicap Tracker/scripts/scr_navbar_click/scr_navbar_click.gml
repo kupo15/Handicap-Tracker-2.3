@@ -41,7 +41,7 @@ switch ind
 	
 	// card
 	case screen.score_card: submenu = navbar.hidden; break;
-			
+						 
 	// settings
 	//case screen.settings: break;
 	}
