@@ -22,6 +22,7 @@ switch ind
 							 scr_handicap_predict(active_course_struct.handicapData.handicap_dec,true); // determine upper handicap
 							 }
 							
+						 scr_tee_filled_set(); // mark tees with data
 						 break;
 				
 	// stats screen
