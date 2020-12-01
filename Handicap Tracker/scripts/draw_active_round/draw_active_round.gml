@@ -9,7 +9,7 @@ var col = make_color_rgb(232,237,255);
 draw_text_height(xx+10,yy-50,"Active Round",50,fn_italic);
 
 // playing information
-var course_name = play_course_struct.courseName;
+var course_name = active_course_struct.courseName;
 
 draw_text_height(xx,yy,course_name,height); // course name
 

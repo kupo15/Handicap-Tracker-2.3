@@ -19,8 +19,8 @@ if trash_delete
 	array_delete(courselist_array,course_index,1);
 		
 	// original course name
-	if course_struct.courseName == play_course_struct.courseName
-	play_course_struct = scr_score_create("");	
+	if course_struct.courseName == active_course_struct.courseName
+	active_course_struct = create_score; // clear active course
 	
 	app_save;
 	androidBack = true;

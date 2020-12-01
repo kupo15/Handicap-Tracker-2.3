@@ -6,18 +6,19 @@ draw_clear(col);
 // header
 draw_screen_header(headerType.back,headerType.none,"Playing Course");
 
-var course_name = activeStruct.courseName;
-var course_teeColor = activeStruct.teeColor;
+var course_name = active_course_struct.courseName;
 
-var tee_yardage = activeStruct.teeYardage;
-var tee_slope = activeStruct.teeSlope;
-var tee_rating = activeStruct.teeRating;
-var tee_par = activeStruct.teePar;
+var tee_pointer = active_course_struct.teeData;
+var course_teeColor = tee_pointer.teeColor;
+var tee_yardage = tee_pointer.teeYardage;
+var tee_slope = tee_pointer.teeSlope;
+var tee_rating = tee_pointer.teeRating;
+var tee_par = tee_pointer.teePar;
 
-var play_handicap_inc = activeStruct.handicap_inc;
-var play_handicap_dec = activeStruct.handicap_dec;
-
-var esc = activeStruct.esc;
+var handicap_pointer = active_course_struct.handicapData;
+var play_handicap_inc = handicap_pointer.handicap_inc;
+var play_handicap_dec = handicap_pointer.handicap_dec;
+var play_esr = handicap_pointer.esr;
 
 #region draw course name
 var xx = 0;
@@ -162,7 +163,7 @@ var col = c_white;
 // clicked clear course
 if click_button(xx,yy,"Clear",height,c_black,ww,hh,col,true,false,navbar.main) // && submit
 	{
-	scr_playing_clear();
+	active_course_struct = create_score; // clear active course
 	app_save;
 	}
 #endregion*/
@@ -193,17 +194,8 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,offset
 	
 	// set values
 	course_struct = returnedSearch;
-	activeStruct.courseName = course_struct.courseName;
-	
-	// reset values
-	activeStruct.teeColor = "";
-	activeStruct.teeYardage = "";
-	activeStruct.teeSlope = "";
-	activeStruct.teeRating = "";
-	activeStruct.teePar = "";
-	
-	activeStruct = scr_score_create(course_struct.courseName)
-	
+	active_course_struct = scr_score_create(returnedSearch.courseName);
+		
 	// open teebar 
 	submenu = navbar.teebar;
 	scr_tee_filled_set(); // mark tees with data
@@ -216,11 +208,12 @@ if tee_ind != undefined
 	submenu = navbar.main;
 	
 	// set variables
-	scr_score_tee_update(activeStruct,course_struct,teebox_list[| tee_ind]);
+	scr_score_tee_update(active_course_struct,course_struct,teebox_list[| tee_ind]);
 	
 	scr_handicap_predict(90,false);
-	scr_handicap_predict(activeStruct.handicap_dec,true);
-									
+	scr_handicap_predict(active_course_struct.handicapData.handicap_dec,true);
+					
+	ACTIVE_data = active_course_struct;				
 	app_save;
 	}
 

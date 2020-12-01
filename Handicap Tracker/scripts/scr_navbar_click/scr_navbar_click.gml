@@ -10,17 +10,16 @@ switch ind
 	case screen.home: scr_handicap_calculate(); break;
 						  
 	// playing
-	case screen.playing: activeStruct = play_course_struct;
+	case screen.playing: course_struct = course_find_array(active_course_struct.courseName,courselist_array);
 
 						 scr_handicap_calculate();
 						 	 
-						 if activeStruct.esc == "0"
-						 activeStruct.esc = "";
+						 active_course_struct.handicapData.esr = pick(active_course_struct.handicapData.esr,"",active_course_struct.handicapData.esr == "0");
 						    
-						 if activeStruct.teeColor != ""
+						 if active_course_struct.teeData.teeColor != ""
 							 {
 							 scr_handicap_predict(90,false); // determine lower handicap
-							 scr_handicap_predict(play_course_struct.handicap_dec,true); // determine upper handicap
+							 scr_handicap_predict(active_course_struct.handicapData.handicap_dec,true); // determine upper handicap
 							 }
 							
 						 break;

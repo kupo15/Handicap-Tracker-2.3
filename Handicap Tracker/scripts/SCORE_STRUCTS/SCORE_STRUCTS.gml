@@ -1,7 +1,45 @@
 
 function scr_score_create(course_name,tee_color,yardage,slope,rating,par,score,date,strokes,off_season) {
+/// @param [course_name
+/// @param tee_color
+/// @param yardage
+/// @param slope
+/// @param rating
+/// @param par
+/// @param score
+/// @param date
+/// @param strokes
+/// @param off_season]
 
-var int = argument[9];
+if argument[0] == undefined
+course_name = "";
+
+if argument[1] == undefined
+tee_color = "";
+
+if argument[2] == undefined
+yardage = "";
+
+if argument[3] == undefined
+slope = "";
+
+if argument[4] == undefined
+rating = "";
+
+if argument[5] == undefined
+par = "";
+
+if argument[6] == undefined
+score = "";
+
+if argument[7] == undefined
+date = date_current_datetime();
+
+if argument[8] == undefined
+strokes = "0";
+
+if argument[9] == undefined
+off_season = false;
 
 score_struct = {
 

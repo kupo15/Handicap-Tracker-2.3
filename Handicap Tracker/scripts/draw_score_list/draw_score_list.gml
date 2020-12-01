@@ -134,9 +134,7 @@ var new_score = draw_screen_header(headerType.back,headerType.plus,"Round Histor
 	
 if new_score
 	{
-	var date = date_current_datetime();
-	
-	score_struct = scr_score_create("","","","","","","",date,"0",false); // create a new score row
+	score_struct = create_score // create a new score row
 	workingStruct = struct_copy(score_struct);
 	activeStruct = workingStruct;
 			
@@ -172,9 +170,7 @@ draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);
 // clicked on score create
 if click_button(xx,yy,"Add Score",50,c_black,ww,hh,c_white,true,false,navbar.main)
 	{
-	var date = date_current_datetime();
-	
-	score_struct = scr_score_create("","","","","","","",date,"0",false); // create a new score row
+	score_struct = create_score; // create a new score row
 	workingStruct = struct_copy(score_struct);
 	activeStruct = workingStruct;
 			

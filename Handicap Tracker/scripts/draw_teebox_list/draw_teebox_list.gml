@@ -100,7 +100,7 @@ for(var i=0;i<rows;i++)
 				temp_course_par = "";
 	
 				textboxIndex = 1;
-				course_id = play_course_struct;
+				course_id = active_course_struct;
 				
 				screen_change(screen.edit_course);
 				submenu = navbar.hidden;

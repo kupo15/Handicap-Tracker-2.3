@@ -55,9 +55,9 @@ else
 par = teePointer.teePar;
 
 // set values
-score_struct_pointer.teeColor = teeColor; // set tee color
-score_struct_pointer.teeYardage = yardage; // set yardage
-score_struct_pointer.teeSlope = slope; // set slope
-score_struct_pointer.teeRating = rating; // set rating
-score_struct_pointer.teePar = par; // set par
+score_struct_pointer.teeData.teeColor = teeColor; // set tee color
+score_struct_pointer.teeData.teeYardage = yardage; // set yardage
+score_struct_pointer.teeData.teeSlope = slope; // set slope
+score_struct_pointer.teeData.teeRating = rating; // set rating
+score_struct_pointer.teeData.teePar = par; // set par
 }

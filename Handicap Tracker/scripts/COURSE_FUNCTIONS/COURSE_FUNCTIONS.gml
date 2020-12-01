@@ -1,10 +1,13 @@
 
 function scr_course_create(name,state,district,starred,array) {
-/// @param name
-/// @param [stateInitial
+/// @param [name
+/// @param stateInitial
 /// @param district
 /// @param favorite
 /// @param arrayId]
+
+if argument[0] == undefined
+name = "";
 
 if argument[2] == undefined
 district = 0;
@@ -105,5 +108,39 @@ for(var i=0;i<list_size;i++)
 	return pointer;	
 	}
 
+return undefined;
+}
+	
+function course_find_struct(courseName,struct) {
+/// @param courseName		
+/// @param [sourceStruct]
+		
+if argument[1] == undefined
+struct = courselist_struct
+		
+return variable_struct_get(struct,courseName);	
+}
+
+function course_find_array(courseName,array) {
+/// @param courseName		
+/// @param [sourceArray]
+		
+if argument[1] == undefined
+array = courselist_array
+		
+// loop through course list
+var size = array_length(array);
+for(var i=0;i<size;i++)
+	{
+	var struct = array[i];
+	var name = struct.courseName;
+	
+	if name == courseName
+		{
+		course_index = i;
+		return struct;
+		}
+	}
+	
 return undefined;
 }

@@ -26,36 +26,3 @@ return index; // returns the index of a course in the list
 
 }
 
-function course_find_struct(courseName,struct) {
-/// @param courseName		
-/// @param [sourceStruct]
-		
-if argument[1] == undefined
-struct = courselist_struct
-		
-return variable_struct_get(struct,courseName);	
-}
-
-function course_find_array(courseName,array) {
-/// @param courseName		
-/// @param [sourceArray]
-		
-if argument[1] == undefined
-array = courselist_array
-		
-// loop through course list
-var size = array_length(array);
-for(var i=0;i<size;i++)
-	{
-	var struct = array[i];
-	var name = struct.courseName;
-	
-	if name == courseName
-		{
-		course_index = i;
-		return struct;
-		}
-	}
-	
-return undefined;
-}

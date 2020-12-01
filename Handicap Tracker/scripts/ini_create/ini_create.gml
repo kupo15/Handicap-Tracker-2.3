@@ -25,4 +25,8 @@ course_index = undefined;
 score_index = undefined;
 
 scr_handicap_calculate();
+
+exit
+cs(js(PROFILE_data.activeRound))
+sm(PROFILE_data.activeRound);
 }

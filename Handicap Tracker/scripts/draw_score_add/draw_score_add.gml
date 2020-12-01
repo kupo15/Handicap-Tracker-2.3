@@ -1,5 +1,5 @@
 exit;
-
+/*
 function draw_score_edit() {
 draw_score_add();	
 }

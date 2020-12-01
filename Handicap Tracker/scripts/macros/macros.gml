@@ -1,7 +1,7 @@
 
 // json saving
 #macro save_data "ghin_sav.dat"
-#macro json_version 0.33
+#macro json_version 0.2
 #macro app_save json_save_array(save_data,ROOT_data_struct)
 #macro app_load json_load_array(save_data)
 
@@ -11,6 +11,8 @@
 #macro ACTIVE_data ROOT_data_struct.profiles[profile_index].activeRound
 #macro PROFILE_data ROOT_data_struct.profiles[profile_index]
 #macro META_data ROOT_data_struct.meta
+
+#macro create_score scr_score_create("","","","","","","",date_current_datetime(),"0",false)
 
 #macro scoresort array_sort_nested_struct(scorelist_array,"roundDate",false)
 #macro coursesort array_sort_nested_struct(courselist_array,"courseName",true)

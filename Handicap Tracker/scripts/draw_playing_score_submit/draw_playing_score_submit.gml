@@ -59,7 +59,7 @@ if click_region(xx,yy,ww,hh,true,mb_left,navbar.main) // score/strokes
 #endregion
 
 #region submit round
-var submit = (play_course_struct != undefined) && (course_teeColor != "") && (play_score != "");
+var submit = (active_course_struct != undefined) && (course_teeColor != "") && (play_score != "");
 var xx = 185;
 var hh = 95;
 var ww = app_width-xx-1;
@@ -78,7 +78,8 @@ if click_button(xx,yy,"Submit Round",height,c_black,ww,hh,col,true,false,navbar.
 	
 	// save data
 	scr_handicap_calculate();
-	scr_playing_clear();
+	
+	active_course_struct = create_score; // clear active course
 
 	screen_change(screen.home,navbar.main);
 	app_save;
