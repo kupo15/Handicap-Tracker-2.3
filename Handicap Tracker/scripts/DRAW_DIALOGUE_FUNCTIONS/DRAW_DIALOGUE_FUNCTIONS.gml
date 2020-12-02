@@ -145,12 +145,29 @@ if click_button(xx+(1*hsep2),yy+(3*vsep),"0",height,c_black,hsep2,vsep,undefined
 variable += "0";
 
 // delete
-if draw_button_backspace(ico_backspace,0,xx+(0*hsep1)+(3*hsep2),yy+(3*vsep),hsep1,vsep,30,1,submenu)
+if draw_button_backspace(ico_backspace,0,xx+(2*hsep2),yy+(3*vsep),hsep2,vsep,30,1,submenu)
 	{
 	var length = string_length(variable);
 	variable = string_delete(variable,length,1);
 	}
 	
+// draw par buttons
+height *= 1.4;
+
+if click_button(xx+(0*hsep1)+(3*hsep2),yy+(0*vsep),"par\n72",height,c_black,hsep1,vsep,undefined,true,false,submenu)
+variable = "72";
+
+if click_button(xx+(0*hsep1)+(3*hsep2),yy+(1*vsep),"par\n71",height,c_black,hsep1,vsep,undefined,true,false,submenu)
+variable = "71";
+
+if click_button(xx+(0*hsep1)+(3*hsep2),yy+(2*vsep),"par\n70",height,c_black,hsep1,vsep,undefined,true,false,submenu)
+variable = "70";
+
+if click_button(xx+(0*hsep1)+(3*hsep2),yy+(3*vsep),"par\n69",height,c_black,hsep1,vsep,undefined,true,false,submenu)
+variable = "69";
+
+
+
 // next
 //if draw_button_backspace(ico_backspace,0,xx+(0*hsep1)+(3*hsep2),yy+(2*vsep),hsep1,vsep,30,1,submenu)
 	{
