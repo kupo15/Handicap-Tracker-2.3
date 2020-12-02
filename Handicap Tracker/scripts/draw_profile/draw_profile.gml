@@ -31,17 +31,20 @@ var hh = 90;
 var sep = 110;
 
 var course_pointer = course_get_struct(home_courseID,COURSE_database);
+
+if course_pointer == undefined
+var course_name = "";
+else
 var course_name = course_pointer.courseName;
-var course_str = pick(course_name,"",course_name == undefined);
 
 if draw_dialogue_box(0,yy,app_width,sep,c_white,navbar.hidden)
 submenu = navbar.coursebar;
 
-var course_height = text_reduce(course_str,ww-30,height);
+var course_height = text_reduce(course_name,ww-30,height);
 
 draw_set_halign(fa_left);
 draw_text_height(xx,yy,"Home Course",label_height); // draw course name label
-draw_text_height_label(xx,yy+35,course_str,"Select Home Course",course_height); // draw course name
+draw_text_height_label(xx,yy+35,course_name,"Select Home Course",course_height); // draw course name
 #endregion
 
 var name_entry = draw_overlay_popup_entry("Enter your name",activeStruct.dispName,-1);
