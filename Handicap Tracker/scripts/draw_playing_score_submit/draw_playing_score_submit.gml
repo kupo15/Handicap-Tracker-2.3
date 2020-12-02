@@ -2,29 +2,17 @@ function draw_playing_score_submit(){
 	
 // header
 draw_screen_header(headerType.back,headerType.none,"Enter Score");
-exit
+
 // keyboard entry
 if kvActive
 switch textboxIndex
 	{
-	case textboxEntry.grossScore: activeStruct.roundScore = string_convert_real(numpad_value,3); break;
+	case textboxEntry.grossScore: activeStruct.grossScore = string_convert_real(numpad_value,3); break;
 	case textboxEntry.strokes: activeStruct.roundStrokes = string_convert_real(numpad_value,2); break;
 	}
-	
-// clicked enter
-if virtual_keyboard_enter
-switch textboxIndex
-	{
-	case textboxEntry.grossScore: textboxIndex = score_data.strokes; 
-							keyboard_string = play_strokes;
-							break;
-			
-	case textboxEntry.strokes: vk_hide(); break;
-	}
 
-
-var play_score = activeStruct.roundScore;
-var play_strokes = activeStruct.roundStrokes;
+var play_score = activeStruct.grossScore;
+var play_strokes = activeStruct.roundStrokes;	
 	
 #region draw score/strokes
 var xx = 0;
@@ -48,15 +36,24 @@ draw_text_height_label(xx+30,yy+40,play_score,"enter score",height);
 draw_text_height_label(xx+30+(ww*0.5),yy+40,play_strokes,"0",height);
 
 // click on strokes
-if click_region(xx,yy,ww,hh,true,mb_left,navbar.main) // score/strokes
+if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	{	
-	//activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
-
 	screen_change(screen.score_details);
 	click_textbox_set(play_score,textboxEntry.grossScore,kbv_type_numbers);
 	}
 	
 #endregion
+
+exit;
+
+// clicked enter
+if virtual_keyboard_enter
+switch textboxIndex
+	{
+	case textboxEntry.grossScore: click_textbox_set(play_score,textboxEntry.strokes,kbv_type_numbers); break;
+			
+	case textboxEntry.strokes: vk_hide(); break;
+	}
 
 #region submit round
 var submit = (active_course_struct != undefined) && (course_teeColor != "") && (play_score != "");

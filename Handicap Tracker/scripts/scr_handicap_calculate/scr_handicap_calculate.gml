@@ -122,7 +122,7 @@ var rounds_included = array_length(included_scores_array);
 			var esr_end = min(n+round_selection,rounds_included);
 
 			for(var a=esr_start;a<esr_end;a++)
-			score_pointer[| score_data.esr] += esr_test;
+			score_pointer[| textboxEntry.esr] += esr_test;
 			}*/
 
 

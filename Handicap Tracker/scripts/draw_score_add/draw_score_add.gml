@@ -101,7 +101,7 @@ if click_region(xx,yy,ww*0.5,hh,true,mb_left,navbar.hidden) // score
 click_textbox_set(roundScore,textboxEntry.grossScore,kbv_type_numbers);
 	
 if click_region(xx+(ww*0.5),yy,ww*0.5,hh,true,mb_left,navbar.hidden) // strokes
-click_textbox_set(roundStrokes,score_data.strokes,kbv_type_numbers);
+click_textbox_set(roundStrokes,textboxEntry.strokes,kbv_type_numbers);
 #endregion
 	
 #region draw practice

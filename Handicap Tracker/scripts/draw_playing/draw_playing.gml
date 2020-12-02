@@ -175,7 +175,8 @@ var col = header_color;
 
 if click_button(xx,yy,"Begin Round",height,c_white,ww,hh,col,false,false,navbar.main)
 	{
-	screen_change(screen.playing_score_enter);
+	activeStruct = active_course_struct.roundData;
+	screen_change(screen.playing_score_enter,navbar.hidden);
 	}
 #endregion	
 

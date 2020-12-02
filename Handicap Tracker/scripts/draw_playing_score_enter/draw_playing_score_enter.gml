@@ -114,7 +114,7 @@ function draw_playing_score_enter() {
 		scr_score_add_index(course_name,play_course_teebox,play_course_score,date,play_course_esc);
 	
 		// save data
-		ds_list_sort_nested(master_score_list,score_data.date,false); // date sort
+		ds_list_sort_nested(master_score_list,textboxEntry.date,false); // date sort
 		scr_handicap_calculate();
 
 		app_save;

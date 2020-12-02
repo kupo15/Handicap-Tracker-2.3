@@ -46,7 +46,7 @@ debug_draw_strings(xx,yy,debugyoff,sep,height);
 //debug_draw_scrollbars(xx,yy,debugyoff,sep,height);	
 //debug_device_info(xx,yy,debugyoff,sep,height);	
 //draw_text_height(xx,yy+((debugyoff+0)*sep),"numpad_value: "+string(numpad_value),height);
-debug_draw_calendar(xx,yy,debugyoff,sep,height);
+//debug_draw_calendar(xx,yy,debugyoff,sep,height);
 	
 //draw_text_height(xx,yy+(25*sep),"search results "+string(ds_list_size(searchedList)),height);
 //draw_text_height(xx,yy+((debugyoff+0)*sep),"Resolution: "+string(win_ww)+"x"+string(win_hh),height); // resolution
