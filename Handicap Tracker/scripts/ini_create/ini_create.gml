@@ -16,11 +16,11 @@ handicap_trend_type = 0;
 stat_tee_index = undefined;
 stat_index = 0;
 tee_index = undefined;
-subcourse_index = 0;
 
 course_struct = undefined;
 score_struct = undefined;
 
+subcourse_index = 0;
 course_index = undefined;
 score_index = undefined;
 

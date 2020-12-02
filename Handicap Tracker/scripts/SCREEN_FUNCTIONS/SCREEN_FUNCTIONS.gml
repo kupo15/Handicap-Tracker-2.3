@@ -31,7 +31,7 @@ drawScreen[screen.profile] = draw_profile;
 
 drawScreen[screen.playing_score_enter] = draw_playing_score_submit;
 
-drawScreen[screen.add_course] = draw_course_add;
+drawScreen[screen.add_course] = draw_course_view;
 drawScreen[screen.edit_course] = draw_course_edit;
 
 drawScreen[screen.edit_tees] = draw_course_edit_tees;

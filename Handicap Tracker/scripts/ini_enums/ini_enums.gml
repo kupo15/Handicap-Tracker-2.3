@@ -118,6 +118,7 @@ popupEntryText,
 }
 
 enum navbar {
+enumstart = -5,
 calendar = -4,
 calendarYearSelect = -3,
 main = -2,

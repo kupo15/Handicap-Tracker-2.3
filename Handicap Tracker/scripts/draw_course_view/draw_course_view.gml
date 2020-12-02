@@ -1,8 +1,8 @@
 function draw_course_edit() {
-draw_course_add();
+draw_course_view();
 }
 
-function draw_course_add() {
+function draw_course_view() {
 
 var bg_col = c_lt_gray;
 var box_col = c_white;	
