@@ -1,5 +1,7 @@
 function draw_score_card() {
 
+//draw_screen_header(headerType.back,headerType.none,"",undefined,c_white);
+
 var ww = app_width-20;
 var hh = 850;
 var xsep = ww*0.5;

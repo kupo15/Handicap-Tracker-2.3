@@ -1,26 +1,27 @@
 
-function draw_screen_header(header_left,header_right,header_string,height) {
+function draw_screen_header(header_left,header_right,header_string,height,bg_col) {
 /// @param header_left
 /// @param header_right
 /// @param header_string
-/// @param [stringHeight]
+/// @param [stringHeight
+/// @param [header_color]
 
 if argument[3] == undefined
 height = header_font_height;
+
+if argument[4] == undefined
+bg_col = header_color;
 
 var xx = room_width*0.5;
 var yy = (header_height-height)*0.5;
 var ww = app_width;
 var hh = header_height;
 
-draw_rectangle_color(0,0,ww,hh,header_color,header_color,header_color,header_color,false);
+draw_rectangle_color(0,0,ww,hh,bg_col,bg_col,bg_col,bg_col,false);
 
-if header_string != ""
-	{
-	draw_set_halign(fa_center);	
-	draw_text_height_color(xx,yy,header_string,c_white,height);
-	draw_set_halign(fa_left);
-	}
+draw_set_halign(fa_center);
+draw_text_height_color(xx,yy,header_string,c_white,height);
+draw_set_halign(fa_left);
 
 var xpos = 0;
 var region = header_height;
