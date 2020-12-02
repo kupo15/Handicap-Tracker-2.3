@@ -118,6 +118,8 @@ popupEntryText,
 }
 
 enum navbar {
+calendar = -4,
+calendarYearSelect = -3,
 main = -2,
 hidden = -1,
 
@@ -133,8 +135,6 @@ roundtype,
 scorebar,
 numpad,
 popupEntry,
-calendar,
-calendarYearSelect
 }
 
 enum tee_marker {

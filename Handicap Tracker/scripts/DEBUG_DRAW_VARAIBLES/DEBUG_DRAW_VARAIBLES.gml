@@ -3,20 +3,20 @@ goto_draw_debug();
 
 function debug_submenu_names() {
 
-enum_name_submenu[2+navbar.profileChange] = "profile_change";         
-enum_name_submenu[2+navbar.sidebar] = "sidebar";         
-enum_name_submenu[2+navbar.main] = "main";
-enum_name_submenu[2+navbar.hidden] = "hidden";
-enum_name_submenu[2+navbar.coursebar] = "coursebar";
-enum_name_submenu[2+navbar.locationbar] = "locationbar";
-enum_name_submenu[2+navbar.popupEntry] = "entryPopup";
-enum_name_submenu[2+navbar.teebar] = "teebar";
-enum_name_submenu[2+navbar.year_select] = "year_select";
-enum_name_submenu[2+navbar.parbar] = "parbar";
-enum_name_submenu[2+navbar.scorebar] = "scorebar";
-enum_name_submenu[2+navbar.numpad] = "numpad";
-enum_name_submenu[2+navbar.calendar] = "calendar";
-enum_name_submenu[2+navbar.calendarYearSelect] = "calendarYearSelect";
+enum_name_submenu[4+navbar.profileChange] = "profile_change";         
+enum_name_submenu[4+navbar.sidebar] = "sidebar";         
+enum_name_submenu[4+navbar.main] = "main";
+enum_name_submenu[4+navbar.hidden] = "hidden";
+enum_name_submenu[4+navbar.coursebar] = "coursebar";
+enum_name_submenu[4+navbar.locationbar] = "locationbar";
+enum_name_submenu[4+navbar.popupEntry] = "entryPopup";
+enum_name_submenu[4+navbar.teebar] = "teebar";
+enum_name_submenu[4+navbar.year_select] = "year_select";
+enum_name_submenu[4+navbar.parbar] = "parbar";
+enum_name_submenu[4+navbar.scorebar] = "scorebar";
+enum_name_submenu[4+navbar.numpad] = "numpad";
+enum_name_submenu[4+navbar.calendar] = "calendar";
+enum_name_submenu[4+navbar.calendarYearSelect] = "calendarYearSelect";
 }
 
 function debug_draw_screens(xx,yy,ind,sep,height) {
@@ -25,7 +25,7 @@ var str = script_get_name(drawScreen[screenIndex]);
 str = string_replace(str,"draw_","");
 
 draw_text_height(xx,yy+((debugyoff+0)*sep),"screenIndex: "+string(str),height);
-draw_text_height(xx,yy+((debugyoff+1)*sep),"submenu: "+string(enum_name_submenu[submenu+2]),height);
+draw_text_height(xx,yy+((debugyoff+1)*sep),"submenu: "+string(enum_name_submenu[submenu+4]),height);
 draw_text_height(xx,yy+((debugyoff+2)*sep),"submenuPrevious: "+string(submenuPrevious),height);
 draw_text_height(xx,yy+((debugyoff+3)*sep),"activeSubmenu: "+string(activeSubmenu),height);
 	

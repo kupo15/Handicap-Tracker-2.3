@@ -249,7 +249,7 @@ if trash_delete
 if androidBack
 && !kvActive
 	{
-	if (submenu != navbar.hidden)
+	if (submenu > navbar.hidden)
 	submenu = navbar.hidden;
 	else if (submenu == navbar.hidden)
 		{
