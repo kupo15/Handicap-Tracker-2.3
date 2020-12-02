@@ -72,7 +72,7 @@ favorite
 
 enum round_Type {
 practice,
-casual,
+normal,
 tournament	
 }
 

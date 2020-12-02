@@ -79,7 +79,7 @@ score_struct = {
 		esr: 0,
 
 		offSeason: off_season,
-		roundType: 1,
+		roundType: round_Type.normal,
 		
 		handicap_inc: "",
 		handicap_dec: "",
