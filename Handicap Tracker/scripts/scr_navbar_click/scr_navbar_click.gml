@@ -12,20 +12,7 @@ switch ind
 					  break;
 						  
 	// playing
-	case screen.playing: course_struct = course_find_array(active_course_struct.courseName,courselist_array);
-
-						 scr_handicap_calculate();
-						 	 
-						 active_course_struct.handicapData.esr = pick(active_course_struct.handicapData.esr,"",active_course_struct.handicapData.esr == "0");
-						    
-						 if active_course_struct.teeData.teeColor != ""
-							 {
-							 scr_handicap_predict(90,false); // determine lower handicap
-							 scr_handicap_predict(active_course_struct.handicapData.handicap_dec,true); // determine upper handicap
-							 }
-							
-						 scr_tee_filled_set(); // mark tees with data
-						 break;
+	case screen.playing: scr_playing_course_set(); break;
 				
 	// stats screen
 	case screen.stats: scr_stats_set(); break;							   

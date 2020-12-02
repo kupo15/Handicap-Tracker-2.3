@@ -96,6 +96,7 @@
     {"id":{"name":"scr_handicap_predict","path":"scripts/scr_handicap_predict/scr_handicap_predict.yy",},"order":5,},
     {"id":{"name":"scr_course_teebox_add","path":"scripts/scr_course_teebox_add/scr_course_teebox_add.yy",},"order":6,},
     {"id":{"name":"scr_set_date_offsets","path":"scripts/scr_set_date_offsets/scr_set_date_offsets.yy",},"order":5,},
+    {"id":{"name":"scr_playing_course_set","path":"scripts/scr_playing_course_set/scr_playing_course_set.yy",},"order":16,},
     {"id":{"name":"DRAW_TEXT_HEIGHT_FUNCTIONS","path":"scripts/DRAW_TEXT_HEIGHT_FUNCTIONS/DRAW_TEXT_HEIGHT_FUNCTIONS.yy",},"order":3,},
     {"id":{"name":"draw_course_edit_tees","path":"scripts/draw_course_edit_tees/draw_course_edit_tees.yy",},"order":3,},
     {"id":{"name":"draw_handicap_season","path":"scripts/draw_handicap_season/draw_handicap_season.yy",},"order":1,},

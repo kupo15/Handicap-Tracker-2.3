@@ -181,7 +181,7 @@ if click_button(xx,yy,"Begin Round",height,c_white,ww,hh,col,false,false,navbar.
 
 
 // draw coursebar overlay
-if draw_submenu_course_search(header_height,app_width,90,courselist_array,offsetScroll.courselistOffset)
+if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetScroll.courselistOffset)
 	{
 	submenu = navbar.main;
 	

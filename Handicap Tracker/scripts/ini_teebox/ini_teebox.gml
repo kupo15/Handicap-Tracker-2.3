@@ -14,10 +14,6 @@ teebox_filled = ds_list_create();
 	
 var size = ds_list_size(teebox_list);
 for(var i=0;i<size;i++)
-	{
-	stat_tee[i] = ds_list_create();
-				
-	ds_list_add(teebox_filled,false);
-	}
+ds_list_add(teebox_filled,false);
 	
 }

@@ -70,6 +70,7 @@ score_struct = {
 		indexHistory: undefined,
 		indexIncluded: false,
 		
+		adjDiff: undefined,
 		courseHandicap: undefined,
 		esr: 0,
 
