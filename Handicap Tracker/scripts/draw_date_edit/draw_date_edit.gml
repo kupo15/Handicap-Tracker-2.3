@@ -6,7 +6,7 @@ function draw_date_edit() {
 	var height = 80;
 
 	draw_text_height(xx,yy,"Round Date",height);
-	draw_text_height_ext(xx,yy+80,date_pointer[| score_data.course],0,-1,500,50,false);
+	//draw_text_height_ext(xx,yy+80,date_pointer[| score_data.course],0,-1,500,50,false);
 
 
 	var rows = 3;

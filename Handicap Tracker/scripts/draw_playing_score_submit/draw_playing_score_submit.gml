@@ -7,19 +7,19 @@ exit
 if kvActive
 switch textboxIndex
 	{
-	case score_data.score_: activeStruct.roundScore = string_convert_real(numpad_value,3); break;
-	case score_data.strokes: activeStruct.roundStrokes = string_convert_real(numpad_value,2); break;
+	case textboxEntry.grossScore: activeStruct.roundScore = string_convert_real(numpad_value,3); break;
+	case textboxEntry.strokes: activeStruct.roundStrokes = string_convert_real(numpad_value,2); break;
 	}
 	
 // clicked enter
 if virtual_keyboard_enter
 switch textboxIndex
 	{
-	case score_data.score_: textboxIndex = score_data.strokes; 
+	case textboxEntry.grossScore: textboxIndex = score_data.strokes; 
 							keyboard_string = play_strokes;
 							break;
 			
-	case score_data.strokes: vk_hide(); break;
+	case textboxEntry.strokes: vk_hide(); break;
 	}
 
 
@@ -53,7 +53,7 @@ if click_region(xx,yy,ww,hh,true,mb_left,navbar.main) // score/strokes
 	//activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
 
 	screen_change(screen.score_details);
-	click_textbox_set(play_score,score_data.score_,kbv_type_numbers);
+	click_textbox_set(play_score,textboxEntry.grossScore,kbv_type_numbers);
 	}
 	
 #endregion

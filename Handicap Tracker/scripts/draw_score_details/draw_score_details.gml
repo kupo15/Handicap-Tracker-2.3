@@ -10,8 +10,8 @@ draw_screen_header(headerType.back,headerType.none,str);
 
 switch textboxIndex
 	{
-	case score_data.score_: activeStruct.roundData.grossScore = string_convert_real_numpad(numpad_value,3); break;
-	case score_data.strokes: activeStruct.roundData.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
+	case textboxEntry.grossScore: activeStruct.roundData.grossScore = string_convert_real_numpad(numpad_value,3); break;
+	case textboxEntry.strokes: activeStruct.roundData.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
 	}	
 
 // exceptions
@@ -58,7 +58,7 @@ for(var i=0;i<size;i++)
 	{
 	if click_button(xx+xoff+(i*button_sep),yy+10,detail_arr[i],35,c_black,button_ww,60,c_lt_gray,true,false,submenu)
 		{
-		textboxIndex = score_data.score_+i;
+		textboxIndex = textboxEntry.grossScore+i;
 		move = true;
 		}
 	
@@ -68,13 +68,13 @@ for(var i=0;i<size;i++)
 
 // draw highlight
 draw_set_alpha(0.2);	
-draw_dialogue_box(xx+xoff+((textboxIndex-score_data.score_)*button_sep),yy+10,button_sep-button_spacing,60,header_color,undefined);
+draw_dialogue_box(xx+xoff+((textboxIndex-textboxEntry.grossScore)*button_sep),yy+10,button_sep-button_spacing,60,header_color,undefined);
 draw_set_alpha(1);
 #endregion
 
 if virtual_keyboard_enter 
 	{
-	textboxIndex = clamp(textboxIndex+1,score_data.score_,score_data.strokes); // move to next textbox
+	textboxIndex = clamp(textboxIndex+1,textboxEntry.grossScore,textboxEntry.strokes); // move to next textbox
 	move = true;
 	}
 
@@ -88,13 +88,13 @@ var button_col = make_color_rgb(240,240,240);
 
 if click_button(xx,yy,"<<",height,c_black,button_ww,button_hh,button_col,false,false,submenu)
 	{
-	textboxIndex = clamp(textboxIndex-1,score_data.score_,score_data.strokes);
+	textboxIndex = clamp(textboxIndex-1,textboxEntry.grossScore,textboxEntry.strokes);
 	move = true;
 	}
 
 if click_button(xx+button_ww,yy,">>",height,c_black,button_ww,button_hh,button_col,false,false,submenu)
 	{
-	textboxIndex = clamp(textboxIndex+1,score_data.score_,score_data.strokes);
+	textboxIndex = clamp(textboxIndex+1,textboxEntry.grossScore,textboxEntry.strokes);
 	move = true;
 	}
 	
@@ -105,9 +105,9 @@ draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);
 if move
 switch (textboxIndex)
 	{	
-	case score_data.score_: click_textbox_set(roundScore,textboxIndex,kbv_type_numbers); break;
+	case textboxEntry.grossScore: click_textbox_set(roundScore,textboxIndex,kbv_type_numbers); break;
 	
-	case score_data.strokes: click_textbox_set(roundStrokes,textboxIndex,kbv_type_numbers); break;
+	case textboxEntry.strokes: click_textbox_set(roundStrokes,textboxIndex,kbv_type_numbers); break;
 	}
 	
 #region draw label
@@ -116,11 +116,11 @@ var yy = 320;
 var height = 60;
 
 draw_set_halign(fa_center);
-draw_text_height(xx,yy,detail_arr[textboxIndex-score_data.score_],height);
+draw_text_height(xx,yy,detail_arr[textboxIndex-textboxEntry.grossScore],height);
 
 // draw value
 var height = 70;
-draw_text_height(xx,yy+80,detail_val[textboxIndex-score_data.score_],height);	
+draw_text_height(xx,yy+80,detail_val[textboxIndex-textboxEntry.grossScore],height);	
 #endregion	
 
 #region Save

@@ -96,23 +96,11 @@ par,
 enumcount
 }
 
-enum score_data {
-course,
-score_,
-strokes,
-
-tee,
-
-}
-
-enum tee_data {
-yardage,
-slope,
-rating,
-par
-}
 
 enum textboxEntry {
+	
+grossScore,
+strokes,	
 	
 popupEntryText,
 }

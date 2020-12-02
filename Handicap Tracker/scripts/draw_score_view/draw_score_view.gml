@@ -94,7 +94,7 @@ if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	//activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
 
 	screen_change(screen.score_details);
-	click_textbox_set(roundScore,score_data.score_,kbv_type_numbers);
+	click_textbox_set(roundScore,textboxEntry.grossScore,kbv_type_numbers);
 	}
 	
 #endregion

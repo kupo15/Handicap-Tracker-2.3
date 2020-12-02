@@ -1,4 +1,4 @@
-
+/*
 function draw_playing_score_enter() {
 	
 	if submenu != navbar.scorebar
@@ -133,5 +133,5 @@ function draw_playing_score_enter() {
 		textboxIndex = noone;
 		screen_change(screen.home,true);
 		index = 0;
-		}*/
+		}
 }
