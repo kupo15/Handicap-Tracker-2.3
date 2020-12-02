@@ -1,6 +1,6 @@
 function scr_stats_set() {
 
-stat_tee_index = 0; // reset
+stat_tee_index = undefined; // reset
 statslist_array = []; // clear array
 
 var score_array_copy = [];
@@ -21,8 +21,7 @@ var for(var i=0;i<size;i++)
 	courseID: course_id,
 	courseName: course_name,
 	
-	teeData: {},
-		
+	teeData: {},	
 	}
 
 	var round_pointer = score_pointer.roundData;
@@ -59,48 +58,16 @@ var for(var i=0;i<size;i++)
 			n --;
 			size --;
 			}
+			
+		// sort rounds
+		var arr = variable_struct_get(stat_struct.teeData,tee_color);
+		array_sort_nested_struct(arr,"roundDate",true);
 		}
 	}
+	
+// sort list
+array_sort_nested_struct(statslist_array,"courseName",true);
 	
 // destroy temp array
 score_array_copy = undefined;	
-exit;
-
-cs(js(statslist_array[1]))
-sm(statslist_array[1])
-
-var course_name = course_struct.courseName; // course selected for stats
-
-var size = ds_list_size(teebox_list);
-for(var i=0;i<size;i++) // loop through tee stats
-ds_list_clear(stat_tee[i]); // clear the tee score list	
-
-var size = array_length(scorelist_array);
-for(var i=0;i<size;i++) // loop through scores
-	{
-	var pos = size-1-i;
-	var score_pointer = scorelist_array[pos]; // get course pointer
-	var round_pointer = score_pointer.roundData;
-	var tee_pointer = score_pointer.teeData;
-	
-	var course = score_pointer.courseName; // get the name
-	
-	// find a match is found
-	if course == course_name
-		{
-		var net_score = round_pointer.netScore; // get the score
-		var tee_color = capitalize(tee_pointer.teeColor); // get tee color
-		var tee_ind = ds_list_find_index(teebox_list,tee_color); // get the tee index
-		
-		ds_list_add(stat_tee[tee_ind],real(net_score)); // add the score to the list
-		}
-	}
-
-// scr_tee_filled_set();
-if array_length(courselist_array) > 0
-						   {
-						   course_struct = courselist_array[stat_index];					 
-						   scr_stats_set();
-						   }
-
 }

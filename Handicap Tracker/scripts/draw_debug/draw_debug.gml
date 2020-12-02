@@ -30,6 +30,7 @@ draw_text_height(xx,yy+((debugyoff+4)*sep),"activeStruct: "+string(pick("active"
 draw_text_height(xx,yy+((debugyoff+6)*sep),"course_index: "+string(course_index),height);
 draw_text_height(xx,yy+((debugyoff+7)*sep),"score_index: "+string(score_index),height);
 draw_text_height(xx,yy+((debugyoff+8)*sep),"stat_index: "+string(stat_index),height);
+draw_text_height(xx,yy+((debugyoff+9)*sep),"stat_tee_index: "+string(stat_tee_index),height);
 
 //draw_text_height(xx,yy+((debugyoff+10)*sep),"index_trend_offset: "+string(offsetArray[offsetScroll.indexOffset]),height);
 

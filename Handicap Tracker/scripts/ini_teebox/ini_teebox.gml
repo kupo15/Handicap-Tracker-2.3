@@ -3,12 +3,12 @@ function ini_teebox() {
 teebox_list = ds_list_create();
 
 // add default colors
-ds_list_add(teebox_list,"Green");
-ds_list_add(teebox_list,"Red");
-ds_list_add(teebox_list,"White");
-ds_list_add(teebox_list,"Blue");
-ds_list_add(teebox_list,"Gold");
-ds_list_add(teebox_list,"Black");
+teebox_list[| tee_marker.green] = "Green";
+teebox_list[| tee_marker.red] = "Red";
+teebox_list[| tee_marker.white] = "White";
+teebox_list[| tee_marker.blue] = "Blue";
+teebox_list[| tee_marker.gold] = "Gold";
+teebox_list[| tee_marker.black] = "Black";
 
 teebox_filled = ds_list_create();
 	

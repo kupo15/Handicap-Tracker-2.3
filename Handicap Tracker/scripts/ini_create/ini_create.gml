@@ -13,7 +13,7 @@ round_selection = 20;
 
 handicap_trend_type = 0;
 
-stat_tee_index = noone;
+stat_tee_index = undefined;
 stat_index = 0;
 tee_index = undefined;
 subcourse_index = 0;
