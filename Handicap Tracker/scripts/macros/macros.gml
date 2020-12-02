@@ -14,7 +14,7 @@
 #macro SCORE_data ROOT_data_struct.profiles[profile_index].scorelist
 #macro ACTIVE_data ROOT_data_struct.profiles[profile_index].activeRound
 
-#macro create_score scr_score_create("","","","","","","",date_current_datetime(),"0",false)
+#macro create_score scr_score_create("","","","","","","","",date_current_datetime(),"0",false)
 
 #macro scoresort scr_score_sort(scorelist_array,false) // array_sort_nested_struct(scorelist_array,"roundDate",false)
 #macro coursesort scr_course_sort(courselist_array,true)

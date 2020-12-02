@@ -29,7 +29,7 @@ for(var i=0;i<size;i++) // loop through all
 		size --;
 		continue;
 		}
-		
+
 	var net_score = real(gross_score)-real(_strokes);
 	var course_rating = real(tee_pointer.teeRating);
 	var course_slope = real(tee_pointer.teeSlope);

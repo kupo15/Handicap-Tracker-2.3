@@ -135,11 +135,12 @@ for(var i=0;i<list_size;i++)
 return undefined;
 }
 	
-function course_find_array(courseName,array) {
-/// @param courseName		
+function course_find_array(courseName,courseState,array) {
+/// @param courseName	
+/// @param stateInitial
 /// @param [sourceArray]
 		
-if argument[1] == undefined
+if argument[2] == undefined
 array = courselist_array
 		
 // loop through course list
@@ -148,8 +149,9 @@ for(var i=0;i<size;i++)
 	{
 	var struct = array[i];
 	var name = struct.courseName;
+	var state = struct.courseLocation.stateInitial;
 	
-	if name == courseName
+	if (name == courseName) && (state == courseState)
 		{
 		course_index = i;
 		return struct;

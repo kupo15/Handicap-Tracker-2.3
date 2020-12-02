@@ -1,6 +1,7 @@
 
-function scr_score_create(course_name,tee_color,yardage,slope,rating,par,score,date,strokes,off_season) {
+function scr_score_create(course_name,course_state,tee_color,yardage,slope,rating,par,score,date,strokes,off_season) {
 /// @param [course_name
+/// @param stateInitial
 /// @param tee_color
 /// @param yardage
 /// @param slope
@@ -16,30 +17,33 @@ if argument[0] == undefined
 course_name = "";
 
 if argument[1] == undefined
-tee_color = "";
+course_state = "";
 
 if argument[2] == undefined
-yardage = "";
+tee_color = "";
 
 if argument[3] == undefined
-slope = "";
+yardage = "";
 
 if argument[4] == undefined
-rating = "";
+slope = "";
 
 if argument[5] == undefined
-par = "";
+rating = "";
 
 if argument[6] == undefined
-score = "";
+par = "";
 
 if argument[7] == undefined
-date = date_current_datetime();
+score = "";
 
 if argument[8] == undefined
-strokes = "0";
+date = date_current_datetime();
 
 if argument[9] == undefined
+strokes = "0";
+
+if argument[10] == undefined
 off_season = false;
 #endregion
 
@@ -80,22 +84,38 @@ score_struct = {
 		handicap_inc: "",
 		handicap_dec: "",
 		}
-	}	
+	}
+	
+	
+var struct = course_find_array(course_name,course_state,COURSE_database); // course struct
+
+if struct != undefined
+	{
+	var districtIndex = struct.districtInd;
+	var location_struct = struct.courseLocation;
+	var district_struct = location_struct.districts[districtIndex];
+
+	score_struct.courseID = struct.courseID;
+	score_struct.courseLocation = district_struct;
+	score_struct.courseLocation.stateName = location_struct.stateName;
+	score_struct.courseLocation.stateInitial = location_struct.stateInitial;
+	}
 
 return score_struct;
 }
 
-function scr_score_add_index(c_name,tee_color,_score,date,strokes) {
+function scr_score_add_index(c_name,c_state,tee_color,_score,date,strokes) {
 /// @param course_name
+/// @param state_initial
 /// @param tee_color
 /// @param gross_score
 /// @param date
 /// @param [strokes]
 
-if argument[4] == undefined
+if argument[5] == undefined
 strokes = "0";
 
-var struct = course_find_array(c_name,COURSE_database); // course struct
+var struct = course_find_array(c_name,c_state,COURSE_database); // course struct
 
 if struct == undefined
 	{
@@ -113,7 +133,6 @@ if teeData == undefined
 	
 // create score	
 var districtIndex = struct.districtInd;
-	
 var location_struct = struct.courseLocation;
 var district_struct = location_struct.districts[districtIndex];
 var allYear = district_struct.yearRound;
@@ -138,10 +157,12 @@ var course_rating = teeData.teeRating;
 var course_par = teeData.teePar;
 
 // create score data
-score_struct = scr_score_create(c_name,tee_color,course_yardage,course_slope,course_rating,course_par,_score,date,strokes,off_season);
-score_struct.courseLocation = district_struct;
-score_struct.courseID = struct.courseID;
-
+score_struct = scr_score_create(c_name,c_state,tee_color,course_yardage,course_slope,course_rating,course_par,_score,date,strokes,off_season);
+//score_struct.courseID = struct.courseID;
+//score_struct.courseLocation = district_struct;
+//score_struct.courseLocation.stateName = location_struct.stateName;
+//score_struct.courseLocation.stateInitial = location_struct.stateInitial;
+//
 //cs(js(score_struct));
 //sm(score_struct)
 

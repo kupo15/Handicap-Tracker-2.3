@@ -69,6 +69,16 @@ draw_text_height_color(xx+(sq_size*0.5),yy+40+sq_yoff,day,c_black,46);
 draw_set_halign(fa_left);
 }
 	
+function draw_icon_member_initial(xx,yy,str,sep,col,height) {
+	
+var initial = string_char_at(str,1);
+	
+draw_set_halign(fa_center);
+draw_circle_color(xx,yy+(sep*0.5),height,col,col,false);
+draw_text_height_middled(xx,yy,initial,sep,height);	
+	
+}
+	
 function draw_icon_enclosed(spr,ind,xx,yy,ww,hh,ysep,col,shape) {
 	
 var xoff = (ww*0.5);

@@ -44,10 +44,10 @@ scr_course_add_tee(course_struct,"gold","5953","124","69.3","69");
 scr_course_create_database("Braintree Municipal","MA",undefined,arr);
 scr_course_add_tee(course_struct,"white","6212","123","70.0","72");
 
-scr_course_create_database("Broad Run Golf Club","NJ",undefined,arr);
+scr_course_create_database("Broad Run Golf Club","PA",undefined,arr);
 scr_course_add_tee(course_struct,"white","6080","132","70.3","72");
 
-scr_course_create_database("Campbell's Scottish Highlands","MA",undefined,arr);
+scr_course_create_database("Campbell's Scottish Highlands","NH",undefined,arr);
 scr_course_add_tee(course_struct,"blue","6249","121","70.1","71");
 
 scr_course_create_database("Cape May National","NJ",undefined,arr);
@@ -73,7 +73,7 @@ scr_course_add_tee(course_struct,"blue","6501","129","71.9","72");
 scr_course_create_database("Gardner Municipal","MA",undefined,arr);
 scr_course_add_tee(course_struct,"blue","6131","128","69.8","71");
 
-scr_course_create_database("Granite Fields Golf Club","MA",undefined,arr);
+scr_course_create_database("Granite Fields Golf Club","NH",undefined,arr);
 scr_course_add_tee(course_struct,"blue","6543","130","71.7","72");
 
 scr_course_create_database("Hickory Hills","MA",undefined,arr);
@@ -83,7 +83,7 @@ scr_course_add_tee(course_struct,"blue","6287","123","70.8","71");
 scr_course_create_database("Highfields","MA",undefined,arr);
 scr_course_add_tee(course_struct,"gold","6474","134","71.7","72");
 
-scr_course_create_database("Ledges Golf Club","MA",undefined,arr);
+scr_course_create_database("Ledges Golf Club","ME",undefined,arr);
 scr_course_add_tee(course_struct,"black","6981","137","74.2","72");
 
 scr_course_create_database("McCullough's Emerald Links","NJ",undefined,arr);
@@ -149,10 +149,10 @@ scr_course_add_tee(course_struct,"blue","6746","129","72.0","72");
 scr_course_create_database("Waverly Oaks","MA",undefined,arr);
 scr_course_add_tee(course_struct,"gold","6682","124","72.3","72");
 
-scr_course_create_database("Windham Country Club","MA",undefined,arr);
+scr_course_create_database("Windham Country Club","NH",undefined,arr);
 scr_course_add_tee(course_struct,"blue","6033","130","69.1","72");
 
-scr_course_create_database("Crystal Lake Golf Club - RI","RI",undefined,arr);
+scr_course_create_database("Crystal Lake Golf Club","RI",undefined,arr);
 scr_course_add_tee(course_struct,"blue","5966","119","69.1","71");
 
 //array_sort_nested_struct(arr,"courseName",true);

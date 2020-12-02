@@ -103,9 +103,7 @@ switch screenIndex
 	case screen.handicapSeason: submenu = navbar.hidden; break;	
 	
 	// course list
-	case screen.course_list: //scr_update_course_frequency(); 
-							 scr_course_list_sort(META_data.courseSort);
-							 break;
+	case screen.course_list: scr_course_list_sort(META_data.courseSort); break;
 							 
 	// profile
 	case screen.profile: workingStruct = struct_copy(PROFILE_data);

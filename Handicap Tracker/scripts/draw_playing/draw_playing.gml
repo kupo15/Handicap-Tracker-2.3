@@ -191,8 +191,12 @@ if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetS
 	
 	// set values
 	course_struct = returnedSearch;
-	active_course_struct = scr_score_create(returnedSearch.courseName);
-		
+
+	var c_name = returnedSearch.courseName;
+	var c_state = returnedSearch.courseLocation.stateInitial;
+	
+	active_course_struct = scr_score_create(c_name,c_state);
+
 	// open teebar 
 	submenu = navbar.teebar;
 	scr_tee_filled_set(); // mark tees with data

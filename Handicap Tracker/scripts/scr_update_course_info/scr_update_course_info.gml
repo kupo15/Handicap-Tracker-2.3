@@ -10,14 +10,14 @@ courselist_array[i].frequency = 0;
 var score_size = array_length(scorelist_array);
 for(var i=0;i<score_size;i++) // loop through scores
 	{
-	var score_name = scorelist_array[i].courseName; // get the score name
+	var score_courseId = scorelist_array[i].courseID; // get the score courseId
 
-	for(var n=0;n<course_size;n++) // loop through scores
+	for(var n=0;n<course_size;n++) // loop through courses
 		{
 		var course_pointer = courselist_array[n];
-		var course_name = course_pointer.courseName;
+		var course_id = course_pointer.courseID;
 		
-		if score_name == course_name
+		if score_courseId == course_id
 			{
 			course_pointer.frequency ++; // add to count
 			break;
@@ -33,8 +33,14 @@ META_data.courseSort = ind; // update header preferences
 switch ind
 	{
 	case course_sort.abc: coursesort; break; // sort list
-	case course_sort.frequency: array_sort_nested_struct(courselist_array,"frequency",false); break; // sort list
-	case course_sort.favorite: array_sort_nested_struct_priority(courselist_array,"courseName","favorite",true,true); break; // sort list
+	
+	case course_sort.frequency: scr_update_course_frequency();
+								array_sort_nested_struct(courselist_array,"frequency",false); 
+								break; // sort list
+	
+	case course_sort.favorite: coursesort;
+							   array_sort_nested_struct(courselist_array,"favorite",false);
+							   break; // sort list
 	}
 
 }
