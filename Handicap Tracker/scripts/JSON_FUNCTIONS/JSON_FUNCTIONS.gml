@@ -39,24 +39,20 @@ if file_exists(_filename)
 		
 		app_save;
 		db("transitioned saved data");
-		
-		db("game end");
 		}
 	else // load 
 		{
 		scr_profile_set(META_data.profileIndex);
 		handicap_season_array = SEASON_data;
-
-		db(string(_filename)+" loaded");
 		
-		db("game end1");
+		db(string(_filename)+" loaded");
 		}
 	}
 else
 	{
 	json_conversion_missing();
+	
 	db(string(_filename)+" not found > creating data structures");
-	db("game end2");
 	}
 }
 

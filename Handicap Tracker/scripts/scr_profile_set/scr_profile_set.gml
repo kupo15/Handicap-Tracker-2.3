@@ -9,6 +9,7 @@ var profileData = {
 		
 		dispName: name,
 		index: "N/A",
+		homeCourseID: -1,
 		
 		courselist: [],
 		scorelist: [],

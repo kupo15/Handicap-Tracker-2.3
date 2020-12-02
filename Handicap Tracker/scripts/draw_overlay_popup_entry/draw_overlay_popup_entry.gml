@@ -62,5 +62,7 @@ if click_button(xx+150,yy+yoff,"Save",height,c_teal,110,60,undefined,false,false
 if androidBack
 submenu = navbar.hidden;
 
+draw_set_alpha(1);
+
 return undefined;
 }

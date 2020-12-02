@@ -5,7 +5,6 @@ root_data_create();
 scr_profile_create("Matt");
 scr_profile_create("Megan");
 
-
 var list_num = array_length(COURSE_database);
 for(var n=0;n<list_num;n++)
 	{

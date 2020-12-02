@@ -161,6 +161,26 @@ for(var i=0;i<size;i++)
 return undefined;
 }
 	
+function course_get_struct(courseId,array) {
+/// @param courseID	
+/// @param [array]
+
+if argument[1] == undefined
+array = COURSE_database;
+
+var size = array_length(array);
+for(var i=0;i<size;i++)
+	{
+	var pointer = array[i];
+	var course_id = pointer.courseID;
+	
+	if course_id == courseId
+	return pointer;
+	}
+	
+return undefined;
+}
+	
 function scr_course_sort(source_array,ascending) {
 
 // create temp sorting grid
