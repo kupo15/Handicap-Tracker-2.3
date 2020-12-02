@@ -53,6 +53,7 @@ courselistOffset,
 seasonOffset,
 statsOffset,
 indexOffset,
+calendarOffset,
 
 enumcount,
 }
