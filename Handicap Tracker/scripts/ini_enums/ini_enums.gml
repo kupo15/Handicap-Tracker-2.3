@@ -81,12 +81,9 @@ courseSelect,
 navbarSwitch
 }
 
-enum profile_data {
-name	
-	
-}
-
 enum textboxEntry {
+dispName,	
+	
 courseName,
 courseYardage,
 courseSlope,
