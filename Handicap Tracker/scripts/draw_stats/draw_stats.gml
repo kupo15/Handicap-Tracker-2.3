@@ -40,7 +40,7 @@ var names = variable_struct_get_names(stat_tee_pointer);
 var size = array_length(names);
 for(var i=0;i<size;i++) // loop through tee colors
 	{		
-	var pointer = variable_struct_get(stat_tee_pointer,names[i]);	g
+	var pointer = variable_struct_get(stat_tee_pointer,names[i]);
 	var list_size = array_length(pointer); // number of scores
 			
 	// loop through all scores in tee to find the max
