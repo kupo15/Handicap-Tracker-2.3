@@ -83,28 +83,6 @@ var ticks = ymax-ymin; // number of tick marks
 var ysep = ww/ticks;
 #endregion
 
-#region draw graph outline
-var col = c_white;
-draw_rectangle_color(0,yy-ww,xx,yy+10,col,col,col,col,false);
-
-draw_line_width(xx,yy,xx+ww,yy,3); // hor axis
-draw_line_width(xx,yy,xx,yy-ww,3); // vert axis
-
-// draw tick marks
-var tick_ll = 4;
-for(var i=0;i<ticks;i++)
-	{
-	var tick_ww = 1;
-	if (i mod 10 == 0) //|| (i == ticks-1)
-		{
-		tick_ww = 2;
-		draw_text_height(xx-30,yy-10-(i*ysep),50+i,20); // draw score
-		}
-		
-	draw_line_width(xx-tick_ll,yy-(i*ysep),xx+tick_ll,yy-(i*ysep),tick_ww); // tick marks
-	}
-#endregion
-
 #region draw data points
 var max_disp = 10;
 var xsep = 0;
@@ -155,6 +133,28 @@ for(var i=0;i<tee_num;i++)
 draw_set_alpha(1);
 #endregion
 	
+#region draw graph outline
+var col = c_white;
+draw_rectangle_color(0,yy-ww,xx,yy+10,col,col,col,col,false);
+
+draw_line_width(xx,yy,xx+ww,yy,3); // hor axis
+draw_line_width(xx,yy,xx,yy-ww,3); // vert axis
+
+// draw tick marks
+var tick_ll = 4;
+for(var i=0;i<ticks;i++)
+	{
+	var tick_ww = 1;
+	if (i mod 10 == 0) //|| (i == ticks-1)
+		{
+		tick_ww = 2;
+		draw_text_height(xx-30,yy-10-(i*ysep),50+i,20); // draw score
+		}
+		
+	draw_line_width(xx-tick_ll,yy-(i*ysep),xx+tick_ll,yy-(i*ysep),tick_ww); // tick marks
+	}
+#endregion		
+	
 #region scrolling
 var xx = 0;
 var yy = 220;
@@ -163,12 +163,10 @@ var sub = navbar.main;
 
 funct_screen_scrolling_hor(0,yy,app_width,hh,xsep,list_size,max_disp,scrollbar_index,sub);
 #endregion
-    
+	
 if draw_submenu_course_search(header_height,app_width,90,statslist_array,offsetScroll.courselistOffset)
 	{
 	submenu = navbar.main;
-	course_struct = returnedSearch;
-	
 	stat_index = searchedIndex;
 	stat_tee_index = undefined;
 
