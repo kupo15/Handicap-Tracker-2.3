@@ -158,14 +158,6 @@ var course_par = teeData.teePar;
 
 // create score data
 score_struct = scr_score_create(c_name,c_state,tee_color,course_yardage,course_slope,course_rating,course_par,_score,date,strokes,off_season);
-//score_struct.courseID = struct.courseID;
-//score_struct.courseLocation = district_struct;
-//score_struct.courseLocation.stateName = location_struct.stateName;
-//score_struct.courseLocation.stateInitial = location_struct.stateInitial;
-//
-//cs(js(score_struct));
-//sm(score_struct)
-
 
 // add score
 array_push(scorelist_array,score_struct);

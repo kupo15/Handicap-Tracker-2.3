@@ -131,8 +131,8 @@ if new_score
 			
 	score_index = array_length(scorelist_array);
 
-	popup_coursebar();
 	screen_change(screen.score_create,navbar.coursebar);
+	popup_coursebar();
 	}
 	
 // SubHeader
