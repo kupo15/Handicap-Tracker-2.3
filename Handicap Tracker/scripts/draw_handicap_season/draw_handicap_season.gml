@@ -19,7 +19,14 @@ var hh = app_height-nav_height-yy;
 var rows = hh/sep;
 var height = 35;
 
+// expanding section
+var district_exp = 0;
+var district_ysep = 65;
+
 var list_size = array_length(handicap_season_array);
+for(var i=0;i<list_size;i++)
+{}
+
 var pos_start = floor(handicap_season_offset);
 var pos_end = min(list_size,ceil(handicap_season_offset)+rows);
 for(var i=pos_start;i<pos_end;i++)
@@ -29,14 +36,14 @@ for(var i=pos_start;i<pos_end;i++)
 		
 	var pointer = handicap_season_array[i];
 	var state_name = pointer.stateName;
-	
+
 	draw_text_height(xx+xoff,yy+yoff+off_pos,state_name,height,fn_bold);
 	
 	var district_num = array_length(pointer.districts);
 	var district_num = 1;
 	for(var n=0;n<district_num;n++)
 		{
-		var ysep = 35;
+		var ysep = sep;
 		var ypos = yy+off_pos+height+5+(n*ysep);
 		var district_pointer = pointer.districts[n];
 		var district_name = district_pointer.districtName;
@@ -61,12 +68,12 @@ for(var i=pos_start;i<pos_end;i++)
 			}
 
 		draw_text_height_color(360,ypos+10,season_str,c_gray,height*0.8,fn_italic); // draw season dates
+		
+		if click_region_released_clamp_array(0,yy,off_pos+(n*ysep),ww,sep,hh,mb_left,c_yellow,submenu,i,handicap_season_array)
+		return_val = [pointer,n];
 		}
 	
 	draw_line_pixel(xoff,yy+off_pos,app_width,1,c_lt_gray,1);
-	
-	if click_region_released_clamp_array(0,yy,off_pos,ww,sep,hh,mb_left,c_yellow,submenu,i,handicap_season_array)
-	return_val = pointer;
 	}
 
 #region scrolling

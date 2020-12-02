@@ -26,8 +26,7 @@ var district_data = {
 	endSeason: endDate,	
 	}
 
-var num = array_length(season_data.districts);
-season_data.districts[num] = district_data;
+array_push(season_data.districts,district_data);
 }
 
 function handicap_season_state_add(state,initial) {

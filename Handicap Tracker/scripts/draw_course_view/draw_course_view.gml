@@ -191,10 +191,11 @@ if submenu == navbar.locationbar
 	{
 	draw_clear(c_white);
 	
-	var struct = draw_handicap_season();	
-	if struct != undefined
+	var arr = draw_handicap_season();	
+	if arr != undefined
 		{
-		var district = 0;
+		var struct = arr[0];
+		var district = arr[1];
 		
 		// save location information
 		activeStruct.districtInd = district;
