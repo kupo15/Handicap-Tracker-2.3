@@ -78,7 +78,7 @@ var height = 35;
 
 if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
 if course_name != ""
-submenu = navbar.locationbar;
+vk_hide(navbar.locationbar);
 
 draw_line_pixel(20,yy,app_width,1,c_lt_gray,1);
 
@@ -165,7 +165,7 @@ if virtual_keyboard_enter
 vk_hide();
 
 #region Finished button
-var submit = (course_name != "");
+var submit = (course_name != "") && (location_struct != undefined);
 var hh = element_finished.hh;
 var height = element_finished.stringHeight;
 var xx = 0;
@@ -177,6 +177,7 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 	{	
 	// update course info
 	COURSE_database[@ course_index] = workingStruct; // overwrite with working copy
+	scr_course_add_local(workingStruct.courseID,courselist_array);
 	
 	coursesort; // sort list
 	app_save;

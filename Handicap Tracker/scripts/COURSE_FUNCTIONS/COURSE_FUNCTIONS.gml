@@ -34,6 +34,8 @@ name = "";
 if argument[2] == undefined
 district = 0;
 
+if argument[3] == undefined
+arr = COURSE_database;
 
 // find location struct
 var location_struct = pick(scr_course_location_find(state),state,state == undefined);
@@ -133,16 +135,6 @@ for(var i=0;i<list_size;i++)
 return undefined;
 }
 	
-function course_find_struct(courseName,struct) {
-/// @param courseName		
-/// @param [sourceStruct]
-		
-if argument[1] == undefined
-struct = courselist_struct
-		
-return variable_struct_get(struct,courseName);	
-}
-
 function course_find_array(courseName,array) {
 /// @param courseName		
 /// @param [sourceArray]

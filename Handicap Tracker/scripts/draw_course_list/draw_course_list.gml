@@ -81,8 +81,7 @@ for(var i=pos_start;i<pos_end;i++)
 			course_struct = COURSE_database[course_index];
 			workingStruct = struct_copy(course_struct);
 			activeStruct = workingStruct;
-//cs(js(activeStruct))
-//sm("")
+
 			screen_change(screen.edit_course,navbar.hidden);
 			}
 		}
@@ -106,7 +105,7 @@ if new_course
 	course_struct = scr_course_create_database();
 	workingStruct = struct_copy(course_struct);
 	activeStruct = workingStruct;
-			
+
 	course_index = array_length(courselist_array);
 
 	screen_change(screen.add_course);

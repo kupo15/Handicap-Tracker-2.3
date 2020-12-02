@@ -127,8 +127,8 @@ var list_size = 3600;
 funct_screen_scrolling_hor(xx,yy+ysep,7*xsep,6*ysep,7*xsep,list_size,1,scrollbar_index,navbar.calendar);
 #endregion
 
-if monthOffsetEnd < 0
-monthOffsetEnd = 0;
+if offsetArray[scrollbar_index] < 0
+offsetArray[scrollbar_index] = 0;
 
 // scrollbar_speed[scrollbar_index] = 0;
 

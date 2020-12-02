@@ -1,14 +1,12 @@
 
 // json saving
 #macro save_data "ghin_sav.dat"
-#macro json_version -4
+#macro json_version 0.46
 #macro app_save json_save_array(save_data,ROOT_data_struct)
 #macro app_load json_load_array(save_data)
 
 #macro COURSE_database ROOT_data_struct.courselistDatabase
 #macro SEASON_data ROOT_data_struct.seasonList
-
-#macro TEE_data subcourses[subcourse_index].teeData
 
 #macro PROFILE_data ROOT_data_struct.profiles[profile_index]
 #macro META_data ROOT_data_struct.meta
