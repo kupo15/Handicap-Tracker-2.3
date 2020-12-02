@@ -5,6 +5,9 @@ var scrollbar_index = offsetScroll.statsOffset;
 var stats_offset = offsetArray[scrollbar_index];
 var stats_offset_start = offsetArrayStart[scrollbar_index];	
 	
+var stat_struct = statslist_array[stat_index];
+var stat_tee_pointer = stat_struct.teeData;
+	
 #region draw course and tee
 var xx = 20;
 var yy = 100;
@@ -12,15 +15,10 @@ var ww = app_width;
 var sep = 130;
 var height = 60;
 
-if course_struct == undefined
-var course_name = "No Courses";
-else
-var course_name = course_struct.courseName;
+var condition = array_length(statslist_array) == 0;
+var course_name = pick(stat_struct.courseName,"No Courses",condition);
+var course_height = text_reduce(course_name,ww-60,height);
 
-if string_length(course_name) > 16
-var course_height = 40;
-else 
-var course_height = height;
 draw_text_height(xx,yy,"Course",height*0.6,fn_italic); // draw course name label
 draw_text_height(xx,yy+40,course_name,course_height); // draw course name
 
@@ -31,7 +29,7 @@ if click_region_released(0,yy-10,ww,sep,true,navbar.main)
 	}
 #endregion
 
-// draw graph
+#region find score range
 var xx = 60;
 var yy = 620
 var ww = 400;
@@ -39,17 +37,18 @@ var ymin = 50;
 var ymax = 50;
 
 var list_size = 0;
-var size = ds_list_size(teebox_list);
-for(var i=0;i<size;i++)
-if !ds_list_empty(stat_tee[i]) // if there is data in the list
+var names = variable_struct_get_names(stat_tee_pointer);
+var size = array_length(names);
+for(var i=0;i<size;i++) // loop through tee colors
 	{		
-	// draw the line graph
-	var score_num = ds_list_size(stat_tee[i]); // number of scores
-	list_size = max(list_size,score_num);
-	
-	for(var n=0;n<score_num;n++)
+	var pointer = variable_struct_get(stat_tee_pointer,names[i]);	
+	var list_size = array_length(pointer); // number of scores
+			
+	// loop through all scores to find the max
+	for(var n=0;n<list_size;n++) 
 		{
-		var _score = ds_list_find_value(stat_tee[i],n); // score
+		var _score = pointer[n].netScore; // score
+		
 		if _score > ymax
 		ymax = _score;
 		}
@@ -59,6 +58,38 @@ ymax += 5; // add a buffer to the top
 
 var ticks = ymax-ymin; // number of tick marks
 var ysep = ww/ticks;
+#endregion
+
+
+
+#region draw graph
+var col = c_white;
+draw_rectangle_color(0,yy-ww,xx,yy+10,col,col,col,col,false);
+
+draw_line_width(xx,yy,xx+ww,yy,3); // hor axis
+draw_line_width(xx,yy,xx,yy-ww,3); // vert axis
+
+// draw tick marks
+var tick_ll = 4;
+for(var i=0;i<ticks;i++)
+	{
+	var tick_ww = 1;
+	if (i mod 10 == 0) //|| (i == ticks-1)
+		{
+		tick_ww = 2;
+		draw_text_height(xx-30,yy-10-(i*ysep),50+i,20); // draw score
+		}
+		
+	draw_line_width(xx-tick_ll,yy-(i*ysep),xx+tick_ll,yy-(i*ysep),tick_ww); // tick marks
+	}
+#endregion
+exit
+
+
+
+
+
+
 	
 var can_select = true;
 var tee_ind = 0;
@@ -136,25 +167,6 @@ if !ds_list_empty(stat_tee[i]) // if there is data in the list
 		}
 	}
 draw_set_alpha(1);
-	
-var col = c_white;
-draw_rectangle_color(0,yy-ww,xx,yy+10,col,col,col,col,false);
-
-draw_line_width(xx,yy,xx+ww,yy,3); // hor axis
-draw_line_width(xx,yy,xx,yy-ww,3); // vert axis
-
-// draw tick marks
-var tick_ll = 4;
-for(var i=0;i<ticks;i++)
-	{
-	var tick_ww = 1;
-	if (i mod 10 == 0) //|| (i == ticks-1)
-		{
-		tick_ww = 2;
-		draw_text_height(xx-30,yy-10-(i*ysep),50+i,20); // draw score
-		}
-	draw_line_width(xx-tick_ll,yy-(i*ysep),xx+tick_ll,yy-(i*ysep),tick_ww); // tick marks
-	}
 	
 #region scrolling
 var xx = 0;

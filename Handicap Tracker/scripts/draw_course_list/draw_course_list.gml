@@ -29,10 +29,12 @@ for(var i=pos_start;i<pos_end;i++)
 	var off_ind = i-courselist_offset;
 	var off_pos = (off_ind*sep);
 	
-	var course_pointer = courselist_array[i];
+	var courseID = courselist_array[i].courseID;
+	var course_favorite = courselist_array[i].favorite;
+
+	var course_pointer = COURSE_database[courseID];
 	var course_name = course_pointer.courseName; // course name
 	var course_location = course_pointer.courseLocation.stateInitial; // course location
-	var course_favorite = course_pointer.favorite;
 	
 	var course_str = string_abbreviate(course_name,485,height,"...");
 	var initial = string_char_at(course_name,1);
@@ -76,11 +78,12 @@ for(var i=pos_start;i<pos_end;i++)
 			course_next = true;
 			
 			// assign struct
-			course_struct = courselist_array[course_index];
+			course_struct = COURSE_database[course_index];
 			workingStruct = struct_copy(course_struct);
 			activeStruct = workingStruct;
-
-			screen_change(screen.edit_course);
+//cs(js(activeStruct))
+//sm("")
+			screen_change(screen.edit_course,navbar.hidden);
 			}
 		}
 	}
@@ -100,7 +103,7 @@ if new_course
 	{
 	course_next = true;
 	
-	course_struct = scr_course_create("");
+	course_struct = scr_course_create_database();
 	workingStruct = struct_copy(course_struct);
 	activeStruct = workingStruct;
 			
@@ -144,7 +147,7 @@ if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,true,false,navbar.ma
 	{
 	course_next = true;
 	
-	course_struct = scr_course_create("");
+	course_struct = scr_course_create_database();
 	workingStruct = struct_copy(course_struct);
 	activeStruct = workingStruct;
 			

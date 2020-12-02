@@ -136,7 +136,7 @@ var height = 70;
 draw_text_height(xx,yy+80,detail_val[textboxIndex-course_data.yardage],height);	
 #endregion	
 	
-#region Finished button
+#region Save button
 var submit = (course_yardage != "") && (course_slope != "") && (course_par != "") && (course_rating != "");
 var hh = element_finished.hh;
 var height = element_finished.stringHeight;
@@ -148,13 +148,14 @@ var col = pick(c_gray,header_color,submit);
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
 	{	
 	activeStruct = struct_undo_pop(workingStruct,course_struct,true);
+	course_struct = workingStruct;
 
 	scr_tee_filled_set(workingStruct); // mark tees with data
 	screen_goto_prev(navbar.hidden);
 	}
 #endregion
 	
-if androidBack 
+if androidBack
 	{
 	activeStruct = struct_undo_pop(workingStruct,course_struct);
 	screen_goto_prev(navbar.hidden);

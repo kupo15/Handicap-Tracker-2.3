@@ -11,6 +11,7 @@ function scr_score_create(course_name,tee_color,yardage,slope,rating,par,score,d
 /// @param strokes
 /// @param off_season]
 
+#region optional undefines
 if argument[0] == undefined
 course_name = "";
 
@@ -40,12 +41,13 @@ strokes = "0";
 
 if argument[9] == undefined
 off_season = false;
+#endregion
 
 score_struct = {
 
+	courseID: undefined,
 	courseName: course_name,
 	adjDiff: undefined,
-	roundDate: date,		
 
 	teeData: {
 		teeColor: tee_color,
@@ -59,6 +61,7 @@ score_struct = {
 		grossScore: score,
 		netScore: undefined,
 		roundStrokes: strokes,
+		roundDate: date,		
 		},
 	
 	courseLocation: undefined,
@@ -91,7 +94,7 @@ function scr_score_add_index(c_name,tee_color,_score,date,strokes) {
 if argument[4] == undefined
 strokes = "0";
 
-var struct = course_find_array(c_name); // course struct
+var struct = course_find_array(c_name,COURSE_database); // course struct
 
 if struct == undefined
 	{
@@ -99,7 +102,7 @@ if struct == undefined
 	exit;
 	}
 
-var teeData = variable_struct_get(struct.subcourses[subcourse_index],tee_color);
+var teeData = variable_struct_get(struct.subcourses[subcourse_index].teeData,tee_color);
 
 if teeData == undefined
 	{	
@@ -107,6 +110,7 @@ if teeData == undefined
 	exit;
 	}
 	
+// create score	
 var districtIndex = struct.districtInd;
 	
 var location_struct = struct.courseLocation;
@@ -126,6 +130,7 @@ else
 	//sm(c_name + " :"+string(off_season))
 	}
 
+// get tee data
 var course_yardage = teeData.teeYardage;
 var course_slope = teeData.teeSlope;
 var course_rating = teeData.teeRating;
@@ -134,6 +139,7 @@ var course_par = teeData.teePar;
 // create score data
 score_struct = scr_score_create(c_name,tee_color,course_yardage,course_slope,course_rating,course_par,_score,date,strokes,off_season);
 score_struct.courseLocation = district_struct;
+score_struct.courseID = struct.courseID;
 
 //cs(js(score_struct));
 //sm(score_struct)

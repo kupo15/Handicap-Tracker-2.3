@@ -71,6 +71,7 @@
     {"id":{"name":"draw_index_trend","path":"scripts/draw_index_trend/draw_index_trend.yy",},"order":3,},
     {"id":{"name":"STRUCT_FUNCTIONS","path":"scripts/STRUCT_FUNCTIONS/STRUCT_FUNCTIONS.yy",},"order":0,},
     {"id":{"name":"spr_icon_group","path":"sprites/spr_icon_group/spr_icon_group.yy",},"order":8,},
+    {"id":{"name":"DATABASE_FUNCTIONS","path":"scripts/DATABASE_FUNCTIONS/DATABASE_FUNCTIONS.yy",},"order":15,},
     {"id":{"name":"draw_overlay_roundtype","path":"scripts/draw_overlay_roundtype/draw_overlay_roundtype.yy",},"order":2,},
     {"id":{"name":"ico_trash1","path":"sprites/ico_trash1/ico_trash1.yy",},"order":2,},
     {"id":{"name":"draw_sidebar_main_menu","path":"scripts/draw_sidebar_main_menu/draw_sidebar_main_menu.yy",},"order":5,},

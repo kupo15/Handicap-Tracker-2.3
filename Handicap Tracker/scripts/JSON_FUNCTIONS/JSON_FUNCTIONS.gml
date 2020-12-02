@@ -45,7 +45,6 @@ if file_exists(_filename)
 	else // load 
 		{
 		scr_profile_set(META_data.profileIndex);
-		courselist_array = COURSE_data; // shared courselist
 		handicap_season_array = SEASON_data;
 
 		db(string(_filename)+" loaded");

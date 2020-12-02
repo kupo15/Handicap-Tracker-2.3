@@ -9,8 +9,6 @@ function draw_home() {
 var yy = header_height-1;
 var hh = draw_icon_width(spr_home_course,0,0,header_height-1,app_width,1);	
 
-draw_line_pixel(0,yy+hh,app_width,1,c_gray,1);
-
 // draw rounds played
 var xx = 20;
 var height = 35;
@@ -52,6 +50,9 @@ draw_falling_off(30,830);
 //draw_roundrect_ext(mouse_xpos,mouse_ypos,mouse_xpos+100,mouse_ypos+50,mouse_xdist,mouse_ydist,false);
 
 // debug
+if json_version == -4
+draw_text_height_color(20,340,"app not autosaving",c_red,20,fn_italic);
+
 if multiTouch[3]
 	{
 	var col = c_white;

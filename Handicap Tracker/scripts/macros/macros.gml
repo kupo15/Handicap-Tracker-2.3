@@ -1,21 +1,25 @@
 
 // json saving
 #macro save_data "ghin_sav.dat"
-#macro json_version 0.2
+#macro json_version -4
 #macro app_save json_save_array(save_data,ROOT_data_struct)
 #macro app_load json_load_array(save_data)
 
-#macro COURSE_data ROOT_data_struct.courselist
+#macro COURSE_database ROOT_data_struct.courselistDatabase
 #macro SEASON_data ROOT_data_struct.seasonList
-#macro SCORE_data ROOT_data_struct.profiles[profile_index].scorelist
-#macro ACTIVE_data ROOT_data_struct.profiles[profile_index].activeRound
+
+#macro TEE_data subcourses[subcourse_index].teeData
+
 #macro PROFILE_data ROOT_data_struct.profiles[profile_index]
 #macro META_data ROOT_data_struct.meta
+#macro COURSE_data ROOT_data_struct.profiles[profile_index].courselist
+#macro SCORE_data ROOT_data_struct.profiles[profile_index].scorelist
+#macro ACTIVE_data ROOT_data_struct.profiles[profile_index].activeRound
 
 #macro create_score scr_score_create("","","","","","","",date_current_datetime(),"0",false)
 
-#macro scoresort array_sort_nested_struct(scorelist_array,"roundDate",false)
-#macro coursesort array_sort_nested_struct(courselist_array,"courseName",true)
+#macro scoresort scr_score_sort(scorelist_array,false) // array_sort_nested_struct(scorelist_array,"roundDate",false)
+#macro coursesort scr_course_sort(courselist_array,true)
 
 // header
 #macro header_color make_color_rgb(0,145,206)

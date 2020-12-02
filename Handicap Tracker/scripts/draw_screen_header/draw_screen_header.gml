@@ -126,7 +126,7 @@ var xx = offset*header_sep;
 var width = 4;
 var col = c_white;
 
-draw_line_pixel(xx,yy+header_submenu_height-width+1,header_sep,width,col,1); 
+draw_line_pixel(xx,yy+header_submenu_height-width+2,header_sep,width,col,1); 
 draw_line_pixel(xx,yy+header_submenu_height,header_sep,1,c_lt_gray,1); 
 
 return val;

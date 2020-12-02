@@ -28,13 +28,9 @@ for(var i=pos_start;i<pos_end;i++)
 	{
 	var off_pos = i-scorelist_offset;
 
-	var score_pointer = scorelist_array[i];	
+	var score_pointer = scorelist_array[i];
+	var course_id = score_pointer.courseID;
 	var course_name = score_pointer.courseName;
-	var date = score_pointer.roundDate;
-	var month = date_get_month(date);
-	var day = date_get_day(date);
-	var year = date_get_year(date);
-	var date_string = string(month)+"/"+string(day)+"/"+string(year);
 	
 	var tee_pointer = score_pointer.teeData;
 	var course_tee = tee_pointer.teeColor;
@@ -45,17 +41,18 @@ for(var i=pos_start;i<pos_end;i++)
 	var round_pointer = score_pointer.roundData;
 	var net_score = round_pointer.netScore;
 	var strokes = round_pointer.roundStrokes;
+	var date = round_pointer.roundDate;
+	var month = date_get_month(date);
+	var day = date_get_day(date);
+	var year = date_get_year(date);
+	var date_string = string(month)+"/"+string(day)+"/"+string(year);
 	
 	var handicap_pointer = score_pointer.handicapData;
 	var course_esr = handicap_pointer.esr;
 	var course_practice = handicap_pointer.roundType;
 	var off_season = handicap_pointer.offSeason;
-	//var index = handicap_pointer.indexHistory;
-	
-	//var course_handicap = score_pointer.courseHandicap;
-	//draw_text_height(xx+390,yy+50+(off_pos*sep),course_handicap,40); // draw score shot
-	//draw_text_height(xx+390,yy+(off_pos*sep),course_esr,40); // draw score shot
 
+	// draw elements
 	var col = pick(c_black,make_color_rgb(38,72,106),i<20);
 	var course_str = string_abbreviate(course_name,460,height,"...");
 	
@@ -81,12 +78,6 @@ for(var i=pos_start;i<pos_end;i++)
 		}
 
 	draw_text_height_color(xx+270,yy+65+(off_pos*sep),date_string,c_gray,23); // draw date played
-			
-	// draw_text_height(xx,yy+45+(off_pos*sep),i+1,height); // i
-	// draw_text_height(xx+35,yy+40+(off_pos*sep),string_format(course_handicap,2,1),36); // draw course handicap
-	
-	// var index_history = score_pointer.indexHistory;
-	// draw_text_height(xx+105,yy+40+(off_pos*sep),string_format(index_history,2,1),36); // draw index
 	
 	//var col = pick(c_black,c_red,i==19);
 	draw_line_pixel(25,yy+((1+off_pos)*sep),room_width,1,c_black,0.2); // draw row lines
@@ -104,7 +95,7 @@ for(var i=pos_start;i<pos_end;i++)
 		else // select score
 		    {
 		    score_index = i;
-			course_struct = course_find_array(course_name);
+			course_struct = database_course_get_pointer(course_id);
 			
 			score_struct = scorelist_array[score_index];
 			workingStruct = struct_copy(score_struct);

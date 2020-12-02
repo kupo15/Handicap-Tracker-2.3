@@ -109,14 +109,14 @@ var off_ind = 0;
 var size = ds_list_size(teebox_list);
 for(var i=0;i<size;i++)
 	{
-	var has_data = teebox_filled[| i];
-	var teeColor = teebox_list[| i];
 	var yoff = (i*vsep);
 
-	if has_data //&& (course_struct != undefined)
+	var teeColor = teebox_list[| i];
+	var teeData_pointer = variable_struct_get(workingStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
+
+	if teeData_pointer != undefined
 		{
 		// set from temp tee data
-		var teeData_pointer = variable_struct_get(workingStruct.subcourses[subcourse_index],string_lower(teeColor));
 		var course_yardage = teeData_pointer.teeYardage;
 		var course_slope = teeData_pointer.teeSlope;
 		var course_rating = teeData_pointer.teeRating;
@@ -135,7 +135,7 @@ for(var i=0;i<size;i++)
 		scr_course_tee_set(teeColor);
 
 		// set temp entry data
-		activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index],string_lower(teeColor));
+		activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
 		tee_index = i;
 
 		screen_change(screen.edit_tees,navbar.numpad);
@@ -176,7 +176,7 @@ var col = pick(c_gray,header_color,submit);
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
 	{	
 	// update course info
-	courselist_array[@ course_index] = workingStruct; // overwrite with working copy
+	COURSE_database[@ course_index] = workingStruct; // overwrite with working copy
 	
 	coursesort; // sort list
 	app_save;
@@ -204,7 +204,7 @@ if submenu == navbar.locationbar
 		
 	exit;
 	}
-	
+		
 if androidBack
 && !kvActive
 	{		

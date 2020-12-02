@@ -18,11 +18,11 @@ var max_disp = 8; // indices at one time
 var starting_pos = 0;
 
 #region set the y axis
-var size = ds_list_size(included_scores);
+var size = array_length(included_scores_array);
 var pos_end = clamp(size-starting_pos,0,size);
 for(var i=0;i<pos_end;i++)
 	{
-	var score_pointer = included_scores[| i];
+	var score_pointer = included_scores_array[i];
 	var index = score_pointer.handicapData.indexHistory;
 
 	if index < ymin
@@ -61,8 +61,10 @@ for(var i=pos_start;i<pos_end;i++)
 	var n = i;
 	
 	// root data
-	var score_pointer = included_scores[| n];
-	var date = score_pointer.roundDate; // get the date
+	var score_pointer = included_scores_array[n];
+	
+	var round_pointer = score_pointer.roundData;
+	var date = round_pointer.roundDate; // get the date
 	var month = date_get_month(date);
 	var day = date_get_day(date);
 	var year = date_get_year(date);

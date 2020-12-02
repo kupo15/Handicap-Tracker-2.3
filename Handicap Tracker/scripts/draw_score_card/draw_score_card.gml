@@ -24,14 +24,14 @@ for(var i=0;i<size;i++)
 	{
 	var score_pointer = recent_scores_array[i];
 	var course_name = string_abbreviate(score_pointer.courseName,210,height*0.8,"...");
-	var date = score_pointer.roundDate;
+
+	var round_pointer = score_pointer.roundData;
+	var net_score = round_pointer.netScore;
+	var date = round_pointer.roundDate;
 	var month = date_get_month(date);
 	var day = date_get_day(date);
 	var year = date_get_year(date);
 	var date_str = string(month)+"/"+string(day)+"/"+string(year);
-	
-	var round_pointer = score_pointer.roundData;
-	var net_score = round_pointer.netScore;
 	
 	var handicap_pointer = score_pointer.handicapData;
 	var active = pick("","*",handicap_pointer.indexIncluded);

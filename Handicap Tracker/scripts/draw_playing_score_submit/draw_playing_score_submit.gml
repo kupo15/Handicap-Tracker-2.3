@@ -50,7 +50,7 @@ draw_text_height_label(xx+30+(ww*0.5),yy+40,play_strokes,"0",height);
 // click on strokes
 if click_region(xx,yy,ww,hh,true,mb_left,navbar.main) // score/strokes
 	{	
-	//activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index],string_lower(teeColor));
+	//activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
 
 	screen_change(screen.score_details);
 	click_textbox_set(play_score,score_data.score_,kbv_type_numbers);

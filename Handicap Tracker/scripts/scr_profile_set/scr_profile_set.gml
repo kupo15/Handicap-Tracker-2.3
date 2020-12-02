@@ -10,7 +10,8 @@ var profileData = {
 		dispName: name,
 		index: "N/A",
 		
-		scorelist: array_create(0),
+		courselist: [],
+		scorelist: [],
 		activeRound: create_score,
 		}	
 	
@@ -21,9 +22,10 @@ function scr_profile_set(ind) {
 /// @param index
 
 profile_index = ind;
-META_data.profileIndex = profile_index;
+META_data.profileIndex = profile_index; // save profile index to startup
 	
-// set
+// set local lists
+courselist_array = COURSE_data;
 scorelist_array = SCORE_data;
 active_course_struct = ACTIVE_data;
 }

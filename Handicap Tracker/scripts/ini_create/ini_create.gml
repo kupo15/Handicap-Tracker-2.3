@@ -5,7 +5,7 @@ ini_teebox();
 //
 
 recent_scores_array = [];
-included_scores = ds_list_create();
+included_scores_array = [];
 
 top_scores = 8;
 ghin_index = 0;

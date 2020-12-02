@@ -1,12 +1,12 @@
 function falling_off_struct_get() {
 	
-var list_size = ds_list_size(included_scores);
+var list_size = array_length(included_scores_array);
 var ind = clamp(round_selection-1,0,list_size-1);
 
 if ind < 0
 return -1;
 else
-return included_scores[| ind];
+return included_scores_array[ind];
 }
 
 function draw_falling_off(xx,yy) {
@@ -26,11 +26,6 @@ if score_pointer == -1
 exit;
 
 var course_name = score_pointer.courseName;
-var date = score_pointer.roundDate;
-var month = date_get_month(date);
-var day = date_get_day(date);
-var year = date_get_year(date);
-var date_string = string(month)+"/"+string(day)+"/"+string(year);
 
 var teePointer = score_pointer.teeData;
 var course_tee = teePointer.teeColor;
@@ -40,7 +35,12 @@ var course_rating = teePointer.teeRating;
 
 var roundPointer = score_pointer.roundData;
 var net_score = roundPointer.netScore;
-	
+var date = roundPointer.roundDate;
+var month = date_get_month(date);
+var day = date_get_day(date);
+var year = date_get_year(date);
+var date_string = string(month)+"/"+string(day)+"/"+string(year);
+
 var active = "";
 if score_pointer.handicapData.indexIncluded
 active = "*";

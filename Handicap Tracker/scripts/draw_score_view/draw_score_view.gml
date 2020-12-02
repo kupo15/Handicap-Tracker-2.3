@@ -91,7 +91,7 @@ draw_text_height_label(xx+30+(ww*0.5),yy+40,roundStrokes,"0",height);
 // click on strokes
 if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	{	
-	//activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index],string_lower(teeColor));
+	//activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
 
 	screen_change(screen.score_details);
 	click_textbox_set(roundScore,score_data.score_,kbv_type_numbers);
@@ -120,7 +120,7 @@ var yy = 870;
 var ww = app_width-xx-xx;
 var hh = 90;
 var col = c_white;
-var date_pointer = activeStruct.roundDate;
+var date_pointer = round_pointer.roundDate;
 
 // clicked on calendar
 if draw_dialogue_box(xx,yy,ww,hh,col,navbar.hidden)
@@ -149,7 +149,7 @@ draw_text_height_color(xx+115,yy+50,date_str,c_gray,35);
 // pressed OK in calendar
 if calendarDateEntry != undefined
 	{
-	activeStruct.roundDate = calendarDateEntry;
+	activeStruct.roundData.roundDate = calendarDateEntry;
 	calendarDateEntry = undefined;
 	}
 	
@@ -190,7 +190,7 @@ if round_type != undefined
 	}
 
 // draw coursebar overlay
-if draw_submenu_course_search(header_height,app_width,90,courselist_array,offsetScroll.courselistOffset)
+if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetScroll.courselistOffset)
 	{
 	submenu = navbar.hidden;
 
@@ -200,15 +200,23 @@ if draw_submenu_course_search(header_height,app_width,90,courselist_array,offset
 	
 	// set values
 	course_struct = returnedSearch;
+	
+	// set course data
+	activeStruct.courseID = course_struct.courseID;
 	activeStruct.courseName = course_struct.courseName;
-sm(course_struct)
-	// reset values
-	activeStruct.teeColor = "";
-	activeStruct.teeYardage = "";
-	activeStruct.teeSlope = "";
-	activeStruct.teeRating = "";
-	activeStruct.teePar = "";
-
+	activeStruct.districtInd = course_struct.districtInd;
+	activeStruct.courseLocation = course_struct.courseLocation;
+	
+	// reset tee struct
+	activeStruct.teeData = {
+		
+		teeColor: "",
+		teeYardage: "",
+		teeSlope: "",
+		teeRating: "",
+		teePar: "",
+		}
+		
 	// open teebar 
 	submenu = navbar.teebar;
 	scr_tee_filled_set(); // mark tees with data

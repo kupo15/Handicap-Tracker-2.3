@@ -7,9 +7,8 @@ source_id = course_struct;
 if source_id == undefined
 exit;
 
-var tee_pointer = source_id.subcourses[subcourse_index]; // tee marker MAP
+var tee_pointer = source_id.subcourses[subcourse_index].teeData; // tee marker MAP
 var size = ds_list_size(teebox_filled);
-
 for(var i=0;i<size;i++)
 	{
 	var tee_col = teebox_list[| i]; // get tee color
@@ -28,7 +27,7 @@ function scr_score_tee_update(score_struct_pointer,course_struct_pointer,teeColo
 /// @param rating
 /// @param par]
 
-var teePointer = variable_struct_get(course_struct_pointer.subcourses[subcourse_index],string_lower(teeColor));
+var teePointer = variable_struct_get(course_struct_pointer.subcourses[subcourse_index].teeData,string_lower(teeColor));
 
 if teePointer == undefined
 	{

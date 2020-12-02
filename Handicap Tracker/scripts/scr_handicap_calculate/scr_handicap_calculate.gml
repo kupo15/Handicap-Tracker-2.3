@@ -4,19 +4,19 @@ var index_history = undefined;
 var diff_arr = ds_list_create();
 
 scoresort;
-ds_list_clear(included_scores);
+included_scores_array = []; // clear
 
 // calculate practice rounds
 var size = array_length(scorelist_array);
 for(var i=0;i<size;i++) // loop through all
 	{
 	var score_pointer = scorelist_array[i];
-	var handicapData = score_pointer.handicapData;
-	var roundData = score_pointer.roundData;
-	var teeData = score_pointer.teeData;
+	var handicap_pointer = score_pointer.handicapData;
+	var round_pointer = score_pointer.roundData;
+	var tee_pointer = score_pointer.teeData;
 	
-	var gross_score = roundData.grossScore;
-	var _strokes = roundData.roundStrokes;
+	var gross_score = round_pointer.grossScore;
+	var _strokes = round_pointer.roundStrokes;
 	
 	if _strokes == ""
 	_strokes = 0;
@@ -31,37 +31,35 @@ for(var i=0;i<size;i++) // loop through all
 		}
 		
 	var net_score = real(gross_score)-real(_strokes);
-	var course_rating = real(teeData.teeRating);
-	var course_slope = real(teeData.teeSlope);
-	var course_par = real(teeData.teePar);
-	var practice = handicapData.roundType;
-	var off_season = handicapData.offSeason;
+	var course_rating = real(tee_pointer.teeRating);
+	var course_slope = real(tee_pointer.teeSlope);
+	var course_par = real(tee_pointer.teePar);
+	var practice = handicap_pointer.roundType;
+	var off_season = handicap_pointer.offSeason;
 	
 	// calc diff
 	var diff = net_score-course_rating;
 	var adj_diff = diff*113/course_slope;
 
 	// set values in struct
-	roundData.netScore = net_score;
+	round_pointer.netScore = net_score;
 	
-	score_pointer.adjDiff = adj_diff;
+	score_pointer.adjDiff = adj_diff; // remove
 	
-	handicapData.indexIncluded = false;
-	handicapData.esr = 0;
-	handicapData.courseHandicap = undefined;
+	handicap_pointer.indexIncluded = false;
+	handicap_pointer.adjDiff = adj_diff;
+	handicap_pointer.esr = 0;
+	handicap_pointer.courseHandicap = undefined;
 
 	if (practice != round_Type.practice) && !off_season
-	ds_list_add(included_scores,score_pointer);
+	array_push(included_scores_array,score_pointer);
 	}
 
-ds_list_sort_nested_struct(included_scores,"roundDate",true); // included score sort oldest first
+scr_score_sort(included_scores_array,true);
 
 // calculate handicaps
 var index_prev = undefined;
-var rounds_included = ds_list_size(included_scores);
-var num = clamp(rounds_included-round_selection+1,1,rounds_included); // number of rounds to calculate
-
-var num = ds_list_size(included_scores);
+var num = array_length(included_scores_array);
 for(var n=0;n<num;n++) // loop through all included scores
 	{
 	//db("*****Handicap Start******");
@@ -71,8 +69,8 @@ for(var n=0;n<num;n++) // loop through all included scores
 	var pos_end = max(n-round_selection,-1);
 	for(var i=pos_start;i>pos_end;i--) // loop back through last up to 20 scores
 		{
-		ds_list_add(diff_arr,included_scores[| i]); // add up to last 20 score structs
-		//db(included_scores[| i].courseName);
+		ds_list_add(diff_arr,included_scores_array[i]); // add up to last 20 score structs
+		//db(included_scores_array[i].courseName);
 		}
 			
 	// sort diff list lowest to highest
@@ -89,7 +87,7 @@ for(var n=0;n<num;n++) // loop through all included scores
 		ave += diff_arr[| i].adjDiff;
 		}
 		
-	var score_pointer = included_scores[| n];
+	var score_pointer = included_scores_array[n];
 	var index_history = clamp(round_tenth(ave/top_limit),-20,54);
 	
 	score_pointer.handicapData.indexHistory = index_history; // set the index up to this point
@@ -106,6 +104,9 @@ for(var n=0;n<num;n++) // loop through all included scores
 
 ghin_index = index_history; // set current index
 PROFILE_data.index = ghin_index;
+
+
+var rounds_included = array_length(included_scores_array);
 
 		// set ESR
 	/*	var esr_test = 0;
@@ -127,12 +128,14 @@ PROFILE_data.index = ghin_index;
 
 // set recent scores
 recent_scores_array = [];
-ds_list_sort_nested_struct(included_scores,"roundDate",false); // included score sort recent first
+
+scr_score_sort(included_scores_array,false);
 
 // add last 20 score structs
+
 var size = min(rounds_included,round_selection);
 for(var i=0;i<size;i++)
-array_push(recent_scores_array,included_scores[| i]);
+array_push(recent_scores_array,included_scores_array[i]);
 
 // recent score sort
 array_sort_nested_struct(recent_scores_array,"adjDiff",true); // best to worst
@@ -143,7 +146,7 @@ for(var i=0;i<num;i++)
 recent_scores_array[i].handicapData.indexIncluded = true; // index
 
 // sorting
-array_sort_nested_struct(recent_scores_array,"roundDate",false); // date sort recent scores recent first
+scr_score_sort(recent_scores_array,false);
 
 // cleanup
 ds_list_destroy(diff_arr);
