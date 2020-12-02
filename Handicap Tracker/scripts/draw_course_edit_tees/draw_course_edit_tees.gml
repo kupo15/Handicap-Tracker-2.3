@@ -10,13 +10,13 @@ draw_screen_header(headerType.back,headerType.none,str);
 // textbox entry
 switch (textboxIndex)
 	{	
-	case course_data.yardage: activeStruct.teeYardage = string_convert_real_numpad(numpad_value,4); break;
+	case textboxEntry.courseYardage: activeStruct.teeYardage = string_convert_real_numpad(numpad_value,4); break;
 							  
-	case course_data.slope: activeStruct.teeSlope = string_convert_real_numpad(numpad_value,3); break;
+	case textboxEntry.courseSlope: activeStruct.teeSlope = string_convert_real_numpad(numpad_value,3); break;
 							  
-	case course_data.rating: activeStruct.teeRating = string_convert_rating_numpad(numpad_value,3); break;
+	case textboxEntry.courseRating: activeStruct.teeRating = string_convert_rating_numpad(numpad_value,3); break;
 							  
-	case course_data.par: activeStruct.teePar = string_convert_real_numpad(numpad_value,2); break;
+	case textboxEntry.coursePar: activeStruct.teePar = string_convert_real_numpad(numpad_value,2); break;
 	}
 
 var course_tee = teebox_list[| tee_index];
@@ -68,7 +68,7 @@ for(var i=0;i<size;i++)
 	{
 	if click_button(xx+xoff+(i*button_sep),yy+10,detail_arr[i],35,c_black,button_ww,60,c_lt_gray,true,false,submenu)
 		{
-		textboxIndex = course_data.yardage+i;
+		textboxIndex = textboxEntry.courseYardage+i;
 		move = true;
 		}
 	
@@ -78,13 +78,13 @@ for(var i=0;i<size;i++)
 
 // draw highlight
 draw_set_alpha(0.2);	
-draw_dialogue_box(xx+xoff+((textboxIndex-course_data.yardage)*button_sep),yy+10,button_sep-button_spacing,60,header_color,undefined);
+draw_dialogue_box(xx+xoff+((textboxIndex-textboxEntry.courseYardage)*button_sep),yy+10,button_sep-button_spacing,60,header_color,undefined);
 draw_set_alpha(1);
 #endregion
 
 if virtual_keyboard_enter 
 	{
-	textboxIndex = clamp(textboxIndex+1,course_data.yardage,course_data.enumcount); // move to next textbox
+	textboxIndex = clamp(textboxIndex+1,textboxEntry.courseYardage,textboxEntry.coursePar); // move to next textbox
 	move = true;
 	}
 
@@ -98,13 +98,13 @@ var button_col = make_color_rgb(240,240,240);
 
 if click_button(xx,yy,"<<",height,c_black,button_ww,button_hh,button_col,false,false,submenu)
 	{
-	textboxIndex = clamp(textboxIndex-1,course_data.yardage,course_data.par);
+	textboxIndex = clamp(textboxIndex-1,textboxEntry.courseYardage,textboxEntry.coursePar);
 	move = true;
 	}
 
 if click_button(xx+button_ww,yy,">>",height,c_black,button_ww,button_hh,button_col,false,false,submenu)
 	{
-	textboxIndex = clamp(textboxIndex+1,course_data.yardage,course_data.par);
+	textboxIndex = clamp(textboxIndex+1,textboxEntry.courseYardage,textboxEntry.coursePar);
 	move = true;
 	}
 	
@@ -114,13 +114,13 @@ draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);
 if move
 switch (textboxIndex)
 	{	
-	case course_data.yardage: click_textbox_set(activeStruct.teeYardage,textboxIndex,kbv_type_numbers); break;
+	case textboxEntry.courseYardage: click_textbox_set(activeStruct.teeYardage,textboxIndex,kbv_type_numbers); break;
 	
-	case course_data.slope: click_textbox_set(activeStruct.teeSlope,textboxIndex,kbv_type_numbers); break;
+	case textboxEntry.courseSlope: click_textbox_set(activeStruct.teeSlope,textboxIndex,kbv_type_numbers); break;
 	
-	case course_data.rating: click_textbox_set(activeStruct.teeRating,textboxIndex,kbv_type_numbers); break;
+	case textboxEntry.courseRating: click_textbox_set(activeStruct.teeRating,textboxIndex,kbv_type_numbers); break;
 	
-	case course_data.par: click_textbox_set(activeStruct.teePar,textboxIndex,kbv_type_numbers); break;
+	case textboxEntry.coursePar: click_textbox_set(activeStruct.teePar,textboxIndex,kbv_type_numbers); break;
 	}
 	
 #region draw label
@@ -129,11 +129,11 @@ var yy = 320;
 var height = 60;
 
 draw_set_halign(fa_center);
-draw_text_height(xx,yy,detail_arr[textboxIndex-course_data.yardage],height);
+draw_text_height(xx,yy,detail_arr[textboxIndex-textboxEntry.courseYardage],height);
 
 // draw value
 var height = 70;
-draw_text_height(xx,yy+80,detail_val[textboxIndex-course_data.yardage],height);	
+draw_text_height(xx,yy+80,detail_val[textboxIndex-textboxEntry.courseYardage],height);	
 #endregion	
 	
 #region Save button

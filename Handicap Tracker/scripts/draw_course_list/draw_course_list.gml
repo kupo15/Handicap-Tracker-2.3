@@ -101,7 +101,7 @@ if new_course
 	course_index = array_length(courselist_array);
 
 	screen_change(screen.add_course);
-	click_textbox_set("",course_data.name,kbv_type_default);
+	click_textbox_set("",textboxEntry.courseName,kbv_type_default);
 	}
 
 var sort_index = META_data.courseSort;
@@ -145,7 +145,7 @@ if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,true,false,navbar.ma
 	course_index = array_length(courselist_array);
 
 	screen_change(screen.add_course);
-	click_textbox_set("",course_data.name,kbv_type_default);
+	click_textbox_set("",textboxEntry.courseName,kbv_type_default);
 	}
 	
 draw_plus_button(xx+130,yy+(hh*0.5)-3,70,false);

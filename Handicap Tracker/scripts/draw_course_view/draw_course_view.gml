@@ -31,7 +31,7 @@ if trash_delete
 if kvActive
 switch textboxIndex
 	{
-	case course_data.name: activeStruct.courseName = string_capitalize(keyboard_string,-1); break;
+	case textboxEntry.courseName: activeStruct.courseName = string_capitalize(keyboard_string,-1); break;
 	}
 
 var course_name = activeStruct.courseName;
@@ -139,7 +139,7 @@ for(var i=0;i<size;i++)
 		tee_index = i;
 
 		screen_change(screen.edit_tees,navbar.numpad);
-		click_textbox_set(activeStruct.teeYardage,course_data.yardage,kbv_type_numbers);
+		click_textbox_set(activeStruct.teeYardage,textboxEntry.courseYardage,kbv_type_numbers);
 		}
 			
 	// draw teebox details

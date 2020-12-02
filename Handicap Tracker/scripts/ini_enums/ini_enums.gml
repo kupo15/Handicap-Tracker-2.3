@@ -86,19 +86,13 @@ name
 	
 }
 
-enum course_data {
-name,
-yardage,
-slope,
-rating,
-par,
-
-enumcount
-}
-
-
 enum textboxEntry {
-	
+courseName,
+courseYardage,
+courseSlope,
+courseRating,
+coursePar,
+
 grossScore,
 strokes,	
 	

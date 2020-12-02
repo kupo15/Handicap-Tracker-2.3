@@ -4,7 +4,7 @@ function draw_playing_score_enter() {
 	if submenu != navbar.scorebar
 	exit;
 
-	var course_name = active_course_struct[| course_data.name]
+	var course_name = active_course_struct[| textboxEntry.courseName]
 
 	// keyboard entry
 	if kvActive
