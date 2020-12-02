@@ -36,16 +36,15 @@ var ww = 400;
 var ymin = 50;
 var ymax = 50;
 
-var list_size = 0;
 var names = variable_struct_get_names(stat_tee_pointer);
 var size = array_length(names);
 for(var i=0;i<size;i++) // loop through tee colors
 	{		
-	var pointer = variable_struct_get(stat_tee_pointer,names[i]);	
+	var pointer = variable_struct_get(stat_tee_pointer,names[i]);	g
 	var list_size = array_length(pointer); // number of scores
 			
-	// loop through all scores to find the max
-	for(var n=0;n<list_size;n++) 
+	// loop through all scores in tee to find the max
+	for(var n=0;n<list_size;n++)
 		{
 		var _score = pointer[n].netScore; // score
 		
