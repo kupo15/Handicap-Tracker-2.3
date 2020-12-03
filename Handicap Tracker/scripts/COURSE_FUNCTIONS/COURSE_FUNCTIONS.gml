@@ -104,6 +104,8 @@ var tee = {
 
 // add tee color data to active course's teeMap
 variable_struct_set(struct.subcourses[subcourse_index].teeData,string_lower(teeColor),tee);
+
+return variable_struct_get(struct.subcourses[subcourse_index].teeData,string_lower(teeColor));
 }
 
 function scr_course_tee_set(teeCol) {
@@ -112,7 +114,9 @@ var tee_struct = variable_struct_get(activeStruct.subcourses[subcourse_index].te
 
 // create new tee
 if tee_struct == undefined
-scr_course_add_tee(activeStruct,teeCol);
+var tee_struct = scr_course_add_tee(activeStruct,teeCol);
+
+return tee_struct;
 }
 	
 function scr_course_location_find(state_name,district) {

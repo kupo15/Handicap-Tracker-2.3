@@ -54,7 +54,7 @@ if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden)
 if course_name != ""
 	{
 	submenu = navbar.teebar;
-	scr_tee_filled_set(); // mark tees with data
+	//scr_tee_filled_set(); // mark tees with data
 	}
 
 draw_line_pixel(20,yy,app_width,1,c_lt_gray,1);
@@ -219,11 +219,11 @@ if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetS
 		
 	// open teebar 
 	submenu = navbar.teebar;
-	scr_tee_filled_set(); // mark tees with data
+	//scr_tee_filled_set(); // mark tees with data
 	}
 
 // draw teebar overlay
-var tee_ind = draw_teebox_list();
+var tee_ind = draw_teebox_list(course_struct);
 if tee_ind != undefined
 	{
 	submenu = navbar.hidden;

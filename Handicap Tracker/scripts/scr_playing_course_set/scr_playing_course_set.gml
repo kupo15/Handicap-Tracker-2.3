@@ -1,7 +1,7 @@
 function scr_playing_course_set() {
 
 scr_handicap_calculate();
-scr_tee_filled_set(); // mark tees with data					
+//scr_tee_filled_set(); // mark tees with data					
 
 var course_name = active_course_struct.courseName;
 

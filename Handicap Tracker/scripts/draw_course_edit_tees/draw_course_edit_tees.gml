@@ -150,8 +150,14 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) &
 	activeStruct = struct_undo_pop(workingStruct,course_struct,true);
 	course_struct = workingStruct;
 
-	scr_tee_filled_set(workingStruct); // mark tees with data
+//	scr_tee_filled_set(workingStruct); // mark tees with data
 	screen_goto_prev(navbar.hidden);
+
+	if screenIndex == screen.playing
+		{
+		COURSE_database[@ course_index] = workingStruct; // overwrite with working copy
+		app_save;	
+		}
 	}
 #endregion
 	

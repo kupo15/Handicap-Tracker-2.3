@@ -122,7 +122,7 @@ draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);
 if course_next 
 	{
 	submenu = navbar.hidden;
-	scr_tee_filled_set(); // mark tees with data
+//	scr_tee_filled_set(); // mark tees with data
 	}
 	
 exit;	

@@ -90,6 +90,8 @@ else
 	}
 
 screen_goto_actions();
+
+return screenIndex; // return previous screen
 }
 
 function screen_goto_actions() {
