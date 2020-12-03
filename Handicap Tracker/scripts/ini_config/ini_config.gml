@@ -16,7 +16,7 @@ if os_type == os_android
 	app_height = room_height;
 
 	// apply settings
-	alarm[0] = 15;
+	alarm[0] = 5;
 	}
 else
 	{

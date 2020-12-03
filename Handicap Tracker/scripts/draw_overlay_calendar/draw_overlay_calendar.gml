@@ -12,6 +12,9 @@ calendarAlpha = lerp(calendarAlpha,alpha,0.2);
 draw_set_alpha(calendarAlpha);
 draw_set_color(c_black);
 
+if calendarAlpha < 0.01
+exit;
+
 var xcal = 10;
 var ycal = 200;
 var ysep = 70;

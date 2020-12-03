@@ -98,6 +98,7 @@ debugFlickSpeed = 0;
 #endregion
 
 // debug
+debugStringText = "''";
 debugStringXpos = 0;
 debugStringYpos = 0;
 debugStringHeight = 0;

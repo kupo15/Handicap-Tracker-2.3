@@ -76,11 +76,13 @@ function debug_draw_strings(xx,yy,ind,sep,height) {
 draw_text_height(xx,yy+((ind+0)*sep),"kvLastString:",height);
 draw_text_height(xx,yy+((ind+1)*sep),string(kvLastString),height);
 
-draw_text_height(xx,yy+((ind+2.5)*sep),"stringxpos: "+string(debugStringXpos),height);
-draw_text_height(xx,yy+((ind+3.5)*sep),"stringypos: "+string(debugStringYpos),height);
-draw_text_height(xx,yy+((ind+4.5)*sep),"stringHeight: "+string(debugStringHeight),height);
+draw_text_height(xx,yy+((ind+2.5)*sep),"stringText:",height);
+draw_text_height_middled(xx+130,yy+((ind+2.5)*sep),string(debugStringText),sep,text_reduce(debugStringText,230,height),1);
+draw_text_height(xx,yy+((ind+3.5)*sep),"stringxpos: "+string(debugStringXpos),height);
+draw_text_height(xx,yy+((ind+4.5)*sep),"stringypos: "+string(debugStringYpos),height);
+draw_text_height(xx,yy+((ind+5.5)*sep),"stringHeight: "+string(debugStringHeight),height);
 
-debugyoff += 6;
+debugyoff += 8;
 }
 
 function debug_draw_vk(xx,yy,ind,sep,height) {

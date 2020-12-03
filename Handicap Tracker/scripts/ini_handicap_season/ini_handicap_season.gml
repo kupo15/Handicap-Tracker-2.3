@@ -213,3 +213,18 @@ handicap_season_district_add("Wyoming State Golf Association",false,4.1,10.31);
 
 season_data = undefined;
 }
+
+function scr_handicap_season_date(district_pointer) {
+	
+var start_month = date_get_month(district_pointer.startSeason);
+var month_str = funct_convert_month(start_month,false);
+var start_day = date_get_day(district_pointer.startSeason);
+var startDate_str = month_str+" "+string(start_day);
+
+var end_month = date_get_month(district_pointer.endSeason);
+var month_str = funct_convert_month(end_month,false);
+var end_day = date_get_day(district_pointer.endSeason);
+var endDate_str = month_str+" "+string(end_day);
+			
+return startDate_str+"-"+endDate_str;	
+}

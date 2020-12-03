@@ -83,11 +83,17 @@ vk_hide(navbar.locationbar);
 draw_line_pixel(20,yy,app_width,1,c_lt_gray,1);
 
 var str = "";
-
 if location_struct != undefined
 	{
 	var str = location_struct.stateName;
 		
+	var district_index = activeStruct.districtInd;
+	var district_pointer = location_struct.districts[district_index];
+	var season_str = scr_handicap_season_date(district_pointer);
+	var season_height = height*0.8;
+	
+	draw_text_height_color(330,yy+5,"Golf Season",c_gray,label_height,fn_italic); // draw label
+	draw_text_height_color(330,yy+35,season_str,c_gray,season_height,fn_italic); // draw date
 	}
 
 draw_set_halign(fa_left);
