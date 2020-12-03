@@ -8,7 +8,7 @@ var index_trend_offset_start = offsetArrayStart[scrollbar_index];
 
 // draw trend
 var xx = 60;
-var yy = 590;
+var yy = 610;
 var ww = app_width-xx-30;
 var hh = 400;
 var ymin = 100; // lowest index number
@@ -43,7 +43,7 @@ if handicap_trend_type == trendType.indexMax
 var max_disp = size;
 		
 // debug
-index_trend_offset += funct_mouse_wheel(1);
+//index_trend_offset += funct_mouse_wheel(1);
 index_trend_offset = clamp(index_trend_offset,0,size-max_disp);
 	
 #region draw year stats
@@ -59,7 +59,7 @@ var heading_str = pick(start_year,"All Data",size == max_disp);
 
 // draw year
 draw_set_halign(fa_center);
-draw_text_height(app_width*0.5,yy-hh-height-30,heading_str,height,fn_bold);
+draw_text_height(app_width*0.5,yy-hh-height-60,heading_str,height,fn_bold);
 draw_set_halign(fa_left);
 #endregion	
 	

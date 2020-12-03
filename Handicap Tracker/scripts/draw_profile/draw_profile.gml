@@ -60,21 +60,6 @@ draw_text_height(xx,yy,"Home Course",label_height); // draw course name label
 draw_text_height_label(xx,yy+35,course_name,"Select Home Course",course_height); // draw course name
 #endregion
 
-var name_entry = draw_overlay_popup_entry("Enter your name",activeStruct.dispName,-1);
-if name_entry != undefined
-activeStruct.dispName = name_entry;
-
-// draw coursebar overlay
-if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetScroll.courselistOffset)
-	{
-	// set course data
-	PROFILE_data.homeCourseID = returnedSearch.courseID;
-
-	submenu = navbar.hidden;
-	app_save;
-	}
-
-
 #region Finished button
 var submit = (disp_name != "")
 var hh = element_finished.hh;
@@ -96,13 +81,30 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 
 if androidBack
 && !kvActive
+&& submenu == navbar.hidden
 	{
 	if screenIndex == screen.profileCreate
 		{
 		array_delete(ROOT_data_struct.profiles,profile_index,1); // delete
 		scr_profile_set(0);
 		}
-		
+
 	screen_change(screen.home,navbar.main,true);
 	}
+
+var name_entry = draw_overlay_popup_entry("Enter your name",activeStruct.dispName,-1);
+if name_entry != undefined
+activeStruct.dispName = name_entry;
+
+// draw coursebar overlay
+if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetScroll.courselistOffset)
+	{
+	// set course data
+	PROFILE_data.homeCourseID = returnedSearch.courseID;
+
+	submenu = navbar.hidden;
+	app_save;
+	}
+
+
 }
