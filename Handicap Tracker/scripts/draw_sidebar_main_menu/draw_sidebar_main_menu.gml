@@ -45,6 +45,7 @@ var height = 30;
 var yy = profile_hh-height-10;
 
 draw_text_height_color(xx+xx_off,yy,PROFILE_data.dispName,c_white,height,fn_bold); // draw user name
+draw_text_height_color(xx+xx_off+200,yy,string_format(ghin_index,1,1),c_white,height); // draw handicap
 //draw_text_height(xx+xx_off,yy+25,"@"+user_username,25); // draw user id
 
 draw_menu_triangle(xx_off+400,yy+15,10,submenu != navbar.profileChange);
@@ -121,13 +122,16 @@ draw_rectangle_color(xx,yy,xx+ww,app_height-70,col,col,col,col,false);
 var xoff = 30;
 var text_xoff = 110;
 var height = 30;
+var pos = 0;
 
 var size = array_length(ROOT_data_struct.profiles)+1;
 for(var i=0;i<size;i++)
 	{
-	var off_pos = i*sep;
+	var off_pos = pos*sep;
 	
-	if (i+1 == size) // last index
+	if i == profile_index
+	continue;
+	else if (i+1 == size) // last index
 		{
 		draw_plus_button(xoff,yy+off_pos+(sep*0.5),50,false);
 		draw_text_height_middled(xx+text_xoff,yy+off_pos,"Add User",sep,height,1);
@@ -144,7 +148,7 @@ for(var i=0;i<size;i++)
 		
 	draw_icon_height(spr_icon_blank_profile,0,xx+25,yy+((sep-(sep*0.8))*0.5)+off_pos,sep*0.8,1); // profile picture
 	draw_text_height_middled(xx+text_xoff,yy+off_pos,disp_name,sep,height,1); // profile name
-	draw_text_height_middled(xx+text_xoff+200,yy+off_pos,handicap_index,sep,height,1); // index
+	draw_text_height_middled(xx+text_xoff+200,yy+off_pos,string_format(handicap_index,1,1),sep,height,1); // index
 		
 	draw_line_pixel(xx+text_xoff,yy+off_pos+sep,ww-text_xoff,1,c_lt_gray,1);	
 		
@@ -156,6 +160,8 @@ for(var i=0;i<size;i++)
 
 		submenu = navbar.main;
 		}
+	
+	pos ++;
 	}
 	
 if androidBack
