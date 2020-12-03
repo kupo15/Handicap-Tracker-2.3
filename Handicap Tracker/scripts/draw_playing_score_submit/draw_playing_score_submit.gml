@@ -12,7 +12,8 @@ switch textboxIndex
 	}
 
 var play_score = activeStruct.grossScore;
-var play_strokes = activeStruct.roundStrokes;	
+var play_strokes = activeStruct.roundStrokes;
+var play_date = activeStruct.roundDate;
 	
 #region draw score/strokes
 var xx = 0;
@@ -44,26 +45,57 @@ if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	
 #endregion
 
-exit;
+#region draw calendar
+var xx = 0;
+var yy = 870;
+var ww = app_width-xx-xx;
+var hh = 90;
+var col = c_white;
+var date_pointer = play_date;
 
-// clicked enter
-if virtual_keyboard_enter
-switch textboxIndex
+// clicked on calendar
+if draw_dialogue_box(xx,yy,ww,hh,col,navbar.hidden)
 	{
-	case textboxEntry.grossScore: click_textbox_set(play_score,textboxEntry.strokes,kbv_type_numbers); break;
-			
-	case textboxEntry.strokes: vk_hide(); break;
+	scr_set_date_offsets(date_pointer);
+	submenu = navbar.calendar;	
 	}
 
-#region submit round
-var submit = (active_course_struct != undefined) && (course_teeColor != "") && (play_score != "");
-var xx = 185;
-var hh = 95;
-var ww = app_width-xx-1;
+draw_line_pixel(20,yy,app_width,1,c_lt_gray,1);
+
+draw_set_halign(fa_left)
+draw_text_height(xx+10,yy+10,"Calendar",25);
+
+var str_ww = string_width_height("Calendar",25);
+draw_icon_height_centered(spr_ico_calendar,0,xx+10,yy+40,str_ww,45,45,1); // draw calendar icon
+
+var day = date_get_day(date_pointer);
+var month = date_get_month(date_pointer);
+var year = date_get_year(date_pointer);
+
+var month_str = funct_convert_month(month,false);
+var date_str = string(month_str)+" "+string(day)+", "+string(year);
+
+draw_text_height_color(xx+115,yy+50,date_str,c_gray,35);
+
+// pressed OK in calendar
+if calendarDateEntry != undefined
+	{
+	activeStruct.roundDate = calendarDateEntry;
+	calendarDateEntry = undefined;
+	}
+	
+#endregion	
+
+#region Save
+var submit = false; // (course_tee != "") && (roundScore != "");
+var hh = element_finished.hh;
+var height = element_finished.stringHeight;
+var xx = 0;
+var yy = app_height-hh;
+var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
-// clicked submit round
-if click_button(xx,yy,"Submit Round",height,c_black,ww,hh,col,true,false,navbar.main) && submit
+if click_button(xx,yy,"Submit Round",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
 	{	
 	// create score
 	if play_strokes == ""
@@ -78,8 +110,22 @@ if click_button(xx,yy,"Submit Round",height,c_black,ww,hh,col,true,false,navbar.
 	
 	active_course_struct = create_score; // clear active course
 
-	screen_change(screen.home,navbar.main);
+	screen_change(screen.home,navbar.main,true);
 	app_save;
 	}
 #endregion
+
+if androidBack
+screen_goto_prev();
+exit;
+
+// clicked enter
+if virtual_keyboard_enter
+switch textboxIndex
+	{
+	case textboxEntry.grossScore: click_textbox_set(play_score,textboxEntry.strokes,kbv_type_numbers); break;
+			
+	case textboxEntry.strokes: vk_hide(); break;
+	}
+
 }

@@ -28,11 +28,25 @@ function draw_menu_arrow(xx,yy,ww,hh,thickness,dir,col) {
 	
 var half = hh*0.5;
 var diag_ll = ww*0.3;
+var shift = ww*0.2;
 
-draw_line_width_color(xx,yy,xx+diag_ll,yy-half,thickness,col,col); // diagonal up
-draw_line_width_color(xx,yy,xx+ww,yy,thickness,col,col); // horizontal line
-draw_line_width_color(xx,yy,xx+diag_ll,yy+half,thickness,col,col); // diagonal down line
-	
+draw_primitive_begin(pr_trianglestrip);
+draw_vertex_color(xx,yy,col,1);
+draw_vertex_color(xx+shift,yy,col,1);
+draw_vertex_color(xx+diag_ll,yy-half,col,1);
+draw_vertex_color(xx+diag_ll+shift,yy-half,col,1);
+draw_primitive_end();
+
+draw_primitive_begin(pr_trianglestrip);
+draw_vertex_color(xx,yy,col,1);
+draw_vertex_color(xx+shift,yy,col,1);
+draw_vertex_color(xx+diag_ll,yy+half,col,1);
+draw_vertex_color(xx+diag_ll+shift,yy+half,col,1);
+draw_primitive_end();
+
+thickness = shift*0.25;
+
+draw_rectangle_color(xx+(shift*0.5),yy-thickness,xx+ww,yy+thickness,col,col,col,col,false); // horizontal line	
 }
 	
 function draw_menu_triangle(xx,yy,hh,condition,col) {

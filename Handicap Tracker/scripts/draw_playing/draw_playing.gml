@@ -148,8 +148,9 @@ draw_text_height(390,yy+30+45,over_str,55);
 draw_text_height(390,yy+30+45+70,"or Worse",40);
 draw_set_halign(fa_left);
 #endregion
-		/*
+		
 #region clear playing
+/*
 var ww = 180;
 var hh = 95;
 var xx = 1;
@@ -162,18 +163,19 @@ if click_button(xx,yy,"Clear",height,c_black,ww,hh,col,true,false,navbar.main) /
 	{
 	active_course_struct = create_score; // clear active course
 	app_save;
-	}
-#endregion*/
+	}*/
+#endregion
 
 #region Begin Round
+var submit = (course_name != "") && (course_teeColor != "");
 var hh = 90;
 var xx = 0;
 var yy = app_height-nav_height-hh-10;
 var height = 40;
 var ww = app_width-xx-xx;
-var col = header_color;
+var col = pick(c_gray,header_color,submit);
 
-if click_button(xx,yy,"Begin Round",height,c_white,ww,hh,col,false,false,navbar.main)
+if click_button(xx,yy,"Begin Round",height,c_white,ww,hh,col,false,false,navbar.main) && submit
 	{
 	activeStruct = active_course_struct.roundData;
 	screen_change(screen.playing_score_enter,navbar.hidden);
