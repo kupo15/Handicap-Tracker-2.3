@@ -13,14 +13,14 @@ var hh = draw_icon_width(spr_home_course,0,0,header_height-1,app_width,1);
 var xx = 20;
 var height = 35;
 
-draw_text_height_color(xx,yy+hh-height,"Rounds Played: "+string(rounds_played),c_white,height);
+//draw_text_height_color(xx,yy+hh-height,"Rounds Played: "+string(rounds_played),c_white,height);
 	
 // draw header
 draw_screen_header(headerType.bars,headerType.none,"Home");	
 	
 #region draw Handicap Index
 var xx = app_width/2;
-var yy = header_height+30;
+var yy = header_height+50;
 var height = 40;
 
 if ghin_index == undefined

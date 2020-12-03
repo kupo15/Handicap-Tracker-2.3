@@ -26,13 +26,13 @@ draw_roundrect(-1,yy,xx+ww,yy+hh,true);
 var height = 65;
 for(var i=0;i<rows;i++)
 	{
-	var has_data = teebox_filled[| i];
 	var teeColor = teebox_list[| i];
-	
+	var teeData_pointer = variable_struct_get(course_struct.subcourses[subcourse_index].teeData,string_lower(teeColor));
+	var has_data = teeData_pointer != undefined;
+
 	if has_data && (course_struct != undefined)
 		{
 		// set from temp tee data
-		var teeData_pointer = variable_struct_get(course_struct.subcourses[subcourse_index].teeData,string_lower(teeColor));
 		var course_yardage = teeData_pointer.teeYardage;
 		var course_slope = teeData_pointer.teeSlope;
 		var course_rating = teeData_pointer.teeRating;
