@@ -34,7 +34,6 @@ edit_tees,
 edit_date,
 }
 
-
 enum offsetScroll {
 navbarYoff,
 numpadYoff,
@@ -57,6 +56,12 @@ indexOffset,
 calendarOffset,
 
 enumcount,
+}
+
+enum trendType {
+indexYearly,
+indexMax,
+	
 }
 
 enum score_sort {

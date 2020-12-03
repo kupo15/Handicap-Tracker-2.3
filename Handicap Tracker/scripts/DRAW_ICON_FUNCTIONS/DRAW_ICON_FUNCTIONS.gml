@@ -38,6 +38,7 @@ draw_line_width_color(xx,yy,xx+diag_ll,yy+half,thickness,col,col); // diagonal d
 function draw_menu_triangle(xx,yy,hh,condition,col) {
 /// @param xx
 /// @param yy
+/// @param hh
 /// @param condition
 /// @param [color]
 

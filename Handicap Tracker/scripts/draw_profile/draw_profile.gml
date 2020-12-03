@@ -5,7 +5,15 @@ draw_profile_view();
 
 function draw_profile_view() {
 	
-draw_screen_header(headerType.back,headerType.none,"Edit Profile");
+var show_trash = pick(headerType.trash,headerType.none,profile_index == 0);
+var trash = draw_screen_header(headerType.back,show_trash,"Edit Profile");
+
+if trash
+	{
+	array_delete(ROOT_data_struct.profiles,profile_index,1); // delete
+	scr_profile_set(0);
+	screen_change(screen.home,navbar.main,true);
+	}
 
 var disp_name = activeStruct.dispName;
 var home_courseID = PROFILE_data.homeCourseID;

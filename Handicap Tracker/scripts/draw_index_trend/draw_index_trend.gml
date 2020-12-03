@@ -8,7 +8,7 @@ var index_trend_offset_start = offsetArrayStart[scrollbar_index];
 
 // draw trend
 var xx = 60;
-var yy = 750;
+var yy = 590;
 var ww = app_width-xx-30;
 var hh = 400;
 var ymin = 100; // lowest index number
@@ -39,18 +39,36 @@ ymax += 1;
 var ticks = (ymax-ymin)*10;
 var ysep = hh/ticks;
 
-if handicap_trend_type == 1
+if handicap_trend_type == trendType.indexMax
 var max_disp = size;
 		
 // debug
-offsetArray[offsetScroll.indexOffset] += funct_mouse_wheel(1);
-offsetArray[offsetScroll.indexOffset] = clamp(offsetArray[offsetScroll.indexOffset],0,size-max_disp);
+index_trend_offset += funct_mouse_wheel(1);
+index_trend_offset = clamp(index_trend_offset,0,size-max_disp);
 	
-// draw the hor trends
+#region draw year stats
+var height = 50;
+var pos_start = floor(index_trend_offset+0.5)+starting_pos;
+var score_pointer = included_scores_array[pos_start];
+	
+var round_pointer = score_pointer.roundData;
+var date = round_pointer.roundDate; // get the date
+var start_year = date_get_year(date);
+
+var heading_str = pick(start_year,"All Data",size == max_disp);
+
+// draw year
+draw_set_halign(fa_center);
+draw_text_height(app_width*0.5,yy-hh-height-30,heading_str,height,fn_bold);
+draw_set_halign(fa_left);
+#endregion	
+	
+#region draw the hor trends
 var col = c_black;
 var xsep = (ww-8)/(min(size,max_disp)-1);
 var xprev = xx;
 var yprev = yy-500;
+var curr_year = start_year;
 
 var pos_start = floor(index_trend_offset)+starting_pos;
 var pos_end = min(pos_start+max_disp+1,size);
@@ -69,16 +87,16 @@ for(var i=pos_start;i<pos_end;i++)
 	var day = date_get_day(date);
 	var year = date_get_year(date);
 	var date_str = string(funct_convert_date(month,false,noone,noone))+" "+string(day)+", "+string(year);
-	
+		
 	// tee data
 	var tee_pointer = score_pointer.teeData;
 	var handicap_pointer = score_pointer.handicapData;
-	//sm(score_pointer)
+
 	// handicap data
 	var ind = handicap_pointer.indexHistory; // get the index
 	var teeColor = tee_pointer.teeColor;
 	
-	var xpos = xx+8+off_pos;
+	var xpos = xx+15+off_pos;
 	var ypos = yy-((ind-ymin)*ysep)*10;
 	
 	// draw index data point
@@ -87,7 +105,20 @@ for(var i=pos_start;i<pos_end;i++)
 		var dir = -1;
 		var col = draw_tee_marker(xpos-18,ypos-3,6,"black","",false); // draw dot
 		
-		draw_text_height(xpos-5,ypos+(30*dir),string_format(ind,2,1),25); // draw index
+		draw_text_height(xpos-15,ypos+(30*dir),string_format(ind,2,1),25); // draw index
+		
+		if year > curr_year
+			{
+			var label_xpos = xpos-(xsep*0.5);
+
+			if label_xpos > xx
+				{
+				draw_line_pixel(label_xpos,yy,1,-hh,c_gray,1);	
+				draw_text_height(label_xpos-20,yy-hh-25,year,25);
+				}
+			
+			curr_year = year;
+			}
 		}
 	else // viewing all
 		{
@@ -122,12 +153,13 @@ for(var i=pos_start;i<pos_end;i++)
 	xprev = xpos;
 	yprev = ypos;
 	}
+#endregion	
 	
+#region draw the graph outline
 var col = c_white;
 draw_rectangle_color(0,yy-hh,xx,yy+10,col,col,col,col,false);
 	
-// draw the graph outline
-draw_line_width(xx,yy,xx+ww,yy,3); // hor axis
+draw_line_width(xx,yy,xx+ww+100,yy,3); // hor axis
 draw_line_width(xx,yy,xx,yy-hh,3); // vert axis
 
 // draw tick marks
@@ -140,23 +172,26 @@ for(var i=0;i<ticks;i++)
 		tick_ww = 2;
 		draw_text_height(xx-50,yy-10-(i*ysep),ymin+(i*0.1),20); // draw index
 		
-		draw_line_pixel(xx,yy-(i*ysep),ww,1,c_gray,0.5); // line across
+		draw_line_pixel(xx,yy-(i*ysep),ww+100,1,c_gray,0.5); // line across
 		draw_line_pixel(xx-tick_ll,yy-1-(i*ysep),tick_ll*2,tick_ww,c_black,1); // tick marks
 		}
 	}
+#endregion
 	
 #region scrolling
 var xx = 0;
 var sub = navbar.main;
 
-funct_screen_scrolling_hor(0,yy-hh,room_width,hh,xsep,size,max_disp,scrollbar_index,sub);
-#endregion
-    
+if handicap_trend_type == trendType.indexYearly
+funct_screen_scrolling_hor(0,yy-hh,app_width,hh,xsep,size,max_disp,scrollbar_index,sub);
+#endregion	
+	
 #region draw display type
 var xx = 130;
 var xsep = 200;
 var ysep = 50;
 var height = 40;
+var trend_type = handicap_trend_type;
 
 for(var i=0;i<2;i++)
 	{
@@ -165,14 +200,87 @@ for(var i=0;i<2;i++)
 	var arr = ["Yearly","Max"];
 		
 	if click_button(xx+(i*xsep)-20,yy+20,arr[i],height,c_black,150,ysep,col,true,col==c_white,navbar.main)
+	handicap_trend_type = i;
+	}
+#endregion	
+	
+#region draw year data below
+
+xx = 30
+yy += 180;
+
+// draw year
+draw_text_height(xx,yy+(-1.5*height),heading_str,50,fn_bold);
+
+// draw data
+var sep = 40;
+var height = 35;
+
+draw_set_halign(fa_left);
+draw_text_height(xx,yy+(0*sep),"Rounds Played:",height);
+draw_text_height(xx,yy+(1*sep),"Season Starting Index:",height);
+draw_text_height(xx,yy+(2*sep),"Season Ending Index:",height);
+draw_text_height(xx,yy+(3*sep),"Season Index Change:",height);
+	
+var rounds_played_str = 0;
+var start_index_set = false;
+var start_index = "N/A";
+var end_index = "N/A";
+var change_index = "N/A";	
+
+for(var i=0;i<size;i++)
+	{
+	var score_pointer = included_scores_array[i];
+	
+	var handicap_pointer = score_pointer.handicapData;
+	var index = handicap_pointer.indexHistory;
+
+	var round_pointer = score_pointer.roundData;
+	var date = round_pointer.roundDate; // get the date
+	var year = date_get_year(date);
+
+	// if in the year viewing
+	if (year == start_year) || (trend_type == trendType.indexMax)
 		{
-		handicap_trend_type = i;
+		rounds_played_str ++; // set rounds played
+
+		// set start index	
+		if !start_index_set
+			{
+			start_index = string_format(index,1,1);
+			start_index_set = true;
+			}
+			
+		// set end index
+		end_index = string_format(index,1,1);
+		change_index = real(end_index)-real(start_index);
 		}
 	}
+	
+var change_col = c_black;
 
+if is_real(change_index)
+	{
+	var red = make_color_rgb(170,15,20);	
+	var green = make_color_rgb(20,170,80);
+	var change_col = pick(green,red,sign(change_index) == 1);
+	change_index = string_format(change_index,1,1);
+	}
+	
+xx = 350;
 
-//draw_text_height(xx+(0*xsep),yy+25,"Yearly",height);
-//draw_text_height(xx+(1*xsep)+10,yy+25,"Max",height);
+draw_text_height(xx,yy+(0*sep),rounds_played_str,height);
+draw_text_height(xx,yy+(1*sep),start_index,height);
+draw_text_height(xx,yy+(2*sep),end_index,height);
+draw_text_height_color(xx,yy+(3*sep),change_index,change_col,height);
+
+if change_col != c_black
+	{
+	var xoff = string_width_height(change_index,height)+5;
+	draw_menu_triangle(xx+xoff,yy+13+(3*sep),10,sign(real(change_index)) != 1,change_col);
+	}
 #endregion
+	
+
 
 }
