@@ -46,7 +46,10 @@ for(var i=0;i<size;i++)
 	draw_text_height(xx+xoff,yy+45+yoff,course_name,height*0.8); // draw course name
 	
 	if click_region(app_width*0.5*(i>=10),yy+yoff,app_width*0.5,ysep,true,mb_left,submenu)
-	screen_change(screen.score_card_details);
+		{
+		activeStruct = score_pointer;
+		screen_change(screen.score_card_details);
+		}
 	}
 	
 	

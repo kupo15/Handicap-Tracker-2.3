@@ -33,7 +33,7 @@ for(var i=0;i<rows;i++)
 	draw_radio_button(app_width-50,ypos,sep,30,round_type==i,header_color);
 	
 	if i==0
-	draw_text_height_color(xx+30,ypos+65,"**will not be included in Index",c_gray,25,fn_italic);
+	draw_text_height_color(xx+30,ypos+65,"**will not be included in Index",header_color,25,fn_italic);
 	
 	draw_line_pixel(0,ypos+sep,app_width,1,c_gray,alph);
 	
