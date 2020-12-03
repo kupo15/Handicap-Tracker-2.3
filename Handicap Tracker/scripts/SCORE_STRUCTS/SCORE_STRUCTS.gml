@@ -68,7 +68,7 @@ score_struct = {
 		roundDate: date,		
 		},
 	
-	courseLocation: undefined,
+	courseLocation: {},
 	
 	handicapData: {
 		indexHistory: undefined,

@@ -14,9 +14,11 @@ var profileData = {
 		courselist: [],
 		scorelist: [],
 		activeRound: create_score,
-		}	
+		}
 	
 array_push(ROOT_data_struct.profiles,profileData);
+
+return profileData;
 }
 
 function scr_profile_set(ind) {

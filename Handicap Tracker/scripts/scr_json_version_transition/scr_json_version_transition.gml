@@ -15,6 +15,7 @@ debug_data_reset();
 else
 	{
 	root_data_create();	
+	scr_profile_create("Name");
 	scr_profile_set(0);
 	}
 }

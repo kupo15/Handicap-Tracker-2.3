@@ -53,7 +53,8 @@ if click_button(xx,yy+yoff,"Cancel",height,c_teal,120,60,undefined,false,false,n
 androidBack = true;
 
 // draw save
-if click_button(xx+150,yy+yoff,"Save",height,c_teal,110,60,undefined,false,false,navbar.popupEntry)
+if virtual_keyboard_enter ||
+click_button(xx+150,yy+yoff,"Save",height,c_teal,110,60,undefined,false,false,navbar.popupEntry)
 	{
 	vk_hide(navbar.hidden);
 	return variable;

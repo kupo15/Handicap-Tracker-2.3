@@ -1,4 +1,9 @@
-function draw_profile() {
+function draw_profile_create() {
+	
+draw_profile_view();	
+}
+
+function draw_profile_view() {
 	
 draw_screen_header(headerType.back,headerType.none,"Edit Profile");
 
@@ -49,12 +54,7 @@ draw_text_height_label(xx,yy+35,course_name,"Select Home Course",course_height);
 
 var name_entry = draw_overlay_popup_entry("Enter your name",activeStruct.dispName,-1);
 if name_entry != undefined
-	{
-	activeStruct.dispName = name_entry;
-	PROFILE_data.dispName = name_entry;
-	
-	app_save;
-	}
+activeStruct.dispName = name_entry;
 
 // draw coursebar overlay
 if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetScroll.courselistOffset)
@@ -67,7 +67,34 @@ if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetS
 	}
 
 
+#region Finished button
+var submit = (disp_name != "")
+var hh = element_finished.hh;
+var height = element_finished.stringHeight;
+var xx = 0;
+var yy = app_height-hh;
+var ww = app_width-xx-xx;
+var col = pick(c_gray,header_color,submit);
+
+if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
+	{
+	androidBack = true;
+
+	PROFILE_data.dispName = disp_name;
+	app_save;
+	}
+	
+#endregion
+
 if androidBack
 && !kvActive
-screen_change(screen.home,navbar.main,true);
+	{
+	if screenIndex == screen.profileCreate
+		{
+		array_delete(ROOT_data_struct.profiles,profile_index,1); // delete
+		scr_profile_set(0);
+		}
+		
+	screen_change(screen.home,navbar.main,true);
+	}
 }

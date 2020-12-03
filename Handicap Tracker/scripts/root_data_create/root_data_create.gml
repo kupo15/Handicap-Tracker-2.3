@@ -1,8 +1,8 @@
 function root_data_create() {
 	
-profile_index = 0;	
+profile_index = 0;
 rounds_played = 0;
-subcourse_index = 0;	
+subcourse_index = 0;
 		
 statslist_array = array_create(0); // culled stats list
 courselist_array = array_create(0); // local courses added

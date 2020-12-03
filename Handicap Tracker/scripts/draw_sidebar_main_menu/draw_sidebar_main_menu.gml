@@ -23,7 +23,7 @@ androidBackSidebar = true;
 else if click_button(xx_off,0,"",0,c_black,140,140,undefined,false,undefined,submenu)
 	{
 	submenu = navbar.hidden;
-	screen_change(screen.profile);
+	screen_change(screen.profileView);
 	}
 else if click_button(xx_off,yy,"",0,c_black,ww,profile_hh,profile_col,false,false,submenu)
 	{
@@ -44,8 +44,13 @@ draw_icon_height(spr_icon_blank_profile,0,xx+xx_off,yy,100,1); // profile pictur
 var height = 30;
 var yy = profile_hh-height-10;
 
+if ghin_index == undefined
+var str_index = "N/A";
+else
+str_index = string_format(ghin_index,1,1);
+
 draw_text_height_color(xx+xx_off,yy,PROFILE_data.dispName,c_white,height,fn_bold); // draw user name
-draw_text_height_color(xx+xx_off+200,yy,string_format(ghin_index,1,1),c_white,height); // draw handicap
+draw_text_height_color(xx+xx_off+200,yy,str_index,c_white,height); // draw handicap
 //draw_text_height(xx+xx_off,yy+25,"@"+user_username,25); // draw user id
 
 draw_menu_triangle(xx_off+400,yy+15,10,submenu != navbar.profileChange);
@@ -136,23 +141,33 @@ for(var i=0;i<size;i++)
 		draw_plus_button(xoff,yy+off_pos+(sep*0.5),50,false);
 		draw_text_height_middled(xx+text_xoff,yy+off_pos,"Add User",sep,height,1);
 		
-		if click_region(xx,yy+off_pos,ww,sep,true,mb_left,navbar.profileChange)
-		scr_profile_create("Megan");
+		if click_region_released(0,yy+off_pos,ww,sep,true,navbar.profileChange,1)
+			{
+			activeStruct = scr_profile_create();
+			scr_profile_set(i);
+			
+			screen_change(screen.profileCreate,navbar.popupEntry);
+			click_textbox_set("",textboxEntry.popupEntryText,kbv_type_default);
+			}
 		
 		break;	
 		}
 		
 	var profile_pointer = ROOT_data_struct.profiles[i];
 	var disp_name = profile_pointer.dispName;
+	
+	if profile_pointer.index == undefined
+	var handicap_index = "N/A";
+	else
 	var handicap_index = string_format(profile_pointer.index,1,1);
 		
 	draw_icon_height(spr_icon_blank_profile,0,xx+25,yy+((sep-(sep*0.8))*0.5)+off_pos,sep*0.8,1); // profile picture
 	draw_text_height_middled(xx+text_xoff,yy+off_pos,disp_name,sep,height,1); // profile name
-	draw_text_height_middled(xx+text_xoff+200,yy+off_pos,string_format(handicap_index,1,1),sep,height,1); // index
+	draw_text_height_middled(xx+text_xoff+200,yy+off_pos,handicap_index,sep,height,1); // index
 		
 	draw_line_pixel(xx+text_xoff,yy+off_pos+sep,ww-text_xoff,1,c_lt_gray,1);	
 		
-	if click_region_released_clamp_array(0,yy,off_pos,ww,sep,hh,mb_left,c_yellow,navbar.profileChange,i,ROOT_data_struct.profiles)
+	if click_region_released_clamp_array(0,yy,off_pos,ww,sep,hh,mb_left,c_yellow,navbar.profileChange,i,undefined)
 		{
 		scr_profile_set(i);
 		scr_handicap_calculate();
@@ -162,6 +177,11 @@ for(var i=0;i<size;i++)
 		}
 	
 	pos ++;
+	}
+	
+var name_entry = draw_overlay_popup_entry("Enter your name",kvLastString,-1);
+if name_entry != undefined
+	{
 	}
 	
 if androidBack

@@ -22,7 +22,8 @@ score_details,
 
 score_card_details,
 
-profile,
+profileCreate,
+profileView,
 
 playing_score_enter,
 

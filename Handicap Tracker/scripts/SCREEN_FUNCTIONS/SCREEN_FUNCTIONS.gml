@@ -27,7 +27,8 @@ drawScreen[screen.score_details] = draw_score_details;
 
 drawScreen[screen.score_card_details] = draw_score_card_details;
 
-drawScreen[screen.profile] = draw_profile;
+drawScreen[screen.profileCreate] = draw_profile_create;
+drawScreen[screen.profileView] = draw_profile_view;
 
 drawScreen[screen.playing_score_enter] = draw_playing_score_submit;
 
@@ -97,7 +98,9 @@ vk_hide();
 
 switch screenIndex
 	{
-	case screen.home: submenu = navbar.main; break;
+	case screen.home: scr_handicap_calculate();
+					  submenu = navbar.main;
+					  break;
 	
 	// change to hidden
 	case screen.handicapSeason: submenu = navbar.hidden; break;	
@@ -106,13 +109,9 @@ switch screenIndex
 	case screen.course_list: scr_course_list_sort(META_data.courseSort); break;
 							 
 	// profile
-	case screen.profile: workingStruct = struct_copy(PROFILE_data);
-						 activeStruct = workingStruct;
-						 break;						
-		
-	//case screen.receiptCreate: click_textbox_set(receipt_price,0,kbv_type_numbers); break;
-	
-	//case screen.friendsProfile: mode_new_member = false; break;
+	case screen.profileView: workingStruct = struct_copy(PROFILE_data);
+							 activeStruct = workingStruct;
+							 break;							
 	}	
 	
 searched_name = "";

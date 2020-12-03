@@ -7,9 +7,9 @@ ini_teebox();
 recent_scores_array = [];
 included_scores_array = [];
 
+round_selection = 20;
 top_scores = 8;
 ghin_index = 0;
-round_selection = 20;
 
 handicap_trend_type = 0;
 
