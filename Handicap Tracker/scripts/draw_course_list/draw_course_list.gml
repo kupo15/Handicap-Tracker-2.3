@@ -66,7 +66,7 @@ for(var i=pos_start;i<pos_end;i++)
 			}
 		else // select course
 			{
-		    course_index = i;
+			course_index = database_course_get_index(courseID);
 			course_next = true;
 			
 			// assign struct

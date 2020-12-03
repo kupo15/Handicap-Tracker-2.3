@@ -8,6 +8,8 @@ function draw_score_view() {
 var bg_col = c_lt_gray;
 draw_clear(bg_col);
 
+activeStruct = score_struct;
+
 var course_name = activeStruct.courseName;
 
 var tee_pointer = activeStruct.teeData;

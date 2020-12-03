@@ -65,8 +65,10 @@ for(var i=0;i<rows;i++)
 		return i;
 		else
 			{			
+			course_index = database_course_get_index(courseStruct.courseID);
+				
 			// assign struct
-			//course_struct = course_find_array(courseStruct.courseName);
+			//course_struct = course_get_struct(courseStruct.courseID);
 			workingStruct = struct_copy(courseStruct);
 			activeStruct = workingStruct;			
 			

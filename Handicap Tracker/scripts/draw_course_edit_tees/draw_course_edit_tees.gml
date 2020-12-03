@@ -152,7 +152,13 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) &
 
 	screen_goto_prev(navbar.hidden);
 
-	if screenIndex == screen.playing
+	/*if screenIndex == screen.score_view || screenIndex == screen.score_create
+		{
+		//course_index = database_course_get_index(courseStruct.courseID)	;
+
+		app_save;
+		}
+	else*/ if screenIndex == screen.playing || screenIndex == screen.score_view || screenIndex == screen.score_create
 		{
 		COURSE_database[@ course_index] = workingStruct; // overwrite with working copy
 		app_save;	

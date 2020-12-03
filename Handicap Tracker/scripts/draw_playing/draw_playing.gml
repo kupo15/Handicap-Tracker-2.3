@@ -200,11 +200,6 @@ if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetS
 	submenu = navbar.teebar;
 	}
 
-if keyboard_check(vk_control)
-{
-	cs(js(course_struct));
-	sm("")
-}
 
 // draw teebar overlay
 var tee_ind = draw_teebox_list(course_struct);

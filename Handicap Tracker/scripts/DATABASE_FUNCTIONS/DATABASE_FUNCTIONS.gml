@@ -23,3 +23,23 @@ for(var i=0;i<size;i++)
 
 return undefined;
 }
+
+function database_course_get_index(courseId,source) {
+/// @param courseId
+/// @param [source]	
+
+if argument[1] == undefined
+source = COURSE_database;
+
+var size = array_length(COURSE_database);
+for(var i=0;i<size;i++)
+	{
+	var pointer = COURSE_database[i];
+	var test_courseId = pointer.courseID;
+	
+	if courseId == test_courseId
+	return i;
+	}
+
+return undefined;
+}	
