@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Screens",
-    "path": "folders/Screens.yy",
+    "name": "Active Course",
+    "path": "folders/Screens/Active Course.yy",
   },
   "resourceVersion": "1.0",
   "name": "draw_playing",
