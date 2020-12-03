@@ -22,6 +22,21 @@ var box_hh_end = yy+hh;
 draw_roundrect_color(0,yy,ww,box_hh_end,c_white,c_white,false);
 
 var list_size = array_length(scorelist_array);
+
+// this year scores
+if META_data.scoreSort == score_sort.currentYear
+for(var i=0;i<list_size;i++)
+	{
+	var date_pointer = scorelist_array[i].roundData.roundDate;
+	var year = date_get_year(date_pointer);
+	
+	if year != current_year
+		{
+		list_size = i;
+		break;
+		}
+	}
+
 var pos_start = floor(scorelist_offset);
 var pos_end = min(list_size,ceil(scorelist_offset)+rows);
 for(var i=pos_start;i<pos_end;i++)
@@ -121,8 +136,7 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
     
 #region Header
-var new_score = draw_screen_header(headerType.back,headerType.plus,"Round History");
-	
+var new_score = draw_screen_header(headerType.back,headerType.plus,"Round History");	
 if new_score
 	{
 	score_struct = create_score // create a new score row
@@ -138,7 +152,7 @@ if new_score
 // SubHeader
 var sort_index = META_data.scoreSort;
 var offset = offsetArray[offsetScroll.scoreSortUnderline];
-var header = draw_screen_header_submenu(offset,sort_index,current_year,current_year-1,"All");
+var header = draw_screen_header_submenu(offset,sort_index,current_year,"All");
 
 if (header != undefined) && (header != sort_index)
 	{
