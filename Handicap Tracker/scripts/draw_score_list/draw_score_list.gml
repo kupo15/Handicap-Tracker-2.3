@@ -122,7 +122,6 @@ for(var i=pos_start;i<pos_end;i++)
 				
 			// change screen
 			screen_change(screen.score_view,navbar.hidden);		
-//			scr_tee_filled_set();
 			}
 		}
 	}

@@ -44,28 +44,3 @@ score_struct_pointer.teeData.teeSlope = slope; // set slope
 score_struct_pointer.teeData.teeRating = rating; // set rating
 score_struct_pointer.teeData.teePar = par; // set par
 }
-
-
-
-
-/*
-
-function scr_tee_filled_set(source_id) {
-/// @param [source_id]	
-exit
-if argument[0] == undefined
-source_id = course_struct;
-
-if source_id == undefined
-exit;
-
-var tee_pointer = source_id.subcourses[subcourse_index].teeData; // tee marker MAP
-var size = ds_list_size(teebox_filled);
-for(var i=0;i<size;i++)
-	{
-	var tee_col = teebox_list[| i]; // get tee color
-	var tee_data_pointer = variable_struct_get(tee_pointer,string_lower(tee_col));
-
-	teebox_filled[| i] = (tee_data_pointer != undefined);
-	}	
-}
