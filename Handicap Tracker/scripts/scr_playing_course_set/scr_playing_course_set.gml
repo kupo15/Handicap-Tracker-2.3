@@ -1,6 +1,5 @@
 function scr_playing_course_set() {
 
-//ssm(active_course_struct);
 workingStruct = struct_copy(active_course_struct);
 activeStruct = workingStruct;
 

@@ -92,7 +92,7 @@ if calendarDateEntry != undefined
 #endregion	
 
 #region Save
-var submit = false; // (course_tee != "") && (roundScore != "");
+var submit = (play_score != "");
 var hh = element_finished.hh;
 var height = element_finished.stringHeight;
 var xx = 0;
@@ -105,15 +105,20 @@ if click_button(xx,yy,"Submit Round",height,c_white,ww,hh,col,false,false,navbar
 	// create score
 	if play_strokes == ""
 	play_strokes = 0;
-	
-	var net_score = real(play_score)-real(play_strokes);
-	var date = date_create_datetime(current_year,current_month,current_day,1,1,1); 
-	scr_score_add_index(course_name,course_teeColor,play_score,date,play_strokes);
-	
+
+	workingStruct.handicapData.offSeason = scr_score_update_offseason(workingStruct);
+	array_push(scorelist_array,workingStruct);
+
 	// save data
 	scr_handicap_calculate();
 	
-	active_course_struct = create_score; // clear active course
+	// clear active course
+	course_struct = undefined;		
+			
+	workingStruct = undefined;
+	activeStruct = undefined;
+		
+	active_course_struct = create_score; 
 
 	screen_change(screen.home,navbar.main,true);
 	app_save;

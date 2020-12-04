@@ -46,7 +46,8 @@ for(var i=pos_start;i<pos_end;i++)
 	draw_line_pixel(25,yy+((1+off_ind)*sep),room_width,1,c_black,0.2); // draw row lines
 		
 	// click released on course
-	if click_region_pressed(app_width-75,yy+off_pos,75,sep,false,navbar.main)
+	if click_region_clamp_set(app_width-90,yy,off_pos,90,sep,hh,noone,false,undefined,navbar.main,i)
+	&& click_region_pressed(app_width-75,yy+off_pos,75,sep,false,navbar.main)
 		{
 		canClick = false;
 		canClickPressed = true;
@@ -111,6 +112,13 @@ if (header != undefined)
 	{
 	scr_course_list_sort(header);
 	app_save;
+	
+	// jump to top
+	if sort_index = course_sort.favorite
+		{
+		offsetArray[scrollbar_index] = 0;
+		offsetArrayStart[scrollbar_index] = 0;
+		}
 	}
 #endregion
 
