@@ -9,7 +9,7 @@ kvreturn = kbv_returnkey_next;
 
 if kvtype == kbv_type_numbers
 	{
-	numpad_value = kvLastString;
+	numpad_value = keyboard_string;//kvLastString;
 	submenu = navbar.numpad;
 	}
 else

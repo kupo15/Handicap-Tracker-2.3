@@ -29,7 +29,6 @@ if trash_delete
 
 activeStruct = workingStruct;
 
-
 // textbox entry
 if kvActive
 switch textboxIndex
@@ -92,6 +91,10 @@ if location_struct != undefined
 		
 	var district_index = activeStruct.districtInd;
 	var district_pointer = location_struct.districts[district_index];
+
+	if district_pointer.yearRound
+	var season_str = "Year-Round";
+	else
 	var season_str = scr_handicap_season_date(district_pointer);
 	var season_height = height*0.8;
 	
@@ -205,7 +208,7 @@ if submenu == navbar.locationbar
 		{
 		var struct = arr[0];
 		var district = arr[1];
-		
+
 		// save location information
 		activeStruct.districtInd = district;
 		activeStruct.courseLocation = struct;
