@@ -72,7 +72,6 @@ for(var i=pos_start;i<pos_end;i++)
 			// assign struct
 			course_struct = COURSE_database[course_index];
 			workingStruct = struct_copy(course_struct);
-			activeStruct = workingStruct;
 
 			screen_change(screen.edit_course,navbar.hidden);
 			}

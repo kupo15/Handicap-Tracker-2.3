@@ -24,6 +24,8 @@ function click_textbox_set(str,textbox_ind,kvInit,kvGo) {
 
 var int = argument[3];
 
+str = string(str); // convert to string
+
 keyboard_string = str;
 kvLastString = str;
 textboxIndex = textbox_ind; // set the textbox index

@@ -114,11 +114,6 @@ for(var i=pos_start;i<pos_end;i++)
 			
 			score_struct = scorelist_array[score_index];
 			workingStruct = struct_copy(score_struct);
-			activeStruct = workingStruct;
-			
-			// set switch tabs
-			switchTabDisp[0] = course_practice;
-			switchTabDispEnd[0] = course_practice;
 				
 			// change screen
 			screen_change(screen.score_view,navbar.hidden);		

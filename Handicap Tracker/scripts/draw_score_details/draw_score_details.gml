@@ -8,6 +8,7 @@ var str = "Round Score";
 draw_screen_header(headerType.back,headerType.none,str);	
 #endregion
 
+activeStruct = workingStruct.roundData;
 
 switch textboxIndex
 	{
@@ -138,17 +139,16 @@ var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
 	{
-	activeStruct = struct_undo_pop(workingStruct,score_struct,true);
+	workingStruct = struct_undo_pop(workingStruct,true);
 
 	screen_goto_prev(navbar.hidden);
 	}
 
-#endregion	
+#endregion
 
 if androidBack
 	{
-	activeStruct = struct_undo_pop(workingStruct,score_struct);
-
+	workingStruct = struct_undo_pop(workingStruct,false);
 	screen_goto_prev(navbar.hidden);
 	}
 }

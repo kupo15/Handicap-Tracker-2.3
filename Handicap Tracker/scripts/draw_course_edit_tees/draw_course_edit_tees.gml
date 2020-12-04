@@ -147,8 +147,8 @@ var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
 	{	
-	activeStruct = struct_undo_pop(workingStruct,course_struct,true);
-	course_struct = workingStruct;
+	workingStruct = struct_undo_pop(workingStruct,true);
+	//course_struct = workingStruct;
 
 	screen_goto_prev(navbar.hidden);
 
@@ -160,6 +160,9 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) &
 		}
 	else*/ if screenIndex == screen.playing || screenIndex == screen.score_view || screenIndex == screen.score_create
 		{
+		if screenIndex != screen.playing
+		activeStruct = score_struct;
+			
 		COURSE_database[@ course_index] = workingStruct; // overwrite with working copy
 		app_save;	
 		}
@@ -168,8 +171,14 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) &
 	
 if androidBack
 	{
-	activeStruct = struct_undo_pop(workingStruct,course_struct);
+	//cs(js(activeStruct))sm(activeStruct)
 	screen_goto_prev(navbar.hidden);
+	
+	if screenIndex == screen.score_view || screenIndex == screen.score_create
+	activeStruct = struct_undo_pop(workingStruct,score_struct);
+	else
+	workingStruct = struct_undo_pop(workingStruct,false);
+	
 	}
 
 

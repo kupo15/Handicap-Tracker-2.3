@@ -27,6 +27,9 @@ if trash_delete
 	}
 #endregion
 
+activeStruct = workingStruct;
+
+
 // textbox entry
 if kvActive
 switch textboxIndex
@@ -138,10 +141,10 @@ for(var i=0;i<size;i++)
 	// clicked on a tee marker
 	if draw_dialogue_box(xx,yy+yoff,ww,button_hh,c_white,navbar.hidden)
 		{
-		scr_course_tee_set(teeColor);
-
 		// set temp entry data
-		activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
+		workingStruct = struct_undo_push(workingStruct);
+		activeStruct = scr_course_tee_set(teeColor);
+		
 		tee_index = i;
 
 		screen_change(screen.edit_tees,navbar.numpad);
@@ -182,8 +185,8 @@ var col = pick(c_gray,header_color,submit);
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
 	{	
 	// update course info
-	COURSE_database[@ course_index] = workingStruct; // overwrite with working copy
-	scr_course_add_local(workingStruct.courseID,courselist_array);
+	COURSE_database[@ course_index] = struct_undo_pop(workingStruct,true); // overwrite with working copy
+	scr_course_add_local(activeStruct.courseID,courselist_array);
 	
 	coursesort; // sort list
 	app_save;

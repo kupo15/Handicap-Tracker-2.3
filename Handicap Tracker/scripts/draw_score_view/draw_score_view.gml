@@ -8,8 +8,7 @@ function draw_score_view() {
 var bg_col = c_lt_gray;
 draw_clear(bg_col);
 
-//activeStruct = workingStruct;
-
+activeStruct = workingStruct;
 var course_name = activeStruct.courseName;
 
 var tee_pointer = activeStruct.teeData;
@@ -88,15 +87,16 @@ draw_text_height_label(xx+30,yy+40,roundScore,"enter score",height);
 draw_text_height_label(xx+30+(ww*0.5),yy+40,roundStrokes,"0",height);
 
 // click on strokes
-if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
+if click_region_released(xx,yy,ww,hh,true,navbar.hidden,1) // score/strokes
 	{	
-	activeStruct = struct_undo_push(workingStruct,activeStruct,"roundData");
+	workingStruct = struct_undo_push(workingStruct,activeStruct,"roundData");
 
 	screen_change(screen.score_details);
 	click_textbox_set(roundScore,textboxEntry.grossScore,kbv_type_numbers);
 	}
 	
 #endregion
+	
 	
 #region draw practice/off season
 var hh = 90;
@@ -164,13 +164,12 @@ var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
-	{cs(js(activeStruct))
-		sm("")
+	{
 	// update offseason
 	activeStruct.handicapData.offSeason = scr_score_update_offseason(activeStruct);
 			
 	// update score
-	scorelist_array[@ score_index] = activeStruct;
+	scorelist_array[@ score_index] = struct_undo_pop(workingStruct,true);
 
 	// sort
 	scoresort;

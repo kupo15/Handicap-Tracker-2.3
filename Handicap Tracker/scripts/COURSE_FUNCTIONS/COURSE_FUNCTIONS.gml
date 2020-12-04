@@ -110,11 +110,11 @@ return variable_struct_get(struct.subcourses[subcourse_index].teeData,string_low
 
 function scr_course_tee_set(teeCol) {
 	
-var tee_struct = variable_struct_get(activeStruct.subcourses[subcourse_index].teeData,string_lower(teeCol));
+var tee_struct = variable_struct_get(workingStruct.subcourses[subcourse_index].teeData,string_lower(teeCol));
 
 // create new tee
 if tee_struct == undefined
-var tee_struct = scr_course_add_tee(activeStruct,teeCol);
+var tee_struct = scr_course_add_tee(workingStruct,teeCol);
 
 return tee_struct;
 }

@@ -64,13 +64,13 @@ for(var i=0;i<rows;i++)
 		if has_data
 		return i;
 		else
-			{			
+			{
 			course_index = database_course_get_index(courseStruct.courseID);
 				
 			// assign struct
 			//course_struct = course_get_struct(courseStruct.courseID);
-			workingStruct = struct_copy(courseStruct);
-			activeStruct = workingStruct;			
+			//workingStruct = struct_copy(courseStruct);
+			activeStruct = struct_copy(courseStruct);
 			
 			scr_course_tee_set(teeColor);
 
