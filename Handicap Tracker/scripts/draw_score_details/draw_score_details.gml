@@ -16,6 +16,9 @@ switch textboxIndex
 	}	
 
 // exceptions
+if activeStruct.grossScore > 250
+activeStruct.grossScore = 250;
+
 if activeStruct.roundStrokes == ""
 	{
 	activeStruct.roundStrokes = "0";
