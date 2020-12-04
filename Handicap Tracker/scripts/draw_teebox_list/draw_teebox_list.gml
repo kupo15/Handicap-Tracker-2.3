@@ -25,6 +25,7 @@ draw_set_halign(fa_left);
 draw_roundrect_colour(-1,yy,xx+ww,yy+hh,col,col,false);
 draw_roundrect(-1,yy,xx+ww,yy+hh,true);
 
+var return_val = undefined;
 var height = 65;
 for(var i=0;i<rows;i++)
 	{
@@ -62,7 +63,7 @@ for(var i=0;i<rows;i++)
 	if click_region_released(xx,yy+(i*sep),ww,sep,true,navbar.teebar,alph)
 	    {			
 		if has_data
-		return i;
+		return_val = i;
 		else
 			{
 			course_index = database_course_get_index(courseStruct.courseID);
@@ -82,5 +83,5 @@ for(var i=0;i<rows;i++)
 	}
 
 draw_set_alpha(1);
-return undefined;
+return return_val;
 }

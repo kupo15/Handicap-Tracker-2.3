@@ -47,7 +47,7 @@ active = "*";
 
 var course_str = string_abbreviate(course_name,380,height,"...");
 draw_text_height(xx,yy+15,course_str,height); // draw course name
-draw_text_height(xx+425,yy+15,string(net_score)+active,50); // draw score shot
+draw_text_height(xx+420,yy+15,string(net_score)+active,50); // draw score shot
 	
 // tee info
 var str = course_yardage+" yds ("+course_slope+" / "+course_rating+")";

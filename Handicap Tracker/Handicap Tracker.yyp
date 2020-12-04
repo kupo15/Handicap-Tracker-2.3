@@ -24,6 +24,7 @@
     {"id":{"name":"ini_teebox","path":"scripts/ini_teebox/ini_teebox.yy",},"order":3,},
     {"id":{"name":"vk_hide","path":"scripts/vk_hide/vk_hide.yy",},"order":0,},
     {"id":{"name":"draw_score_view","path":"scripts/draw_score_view/draw_score_view.yy",},"order":0,},
+    {"id":{"name":"PROJECT_SORTING_FUNCTIONS","path":"scripts/PROJECT_SORTING_FUNCTIONS/PROJECT_SORTING_FUNCTIONS.yy",},"order":17,},
     {"id":{"name":"ini_create","path":"scripts/ini_create/ini_create.yy",},"order":1,},
     {"id":{"name":"draw_debug","path":"scripts/draw_debug/draw_debug.yy",},"order":1,},
     {"id":{"name":"DS_LIST_FUNCTIONS","path":"scripts/DS_LIST_FUNCTIONS/DS_LIST_FUNCTIONS.yy",},"order":1,},

@@ -107,7 +107,7 @@ if new_course
 var sort_index = META_data.courseSort;
 var offset = offsetArray[offsetScroll.courseSortUnderline];
 var header = draw_screen_header_submenu(offset,sort_index,"A-Z","Frequency","Favorites");
-if (header != undefined) && (header != sort_index)
+if (header != undefined)
 	{
 	scr_course_list_sort(header);
 	app_save;

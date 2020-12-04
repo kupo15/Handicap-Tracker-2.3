@@ -9,11 +9,11 @@ monthOffsetStart = offsetArrayStart[scrollbar_index];
 var alpha = (screenDarkenIndex == darkenIndex.calendar) || (screenDarkenIndex == darkenIndex.calendarYear);
 calendarAlpha = lerp(calendarAlpha,alpha,0.2);
 
-draw_set_alpha(calendarAlpha);
-draw_set_color(c_black);
-
 if calendarAlpha < 0.01
 exit;
+
+draw_set_alpha(calendarAlpha);
+draw_set_color(c_black);
 
 var xcal = 10;
 var ycal = 200;

@@ -17,7 +17,7 @@ for(var i=0;i<score_size;i++) // loop through scores
 		var course_pointer = courselist_array[n];
 		var course_id = course_pointer.courseID;
 		
-		if score_courseId == course_id
+		if score_courseId == course_id // if courseIDs match
 			{
 			course_pointer.frequency ++; // add to count
 			break;
@@ -38,9 +38,7 @@ switch ind
 								array_sort_nested_struct(courselist_array,"frequency",false); 
 								break; // sort list
 	
-	case course_sort.favorite: coursesort;
-							   array_sort_nested_struct(courselist_array,"favorite",false);
-							   break; // sort list
+	case course_sort.favorite: scr_course_sort_favorite(courselist_array,true); break; // sort list
 	}
 
 }
