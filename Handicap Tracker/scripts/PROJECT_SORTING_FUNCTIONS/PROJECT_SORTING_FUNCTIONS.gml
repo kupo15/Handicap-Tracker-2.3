@@ -58,15 +58,7 @@ for(var i=0;i<size;i++)
 	sorting_grid[# 1,i] = sort_value; // add value to sort to grid
 	}
 	
-// sort grid
-ds_grid_sort(sorting_grid,1,ascending); 
-
-// re add pointers back to the source array
-for(var i=0;i<size;i++)
-source_array[@ i] = sorting_grid[# 0,i];
-
-// destroy temp sorting grid
-ds_grid_destroy(sorting_grid);	
+scr_sorting_finish(source_array,size,sorting_grid,ascending);	
 }
 	
 function scr_course_sort_favorite(source_array,ascending) {
@@ -96,6 +88,11 @@ for(var i=0;i<size;i++)
 	sorting_grid[# 1,i] = sort_ind; // add value to sort to grid
 	}
 	
+scr_sorting_finish(source_array,size,sorting_grid,ascending);		
+}
+
+function scr_sorting_finish(source_array,size,sorting_grid,ascending) {
+	
 // sort grid
 ds_grid_sort(sorting_grid,1,ascending); 
 
@@ -105,5 +102,5 @@ source_array[@ i] = sorting_grid[# 0,i];
 
 // destroy temp sorting grid
 ds_grid_destroy(sorting_grid);	
+	
 }
-
