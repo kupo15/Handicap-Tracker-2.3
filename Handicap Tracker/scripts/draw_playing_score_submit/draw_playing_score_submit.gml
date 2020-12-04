@@ -1,4 +1,4 @@
-function draw_playing_score_submit(){
+function draw_playing_score_submit() {
 
 activeStruct = workingStruct.roundData;
 
@@ -17,6 +17,10 @@ switch textboxIndex
 var play_score = activeStruct.grossScore;
 var play_strokes = activeStruct.roundStrokes;
 var play_date = activeStruct.roundDate;
+
+var handicap_pointer = workingStruct.handicapData;
+var round_type = handicap_pointer.roundType;
+var off_season = handicap_pointer.offSeason;
 	
 #region draw score/strokes
 var xx = 0;
@@ -49,6 +53,21 @@ if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	}
 	
 #endregion
+
+#region draw practice/off season
+var hh = 90;
+var xx = 0;
+var yy = 780;
+var ww = app_width-xx-xx;
+
+if draw_dialogue_box(xx,yy,ww,hh,c_white,navbar.hidden) // practice tab
+submenu = navbar.roundtype;
+	
+var height = 40;
+var str_arr = ["Fun Round","Normal Round","Tournament Round"];
+draw_text_height(xx+20,yy+5,"Round Type",label_height,fn_italic); // draw course tee markers label
+draw_text_height(xx+20,yy+35,str_arr[round_type],height); // draw course name
+#endregion	
 
 #region draw calendar
 var xx = 0;
@@ -90,6 +109,14 @@ if calendarDateEntry != undefined
 	}
 	
 #endregion	
+
+// draw round type overlay
+var round_type = draw_overlay_roundtype(round_type);
+if round_type != undefined
+	{
+	handicap_pointer.roundType = round_type;
+	submenu = navbar.hidden;
+	}
 
 #region Save
 var submit = (play_score != "");
