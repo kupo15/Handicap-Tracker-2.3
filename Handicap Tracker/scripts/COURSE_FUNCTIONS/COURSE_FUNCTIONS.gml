@@ -68,7 +68,7 @@ if argument[3] != undefined
 return course_struct;	
 }
 
-function scr_course_add_tee(struct,teeColor,yardage,slope,rating,par,date) {
+function scr_course_tee_add(struct,teeColor,yardage,slope,rating,par,date) {
 /// @param struct
 /// @param teeColor
 /// @param [yardage
@@ -114,7 +114,7 @@ var tee_struct = variable_struct_get(teeStruct,string_lower(teeCol));
 
 // create new tee
 if tee_struct == undefined
-var tee_struct = scr_course_add_tee(teeStruct,teeCol);
+var tee_struct = scr_course_tee_add(teeStruct,teeCol);
 
 return tee_struct;
 }
@@ -138,53 +138,7 @@ for(var i=0;i<list_size;i++)
 
 return undefined;
 }
-	
-function course_find_array(courseName,courseState,array) {
-/// @param courseName	
-/// @param stateInitial
-/// @param [sourceArray]
-		
-if argument[2] == undefined
-array = courselist_array
-		
-// loop through course list
-var size = array_length(array);
-for(var i=0;i<size;i++)
-	{
-	var struct = array[i];
-	var name = struct.courseName;
-	var state = struct.courseLocation.stateInitial;
-	
-	if (name == courseName) && (state == courseState)
-		{
-		course_index = i;
-		return struct;
-		}
-	}
-	
-return undefined;
-}
-	
-function course_get_struct(courseId,array) {
-/// @param courseID	
-/// @param [array]
-
-if argument[1] == undefined
-array = COURSE_database;
-
-var size = array_length(array);
-for(var i=0;i<size;i++)
-	{
-	var pointer = array[i];
-	var course_id = pointer.courseID;
-	
-	if course_id == courseId
-	return pointer;
-	}
-	
-return undefined;
-}
-	
+			
 function scr_course_sort(source_array,ascending) {
 
 // create temp sorting grid
@@ -255,3 +209,29 @@ source_array[@ i] = sorting_grid[# 0,i];
 // destroy temp sorting grid
 ds_grid_destroy(sorting_grid);	
 }
+	
+function course_find_array(courseName,courseState,array) {
+/// @param courseName	
+/// @param stateInitial
+/// @param [sourceArray]
+		
+if argument[2] == undefined
+array = courselist_array
+		
+// loop through course list
+var size = array_length(array);
+for(var i=0;i<size;i++)
+	{
+	var struct = array[i];
+	var name = struct.courseName;
+	var state = struct.courseLocation.stateInitial;
+	
+	if (name == courseName) && (state == courseState)
+		{
+		course_index = i;
+		return struct;
+		}
+	}
+	
+return undefined;
+}	

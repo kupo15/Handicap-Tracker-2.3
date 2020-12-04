@@ -43,7 +43,7 @@ var ww = app_width-xx-xx;
 var hh = 90;
 var sep = 110;
 
-var course_pointer = course_get_struct(home_courseID,COURSE_database);
+var course_pointer = database_course_get_pointer(home_courseID);
 
 if course_pointer == undefined
 var course_name = "";
