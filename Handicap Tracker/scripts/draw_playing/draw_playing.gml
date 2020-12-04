@@ -3,16 +3,18 @@ function draw_playing() {
 var col = c_lt_gray;
 draw_clear(col);	
 	
-var course_name = active_course_struct.courseName;
+activeStruct = workingStruct;	
+	
+var course_name = activeStruct.courseName;
 
-var tee_pointer = active_course_struct.teeData;
+var tee_pointer = activeStruct.teeData;
 var course_teeColor = tee_pointer.teeColor;
 var tee_yardage = tee_pointer.teeYardage;
 var tee_slope = tee_pointer.teeSlope;
 var tee_rating = tee_pointer.teeRating;
 var tee_par = tee_pointer.teePar;
 
-var handicap_pointer = active_course_struct.handicapData;
+var handicap_pointer = activeStruct.handicapData;
 var play_handicap_inc = handicap_pointer.handicap_inc;
 var play_handicap_dec = handicap_pointer.handicap_dec;
 var play_esr = handicap_pointer.esr;
@@ -174,7 +176,7 @@ var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Begin Round",height,c_white,ww,hh,col,false,false,navbar.main) && submit
 	{
-	activeStruct = active_course_struct.roundData;
+	activeStruct = workingStruct.roundData;
 	screen_change(screen.playing_score_enter,navbar.hidden);
 	}
 #endregion	
@@ -194,9 +196,9 @@ if draw_submenu_course_search(header_height,app_width,90,COURSE_database,offsetS
 	var c_name = returnedSearch.courseName;
 	var c_state = returnedSearch.courseLocation.stateInitial;
 	
-	active_course_struct = scr_score_create(c_name,c_state);
+	workingStruct = scr_score_create(c_name,c_state); // clear active course
 
-	// open teebar 
+	// open teebar
 	submenu = navbar.teebar;
 	}
 
@@ -206,14 +208,15 @@ var tee_ind = draw_teebox_list(course_struct);
 if tee_ind != undefined
 	{
 	submenu = navbar.main;
-	
+
 	// set variables
-	scr_score_tee_update(active_course_struct,course_struct,teebox_list[| tee_ind]);
-	
+	scr_score_tee_update(activeStruct,course_struct,teebox_list[| tee_ind]);
+
+	// predict target scores
 	scr_handicap_predict(90,false);
-	scr_handicap_predict(active_course_struct.handicapData.handicap_dec,true);
+	scr_handicap_predict(workingStruct.handicapData.handicap_dec,true);
 					
-	ACTIVE_data = active_course_struct;				
+	ACTIVE_data = workingStruct; // overwrite saved data
 	app_save;
 	}
 
@@ -226,8 +229,14 @@ if androidBack
 	if submenu != navbar.main
 	submenu = navbar.main;
 	else
-	screen_goto_prev();
+		{
+		course_struct = undefined;		
+			
+		workingStruct = undefined;
+		activeStruct = undefined;
+			
+		screen_goto_prev();
+		}
 	}
-
 
 }

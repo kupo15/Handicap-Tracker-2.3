@@ -133,11 +133,10 @@ funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 var new_score = draw_screen_header(headerType.back,headerType.plus,"Round History");	
 if new_score
 	{
-	score_struct = create_score // create a new score row
-	workingStruct = struct_copy(score_struct);
-	activeStruct = workingStruct;
-			
 	score_index = array_length(scorelist_array);
+
+	score_struct = create_score; // create a new score row
+	workingStruct = struct_copy(score_struct);			
 
 	screen_change(screen.score_create,navbar.coursebar);
 	popup_coursebar();

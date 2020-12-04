@@ -12,7 +12,7 @@ var local_struct = {
 	
 	courseID: course_id,
 	favorite: false,
-	lastPlayed: undefined,
+	lastPlayed: -1,
 	frequency: 0,		
 	}
 	
@@ -103,18 +103,18 @@ var tee = {
 	}
 
 // add tee color data to active course's teeMap
-variable_struct_set(struct.subcourses[subcourse_index].teeData,string_lower(teeColor),tee);
+variable_struct_set(struct,string_lower(teeColor),tee);
 
-return variable_struct_get(struct.subcourses[subcourse_index].teeData,string_lower(teeColor));
+return variable_struct_get(struct,string_lower(teeColor));
 }
 
-function scr_course_tee_set(teeCol) {
+function scr_course_tee_set(teeStruct,teeCol) {
 	
-var tee_struct = variable_struct_get(workingStruct.subcourses[subcourse_index].teeData,string_lower(teeCol));
+var tee_struct = variable_struct_get(teeStruct,string_lower(teeCol));
 
 // create new tee
 if tee_struct == undefined
-var tee_struct = scr_course_add_tee(workingStruct,teeCol);
+var tee_struct = scr_course_add_tee(teeStruct,teeCol);
 
 return tee_struct;
 }

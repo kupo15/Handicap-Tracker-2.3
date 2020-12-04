@@ -32,10 +32,11 @@ drawScreen[screen.profileView] = draw_profile_view;
 
 drawScreen[screen.playing_score_enter] = draw_playing_score_submit;
 
-drawScreen[screen.add_course] = draw_course_view;
-drawScreen[screen.edit_course] = draw_course_edit;
+drawScreen[screen.create_course] = draw_course_create;
+drawScreen[screen.edit_course] = draw_course_view;
 
 drawScreen[screen.edit_tees] = draw_course_edit_tees;
+drawScreen[screen.edit_tees_from_teebar] = draw_course_edit_tees_from_teebar;
 drawScreen[screen.edit_date] = draw_date_edit_calendar;	
 }
 

@@ -66,20 +66,17 @@ for(var i=0;i<rows;i++)
 		else
 			{
 			course_index = database_course_get_index(courseStruct.courseID);
-				
-			// assign struct
-			//course_struct = course_get_struct(courseStruct.courseID);
-			//workingStruct = struct_copy(courseStruct);
-			activeStruct = struct_copy(courseStruct);
-			
-			scr_course_tee_set(teeColor);
+			course_struct = database_course_get_pointer(courseStruct.courseID);			
 
-			// set temp entry data
-			activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
+			struct_undo_push(workingStruct);
+			
+			workingStruct = struct_copy(course_struct);
+			activeStruct = scr_course_tee_set(workingStruct.subcourses[subcourse_index].teeData,teeColor);
+		
 			tee_index = i;
 
-			screen_change(screen.edit_tees,navbar.numpad);
-			click_textbox_set(activeStruct.teeYardage,textboxEntry.courseYardage,kbv_type_numbers);
+			screen_change(screen.edit_tees_from_teebar,navbar.numpad);
+			click_textbox_set(activeStruct.teeYardage,textboxEntry.courseYardage,kbv_type_numbers);			
 			}
 	    }
 	}

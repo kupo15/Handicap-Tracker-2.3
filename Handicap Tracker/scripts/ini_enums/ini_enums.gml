@@ -27,10 +27,11 @@ profileView,
 
 playing_score_enter,
 
-add_course,
+create_course,
 edit_course,
 
 edit_tees,
+edit_tees_from_teebar,
 edit_date,
 }
 

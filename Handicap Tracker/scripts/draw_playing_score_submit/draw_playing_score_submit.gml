@@ -1,8 +1,10 @@
 function draw_playing_score_submit(){
-	
+
+activeStruct = workingStruct.roundData;
+
 // header
 draw_screen_header(headerType.back,headerType.none,"Enter Score");
-draw_screen_header_submenu()
+//draw_screen_header_submenu();
 
 // keyboard entry
 if kvActive
@@ -40,6 +42,8 @@ draw_text_height_label(xx+30+(ww*0.5),yy+40,play_strokes,"0",height);
 // click on strokes
 if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	{	
+	workingStruct = struct_undo_push(workingStruct);
+
 	screen_change(screen.score_details);
 	click_textbox_set(play_score,textboxEntry.grossScore,kbv_type_numbers);
 	}
@@ -117,7 +121,14 @@ if click_button(xx,yy,"Submit Round",height,c_white,ww,hh,col,false,false,navbar
 #endregion
 
 if androidBack
-screen_goto_prev();
+&& !kvActive
+	{
+	if (submenu > navbar.hidden)
+	submenu = navbar.hidden;
+	else if (submenu == navbar.hidden)
+	screen_goto_prev();
+	}
+	
 exit;
 
 // clicked enter

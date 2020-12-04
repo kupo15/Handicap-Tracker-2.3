@@ -209,10 +209,18 @@ ds_list_add(id,val);
 
 function ds_list_pop(id) {
 	
+var return_val = ds_list_peek(id);
 var size = ds_list_size(id);
-var return_val = ds_list_find_value(id,size-1);
 
 ds_list_delete(id,size-1);
+
+return return_val;
+}
+
+function ds_list_peek(id) {
+	
+var size = ds_list_size(id);
+var return_val = ds_list_find_value(id,size-1);
 
 return return_val;
 }

@@ -137,8 +137,8 @@ for(var n=0;n<3;n++)
 	}
 
 // draw 00
-if click_button(xx+(0*hsep2),yy+(3*vsep),"00",height,c_black,hsep2,vsep,undefined,true,false,submenu)
-variable += "00";
+//if click_button(xx+(0*hsep2),yy+(3*vsep),"00",height,c_black,hsep2,vsep,undefined,true,false,submenu)
+//variable += "00";
 
 // draw 0
 if click_button(xx+(1*hsep2),yy+(3*vsep),"0",height,c_black,hsep2,vsep,undefined,true,false,submenu)

@@ -89,14 +89,13 @@ draw_text_height_label(xx+30+(ww*0.5),yy+40,roundStrokes,"0",height);
 // click on strokes
 if click_region_released(xx,yy,ww,hh,true,navbar.hidden,1) // score/strokes
 	{	
-	workingStruct = struct_undo_push(workingStruct,activeStruct,"roundData");
+	workingStruct = struct_undo_push(workingStruct);
 
 	screen_change(screen.score_details);
 	click_textbox_set(roundScore,textboxEntry.grossScore,kbv_type_numbers);
 	}
 	
 #endregion
-	
 	
 #region draw practice/off season
 var hh = 90;

@@ -6,10 +6,10 @@ function database_course_get_pointer(courseId,key,source) {
 if argument[2] == undefined
 source = COURSE_database;
 
-var size = array_length(COURSE_database);
+var size = array_length(source);
 for(var i=0;i<size;i++)
 	{
-	var pointer = COURSE_database[i];
+	var pointer = source[i];
 	var test_courseId = pointer.courseID;
 	
 	if courseId == test_courseId
@@ -17,7 +17,7 @@ for(var i=0;i<size;i++)
 		if key == undefined // return the whole struct
 		return pointer;
 		else
-		return variable_struct_get(pointer,key);
+		return variable_struct_get(pointer,key); // return the key
 		}
 	}
 
@@ -31,10 +31,10 @@ function database_course_get_index(courseId,source) {
 if argument[1] == undefined
 source = COURSE_database;
 
-var size = array_length(COURSE_database);
+var size = array_length(source);
 for(var i=0;i<size;i++)
 	{
-	var pointer = COURSE_database[i];
+	var pointer = source[i];
 	var test_courseId = pointer.courseID;
 	
 	if courseId == test_courseId

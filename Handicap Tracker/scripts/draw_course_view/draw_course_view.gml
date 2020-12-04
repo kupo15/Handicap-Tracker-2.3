@@ -1,4 +1,4 @@
-function draw_course_edit() {
+function draw_course_create() {
 draw_course_view();
 }
 
@@ -10,7 +10,7 @@ var box_col = c_white;
 draw_clear(bg_col);
 
 #region header
-var str = pick("Edit Course","Create Course",screenIndex == screen.add_course);
+var str = pick("Edit Course","Create Course",screenIndex == screen.create_course);
 var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);	
 
 if trash_delete
@@ -146,7 +146,7 @@ for(var i=0;i<size;i++)
 		{
 		// set temp entry data
 		workingStruct = struct_undo_push(workingStruct);
-		activeStruct = scr_course_tee_set(teeColor);
+		activeStruct = scr_course_tee_set(workingStruct.subcourses[subcourse_index].teeData,teeColor);
 		
 		tee_index = i;
 
@@ -189,8 +189,10 @@ if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hid
 	{	
 	// update course info
 	COURSE_database[@ course_index] = struct_undo_pop(workingStruct,true); // overwrite with working copy
-	scr_course_add_local(activeStruct.courseID,courselist_array);
 	
+	if screenIndex = screen.create_course
+	scr_course_add_local(activeStruct.courseID,courselist_array);
+		
 	coursesort; // sort list
 	app_save;
 	

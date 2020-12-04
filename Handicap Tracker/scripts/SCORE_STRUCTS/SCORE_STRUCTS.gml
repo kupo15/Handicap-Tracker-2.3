@@ -49,7 +49,7 @@ off_season = false;
 
 score_struct = {
 
-	courseID: undefined,
+	courseID: -1,
 	courseName: course_name,
 	adjDiff: undefined,
 
@@ -63,7 +63,7 @@ score_struct = {
 	
 	roundData: {
 		grossScore: score,
-		netScore: undefined,
+		netScore: -1,
 		roundStrokes: strokes,
 		roundDate: date,		
 		},
@@ -71,11 +71,11 @@ score_struct = {
 	courseLocation: {},
 	
 	handicapData: {
-		indexHistory: undefined,
+		indexHistory: -1,
 		indexIncluded: false,
 		
-		adjDiff: undefined,
-		courseHandicap: undefined,
+		adjDiff: -1,
+		courseHandicap: -1,
 		esr: 0,
 
 		offSeason: off_season,

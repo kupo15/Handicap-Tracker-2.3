@@ -1,3 +1,8 @@
+function draw_course_edit_tees_from_teebar() {
+
+draw_course_edit_tees();
+}
+
 function draw_course_edit_tees() {
 
 var bg_col = c_lt_gray;
@@ -146,40 +151,26 @@ var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
-	{	
-	workingStruct = struct_undo_pop(workingStruct,true);
-	//course_struct = workingStruct;
-
-	screen_goto_prev(navbar.hidden);
-
-	/*if screenIndex == screen.score_view || screenIndex == screen.score_create
-		{
-		//course_index = database_course_get_index(courseStruct.courseID)	;
-
-		app_save;
-		}
-	else*/ if screenIndex == screen.playing || screenIndex == screen.score_view || screenIndex == screen.score_create
-		{
-		if screenIndex != screen.playing
-		activeStruct = score_struct;
-			
+	{		
+	if (screenIndex == screen.edit_tees_from_teebar)
+		{	
+		course_struct = workingStruct; // update course struct
 		COURSE_database[@ course_index] = workingStruct; // overwrite with working copy
 		app_save;	
+
+		workingStruct = struct_undo_pop(workingStruct,false);
+		screen_goto_prev(navbar.hidden);
+		exit;
 		}
+	
+	screen_goto_prev(navbar.hidden);
+	workingStruct = struct_undo_pop(workingStruct,true);
 	}
 #endregion
 	
 if androidBack
 	{
-	//cs(js(activeStruct))sm(activeStruct)
-	screen_goto_prev(navbar.hidden);
-	
-	if screenIndex == screen.score_view || screenIndex == screen.score_create
-	activeStruct = struct_undo_pop(workingStruct,score_struct);
-	else
 	workingStruct = struct_undo_pop(workingStruct,false);
-	
+	screen_goto_prev(navbar.hidden);	
 	}
-
-
 }

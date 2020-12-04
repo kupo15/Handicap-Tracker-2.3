@@ -68,10 +68,10 @@ for(var i=pos_start;i<pos_end;i++)
 			{
 			course_index = database_course_get_index(courseID);
 			course_next = true;
-			
+						
 			// assign struct
-			course_struct = COURSE_database[course_index];
-			workingStruct = struct_copy(course_struct);
+			course_struct = database_course_get_pointer(courseID);
+			workingStruct = struct_copy(course_struct);			
 
 			screen_change(screen.edit_course,navbar.hidden);
 			}
@@ -86,6 +86,7 @@ var sub = navbar.main;
 funct_screen_scrolling(xx,yy,ww,hh,sep,list_size,rows,scrollbar_index,sub);
 #endregion
 
+
 #region header
 var new_course = draw_screen_header(headerType.back,headerType.plus,"Course List");
 
@@ -99,7 +100,7 @@ if new_course
 
 	course_index = array_length(courselist_array);
 
-	screen_change(screen.add_course);
+	screen_change(screen.create_course);
 	click_textbox_set("",textboxEntry.courseName,kbv_type_default);
 	}
 
@@ -115,8 +116,7 @@ if (header != undefined) && (header != sort_index)
 
 // draw lt gray cover
 draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);	
-	
-	
+
 // go to course edit/add
 if course_next 
 submenu = navbar.hidden;
@@ -141,7 +141,7 @@ if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,true,false,navbar.ma
 			
 	course_index = array_length(courselist_array);
 
-	screen_change(screen.add_course);
+	screen_change(screen.create_course);
 	click_textbox_set("",textboxEntry.courseName,kbv_type_default);
 	}
 	

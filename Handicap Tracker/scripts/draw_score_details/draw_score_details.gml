@@ -17,9 +17,18 @@ switch textboxIndex
 	}	
 
 // exceptions
-if activeStruct.grossScore > 250
-activeStruct.grossScore = 250;
+if activeStruct.grossScore != ""
+&& real(activeStruct.grossScore) > 250
+activeStruct.grossScore = "250";
 
+if string_length(activeStruct.grossScore) > 1
+&& string_char_at(activeStruct.grossScore,1) == "0"
+	{
+	activeStruct.grossScore = string_delete(activeStruct.grossScore,1,1);
+	numpad_value = activeStruct.grossScore;
+	}
+
+// round strokes
 if activeStruct.roundStrokes == ""
 	{
 	activeStruct.roundStrokes = "0";
@@ -106,7 +115,6 @@ draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);
 	
 #endregion
 
-
 if move
 switch (textboxIndex)
 	{	
@@ -114,7 +122,7 @@ switch (textboxIndex)
 	
 	case textboxEntry.strokes: click_textbox_set(roundStrokes,textboxIndex,kbv_type_numbers); break;
 	}
-		
+
 #region draw label
 var xx = app_width*0.5;
 var yy = 320;

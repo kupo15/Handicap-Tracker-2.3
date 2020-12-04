@@ -132,3 +132,28 @@ pop = struct_copy(struct); // overwrite previous root copy with new changes
 
 return pop; // return previous root copy
 }
+
+function struct_undo_peek(showDebug) {
+/// @param [showDebug]	
+		
+var return_val = ds_list_peek(structUndoStack);
+
+if argument[0] == true
+	{
+	cs(js(return_val));
+	sm("");
+	}
+
+return return_val;
+}
+	
+function struct_debug_show(struct,message) {
+/// @param struct
+/// @param [message]
+
+if argument[1] == undefined
+message = "";
+
+cs(js(struct));
+sm(message);	
+}

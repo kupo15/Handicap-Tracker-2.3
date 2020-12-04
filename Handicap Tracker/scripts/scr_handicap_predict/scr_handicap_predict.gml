@@ -26,7 +26,7 @@ for(var n=0;n<150;n++)
 	// add a test score
 	var net_score = pick(starting_score-n,starting_score+n,upper);
 	
-	var teeData = active_course_struct.teeData;
+	var teeData = activeStruct.teeData;
 	var course_rating = real(teeData.teeRating);
 	var course_slope = real(teeData.teeSlope);
 	
@@ -60,7 +60,7 @@ for(var n=0;n<150;n++)
 			var struct = falling_off_struct_get();
 			var condition = struct.handicapData.indexIncluded;
 			
-			active_course_struct.handicapData.handicap_inc = pick("Free Round",net_score,condition);			
+			activeStruct.handicapData.handicap_inc = pick("Free Round",net_score,condition);			
 			break;
 			}
 		}
@@ -68,7 +68,7 @@ for(var n=0;n<150;n++)
 		{
 		if temp_handicap < round_tenth(ghin_index)
 			{
-			active_course_struct.handicapData.handicap_dec = net_score;
+			activeStruct.handicapData.handicap_dec = net_score;
 			break;
 			}
 		}

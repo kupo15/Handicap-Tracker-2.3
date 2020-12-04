@@ -1,22 +1,18 @@
 function scr_playing_course_set() {
 
-scr_handicap_calculate();				
+//ssm(active_course_struct);
+workingStruct = struct_copy(active_course_struct);
+activeStruct = workingStruct;
 
-var course_name = active_course_struct.courseName;
+course_struct = database_course_get_pointer(activeStruct.courseID);					 	 
 
-if course_name == ""
-var course_state = undefined;
-else
-var course_state = active_course_struct.courseLocation.stateInitial;
-
-course_struct = course_find_array(course_name,course_state,COURSE_database);					 	 
-
-if active_course_struct.teeData.teeColor != ""
+if course_struct != undefined
 	{
+	scr_handicap_calculate();
 	scr_handicap_predict(90,false); // determine lower handicap
-	scr_handicap_predict(active_course_struct.handicapData.handicap_dec,true); // determine upper handicap
+	scr_handicap_predict(activeStruct.handicapData.handicap_dec,true); // determine upper handicap
 	}
 		
 exit
-active_course_struct.handicapData.esr = pick(active_course_struct.handicapData.esr,"",active_course_struct.handicapData.esr == "0");						    				
+activeStruct.handicapData.esr = pick(activeStruct.handicapData.esr,"",activeStruct.handicapData.esr == "0");						    				
 }
