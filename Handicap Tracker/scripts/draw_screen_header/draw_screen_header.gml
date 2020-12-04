@@ -100,7 +100,7 @@ return false;
 function draw_screen_header_submenu(offset,sort_index) {
 /// param offset
 /// param sort_index
-/// param header_string...
+/// param header_string
 
 var xx = 0;
 var yy = header_height;
@@ -115,7 +115,7 @@ var height = 40;
 var val = undefined;
 
 for(var i=0;i<header_num;i++)
-	{
+	{		
 	var str_col = pick(c_lt_gray,c_white,i==sort_index);
 	
 	if click_button(i*header_sep,yy,argument[i+2],height,str_col,header_sep,header_submenu_height,undefined,false,false,submenu)

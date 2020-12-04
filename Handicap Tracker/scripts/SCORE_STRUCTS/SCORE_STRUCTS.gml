@@ -41,7 +41,7 @@ if argument[8] == undefined
 date = date_current_datetime();
 
 if argument[9] == undefined
-strokes = "0";
+strokes = "";
 
 if argument[10] == undefined
 off_season = false;
@@ -96,9 +96,11 @@ if struct != undefined
 	var district_struct = location_struct.districts[districtIndex];
 
 	score_struct.courseID = struct.courseID;
-	score_struct.courseLocation = district_struct;
-	score_struct.courseLocation.stateName = location_struct.stateName;
-	score_struct.courseLocation.stateInitial = location_struct.stateInitial;
+	score_struct.districtInd = districtIndex;
+	score_struct.courseLocation = location_struct;
+	//score_struct.courseLocation = district_struct;
+	//score_struct.courseLocation.stateName = location_struct.stateName;
+	//score_struct.courseLocation.stateInitial = location_struct.stateInitial;
 	}
 
 return score_struct;

@@ -8,7 +8,7 @@ function draw_score_view() {
 var bg_col = c_lt_gray;
 draw_clear(bg_col);
 
-activeStruct = score_struct;
+//activeStruct = workingStruct;
 
 var course_name = activeStruct.courseName;
 
@@ -90,7 +90,7 @@ draw_text_height_label(xx+30+(ww*0.5),yy+40,roundStrokes,"0",height);
 // click on strokes
 if click_region(xx,yy,ww,hh,true,mb_left,navbar.hidden) // score/strokes
 	{	
-	//activeStruct = struct_undo_push(workingStruct,activeStruct.subcourses[subcourse_index].teeData,string_lower(teeColor));
+	activeStruct = struct_undo_push(workingStruct,activeStruct,"roundData");
 
 	screen_change(screen.score_details);
 	click_textbox_set(roundScore,textboxEntry.grossScore,kbv_type_numbers);
@@ -164,7 +164,8 @@ var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
-	{
+	{cs(js(activeStruct))
+		sm("")
 	// update offseason
 	activeStruct.handicapData.offSeason = scr_score_update_offseason(activeStruct);
 			

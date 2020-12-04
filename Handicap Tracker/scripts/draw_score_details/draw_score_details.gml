@@ -8,28 +8,29 @@ var str = "Round Score";
 draw_screen_header(headerType.back,headerType.none,str);	
 #endregion
 
+
 switch textboxIndex
 	{
-	case textboxEntry.grossScore: activeStruct.roundData.grossScore = string_convert_real_numpad(numpad_value,3); break;
-	case textboxEntry.strokes: activeStruct.roundData.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
+	case textboxEntry.grossScore: activeStruct.grossScore = string_convert_real_numpad(numpad_value,3); break;
+	case textboxEntry.strokes: activeStruct.roundStrokes = string_convert_real_numpad(numpad_value,2); break;
 	}	
 
 // exceptions
-if activeStruct.roundData.roundStrokes == ""
+if activeStruct.roundStrokes == ""
 	{
-	activeStruct.roundData.roundStrokes = "0";
-	numpad_value = activeStruct.roundData.roundStrokes;
+	activeStruct.roundStrokes = "0";
+	numpad_value = activeStruct.roundStrokes;
 	}
 
-if string_length(activeStruct.roundData.roundStrokes) > 1
-&& string_char_at(activeStruct.roundData.roundStrokes,1) == "0"
+if string_length(activeStruct.roundStrokes) > 1
+&& string_char_at(activeStruct.roundStrokes,1) == "0"
 	{
-	activeStruct.roundData.roundStrokes = string_delete(activeStruct.roundData.roundStrokes,1,1);
-	numpad_value = activeStruct.roundData.roundStrokes;
+	activeStruct.roundStrokes = string_delete(activeStruct.roundStrokes,1,1);
+	numpad_value = activeStruct.roundStrokes;
 	}
 	
-var roundScore = activeStruct.roundData.grossScore;
-var roundStrokes = activeStruct.roundData.roundStrokes;
+var roundScore = activeStruct.grossScore;
+var roundStrokes = activeStruct.roundStrokes;
 
 #region draw tee details
 var xx = 0;
@@ -53,7 +54,6 @@ var xoff = button_spacing*0.5;
 
 // click on header button
 var move = false;
-
 for(var i=0;i<size;i++)
 	{
 	if click_button(xx+xoff+(i*button_sep),yy+10,detail_arr[i],35,c_black,button_ww,60,c_lt_gray,true,false,submenu)
@@ -102,6 +102,7 @@ draw_line_pixel(xx+button_ww,yy+10,1,button_hh-20,c_black,1);
 	
 #endregion
 
+
 if move
 switch (textboxIndex)
 	{	
@@ -109,7 +110,7 @@ switch (textboxIndex)
 	
 	case textboxEntry.strokes: click_textbox_set(roundStrokes,textboxIndex,kbv_type_numbers); break;
 	}
-	
+		
 #region draw label
 var xx = app_width*0.5;
 var yy = 320;
@@ -133,13 +134,18 @@ var ww = app_width-xx-xx;
 var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,submenu) && submit
-screen_goto_prev(navbar.hidden);
+	{
+	activeStruct = struct_undo_pop(workingStruct,score_struct,true);
+
+	screen_goto_prev(navbar.hidden);
+	}
 
 #endregion	
 
 if androidBack
 	{
-	activeStruct = struct_copy(score_struct); // revert
+	activeStruct = struct_undo_pop(workingStruct,score_struct);
+
 	screen_goto_prev(navbar.hidden);
 	}
 }

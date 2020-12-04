@@ -2,6 +2,7 @@ function draw_playing_score_submit(){
 	
 // header
 draw_screen_header(headerType.back,headerType.none,"Enter Score");
+draw_screen_header_submenu()
 
 // keyboard entry
 if kvActive
