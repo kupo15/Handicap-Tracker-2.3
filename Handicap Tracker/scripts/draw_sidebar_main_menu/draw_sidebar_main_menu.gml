@@ -15,12 +15,10 @@ var col = c_white;
 var profile_col = make_color_rgb(76,102,145);
 
 #region profile section
-draw_rectangle_color(xx+xx_off,yy,xx+xx_off+ww,yy+hh,col,col,col,col,false); // menu background
+draw_rectangle_color(xx+xx_off,yy,xx+xx_off+side_menu_width,yy+room_height,col,col,col,col,false); // menu background
 
 // if click outside of menu
-if click_region_released(xx+xx_off+ww,yy,ww,hh,noone,navbar.sidebar) // make_color_rgb(0,255,255)
-androidBackSidebar = true;
-else if click_button(xx_off,0,"",0,c_black,140,140,undefined,false,undefined,submenu)
+if click_button(xx_off,0,"",0,c_black,140,140,undefined,false,undefined,submenu)
 	{
 	submenu = navbar.hidden;
 	screen_change(screen.profileView);
@@ -53,8 +51,7 @@ draw_text_height_color(xx+xx_off,yy,PROFILE_data.dispName,c_white,height,fn_bold
 draw_text_height_color(xx+xx_off+200,yy,str_index,c_white,height); // draw handicap
 //draw_text_height(xx+xx_off,yy+25,"@"+user_username,25); // draw user id
 
-draw_menu_triangle(xx_off+400,yy+15,10,submenu != navbar.profileChange);
-
+draw_menu_triangle(xx_off+(side_menu_width*0.85),yy+15,10,submenu != navbar.profileChange);
 
 #endregion
 
@@ -102,6 +99,9 @@ for(var i=0;i<screen.enumcount;i++)
 	}
 
 #endregion
+
+if clickout_region(xx+xx_off+side_menu_width,yy,ww,hh,noone,navbar.sidebar) // make_color_rgb(0,255,255)
+androidBackSidebar = true;
 
 draw_sidebar_profile_switch(xx_off,profile_hh,sep);
 

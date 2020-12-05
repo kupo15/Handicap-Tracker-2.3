@@ -56,7 +56,6 @@
 // navbar
 #macro nav_sca_off 0.85
 #macro nav_height 100
-#macro nav_ico_num 5
 #macro navbar_color make_color_rgb(0,122,173)
 
 // calendar

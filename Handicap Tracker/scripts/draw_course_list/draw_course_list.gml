@@ -114,7 +114,7 @@ if (header != undefined)
 	app_save;
 	
 	// jump to top
-	if sort_index = course_sort.favorite
+	if META_data.courseSort == course_sort.favorite
 		{
 		offsetArray[scrollbar_index] = 0;
 		offsetArrayStart[scrollbar_index] = 0;

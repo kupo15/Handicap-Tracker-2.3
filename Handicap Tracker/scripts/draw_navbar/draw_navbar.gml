@@ -1,11 +1,12 @@
 function draw_navbar() {
 
-var alph = 1-(offsetArray[offsetScroll.navbarYoff]/1);
+var offset = offsetArray[offsetScroll.navbarYoff];
+var alph = 1-(offset/1);
 draw_set_alpha(alph);
 
 // draw highlight
-var offset = offsetArray[offsetScroll.navbarYoff];
-var ico_num = nav_ico_num;
+var	name_arr =["Home","Stats","Playing","Score","Courses"];
+var ico_num = array_length(name_arr);
 var xsep = app_width/ico_num;
 var hh = nav_height;
 var xx = xsep*screenIndex;
@@ -25,14 +26,9 @@ draw_line_pixel(-1,yy_nav,app_width+1,1,c_gray,alph*0.7); // horizontal line
 draw_set_halign(fa_center);
 for(var i=0;i<ico_num;i++)
 	{
-	name_arr =["Home","Stats","Playing","Score","Courses"];
-
 	var xpos = i*xsep;
 	var str = name_arr[i];
-	var col = header_color;
-	
-	if i == screenIndex
-	var col = c_white;
+	var col = pick(header_color,c_white,i == screenIndex);
 		
 	// draw label
 	draw_text_height_color(xpos+(xsep*0.5),yy_nav+hh-30,str,col,25);
