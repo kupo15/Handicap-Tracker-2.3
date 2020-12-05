@@ -8,4 +8,7 @@ window_set_position(0,0);
 	
 surface_resize(application_surface,ww,hh); // resize app surface
 display_set_gui_size(ww,hh); // set GUI
+
+canvas_width = ww;
+canvas_height = hh;
 }

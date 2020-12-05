@@ -14,16 +14,19 @@ if os_type == os_android
 	
 	app_width = room_width;
 	app_height = room_height;
+	
+	canvas_width = 0;
+	canvas_height = 0;
 
 	// apply settings
-	alarm[0] = 5;
+	alarm[0] = 2;
 	}
 else
 	{
 	// set app settings
 	app_width = room_width;	
 	app_height = room_height;	
-
+	
 	// set app layout variables
 	DPI_X = DPI_POINT;
 	DPI_Y = DPI_POINT;
@@ -59,12 +62,15 @@ else
 	// set surface
 	surface_resize(application_surface,window_ww,window_hh);
 	display_set_gui_size(app_width,app_height); // set GUI
+	
+	canvas_width = surface_get_width(application_surface);
+	canvas_height = surface_get_height(application_surface);
 	}
 	
 // set dpi variables
 DPI_X = display_get_dpi_x();
 DPI_Y = display_get_dpi_y();
 	
-global.DPI_X_CONVERT = display_get_dpi_x()/DPI_POINT;
-global.DPI_Y_CONVERT = display_get_dpi_y()/DPI_POINT;
+DPI_X_CONVERT = display_get_dpi_x()/DPI_POINT;
+DPI_Y_CONVERT = display_get_dpi_y()/DPI_POINT;
 }

@@ -202,8 +202,12 @@ draw_text_height(xx,yy+((ind+6)*sep),"app width: "+string(app_width),height);
 draw_text_height(xx,yy+((ind+7)*sep),"app height: "+string(app_height),height);
 draw_text_height(xx,yy+((ind+8)*sep),"DPI_X: "+string(DPI_X),height);
 draw_text_height(xx,yy+((ind+9)*sep),"DPI_Y: "+string(DPI_Y),height);
+draw_text_height(xx,yy+((ind+10)*sep),"canvas_width: "+string(canvas_width),height);
+draw_text_height(xx,yy+((ind+11)*sep),"canvas_height: "+string(canvas_height),height);
+//draw_text_height(xx,yy+((ind+10)*sep),"DPI_X_CONVERT: "+string(DPI_X_CONVERT),height);
+//draw_text_height(xx,yy+((ind+11)*sep),"DPI_Y_CONVERT: "+string(DPI_Y_CONVERT),height);
 
-debugyoff += 11;
+debugyoff += 13;
 }
 
 goto_draw_debug();

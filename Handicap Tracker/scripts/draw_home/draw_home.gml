@@ -6,6 +6,9 @@ draw_text_height(20,app_height-50,"Undefined Screen",40);
 
 function draw_home() {
 	
+draw_home_dpi()
+exit;
+	
 var yy = header_height-1;
 var hh = draw_icon_width(spr_home_course,0,0,header_height-1,app_width,1);	
 
@@ -47,8 +50,6 @@ draw_active_round(30,500);
 // draw round falling off
 draw_falling_off(30,830);
 
-//draw_roundrect_ext(mouse_xpos,mouse_ypos,mouse_xpos+100,mouse_ypos+50,mouse_xdist,mouse_ydist,false);
-
 // debug
 if json_version == -4
 draw_text_height_color(20,340,"app not autosaving",c_red,20,fn_italic);
@@ -61,4 +62,24 @@ if multiTouch[3]
 	draw_rectangle_color(0,0,app_width,500,col,col,col,col,false);
 	debug_device_info(20,0,0,30,30);
 	}
+}
+
+function draw_home_dpi() {
+	
+var xx = x_pct_x(room_width*0.25);
+var yy = y_pct_y(room_height*0.25);
+var ww = point_x(36); // x_pct_x(room_width-20);
+var hh = point_y(36);
+
+//draw_rectangle(xx,yy,xx+ww,yy+hh,true);
+
+var data = fit_item_to_area(xx,yy,ww,hh,ww,hh);
+draw_rectangle(data.xx,data.yy,data.xx+data.ww,data.yy+data.hh,false);
+
+draw_circle(data.xx,data.yy,ww,false);
+
+debugyoff = 0;
+debug_device_info(30,50,0,30,30);
+draw_text_height(30,430,data,30)
+
 }
