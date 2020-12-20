@@ -17,8 +17,8 @@
   "width": 1,
   "height": 1,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "Fonts",
+    "path": "texturegroups/Fonts",
   },
   "swatchColours": null,
   "gridX": 0,

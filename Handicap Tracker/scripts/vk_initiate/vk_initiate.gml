@@ -20,7 +20,5 @@ kvActive = true;
 
 if os_type == os_windows
 kvHeight = 400*kvActive*(submenu != navbar.numpad);
-else
-kvHeight = keyboard_virtual_height();
 }
 

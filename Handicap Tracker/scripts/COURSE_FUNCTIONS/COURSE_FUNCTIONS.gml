@@ -22,7 +22,6 @@ return local_struct;
 }
 
 function scr_course_create_database(name,state,district,arr) {
-	
 /// @param [name
 /// @param stateInitial
 /// @param district

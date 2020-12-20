@@ -17,8 +17,8 @@
   "width": 334,
   "height": 250,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "Icons",
+    "path": "texturegroups/Icons",
   },
   "swatchColours": null,
   "gridX": 0,

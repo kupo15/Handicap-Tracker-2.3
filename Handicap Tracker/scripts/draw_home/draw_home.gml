@@ -19,7 +19,7 @@ var height = 35;
 //draw_text_height_color(xx,yy+hh-height,"Rounds Played: "+string(rounds_played),c_white,height);
 	
 // draw header
-draw_screen_header(headerType.bars,headerType.none,"Home");	
+draw_screen_header(headerType.bars,headerType.dots,"Home");	
 	
 #region draw Handicap Index
 var xx = app_width/2;
