@@ -169,7 +169,7 @@ function draw_date_edit_calendar() {
 			var month = (month_offset_end mod 12)+1;		
 			var day = day_offset_end;
 		
-			date_pointer[| textboxEntry.date] = date_create_datetime(year,month,day,1,1,1); // save date
+//			date_pointer[| textboxEntry.date] = date_create_datetime(year,month,day,1,1,1); // save date
 			app_save;
 			}
 	

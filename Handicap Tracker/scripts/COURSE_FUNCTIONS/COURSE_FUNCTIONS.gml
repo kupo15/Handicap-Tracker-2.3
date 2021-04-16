@@ -21,27 +21,24 @@ array_push(array,local_struct);
 return local_struct;
 }
 
-function scr_course_create_database(name,state,district,arr) {
+function scr_course_create(arr,name,state,district) {
+/// @param array
 /// @param [name
 /// @param stateInitial
-/// @param district
-/// @param array]
+/// @param district]
 
-if argument[0] == undefined
+if argument[1] == undefined
 name = "";
 
-if argument[2] == undefined
-district = 0;
-
 if argument[3] == undefined
-arr = COURSE_database;
+district = 0;
 
 // find location struct
 var location_struct = pick(scr_course_location_find(state),state,state == undefined);
 var ind = array_length(arr);	
 
 // create struct
-course_struct = {
+var struct = {
 	
 	courseID: ind,
 	courseName: name,
@@ -55,16 +52,24 @@ course_struct = {
 		}
 		]
 		
-	}
+	}	
 	
+return struct;
+}
+
+function scr_course_create_database(arr,name,state,district) {
+/// @param array
+/// @param [name
+/// @param stateInitial
+/// @param district]
+	
+var courseStruct = scr_course_create(name,state,district,arr);
+
 // add to master courselist database
-if argument[3] != undefined
-	{
-	array_push(arr,course_struct); // push to database list
-	//array_push(COURSE_data,ind); // push to local courselist array
-	}
-		
-return course_struct;	
+array_push(arr,courseStruct); // push to database list
+//array_push(COURSE_data,ind); // push to local courselist array
+
+return courseStruct;
 }
 
 function scr_course_tee_add(struct,teeColor,yardage,slope,rating,par,date) {

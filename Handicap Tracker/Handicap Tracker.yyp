@@ -6,6 +6,7 @@
     {"id":{"name":"ico_backspace","path":"sprites/ico_backspace/ico_backspace.yy",},"order":0,},
     {"id":{"name":"draw_overlay_calendar","path":"scripts/draw_overlay_calendar/draw_overlay_calendar.yy",},"order":4,},
     {"id":{"name":"spr_score_add","path":"sprites/spr_score_add/spr_score_add.yy",},"order":2,},
+    {"id":{"name":"obj_course_create","path":"objects/obj_course_create/obj_course_create.yy",},"order":1,},
     {"id":{"name":"draw_score_card_details","path":"scripts/draw_score_card_details/draw_score_card_details.yy",},"order":1,},
     {"id":{"name":"spr_home","path":"sprites/spr_home/spr_home.yy",},"order":3,},
     {"id":{"name":"spr_course_add","path":"sprites/spr_course_add/spr_course_add.yy",},"order":4,},
@@ -213,7 +214,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"ghin_save.dat","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.1.542",
+    "IDEVersion": "2.3.2.560",
   },
   "resourceVersion": "1.4",
   "name": "Handicap Tracker",

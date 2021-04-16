@@ -250,8 +250,8 @@ if click_region_released(0,yy,room_width,hh,true,navbar.hidden)
 
 if androidBack
 	{
-	if submit
-	date_pointer[| textboxEntry.date] = date_create_datetime(year_offset_end,month_offset_end+1,day_offset_end+1,1,1,1); // save date	
+	//if submit
+	//date_pointer[| textboxEntry.date] = date_create_datetime(year_offset_end,month_offset_end+1,day_offset_end+1,1,1,1); // save date	
 		
 	date_pointer = noone;
 	screen_goto_prev(navbar.main);

@@ -1,0 +1,1 @@
+draw_course_view();

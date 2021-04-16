@@ -95,14 +95,8 @@ if new_course
 	{
 	course_next = true;
 	
-	course_struct = scr_course_create_database();
-	workingStruct = struct_copy(course_struct);
-	activeStruct = workingStruct;
-
-	course_index = array_length(courselist_array);
-
-	screen_change(screen.create_course);
-	click_textbox_set("",textboxEntry.courseName,kbv_type_default);
+	instance_create_depth(0,0,0,obj_course_create);
+	//screen_change(screen.create_course);
 	}
 
 var sort_index = META_data.courseSort;
@@ -128,34 +122,6 @@ draw_rectangle_color(0,box_hh_end,app_width,app_height,col,col,col,col,false);
 // go to course edit/add
 if course_next 
 submenu = navbar.hidden;
-
-	
-exit;	
-	
-#region new course button
-var hh = 110;
-var xx = 0;
-var ww = app_width-xx-xx;
-var yy = room_height-hh-nav_height-10;
-
-// clicked on course create
-if click_button(xx,yy,"Add Course",50,c_black,ww,hh,c_white,true,false,navbar.main)
-	{
-	course_next = true;
-	
-	course_struct = scr_course_create_database();
-	workingStruct = struct_copy(course_struct);
-	activeStruct = workingStruct;
-			
-	course_index = array_length(courselist_array);
-
-	screen_change(screen.create_course);
-	click_textbox_set("",textboxEntry.courseName,kbv_type_default);
-	}
-	
-draw_plus_button(xx+130,yy+(hh*0.5)-3,70,false);
-
-#endregion
 
 }
 
