@@ -155,6 +155,11 @@ scr_course_tee_add(course_struct.subcourses[0].teeData,"blue","6033","130","69.1
 scr_course_create_database("Crystal Lake Golf Club","RI",undefined,arr);
 scr_course_tee_add(course_struct.subcourses[0].teeData,"blue","5966","119","69.1","71");
 
+scr_course_create_database("Running Deer","NJ",undefined,arr);
+scr_course_tee_add(course_struct.subcourses[0].teeData,"black","7132","130","73.9","72");
+scr_course_tee_add(course_struct.subcourses[0].teeData,"blue","6773","126","72.1","72");
+scr_course_tee_add(course_struct.subcourses[0].teeData,"white","6414","122","70.5","72");
+
 //array_sort_nested_struct(arr,"courseName",true);
 
 db(string(array_length(arr))+" courses created");
