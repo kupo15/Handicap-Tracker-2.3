@@ -32,7 +32,6 @@ function debug_data_courses_database() {
 	
 // debug
 var arr = [];
-
 var courseStruct = scr_course_create_database(arr,"Atlantic Country Club","MA",undefined);
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"gold","6728","137","73.1","72");
 
@@ -124,6 +123,7 @@ scr_course_tee_add(courseStruct.subcourses[0].teeData,"green","6544","126","70.8
 
 var courseStruct = scr_course_create_database(arr,"Rolling Green","PA",undefined);
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"blue","6695","140","73.7","71");
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"black","6941","143","74.7","70");
 
 var courseStruct = scr_course_create_database(arr,"Sagamore Spring","MA",undefined);
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"black","5972","125","69.1","70");
@@ -161,8 +161,12 @@ scr_course_tee_add(courseStruct.subcourses[0].teeData,"black","7132","130","73.9
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"blue","6773","126","72.1","72");
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"white","6414","122","70.5","72");
 
+var courseStruct = scr_course_create_database(arr,"Rancocas Golf Club","NJ",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"black","6602","135","71.3","71");
+
 //array_sort_nested_struct(arr,"courseName",true);
 
 db(string(array_length(arr))+" courses created");
+
 return arr;
 }

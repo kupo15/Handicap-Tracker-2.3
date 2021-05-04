@@ -95,7 +95,7 @@ for(var ii=pos_start;ii<pos_end;ii++) // draw three months
 		draw_text_height_middled(xx+(xsep*0.5)+((i mod 7)*xsep)+off_pos,yy+ypos_off,calendar_day,ysep,35); // draw days
 	
 		var curr_date = date_create_datetime(yearParse,curr_month,calendar_day,1,1,1);
-		var span = date_day_span(start_date,curr_date);
+		var span = date_day_span(START_DATE,curr_date);
 		var day_span_test = round(span); // days from beginning till now
 	
 		// draw selected day
@@ -115,7 +115,7 @@ for(var ii=pos_start;ii<pos_end;ii++) // draw three months
 			dateSelectYear = yearParse;
 			
 			var curr_date = date_create_datetime(yearParse,monthParse,calendar_day,1,1,1);
-			var span = date_day_span(start_date,curr_date);
+			var span = date_day_span(START_DATE,curr_date);
 			
 			daySelectSpan = round(span); // update day span from the 1/1/1970
 			}

@@ -63,8 +63,8 @@ function scr_course_create_database(arr,name,state,district) {
 /// @param stateInitial
 /// @param district]
 	
-var courseStruct = scr_course_create(name,state,district,arr);
-
+var courseStruct = scr_course_create(arr,name,state,district);
+cs(js(courseStruct))
 // add to master courselist database
 array_push(arr,courseStruct); // push to database list
 //array_push(COURSE_data,ind); // push to local courselist array
@@ -94,7 +94,7 @@ if argument[5] == undefined
 par = "";
 
 if argument[6] == undefined
-date = start_date;
+date = START_DATE;
 
 // create tee struct
 var tee = {
@@ -149,15 +149,18 @@ function course_find_array(courseName,courseState,array) {
 /// @param [sourceArray]
 		
 if argument[2] == undefined
-array = courselist_array
-		
+array = courselist_array;
+				
 // loop through course list
 var size = array_length(array);
 for(var i=0;i<size;i++)
 	{
+
 	var struct = array[i];
+
 	var name = struct.courseName;
 	var state = struct.courseLocation.stateInitial;
+	
 	
 	if (name == courseName) && (state == courseState)
 		{

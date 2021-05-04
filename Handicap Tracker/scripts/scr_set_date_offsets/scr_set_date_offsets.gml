@@ -20,7 +20,7 @@ dayOffset = day;
 dayOffsetStart = day;
 dayOffsetEnd = day;
 
-var day_span = date_day_span(start_date,date);
+var day_span = date_day_span(START_DATE,date);
 daySelectSpan = round(day_span); // update day span from the 1/1/1970
 
 // set 3 column calendar variables
@@ -28,7 +28,7 @@ year_offset = year;
 year_offset_start = year;
 year_offset_end = year;
 	
-var month_span = date_month_span(start_date,date);
+var month_span = date_month_span(START_DATE,date);
 var month = floor(month_span);
 
 monthOffset = month;

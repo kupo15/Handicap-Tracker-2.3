@@ -91,6 +91,8 @@ var date = date_create_datetime(2020,11,21,1,1,1); scr_score_add_index("Crystal 
 var date = date_create_datetime(2020,11,25,1,1,1); scr_score_add_index("Riverwinds","NJ","green","85",date);
 var date = date_create_datetime(2020,11,28,1,1,1); scr_score_add_index("McCullough's Emerald Links","NJ","blue","83",date);
 var date = date_create_datetime(2021,3,23,1,1,1); scr_score_add_index("Running Deer","NJ","white","80",date);
+var date = date_create_datetime(2021,4,20,1,1,1); scr_score_add_index("Rolling Green","PA","black","86",date);
+var date = date_create_datetime(2021,5,1,1,1,1); scr_score_add_index("Rancocas Golf Club","NJ","black","84",date);
 
 scoresort;
 

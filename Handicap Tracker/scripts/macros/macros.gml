@@ -59,7 +59,7 @@
 #macro navbar_color make_color_rgb(0,122,173)
 
 // calendar
-#macro start_date date_create_datetime(1970,1,1,0,0,0)
+#macro START_DATE date_create_datetime(1970,1,1,0,0,0)
 
 // misc
 #macro dialogue draw_dialogue_box(xx,yy,ww,hh,col,sub)
