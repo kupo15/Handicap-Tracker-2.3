@@ -1,1 +1,1 @@
-draw_course_view();
+//draw_course_view();

@@ -16,6 +16,18 @@ var trash_delete = draw_screen_header(headerType.back,headerType.trash,str);
 if trash_delete
 	{
 	// delete course from courselist
+	for(var i=0;i<array_length(courselist_array);i++)
+		{
+		var data = courselist_array[i];
+		var course_pointer = COURSE_database[data.courseID];
+
+		if course_pointer.courseName == activeStruct.courseName
+			{
+			course_index = i;
+			break;
+			}
+		}
+	
 	array_delete(courselist_array,course_index,1);
 		
 	// original course name
@@ -187,11 +199,14 @@ var col = pick(c_gray,header_color,submit);
 
 if click_button(xx,yy,"Finished",height,c_white,ww,hh,col,false,false,navbar.hidden) && submit
 	{	
-	// update course info
+	if (screenIndex == screen.create_course)
+		{
+		array_push(COURSE_database,workingStruct); // push to database list
+		scr_course_add_local(activeStruct.courseID,courselist_array);
+		}
+	else // update course info
 	COURSE_database[@ course_index] = struct_undo_pop(workingStruct,true); // overwrite with working copy
 	
-	if screenIndex = screen.create_course
-	scr_course_add_local(activeStruct.courseID,courselist_array);
 		
 	coursesort; // sort list
 	app_save;
@@ -224,10 +239,6 @@ if submenu == navbar.locationbar
 if androidBack
 && !kvActive
 	{		
-	// delete course unsaved
-	if (screenIndex == screen.create_course)
-	array_delete(courselist_array,course_index,1);
-
 	course_struct = undefined;
 	workingStruct = undefined;
 	activeStruct = undefined;

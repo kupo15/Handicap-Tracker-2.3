@@ -64,7 +64,7 @@ function scr_course_create_database(arr,name,state,district) {
 /// @param district]
 	
 var courseStruct = scr_course_create(arr,name,state,district);
-cs(js(courseStruct))
+
 // add to master courselist database
 array_push(arr,courseStruct); // push to database list
 //array_push(COURSE_data,ind); // push to local courselist array

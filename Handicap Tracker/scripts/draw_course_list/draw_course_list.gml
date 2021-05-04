@@ -95,8 +95,13 @@ if new_course
 	{
 	course_next = true;
 	
-	instance_create_depth(0,0,0,obj_course_create);
-	//screen_change(screen.create_course);
+	course_struct = scr_course_create(COURSE_database);
+	workingStruct = struct_copy(course_struct);
+	activeStruct = workingStruct;
+	
+	//instance_create_depth(0,0,0,obj_course_create);
+	screen_change(screen.create_course);
+	click_textbox_set("",textboxEntry.courseName,kbv_type_default);
 	}
 
 var sort_index = META_data.courseSort;
