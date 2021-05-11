@@ -2,6 +2,7 @@
 
 function draw_submenu_course_search(ypos,ww,ysep,ref_array,scrollbar_index) {
 	
+
 var coursebar_yoff_start = 1-offsetArray[offsetScroll.coursebarYoff];
 var clicked = false;
 var searchbar_hh = ysep*0.75;
@@ -43,7 +44,7 @@ if action
 	
 if !mode_new_member && (list_ext < rows)
 offsetArray[scrollbar_index] = 0;
-		
+	
 var offset_value = offsetArray[scrollbar_index];
 var pos_start = floor(offset_value);
 var pos_end = min(list_size,ceil(offset_value)+rows);
@@ -119,6 +120,7 @@ var sub = submenu;
 funct_screen_scrolling(0,yy,ww,hh,ysep,list_ext,rows,scrollbar_index,sub);
 #endregion
 	
+
 	/*
 if virtual_keyboard_enter
 	{

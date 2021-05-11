@@ -93,6 +93,7 @@ var date = date_create_datetime(2020,11,28,1,1,1); scr_score_add_index("McCullou
 var date = date_create_datetime(2021,3,23,1,1,1); scr_score_add_index("Running Deer","NJ","white","80",date);
 var date = date_create_datetime(2021,4,20,1,1,1); scr_score_add_index("Rolling Green","PA","black","86",date);
 var date = date_create_datetime(2021,5,1,1,1,1); scr_score_add_index("Rancocas Golf Club","NJ","black","84",date);
+var date = date_create_datetime(2021,5,9,1,1,1); scr_score_add_index("Westwood Golf Club","NJ","black","84",date);
 
 scoresort;
 

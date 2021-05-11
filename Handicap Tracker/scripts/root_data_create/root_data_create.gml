@@ -164,7 +164,12 @@ scr_course_tee_add(courseStruct.subcourses[0].teeData,"white","6414","122","70.5
 var courseStruct = scr_course_create_database(arr,"Rancocas Golf Club","NJ",undefined);
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"black","6602","135","71.3","71");
 
-//array_sort_nested_struct(arr,"courseName",true);
+var courseStruct = scr_course_create_database(arr,"Westwood Golf Club","NJ",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"black","6160","117","68.6","71");
+
+var courseStruct = scr_course_create_database(arr,"Wedgewood Country Club","NJ",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"blue","6728","131","72.6","72");
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"black","7100","133","74.4","72");
 
 db(string(array_length(arr))+" courses created");
 

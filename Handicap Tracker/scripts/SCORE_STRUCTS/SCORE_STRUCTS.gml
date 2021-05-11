@@ -121,7 +121,7 @@ var struct = course_find_array(c_name,c_state,COURSE_database); // course struct
 
 if struct == undefined
 	{
-	sm(string(c_name)+" not found > not adding score");
+	//sm(string(c_name)+" not found > not adding score");
 	exit;
 	}
 
@@ -129,7 +129,7 @@ var teeData = variable_struct_get(struct.subcourses[subcourse_index].teeData,tee
 
 if teeData == undefined
 	{	
-	sm(string(c_name)+" "+string(tee_color)+" tees not found > not adding score");
+	//sm(string(c_name)+" "+string(tee_color)+" tees not found > not adding score");
 	exit;
 	}
 	

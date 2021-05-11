@@ -1,12 +1,12 @@
 
 function grid_row_add(grid_id) {
 
-var grid_ww = ds_grid_width(grid_id);
-var grid_hh = ds_grid_height(grid_id);
+var grid_www = ds_grid_width(grid_id);
+var grid_hhh = ds_grid_height(grid_id);
 
-ds_grid_resize(grid_id,grid_ww,grid_hh+1);
+ds_grid_resize(grid_id,grid_www,grid_hhh+1);
 
-return grid_hh; // return last functional row
+return grid_hhh; // return last functional row
 }
 
 function grid_row_delete(grid,row) {
@@ -15,22 +15,22 @@ function grid_row_delete(grid,row) {
 
 var int = argument[1];
 
-var grid_ww = ds_grid_width(grid);
-var grid_hh = ds_grid_height(grid);
+var grid_www = ds_grid_width(grid);
+var grid_hhh = ds_grid_height(grid);
 
 if row == undefined // delete last row
-ds_grid_resize(grid,grid_ww,grid_hh-1);
+ds_grid_resize(grid,grid_www,grid_hhh-1);
 else // delete specific row
 	{
-	ds_grid_resize(grid,grid_ww+1,grid_hh); // add temp column to end
+	ds_grid_resize(grid,grid_www+1,grid_hhh); // add temp column to end
 	
-	for(var i=0;i<grid_hh;i++) // loop through grid
-	grid[# grid_ww,i] = i; // order last cell
+	for(var i=0;i<grid_hhh;i++) // loop through grid
+	grid[# grid_www,i] = i; // order last cell
 	
-	grid[# grid_ww,row] = grid_hh+1; // set deleted row cell to high number
-	ds_grid_sort(grid,grid_ww,true); // sort
+	grid[# grid_www,row] = grid_hhh+1; // set deleted row cell to high number
+	ds_grid_sort(grid,grid_www,true); // sort
 	
-	ds_grid_resize(grid,grid_ww,grid_hh-1); // delete last row and temp column
+	ds_grid_resize(grid,grid_www,grid_hhh-1); // delete last row and temp column
 	}
 	
 }

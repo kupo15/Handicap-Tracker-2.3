@@ -17,6 +17,8 @@ vk_hide();
 	
 kvHeight = async_load[? "screen_height"];
 
+if kvHeight == undefined
+kvHeight = 0;
 	
 // debug showing
 show_debug_message("****"+string(kvStatus))

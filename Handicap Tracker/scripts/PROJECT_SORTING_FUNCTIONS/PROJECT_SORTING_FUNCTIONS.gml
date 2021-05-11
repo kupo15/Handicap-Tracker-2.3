@@ -59,6 +59,7 @@ for(var i=0;i<size;i++)
 	}
 	
 scr_sorting_finish(source_array,size,sorting_grid,ascending);	
+
 }
 	
 function scr_course_sort_favorite(source_array,ascending) {

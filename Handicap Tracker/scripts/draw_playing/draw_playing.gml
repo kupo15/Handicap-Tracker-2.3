@@ -2,7 +2,7 @@ function draw_playing() {
 
 var col = c_lt_gray;
 draw_clear(col);	
-	
+
 activeStruct = workingStruct;	
 	
 var course_name = activeStruct.courseName;

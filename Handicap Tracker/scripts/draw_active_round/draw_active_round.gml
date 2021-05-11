@@ -13,7 +13,6 @@ var course_name = active_course_struct.courseName;
 
 draw_text_height(xx,yy,course_name,height); // course name
 
-
 // if clicked
 if click_region_released(0,yy-50,ww,hh+50,c_yellow,navbar.main)
 scr_navbar_click(screen.playing);
