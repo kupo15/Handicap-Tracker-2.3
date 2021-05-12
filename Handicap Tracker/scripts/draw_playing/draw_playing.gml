@@ -122,12 +122,12 @@ draw_text_height(xx+360,yy,"Par "+string(tee_par),height); // draw par
 	
 draw_text_height(xx+xoff,yy+60,"Max Strokes",30,fn_italic); // draw max score
 draw_text_height(xx+xoff,yy+90,"HCP Holes "+string(_handicap_under),35); // draw HCP holes
-//draw_text_height(xx+xoff+270,yy+90,max_score_text(max_under),38,fn_italic); // draw max score
+draw_text_height(xx+xoff+270,yy+90,max_score_text(max_under),38,fn_italic); // draw max score
 	
 if is_real(_handicap) && ((_handicap mod 18) != 0)
 	{
 	draw_text_height(xx+xoff,yy+125,"HCP Holes "+string(_handicap_over),35); // draw HCP holes
-	//draw_text_height(xx+xoff+270,yy+125,max_score_text(max_over),38,fn_italic); // draw max score
+	draw_text_height(xx+xoff+270,yy+125,max_score_text(max_over),38,fn_italic); // draw max score
 	}
 #endregion	
 	
@@ -239,4 +239,21 @@ if androidBack
 		}
 	}
 
+}
+
+function max_score_text(value) {
+	
+	switch value
+		{
+		case -2: return "Eagle"; break;
+		case -1: return "Birdie"; break;
+		case 0: return "Par"; break;
+		case 1: return "Bogey"; break;
+		case 2: return "Double Bogey"; break;
+		case 3: return "Triple Bogey"; break;
+		case 4: return "+4"; break;
+		case 5: return "+5"; break;
+		}
+		
+	return "";
 }
