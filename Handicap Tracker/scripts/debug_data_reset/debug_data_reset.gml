@@ -95,6 +95,7 @@ var date = date_create_datetime(2021,4,20,1,1,1); scr_score_add_index("Rolling G
 var date = date_create_datetime(2021,5,1,1,1,1); scr_score_add_index("Rancocas Golf Club","NJ","black","84",date);
 var date = date_create_datetime(2021,5,9,1,1,1); scr_score_add_index("Westwood Golf Club","NJ","black","84",date,1);
 var date = date_create_datetime(2021,5,11,1,1,1); scr_score_add_index("Wedgewood Country Club","NJ","black","88",date);
+var date = date_create_datetime(2021,5,11,1,1,1); scr_score_add_index("The Links Golf Club","NJ","white","77",date);
 
 scoresort;
 

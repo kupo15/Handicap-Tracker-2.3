@@ -171,6 +171,9 @@ var courseStruct = scr_course_create_database(arr,"Wedgewood Country Club","NJ",
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"blue","6728","131","72.6","72");
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"black","7100","133","74.4","72");
 
+var courseStruct = scr_course_create_database(arr,"The Links Golf Club","NJ",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"white","6385","127","70.2","72");
+
 db(string(array_length(arr))+" courses created");
 
 return arr;
