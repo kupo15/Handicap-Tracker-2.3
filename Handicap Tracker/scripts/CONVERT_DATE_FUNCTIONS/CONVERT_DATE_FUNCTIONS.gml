@@ -1,7 +1,5 @@
 
 function funct_convert_month(month_num,month_full) {
-/// @param month
-/// @param month_full
 
 	var str_ = "n/a";
 
