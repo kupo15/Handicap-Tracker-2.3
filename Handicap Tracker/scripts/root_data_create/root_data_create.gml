@@ -174,6 +174,21 @@ scr_course_tee_add(courseStruct.subcourses[0].teeData,"black","7100","133","74.4
 var courseStruct = scr_course_create_database(arr,"The Links Golf Club","NJ",undefined);
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"white","6385","127","70.2","72");
 
+var courseStruct = scr_course_create_database(arr,"Woodmont Country Club - Cypress","FL",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"blue","6595","134","71.8","72");
+
+var courseStruct = scr_course_create_database(arr,"Flamingo Lakes","FL",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"blue","5846","126","68.7","71");
+
+var courseStruct = scr_course_create_database(arr,"Osprey Point","FL",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"gold","6395","127","70.4","72");
+
+var courseStruct = scr_course_create_database(arr,"Glen Mills","PA",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"blue","6314","135","69.1","71");
+
+var courseStruct = scr_course_create_database(arr,"Blue Heron","NJ",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"white","6207","127","67.1","72");
+
 db(string(array_length(arr))+" courses created");
 
 return arr;

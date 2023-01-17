@@ -159,24 +159,24 @@ return str_;
 
 function date_within(date,startDate,endDate,sameYear) {
 		
-if sameYear
-	{
-	var compare_month = date_get_month(date);
-	var compare_day = date_get_day(date);
+	if sameYear	{
 	
-	var compare_date = date_create_datetime(current_year,compare_month,compare_day,1,1,1);
+		var compare_month = date_get_month(date);
+		var compare_day = date_get_day(date);
+	
+		var compare_date = date_create_datetime(current_year,compare_month,compare_day,1,1,1);
+		}
+	else
+	var compare_date = date;
+				
+	//sm(date_date_string(compare_date))
+	//sm(date_date_string(startDate)+"-"+date_date_string(endDate))
+	//sm(date_compare_date(compare_date,startDate))	
+	//sm(date_compare_date(compare_date,endDate))	
+				
+	if date_compare_date(compare_date,startDate) > -1 // if on or after start
+	&& date_compare_date(compare_date,endDate) < 1 // if on or before end
+	return false;
+	else
+	return true;	
 	}
-else
-var compare_date = date;
-				
-//sm(date_date_string(compare_date))
-//sm(date_date_string(startDate)+"-"+date_date_string(endDate))
-//sm(date_compare_date(compare_date,startDate))	
-//sm(date_compare_date(compare_date,endDate))	
-				
-if date_compare_date(compare_date,startDate) > -1 // if on or after start
-&& date_compare_date(compare_date,endDate) < 1 // if on or before end
-return false;
-else
-return true;	
-}

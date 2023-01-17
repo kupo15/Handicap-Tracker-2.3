@@ -95,7 +95,12 @@ var date = date_create_datetime(2021,4,20,1,1,1); scr_score_add_index("Rolling G
 var date = date_create_datetime(2021,5,1,1,1,1); scr_score_add_index("Rancocas Golf Club","NJ","black","84",date);
 var date = date_create_datetime(2021,5,9,1,1,1); scr_score_add_index("Westwood Golf Club","NJ","black","84",date,1);
 var date = date_create_datetime(2021,5,11,1,1,1); scr_score_add_index("Wedgewood Country Club","NJ","black","88",date);
-var date = date_create_datetime(2021,5,11,1,1,1); scr_score_add_index("The Links Golf Club","NJ","white","77",date);
+var date = date_create_datetime(2021,7,11,1,1,1); scr_score_add_index("The Links Golf Club","NJ","white","77",date);
+var date = date_create_datetime(2022,4,22,1,1,1); scr_score_add_index("Glen Mills","PA","blue","84",date);
+var date = date_create_datetime(2022,7,13,1,1,1); scr_score_add_index("Blue Heron","NJ","white","86",date);
+var date = date_create_datetime(2022,10,16,1,1,1); scr_score_add_index("Woodmont Country Club - Cypress","FL","blue","84",date);
+var date = date_create_datetime(2023,4,16,1,1,1); scr_score_add_index("Flamingo Lakes","FL","blue","81",date);
+var date = date_create_datetime(2023,8,14,1,1,1); scr_score_add_index("Osprey Point","FL","gold","89",date);
 
 scoresort;
 
