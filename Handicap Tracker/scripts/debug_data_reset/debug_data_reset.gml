@@ -101,6 +101,7 @@ var date = date_create_datetime(2022,7,13,1,1,1); scr_score_add_index("Blue Hero
 var date = date_create_datetime(2022,10,16,1,1,1); scr_score_add_index("Woodmont Country Club - Cypress","FL","blue","84",date);
 var date = date_create_datetime(2023,4,16,1,1,1); scr_score_add_index("Flamingo Lakes","FL","blue","81",date);
 var date = date_create_datetime(2023,8,14,1,1,1); scr_score_add_index("Osprey Point","FL","gold","89",date);
+var date = date_create_datetime(2023,8,14,1,1,1); scr_score_add_index("Estrella Del Mar","FL","white","78",date);
 
 scoresort;
 

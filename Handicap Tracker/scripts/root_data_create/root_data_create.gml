@@ -189,6 +189,10 @@ scr_course_tee_add(courseStruct.subcourses[0].teeData,"blue","6314","135","69.1"
 var courseStruct = scr_course_create_database(arr,"Blue Heron","NJ",undefined);
 scr_course_tee_add(courseStruct.subcourses[0].teeData,"white","6207","127","67.1","72");
 
+var courseStruct = scr_course_create_database(arr,"Estrella Del Mar","FL",undefined);
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"white","6144","128","70.7","72");
+scr_course_tee_add(courseStruct.subcourses[0].teeData,"gold","7031","131","75.4","72");
+
 db(string(array_length(arr))+" courses created");
 
 return arr;

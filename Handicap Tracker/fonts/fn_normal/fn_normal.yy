@@ -1,8 +1,12 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fn_normal",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
   "pointRounding": 0,
+  "applyKerning": 0,
   "fontName": "Academico",
   "styleName": "Regular",
   "size": 60.0,
@@ -20,6 +24,7 @@
     "path": "texturegroups/Fonts",
   },
   "ascenderOffset": 0,
+  "ascender": 0,
   "glyphs": {
     "32": {"x":2,"y":2,"w":22,"h":98,"character":32,"shift":22,"offset":0,},
     "33": {"x":714,"y":202,"w":11,"h":98,"character":33,"shift":24,"offset":6,},
@@ -128,8 +133,4 @@
     "name": "Fonts",
     "path": "folders/Android App Library/Fonts.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fn_normal",
-  "tags": [],
-  "resourceType": "GMFont",
 }

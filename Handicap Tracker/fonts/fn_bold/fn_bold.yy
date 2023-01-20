@@ -1,8 +1,12 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fn_bold",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
   "pointRounding": 0,
+  "applyKerning": 0,
   "fontName": "Academico",
   "styleName": "Bold",
   "size": 60.0,
@@ -20,6 +24,7 @@
     "path": "texturegroups/Fonts",
   },
   "ascenderOffset": 0,
+  "ascender": 0,
   "glyphs": {
     "32": {"x":2,"y":2,"w":23,"h":98,"character":32,"shift":23,"offset":0,},
     "33": {"x":949,"y":202,"w":15,"h":98,"character":33,"shift":21,"offset":3,},
@@ -128,8 +133,4 @@
     "name": "Fonts",
     "path": "folders/Android App Library/Fonts.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fn_bold",
-  "tags": [],
-  "resourceType": "GMFont",
 }

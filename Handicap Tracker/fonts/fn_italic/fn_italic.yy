@@ -1,8 +1,12 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fn_italic",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
   "pointRounding": 0,
+  "applyKerning": 0,
   "fontName": "Academico",
   "styleName": "Italic",
   "size": 60.0,
@@ -20,6 +24,7 @@
     "path": "texturegroups/Fonts",
   },
   "ascenderOffset": 0,
+  "ascender": 0,
   "glyphs": {
     "32": {"x":2,"y":2,"w":22,"h":98,"character":32,"shift":22,"offset":0,},
     "33": {"x":67,"y":302,"w":24,"h":98,"character":33,"shift":28,"offset":2,},
@@ -128,8 +133,4 @@
     "name": "Fonts",
     "path": "folders/Android App Library/Fonts.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fn_italic",
-  "tags": [],
-  "resourceType": "GMFont",
 }
